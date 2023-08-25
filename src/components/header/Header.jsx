@@ -1,5 +1,5 @@
 import { UserAbout } from "./endsection/userAbout"
-import Navigation from "./navigation/navigation"
+import Navigation from "./navigation/Navigation"
 
 const Header = () => {
     return (
