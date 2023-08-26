@@ -1,0 +1,79 @@
+.chart-progress {
+    width: 1614px;
+    height: auto;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.Batch_details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress {
+    width: 140px;
+    height: 4px;
+    background: #E9ECEF;
+    position: relative;
+    border-radius: 50px !important;
+}
+
+
+.min-progress {
+    position: relative;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50px !important;
+}
+
+.progress .progress_length {
+    scale: 0;
+    opacity: 0;
+}
+
+.progress-min-length-item {
+    height: 4px;
+    position: absolute;
+    top: 0;
+    background: red;
+}
+
+.progress:hover .progress_length {
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(31, 31, 31);
+    position: absolute;
+    bottom: 15px;
+    left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dbdbdb;
+    scale: 1;
+    opacity: 1;
+}
+
+.progress:hover .min-progress-path {
+    background-color: rgb(31, 31, 31);
+    position: absolute;
+    -webkit-clip-path: polygon(54% 100%, 33% 73%, 77% 73%);
+    clip-path: polygon(54% 100%, 33% 73%, 77% 73%);
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(31, 31, 31);
+    position: absolute;
+    bottom: 8px;
+    left: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dbdbdb;
+}
