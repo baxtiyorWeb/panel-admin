@@ -77,3 +77,9 @@
     align-items: center;
     color: #dbdbdb;
 }
+
+
+.tb-block th:nth-child(1) {
+    width: 60px;
+    height: 50px;
+}
