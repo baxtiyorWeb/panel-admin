@@ -1,8 +1,9 @@
-
-const Container = () => {
+const Container = ({ children }) => {
     return (
-        <div className="m-auto w-[95%] border ">
-            
+        <div className="main">
+            <div className="container">
+                {children}
+            </div>
         </div>
     )
 }

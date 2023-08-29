@@ -7,13 +7,13 @@ import { Input } from "../search/Input"
 
 const Navigation = () => {
     return (
-        <div className="flex items-center  pt-3 w-full h-full py-3 ">
-            <div className="flex items-center justify-center h-full">
-                <div className="w-[50px] h-[50px]  pt-2 pl-1      justify-center text-[20px] cursor-pointer">
+        <div className="navigation">
+            <div className="nav-block">
+                <div className="burger-menu">
                     <GiHamburgerMenu />
                 </div>
 
-                <div className="w-[50px] h-[50px]  pt-2  justify-center text-[23px] cursor-pointer">
+                <div className="full-screen">
                     <BiFullscreen />
                 </div>
                 <Input />

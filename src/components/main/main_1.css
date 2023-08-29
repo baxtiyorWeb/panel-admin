@@ -12,20 +12,7 @@ body {
     color: #6c757d;
 }
 
-.main {
-    display: flex;
-    justify-content: flex-end;
-}
 
-.container {
-    width: 87%;
-    height: auto;
-    border: 1px solid blue;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 25px;
-    margin-top: 60px;
-}
 
 .top_menu {
     display: flex;

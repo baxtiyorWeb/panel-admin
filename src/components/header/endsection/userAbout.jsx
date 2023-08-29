@@ -2,14 +2,14 @@ import { FaDesktop } from "react-icons/fa"
 import { BiEnvelope, BiUser } from "react-icons/bi"
 export const UserAbout = () => {
     return (
-        <div className=" flex items-center justify-evenly w-[200px] h-full">
-            <div className="w-[40px] h-[40px]  flex justify-center items-center text-[20px] cursor-pointer">
+        <div className="user-block">
+            <div className="desktop-icon">
                 <FaDesktop />
             </div>
-            <div className="w-[40px] h-[40px]  flex justify-center items-center text-[20px] cursor-pointer">
+            <div className="envelope-icon">
                 <BiEnvelope />
             </div>
-            <div className="w-[40px] h-[40px]  flex justify-center items-center text-[20px] cursor-pointer">
+            <div className="user-icon">
                 <BiUser />
             </div>
         </div>

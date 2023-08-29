@@ -1,0 +1,25 @@
+.around_one {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.around_user{
+    margin-bottom: 0;
+    font-weight: 100;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 3px;
+    color: #34395eef;
+}
+
+
+.around_of{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background: #e7e8e9;
+    padding: 15px;
+    border-radius: 30px;
+    gap: 5px;
+}
