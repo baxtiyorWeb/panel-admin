@@ -13,6 +13,18 @@ body {
 }
 
 
+<<<<<<< HEAD
+=======
+.container {
+    width: 100%;
+    height: auto;
+    border: 1px solid blue;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    margin-top: 60px;
+}
+>>>>>>> 6dec06f56f68c9ee9482f35394730f2a119d54f0
 
 .top_menu {
     display: flex;

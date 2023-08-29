@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from "react-router-dom"
 import { FaBookOpen } from "react-icons/fa"
 import { AiOutlineArrowDown } from "react-icons/ai"
@@ -12,11 +11,23 @@ import { Progress } from '../progress/Progress'
 import Container from '../shared/Container'
 const Main = () => {
     return (
+<<<<<<< HEAD
         
         <Container>
             <div className="top_menu">
                 <div className="box">
                     <h1>Dashboard</h1>
+=======
+        <div className='main'>
+            <div>
+                <div className="top_menu">
+                    <div className="box">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div className="box_2">
+                        <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
+                    </div>
+>>>>>>> 6dec06f56f68c9ee9482f35394730f2a119d54f0
                 </div>
                 <div className="box_2">
                     <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
