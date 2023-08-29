@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    width: 87%;
+    width: 100%;
     height: auto;
     border: 1px solid blue;
     padding-left: 25px;

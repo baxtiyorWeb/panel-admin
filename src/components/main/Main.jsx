@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from "react-router-dom"
 import { FaBookOpen } from "react-icons/fa"
 import { AiOutlineArrowDown } from "react-icons/ai"
@@ -12,7 +11,7 @@ import { Progress } from '../progress/Progress'
 const Main = () => {
     return (
         <div className='main'>
-            <div className="container">
+            <div>
                 <div className="top_menu">
                     <div className="box">
                         <h1>Dashboard</h1>
