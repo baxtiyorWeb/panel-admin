@@ -1,28 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
-import "./Enquiries.css";
-import { enqueryList } from "../progress/data";
-const Enqueries = () => {
-//   const [page, setPage] = useState(11);
-  function pagination() {}
+import "./Students.css";
+import { studentss } from "../progress/data";
+
+const Student = () => {
   const [search, setSearch] = useState("");
-  console.log(search);
   return (
     <Container>
-      <div className="dashboard-user">
-        <div className="fruit">
-          <h2>Enquiries</h2>
+      <div className="around_one">
+        <div className="around_user">
+          <h2>Students</h2>
         </div>
-        <div className="fruit-user">
+        <div className="around_of">
           <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
         </div>
       </div>
+
       <div className="chart-progress">
-        <div className="add-link">
-          <h1>Enquiries</h1>
-          <Link to="/layout/addform">add enquirie</Link>
-        </div>
         <div className="user_blew">
           <div className="user_blow">
             <h4>Show</h4>
@@ -58,7 +53,7 @@ const Enqueries = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                {enqueryList
+                {studentss
                   .filter((users) => users.names.toLowerCase().includes(search))
                   .map((item) => {
                     return (
@@ -68,15 +63,14 @@ const Enqueries = () => {
                           <td>
                             <Link>{item.names}</Link>
                           </td>
+                          <td>{item.RedNo}</td>
                           <td>{item.Email}</td>
                           <td>{item.Mobile}</td>
                           <td>{item.CNIC}</td>
-                          <td>{item.FourCourse}</td>
-                          <td>{item.PrefTime}</td>
-                          <td>{item.EmailStatus}</td>
-                          <td className="td_flex">
-                            <span className="icons">{<item.Action />}</span>{" "}
-                            <span className="icons">{<item.delete />}</span>
+                          <td>{item.Batch}</td>
+                          <td class>
+                            <span className="icons">{<item.Action />}</span>
+                            <span className="icons">{<item.Like />}</span>
                           </td>
                         </tr>
                       </tbody>
@@ -85,29 +79,10 @@ const Enqueries = () => {
               </table>
             </div>
           </div>
-          <div>
-            <ul>
-              <li
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  border: "1px solid blue",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={pagination}
-              >
-                0
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </Container>
   );
 };
 
-export default Enqueries;
+export default Student;

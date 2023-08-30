@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import { AiFillPrinter } from "react-icons/ai"
 import { LiaEdit } from "react-icons/lia"
 import { MdDelete } from "react-icons/md"
-=======
-import { AiFillPrinter } from "react-icons/ai";
->>>>>>> 6dec06f56f68c9ee9482f35394730f2a119d54f0
 export const progress = [
   {
     id: 1,
@@ -239,346 +235,355 @@ export const progress = [
     bgColor: "green",
   },
 
-<<<<<<< HEAD
 
-    {
-        id: 18,
-        link: "B1J3Y20",
-        title: 'Modern Web App Development',
-        students: 11,
-        students_progress: 76,
-        start_Date: "",
-        freeCollected: "17,220",
-        freeDue: "116,066",
-        prints: AiFillPrinter,
-        bgColor: "green",
-    },
-
-
-    {
-        id: 19,
-        link: "B1J3Y20",
-        title: 'Modern Web App Development',
-        students: 11,
-        students_progress: 94,
-        start_Date: "",
-        freeCollected: "17,220",
-        freeDue: "116,066",
-        prints: AiFillPrinter,
-        bgColor: "green",
-    },
-
-
-    {
-        id: 20,
-        link: "B1J3Y20",
-        title: 'Modern Web App Development',
-        students: 11,
-        students_progress: 92,
-        start_Date: "",
-        freeCollected: "17,220",
-        freeDue: "116,066",
-        prints: AiFillPrinter,
-        bgColor: "green",
-    },
-
-]
-
-export const enqueryList = [
-    {
-        
-            id: 1,
-            names: "mario cota",
-            Email: 'mario.cota@smartbuddy.mx',
-            Mobile: '+523330136312',
-            CNIC: 3320423762,
-            FourCourse: "	Android Application Development",
-            PrefTime: "	04:33:07",
-            EmailStatus: "open",
-            Action: LiaEdit  ,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 2,
-            names: "Mahmoud",
-            Email: 'test@test.com',
-            Mobile: '+0012-2232343',
-            CNIC: 32343-4355550-0,
-            FourCourse: "المستوي الاول - العربية بين يديك",
-            PrefTime: "	1:00 AM",
-            EmailStatus: 'open',
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 3,
-            names: "SCHOOLS",
-            Email: 'sudambik@gmail.com',
-            Mobile: '+gtyudtrxvbn',
-            CNIC: 0-9886675644,
-            FourCourse: "WEB SCRAPPING",
-            PrefTime: "	03:20:43",
-            EmailStatus: "open",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 4,
-            names: "Seyit Ömer",
-            Email: 'seyitomerballi@gmail.com',
-            Mobile: 'ghjghjghjghj',
-            CNIC: 3320423762,
-            FourCourse: "	Android Application Development",
-            PrefTime: "	10:46:15",
-            EmailStatus: "open",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 5,
-            names: "jhvjv",
-            Email: 'jhjjhvjv@gmail.com',
-            Mobile: '+76765757',
-            CNIC: 	67576575675,
-            FourCourse: "WEB SCRAPPING",
-            PrefTime: "	04:51:44",
-            EmailStatus: "open",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 6,
-            names: "OOI GUAN LIN",
-            Email: 'ooiguanlin@ntucac.com',
-            Mobile: '+0987-6000000',
-            CNIC: 98765-9876543-5,
-            FourCourse: "Android Application Development",
-            PrefTime: "	5:00 PM",
-            EmailStatus: "open",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 7,
-            names: "Jen",
-            Email: 'vispevidra@biyac.com',
-            Mobile: '+123123',
-            CNIC: 13123,
-            FourCourse: "Modern Web App Development",
-            PrefTime: "10:22:10",
-            EmailStatus: "open",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 8,
-            names: "jon",
-            Email: 'zafyokostu@biyac.com',
-            Mobile: '+123123123123',
-            CNIC: 12123123123123,
-            FourCourse: "WEB SCRAPPING",
-            PrefTime: "	11:00:59",
-            EmailStatus: "open",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 9,
-            names: "	Vinto",
-            Email: 'lajojur.husitu@vintomaper.com',
-            Mobile: '+	4444-33234	',
-            CNIC: 3312-124123,
-            FourCourse: "Adobe Illustrator",
-            PrefTime: "	03:16:59	",
-            EmailStatus: "close",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-        {
-        
-            id: 10,
-            names: "Ben",
-            Email: 'xsbifikaa@uniromax.com',
-            Mobile: '+	332-2222',
-            CNIC: 	333-1111,
-            FourCourse: "	Advanced Graphics Designing",
-            PrefTime: "	05:56:01",
-            EmailStatus: "close",
-            Action: LiaEdit,
-            delete: MdDelete,
-        },
-]
-
-export const Students = [
-    {
-        
-            id: 1,
-            names: "reda",
-            RedNo: 'SIFSD01-Ar-13-21-1',
-            Email: 'reda@yahoo.com',
-            Mobile: '0121-3232400',
-            CNIC: "22112-3243243-4",
-            Course: "Arabic",
-            Batch: "Arabic 001",
-            Action: LiaEdit  ,
-            Like: MdDelete,
-    },
-
-    {
-            
-        id: 2,
-        names: "reda",
-        RedNo: 'SIFSD01-AD-2-21-162',
-        Email: 'aa@test.com',
-        Mobile: '0012-1324324',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 3,
-        names: "asdsad",
-        RedNo: 'SIFSD01-AD-Select Batch-21-1',
-        Email: 'adsad@dddd.com',
-        Mobile: '0432-4234234',
-        CNIC: "43242-3423423-4",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 4,
-        names: "Hasan",
-        RedNo: 'SIFSD01-AD-Select Batch-21-166',
-        Email: 'admin@gmail.com',
-        Mobile: '0243-5467687',
-        CNIC: "21345-3676543-2",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 5,
-        names: "xyz",
-        RedNo: 'SIFSD01-AD-2-21-1',
-        Email: 'XYZ@GMAIL.COM',
-        Mobile: '0989-9821983	',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 6,
-        names: "reda",
-        RedNo: 'SIFSD01-AD-2-21-162',
-        Email: 'aa@test.com',
-        Mobile: '0012-1324324',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 7,
-        names: "reda",
-        RedNo: 'SIFSD01-AD-2-21-162',
-        Email: 'aa@test.com',
-        Mobile: '0012-1324324',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 8,
-        names: "reda",
-        RedNo: 'SIFSD01-AD-2-21-162',
-        Email: 'aa@test.com',
-        Mobile: '0012-1324324',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 9,
-        names: "reda",
-        RedNo: 'SIFSD01-AD-2-21-162',
-        Email: 'aa@test.com',
-        Mobile: '0012-1324324',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    
-    {
-            
-        id: 10,
-        names: "reda",
-        RedNo: 'SIFSD01-AD-2-21-162',
-        Email: 'aa@test.com',
-        Mobile: '0012-1324324',
-        CNIC: "23232-4000000-0",
-        Course: "Android Application Development",
-        Batch: "B1SEP20",
-        Action: LiaEdit  ,
-        Like: MdDelete,
-    },
-    
-    ]
-=======
   {
     id: 20,
     link: "B1J3Y20",
-    title: "Modern Web App Development",
-    students: 1,
-    students_progress: 92,
-    start_Date: "2023-02-16",
+    title: 'Modern Web App Development',
+    students: 11,
+    students_progress: 76,
+    start_Date: "",
     freeCollected: "17,220",
     freeDue: "116,066",
     prints: AiFillPrinter,
     bgColor: "green",
   },
+
+
+  {
+    id: 21,
+    link: "B1J3Y20",
+    title: 'Modern Web App Development',
+    students: 11,
+    students_progress: 94,
+    start_Date: "",
+    freeCollected: "17,220",
+    freeDue: "116,066",
+    prints: AiFillPrinter,
+    bgColor: "green",
+  },
+
+
+  {
+    id: 22,
+    link: "B1J3Y20",
+    title: 'Modern Web App Development',
+    students: 11,
+    students_progress: 92,
+    start_Date: "",
+    freeCollected: "17,220",
+    freeDue: "116,066",
+    prints: AiFillPrinter,
+    bgColor: "green",
+  },
+
+]
+
+export const enqueryList = [
+  {
+
+    id: 1,
+    names: "mario cota",
+    Email: 'mario.cota@smartbuddy.mx',
+    Mobile: '+523330136312',
+    CNIC: 3320423762,
+    FourCourse: "	Android Application Development",
+    PrefTime: "	04:33:07",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 2,
+    names: "Mahmoud",
+    Email: 'test@test.com',
+    Mobile: '+0012-2232343',
+    CNIC: 32343 - 4355550 - 0,
+    FourCourse: "المستوي الاول - العربية بين يديك",
+    PrefTime: "	1:00 AM",
+    EmailStatus: 'open',
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 3,
+    names: "SCHOOLS",
+    Email: 'sudambik@gmail.com',
+    Mobile: '+gtyudtrxvbn',
+    CNIC: 0 - 9886675644,
+    FourCourse: "WEB SCRAPPING",
+    PrefTime: "	03:20:43",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 4,
+    names: "Seyit Ömer",
+    Email: 'seyitomerballi@gmail.com',
+    Mobile: 'ghjghjghjghj',
+    CNIC: 3320423762,
+    FourCourse: "	Android Application Development",
+    PrefTime: "	10:46:15",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 5,
+    names: "jhvjv",
+    Email: 'jhjjhvjv@gmail.com',
+    Mobile: '+76765757',
+    CNIC: 67576575675,
+    FourCourse: "WEB SCRAPPING",
+    PrefTime: "	04:51:44",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 6,
+    names: "OOI GUAN LIN",
+    Email: 'ooiguanlin@ntucac.com',
+    Mobile: '+0987-6000000',
+    CNIC: 98765 - 9876543 - 5,
+    FourCourse: "Android Application Development",
+    PrefTime: "	5:00 PM",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 7,
+    names: "Jen",
+    Email: 'vispevidra@biyac.com',
+    Mobile: '+123123',
+    CNIC: 13123,
+    FourCourse: "Modern Web App Development",
+    PrefTime: "10:22:10",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 8,
+    names: "jon",
+    Email: 'zafyokostu@biyac.com',
+    Mobile: '+123123123123',
+    CNIC: 12123123123123,
+    FourCourse: "WEB SCRAPPING",
+    PrefTime: "	11:00:59",
+    EmailStatus: "open",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 9,
+    names: "	Vinto",
+    Email: 'lajojur.husitu@vintomaper.com',
+    Mobile: '+	4444-33234	',
+    CNIC: 3312 - 124123,
+    FourCourse: "Adobe Illustrator",
+    PrefTime: "	03:16:59	",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 10,
+    names: "Ben",
+    Email: 'xsbifikaa@uniromax.com',
+    Mobile: '+	332-2222',
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+
+    id: 11,
+    names: "Ben",
+    Email: 'xsbifikaa@uniromax.com',
+    Mobile: '+	332-2222',
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+]
+
+export const studentss = [
+  {
+
+    id: 1,
+    names: "reda",
+    RedNo: 'SIFSD01-Ar-13-21-1',
+    Email: 'reda@yahoo.com',
+    Mobile: '0121-3232400',
+    CNIC: "22112-3243243-4",
+    Course: "Arabic",
+    Batch: "Arabic 001",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+  {
+
+    id: 2,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 3,
+    names: "asdsad",
+    RedNo: 'SIFSD01-AD-Select Batch-21-1',
+    Email: 'adsad@dddd.com',
+    Mobile: '0432-4234234',
+    CNIC: "43242-3423423-4",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 4,
+    names: "Hasan",
+    RedNo: 'SIFSD01-AD-Select Batch-21-166',
+    Email: 'admin@gmail.com',
+    Mobile: '0243-5467687',
+    CNIC: "21345-3676543-2",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 5,
+    names: "xyz",
+    RedNo: 'SIFSD01-AD-2-21-1',
+    Email: 'XYZ@GMAIL.COM',
+    Mobile: '0989-9821983	',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 6,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 7,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 8,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 9,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+
+
+  {
+
+    id: 10,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
+  {
+   
+    id: 11,
+    names: "reda",
+    RedNo: 'SIFSD01-AD-2-21-162',
+    Email: 'aa@test.com',
+    Mobile: '0012-1324324',
+    CNIC: "23232-4000000-0",
+    Course: "Android Application Development",
+    Batch: "B1SEP20",
+    Action: LiaEdit,
+    Like: MdDelete,
+  },
 ];
->>>>>>> 6dec06f56f68c9ee9482f35394730f2a119d54f0

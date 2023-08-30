@@ -1,10 +1,10 @@
+import { useState } from "react"
 import { SidebarLinks } from "./SidebarLinks"
 
-
-const SideBar = () => {
+const SideBar = ({open}) => {
     return (
-        <div className="sidebar">
-            <SidebarLinks />
+        <div className={!open ? "sidebar" : "hide-sidebar"}>
+            <SidebarLinks open={open} />
         </div>
     )
 }
