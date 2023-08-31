@@ -26,7 +26,7 @@ import Designation from "./components/pages/masters/Designation";
 import EnquiereStatus from "./components/pages/masters/EnquiereStatus";
 import ExpenseCategory from "./components/pages/masters/ExpenseCategory";
 import Guestst from "./components/pages/masters/Guestst";
-import CollectFree from "./components/pages/collectFree";
+import CollectFree from "./components/pages/CollectFree";
 import Payroll from "./components/pages/Payroll";
 import Expenses from "./components/pages/Expenses";
 import Reportslayout from "./components/layout/ReportsLayout";
