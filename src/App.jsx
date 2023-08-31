@@ -33,7 +33,7 @@ import Reportslayout from "./components/layout/ReportsLayout";
 import { FeeReports } from "./components/pages/reports/FeeReports";
 import { ExpensesReports } from "./components/pages/reports/ExpenseReports";
 import SettingsLayout from "./components/layout/SettingsLayout";
-import Currency from "./components/pages/settings/setting/currency";
+import Currency from "./components/pages/settings/setting/Currency";
 import { Users } from "./components/pages/settings/setting/Users";
 import WebSettingsLayout from "./components/layout/WebSettingsLayout";
 const App = () => {
