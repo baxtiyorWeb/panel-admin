@@ -3,7 +3,7 @@ import { Email_function } from "../../progress/data";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import "./master.css";
-import Fileuplaod from "./fileuplaod";
+import Fileuplaod from "./Fileuplaod";
 const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
@@ -41,7 +41,7 @@ const Guestst = () => {
           />
         </div>
 
-        <div style={{}}>
+        <div>
           <Fileuplaod />
         </div>
 
