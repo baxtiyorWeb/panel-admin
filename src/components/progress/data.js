@@ -1,8 +1,13 @@
-import { AiFillPrinter } from "react-icons/ai"
-import { LiaEdit } from "react-icons/lia"
-import { MdDelete } from "react-icons/md"
-export const progress = [
-  {
+import {
+  AiFillPrinter
+} from "react-icons/ai"
+import {
+  LiaEdit
+} from "react-icons/lia"
+import {
+  MdDelete
+} from "react-icons/md"
+export const progress = [{
     id: 1,
     link: "",
     title: "",
@@ -279,8 +284,7 @@ export const progress = [
 
 ]
 
-export const enqueryList = [
-  {
+export const enqueryList = [{
 
     id: 1,
     names: "mario cota",
@@ -425,8 +429,7 @@ export const enqueryList = [
   },
 ]
 
-export const studentss = [
-  {
+export const studentss = [{
 
     id: 1,
     names: "reda",
@@ -574,7 +577,7 @@ export const studentss = [
     Like: MdDelete,
   },
   {
-   
+
     id: 11,
     names: "reda",
     RedNo: 'SIFSD01-AD-2-21-162',

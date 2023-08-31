@@ -21,6 +21,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 5vh;
+  position: relative;
+  top: 15px;
+  padding: 15px;
+}
+
+.dashboard-user .fruit {
+  margin-top: 10px;
 }
 
 .icons {
@@ -54,11 +62,13 @@ a {
   padding: 10px;
   border-radius: 5px;
 }
+
 .user_input {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .user_input input {
   padding: 8px;
   outline: none;
@@ -66,9 +76,11 @@ a {
   border-radius: 3px;
   transition: 0.3s ease;
 }
+
 .user_input input:focus {
   border: 1px solid #6777ef;
 }
+
 .add-link {
   display: flex;
   justify-content: space-between;
@@ -77,9 +89,11 @@ a {
   margin-bottom: 10px;
   border-bottom: 1px solid #bdbcbc73;
 }
+
 .add-link h1 {
   font-size: 18px;
 }
+
 .add-link a {
   padding: 8px 13px 8px 13px;
   background: #6777ef;
@@ -92,9 +106,11 @@ a {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+
 .input-box .name {
   margin-top: 10px;
 }
+
 .input-box .name input {
   padding: 10px;
   width: 469px;
@@ -104,6 +120,7 @@ a {
   border: 1px solid #e7e8e9;
   transition: 0.3s ease;
 }
+
 .input-box .name input:focus {
   border: 1px solid #6209b6;
 }

@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
 import "./Enquiries.css";
 import { enqueryList } from "../progress/data";
-const Enqueries = () => {
-//   const [page, setPage] = useState(11);
+// import { onValue, ref } from "firebase/database";
+// import { db } from "../../firebase/firebase";
+// import { uid } from "uid";
+// eslint-disable-next-line react/prop-types
+const Enqueries = ({ open, setOpen }) => {
+  // const [read, setRead] = useState([]);
+  //   const [page, setPage] = useState(11);
+  // const uuid = uid();
+  // useEffect(() => {
+  //   onValue(ref(db, `/form/`+uuid), (snapshot) => {
+  //     const data = snapshot.val();
+  //     if (snapshot.exists()) {
+  //       Object.values(data).map((read) => {
+  //         setRead((oldArray) => [...oldArray, read]);
+  //         console.log(snapshot.val());
+  //       });
+  //     }
+  //   });
+  // }, []);
   function pagination() {}
   const [search, setSearch] = useState("");
   console.log(search);
   return (
-    <Container>
+    <Container open={open} setOpen={setOpen}>
       <div className="dashboard-user">
-        <div className="fruit">
+        <div
+          className="fruit"
+          style={{
+            marginTop: "10px",
+          }}
+        >
           <h2>Enquiries</h2>
         </div>
         <div className="fruit-user">

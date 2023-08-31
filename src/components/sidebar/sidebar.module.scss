@@ -6,32 +6,33 @@
   font-weight: 400;
   position: relative;
 }
-.sidebar_hidebar  {
+.sidebar_hidebar {
   width: 100%;
   padding: 14px 13px 14px 13px;
   display: flex;
   align-items: center;
   font-weight: 400;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.sidebar_hidebar i{
-  display: none;
-}
-.sidebar_hidebar span{
-  display: none;
+.sidebar_hidebar:nth-child(3):hover {
+  background: green;
 }
 
+// .sidebar_hidebar
+.sidebar_hidebar i {
+  display: none;
+}
+.sidebar_hidebar span {
+  display: none;
+}
 
 .sidebar i {
   position: absolute;
   right: 0;
   font-size: 40px;
-}
-.link {
-  margin-right: 10px;
-  margin-left: 10px;
-  color: #60686f;
-  font-size: 16px;
 }
 
 .sidebar:focus {
@@ -53,6 +54,7 @@ span {
 .show {
   transition: 0.3s ease;
 }
+
 ul li {
   width: 100%;
   list-style-type: none;

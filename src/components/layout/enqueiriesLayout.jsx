@@ -1,11 +1,16 @@
-import React from "react";
+// import React from "react";
 import { Outlet } from "react-router-dom";
 
- const EnqueiriesLayout = () => {
+// eslint-disable-next-line react/prop-types
+const EnqueiriesLayout = ({ open, setOpen }) => {
   return (
-    <>
-      <Outlet />
-    </>
+    <div
+      style={{
+        marginTop: "50px",
+      }}
+    >
+      <Outlet open={open} setOpen={setOpen} />
+    </div>
   );
 };
-export default EnqueiriesLayout
+export default EnqueiriesLayout;

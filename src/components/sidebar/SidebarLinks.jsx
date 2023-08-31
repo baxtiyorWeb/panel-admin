@@ -18,7 +18,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import styles from "./sidebar.module.scss";
 import { useState } from "react";
 import { GiOpenBook } from "react-icons/gi";
-export const SidebarLinks = ({open}) => {
+// eslint-disable-next-line react/prop-types
+export const SidebarLinks = ({ open }) => {
   const [students, setstudents] = useState(false);
   const [batch, setBach] = useState(false);
   const [events, setEvents] = useState(false);
@@ -31,19 +32,25 @@ export const SidebarLinks = ({open}) => {
   return (
     <div className={"wrapper"}>
       <div className="side-links">
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar} to="/home">
-          <IoHomeSharp className={styles.link} />
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to="/home"
+        >
+          <IoHomeSharp className={"link"} />
           <span>Dashboard</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar} to="/enquiries">
-          <FaRegLightbulb className={styles.link} />
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to="/enquiries"
+        >
+          <FaRegLightbulb className={"link"} />
           <span>Enquiries</span>
         </NavLink>
         <NavLink
-          className={!open ? styles.sidebar: styles.sidebar_hidebar}
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
           onClick={() => setstudents(!students && !batch)}
         >
-          <FaUserFriends className={styles.link} />
+          <FaUserFriends className={"link"} />
           <span>Manage Students </span>
           <i>
             <RiArrowDropDownLine />
@@ -64,10 +71,10 @@ export const SidebarLinks = ({open}) => {
           </li>
         </ul>
         <NavLink
-          className={!open ? styles.sidebar: styles.sidebar_hidebar}
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
           onClick={() => setBach(!batch && !students)}
         >
-          <FaBookOpen className={styles.link} />
+          <FaBookOpen className={"link"} />
           <span>manage batch </span>
           <i>
             <RiArrowDropDownLine />
@@ -87,20 +94,23 @@ export const SidebarLinks = ({open}) => {
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar}>
-          <BiSolidUserCheck className={styles.link} />
+        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+          <BiSolidUserCheck className={"link"} />
           <span>Faculties</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar}>
-          <FaGraduationCap className={styles.link} />
+        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+          <FaGraduationCap className={"link"} />
           <span>Courses</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar}>
-          <BsCheckLg className={styles.link} />
+        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+          <BsCheckLg className={"link"} />
           <span>Attendance</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar} onClick={() => setEvents(!events)}>
-          <FaPen className={styles.link} />
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          onClick={() => setEvents(!events)}
+        >
+          <FaPen className={"link"} />
           <span>Events</span>
           <i>
             <RiArrowDropDownLine />
@@ -120,15 +130,15 @@ export const SidebarLinks = ({open}) => {
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar}>
-          <BiSolidEnvelopeOpen className={styles.link} />
+        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+          <BiSolidEnvelopeOpen className={"link"} />
           <span>Email</span>
         </NavLink>
         <NavLink
-          className={!open ? styles.sidebar: styles.sidebar_hidebar}
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
           onClick={() => setMasters(!masters)}
         >
-          <FaPen className={styles.link} />
+          <FaPen className={"link"} />
           <span>Masters</span>
           <i>
             <RiArrowDropDownLine />
@@ -172,12 +182,15 @@ export const SidebarLinks = ({open}) => {
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar}>
-          <BsFillTagFill className={styles.link} />
+        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+          <BsFillTagFill className={"link"} />
           <span>Collect free</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar} onClick={() => setHrm(!hrm)}>
-          <FaSitemap className={styles.link} />
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          onClick={() => setHrm(!hrm)}
+        >
+          <FaSitemap className={"link"} />
           <span>HRM</span>
           <i>
             <RiArrowDropDownLine />
@@ -197,15 +210,15 @@ export const SidebarLinks = ({open}) => {
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar: styles.sidebar_hidebar}>
-          <FaDollarSign className={styles.link} />
+        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+          <FaDollarSign className={"link"} />
           <span>Expenses</span>
         </NavLink>
         <NavLink
-          className={!open ? styles.sidebar: styles.sidebar_hidebar}
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
           onClick={() => setReports(!reports)}
         >
-          <AiTwotoneFileText className={styles.link} />
+          <AiTwotoneFileText className={"link"} />
           <span>Reports</span>
           <i>
             <RiArrowDropDownLine />
@@ -226,10 +239,10 @@ export const SidebarLinks = ({open}) => {
           </li>
         </ul>
         <NavLink
-          className={!open ? styles.sidebar: styles.sidebar_hidebar}
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
           onClick={() => setsettings(!settings)}
         >
-          <BiSolidCog className={styles.link} />
+          <BiSolidCog className={"link"} />
           <span>Settings</span>
           <i>
             <RiArrowDropDownLine />
@@ -250,18 +263,23 @@ export const SidebarLinks = ({open}) => {
           </li>
         </ul>
         <NavLink
-          className={!open ? styles.sidebar: styles.sidebar_hidebar}
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
           onClick={() => setWebSettings(!webSettings)}
         >
-          <BiSolidCog className={styles.link} />
+          <BiSolidCog className={"link"} />
           <span>Web Settings</span>
+          <i>
+            <RiArrowDropDownLine />
+          </i>
         </NavLink>
         <ul className={!webSettings ? styles.hide : styles.show}>
           <li className="w-full border">
             <NavLink className="w-full flex items-center" to="/students">
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Batches</span>
+              
             </NavLink>
+            
           </li>
           <li>
             <NavLink>

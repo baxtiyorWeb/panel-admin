@@ -1,12 +1,12 @@
-import { useState } from "react"
-import { SidebarLinks } from "./SidebarLinks"
+import { SidebarLinks } from "./SidebarLinks";
 
-const SideBar = ({open}) => {
-    return (
-        <div className={!open ? "sidebar" : "hide-sidebar"}>
-            <SidebarLinks open={open} />
-        </div>
-    )
-}
+// eslint-disable-next-line react/prop-types
+const SideBar = ({ open }) => {
+  return (
+    <div className={!open ? "sidebar" : "hide-sidebar"}>
+      <SidebarLinks open={open} />
+    </div>
+  );
+};
 
-export default SideBar
+export default SideBar;

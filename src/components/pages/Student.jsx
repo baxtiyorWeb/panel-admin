@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import "./Students.css";
 import { studentss } from "../progress/data";
 
-const Student = () => {
+// eslint-disable-next-line react/prop-types
+const Student = ({ open }) => {
   const [search, setSearch] = useState("");
   return (
-    <Container>
+    <Container open={open}>
       <div className="around_one">
         <div className="around_user">
           <h2>Students</h2>
@@ -18,6 +19,10 @@ const Student = () => {
       </div>
 
       <div className="chart-progress">
+        <div className="add-link">
+          <h1>Enquiries</h1>
+          <Link to="/students/addStudent">add student</Link>
+        </div>
         <div className="user_blew">
           <div className="user_blow">
             <h4>Show</h4>
@@ -68,7 +73,7 @@ const Student = () => {
                           <td>{item.Mobile}</td>
                           <td>{item.CNIC}</td>
                           <td>{item.Batch}</td>
-                          <td class>
+                          <td>
                             <span className="icons">{<item.Action />}</span>
                             <span className="icons">{<item.Like />}</span>
                           </td>
