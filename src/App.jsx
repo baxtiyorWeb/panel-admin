@@ -11,7 +11,7 @@ import { AddStudents } from "./components/pages/addStudents";
 import { StudentsLayout } from "./components/layout/StudentsLayout";
 import Active from "./components/pages/Active";
 import { BatchesLayout } from "./components/layout/BatchesLayout";
-import Batches from "./components/pages/batches/batches";
+import Batches from "./components/pages/batches/Batches";
 import Transferbatch from "./components/pages/batches/TransBatch";
 import Faculties from "./components/pages/Faculties";
 import Courses from "./components/pages/Courses";
