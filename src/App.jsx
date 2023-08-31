@@ -10,7 +10,6 @@ import { useState } from "react";
 import { AddStudents } from "./components/pages/addStudents";
 import { StudentsLayout } from "./components/layout/StudentsLayout";
 import Active from "./components/pages/Active";
-// import { EventsLyout } from "./components/layout/ActiveLyout";
 import { BatchesLayout } from "./components/layout/BatchesLayout";
 import Batches from "./components/pages/batches/batches";
 import Transferbatch from "./components/pages/batches/TransBatch";
@@ -83,7 +82,7 @@ const App = () => {
             path="/batches/"
             element={<BatchesLayout open={open} setOpen={setOpen} />}
           >
-            <Route path="/batches/batches" element={<Batches />} />
+            <Route path="/batches/batch" element={<Batches />} />
             <Route path="/batches/transfer" element={<Transferbatch />} />
           </Route>
           <Route

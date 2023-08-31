@@ -85,7 +85,7 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!batch ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/batches/batches">
+            <NavLink className="w-full flex items-center" to="/batches/batch">
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Batches</span>
             </NavLink>
