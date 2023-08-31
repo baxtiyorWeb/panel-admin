@@ -23,9 +23,6 @@ const Main = ({ open }) => {
               <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
             </div>
           </div>
-          <div className="box_2">
-            <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
-          </div>
         </div>
 
         <div className="top_chart">

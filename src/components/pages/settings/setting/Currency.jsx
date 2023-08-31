@@ -1,27 +1,48 @@
 import { useState } from "react";
-import Container from "../shared/Container";
 import { Link } from "react-router-dom";
-import "./Students.css";
-import { studentss } from "../progress/data";
-
+import "./../../masters/master.css";
+import { enqueryList } from "../../../progress/data";
+// import { onValue, ref } from "firebase/database";
+// import { db } from "../../firebase/firebase";
+// import { uid } from "uid";
 // eslint-disable-next-line react/prop-types
-const Student = ({ open, setOpen }) => {
+const Currency = ({ open, setOpen }) => {
+  // const [read, setRead] = useState([]);
+  //   const [page, setPage] = useState(11);
+  // const uuid = uid();
+  // useEffect(() => {
+  //   onValue(ref(db, `/form/`+uuid), (snapshot) => {
+  //     const data = snapshot.val();
+  //     if (snapshot.exists()) {
+  //       Object.values(data).map((read) => {
+  //         setRead((oldArray) => [...oldArray, read]);
+  //         console.log(snapshot.val());
+  //       });
+  //     }
+  //   });
+  // }, []);
+  function pagination() {}
   const [search, setSearch] = useState("");
+  console.log(search);
   return (
     <>
-      <div className="around_one">
-        <div className="around_user">
-          <h2>Students</h2>
+      <div className="dashboard-user">
+        <div
+          className="fruit"
+          style={{
+            marginTop: "10px",
+          }}
+        >
+          <h2>Enquiries</h2>
         </div>
-        <div className="around_of">
+        <div className="fruit-user">
           <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
         </div>
       </div>
-
       <div className="chart-progress">
         <div className="add-link">
           <h1>Enquiries</h1>
-          <Link to="/students/addStudent">add student</Link>
+          <Link to="/layout/addform">add enquirie</Link>
         </div>
         <div className="user_blew">
           <div className="user_blow">
@@ -49,16 +70,16 @@ const Student = ({ open, setOpen }) => {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Reg.No</th>
                     <th>Email</th>
-                    <th>Mobile</th>
+                    <th>mobile</th>
                     <th>CNIC</th>
-                    <th>Course</th>
-                    <th>Batch</th>
+                    <th>For Course</th>
+                    <th>Pref Time</th>
+                    <th>Email status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                {studentss
+                {enqueryList
                   .filter((users) => users.names.toLowerCase().includes(search))
                   .map((item) => {
                     return (
@@ -68,15 +89,15 @@ const Student = ({ open, setOpen }) => {
                           <td>
                             <Link>{item.names}</Link>
                           </td>
-                          <td>{item.RedNo}</td>
                           <td>{item.Email}</td>
                           <td>{item.Mobile}</td>
                           <td>{item.CNIC}</td>
-                          <td>{item.Batch}</td>
-                          <td> </td>
-                          <td>
-                            <span className="icons">{<item.Action />}</span>
-                            <span className="icons">{<item.Like />}</span>
+                          <td>{item.FourCourse}</td>
+                          <td>{item.PrefTime}</td>
+                          <td>{item.EmailStatus}</td>
+                          <td className="td_flex">
+                            <span className="icons">{<item.Action />}</span>{" "}
+                            <span className="icons">{<item.delete />}</span>
                           </td>
                         </tr>
                       </tbody>
@@ -85,10 +106,29 @@ const Student = ({ open, setOpen }) => {
               </table>
             </div>
           </div>
+          <div>
+            <ul>
+              <li
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  border: "1px solid blue",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onClick={pagination}
+              >
+                0
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default Student;
+export default Currency;

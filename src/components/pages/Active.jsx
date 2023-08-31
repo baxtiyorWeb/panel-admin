@@ -1,27 +1,24 @@
 import { useState } from "react";
-import Container from "../shared/Container";
 import { Link } from "react-router-dom";
-import "./Students.css";
-import { studentss } from "../progress/data";
-
-// eslint-disable-next-line react/prop-types
-const Student = ({ open, setOpen }) => {
+import { active } from "../progress/data";
+import Container from "../shared/Container";
+const Active = ({ open, setOpen }) => {
   const [search, setSearch] = useState("");
+  // const [pagination, setPagination] = useState("");
   return (
     <>
-      <div className="around_one">
-        <div className="around_user">
+      <div className="dashboard-user">
+        <div className="fruit">
           <h2>Students</h2>
         </div>
-        <div className="around_of">
+        <div className="fruit-user">
           <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
         </div>
       </div>
-
       <div className="chart-progress">
         <div className="add-link">
-          <h1>Enquiries</h1>
-          <Link to="/students/addStudent">add student</Link>
+          <h1>Student List</h1>
+          <Link to="/layout/addform">add enquirie</Link>
         </div>
         <div className="user_blew">
           <div className="user_blow">
@@ -49,7 +46,7 @@ const Student = ({ open, setOpen }) => {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Reg.No</th>
+                    <th>Reg.No.</th>
                     <th>Email</th>
                     <th>Mobile</th>
                     <th>CNIC</th>
@@ -58,25 +55,26 @@ const Student = ({ open, setOpen }) => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                {studentss
-                  .filter((users) => users.names.toLowerCase().includes(search))
+                {active
+                  .filter((users) => users.title.toLowerCase().includes(search))
                   .map((item) => {
                     return (
                       <tbody key={item.id}>
                         <tr>
                           <td>{item.id}</td>
                           <td>
-                            <Link>{item.names}</Link>
+                            <Link>{item.freeCollected}</Link>
                           </td>
-                          <td>{item.RedNo}</td>
-                          <td>{item.Email}</td>
-                          <td>{item.Mobile}</td>
-                          <td>{item.CNIC}</td>
-                          <td>{item.Batch}</td>
-                          <td> </td>
-                          <td>
-                            <span className="icons">{<item.Action />}</span>
-                            <span className="icons">{<item.Like />}</span>
+                          <td>{item.freeDue}</td>
+                          <td>{item.link}</td>
+                          <td></td>
+                          <td>{item.start_Date}</td>
+                          <td>{item.students_progress}</td>
+                          <td>{item.title}</td>
+                          <td className="td_flex">
+                            <span className="icons">{<item.edit />}</span>
+                            <span className="icons">{<item.delete />}</span>
+                            <span className="icons">{<item.dislike />}</span>
                           </td>
                         </tr>
                       </tbody>
@@ -85,10 +83,28 @@ const Student = ({ open, setOpen }) => {
               </table>
             </div>
           </div>
+          <div>
+            <ul>
+              <li
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  border: "1px solid blue",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                0
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default Student;
+export default Active;

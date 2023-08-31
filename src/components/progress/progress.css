@@ -1,10 +1,6 @@
 .chart-progress {
   width: 100%;
   height: auto;
-  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
-    0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
-    0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
-    0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
   border-radius: 10px;
   margin-top: 40px;
   background-color: #fff;
@@ -198,18 +194,14 @@
   justify-content: center;
   align-items: center;
 }
-.td_flex .icons {
-  cursor: pointer;
-  margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.icons {
   transition: 0.3s ease;
+  cursor: pointer;
 }
-.td_flex .icons:hover {
-  background: #b6b6b683;
+.icons:hover {
   border-radius: 5px;
+  background: #b6b6b683;
 }
 tbody tr td {
   padding: 10px;
-  }
+}

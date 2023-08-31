@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Container from "../shared/Container";
 
 // eslint-disable-next-line react/prop-types
-const EnqueiriesLayout = ({ open, setOpen }) => {
+const EventsLayout = ({ open, setOpen }) => {
   return (
     <Container open={open} setOpen={setOpen}>
       <div className="chart-progress">
@@ -12,4 +12,4 @@ const EnqueiriesLayout = ({ open, setOpen }) => {
     </Container>
   );
 };
-export default EnqueiriesLayout;
+export default EventsLayout;

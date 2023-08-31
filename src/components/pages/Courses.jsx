@@ -1,27 +1,25 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
-import "./Students.css";
-import { studentss } from "../progress/data";
+import { Courses_time } from "../progress/data";
 
-// eslint-disable-next-line react/prop-types
-const Student = ({ open, setOpen }) => {
-  const [search, setSearch] = useState("");
+const Courses = ({open, setOpen}) => { 
+  const [search, setSearch] = useState('')
   return (
-    <>
+    
+    <Container open={open} setOpen={setOpen}>
       <div className="around_one">
         <div className="around_user">
-          <h2>Students</h2>
+          <h2>Courses</h2>
         </div>
         <div className="around_of">
-          <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
+          <Link>Dashboard</Link>/<Link>Course</Link>/<Link>Temp</Link>
         </div>
       </div>
-
       <div className="chart-progress">
         <div className="add-link">
-          <h1>Enquiries</h1>
-          <Link to="/students/addStudent">add student</Link>
+          <h1>Course List</h1>
+          <Link to="/students/addStudent">add Course</Link>
         </div>
         <div className="user_blew">
           <div className="user_blow">
@@ -48,35 +46,37 @@ const Student = ({ open, setOpen }) => {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Reg.No</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
-                    <th>CNIC</th>
-                    <th>Course</th>
-                    <th>Batch</th>
+                    <th>Course Title</th>
+                    <th>Category</th>
+                    <th>Duration</th>
+                    <th>Fee</th>
+                    <th>Students</th>
+                    <th>Faculties</th>
+                    <th>Batches</th>
+                    <th>Email Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                {studentss
-                  .filter((users) => users.names.toLowerCase().includes(search))
+                {Courses_time
+                  .filter((users) => users.title.toLowerCase().includes(search))
                   .map((item) => {
                     return (
                       <tbody key={item.id}>
                         <tr>
                           <td>{item.id}</td>
                           <td>
-                            <Link>{item.names}</Link>
+                            <Link>{item.link}</Link>
                           </td>
-                          <td>{item.RedNo}</td>
-                          <td>{item.Email}</td>
-                          <td>{item.Mobile}</td>
-                          <td>{item.CNIC}</td>
-                          <td>{item.Batch}</td>
-                          <td> </td>
+                          <td>{item.title}</td>
+                          <td>{item.students}</td>
+                          <td>{item.students_progress}</td>
+                          <td>{item.star}</td>
+                          <td>{item.freeCollected}</td>
+                          <td>{item.number}</td>
+                          <td>{item.email_status}</td>
                           <td>
-                            <span className="icons">{<item.Action />}</span>
-                            <span className="icons">{<item.Like />}</span>
+                            <span className="icons">{<item.edit />}</span>
+                            <span className="icons">{<item.delete />}</span>
                           </td>
                         </tr>
                       </tbody>
@@ -87,8 +87,8 @@ const Student = ({ open, setOpen }) => {
           </div>
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 
-export default Student;
+export default Courses; 

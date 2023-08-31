@@ -22,7 +22,7 @@ const Layout = ({ open, setOpen }) => {
             borderBottomLeftRadius: "30px",
             background: "#6777EF",
             position: "fixed",
-            right: !sideOpen ? "0" : "285px",
+            right: !sideOpen ? "0" : "288px",
             top: "50%",
             cursor: "pointer",
             transition: "0.3s ease-in-out",

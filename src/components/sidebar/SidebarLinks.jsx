@@ -58,13 +58,16 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!students ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink
+              className="w-full flex items-center"
+              to="/students/students"
+            >
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Students</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to="/students/active">
               <GiOpenBook />
               <span>in-Active Student</span>
             </NavLink>
@@ -82,27 +85,36 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!batch ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink className="w-full flex items-center" to="/batches/batches">
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Batches</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to="/batches/transfer">
               <GiOpenBook />
               <span>Transfer Batche</span>
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to={"/faculties"}
+        >
           <BiSolidUserCheck className={"link"} />
           <span>Faculties</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to={"Courses"}
+        >
           <FaGraduationCap className={"link"} />
           <span>Courses</span>
         </NavLink>
-        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to={"Attendance"}
+        >
           <BsCheckLg className={"link"} />
           <span>Attendance</span>
         </NavLink>
@@ -118,13 +130,13 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!events ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink className="w-full flex items-center" to="/event/books">
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Event Booking</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to={"/event/events"}>
               <GiOpenBook />
               <span>All Events</span>
             </NavLink>
@@ -146,43 +158,49 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!masters ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink
+              className="w-full flex items-center"
+              to="/master/courses-category"
+            >
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Course Category</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to={"/master/Expense-category"}>
               <GiOpenBook />
               <span>Expense Category</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to="/master/enquierStatus">
               <GiOpenBook />
               <span>Enquire Category</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to={"/master/designation"}>
               <GiOpenBook />
               <span>Designation</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to={"/master/department"}>
               <GiOpenBook />
               <span>Department</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to={"/master/Guests"}>
               <GiOpenBook />
               <span>Guests</span>
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to="/collect"
+        >
           <BsFillTagFill className={"link"} />
           <span>Collect free</span>
         </NavLink>
@@ -198,19 +216,16 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!hrm ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink className="w-full flex items-center" to="/payroll">
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
-              <span>Batches</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink>
-              <GiOpenBook />
-              <span>Transfer Batche</span>
+              <span>payroll</span>
             </NavLink>
           </li>
         </ul>
-        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
+        <NavLink
+          className={!open ? styles.sidebar : styles.sidebar_hidebar}
+          to="/expenses"
+        >
           <FaDollarSign className={"link"} />
           <span>Expenses</span>
         </NavLink>
@@ -226,15 +241,18 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!reports ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink
+              className="w-full flex items-center"
+              to="/reports/fee-reports"
+            >
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
-              <span>Batches</span>
+              <span>Fee Report</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink to={"/reports/experence-reports"}>
               <GiOpenBook />
-              <span>Transfer Batche</span>
+              <span>Expense Report</span>
             </NavLink>
           </li>
         </ul>
@@ -250,15 +268,18 @@ export const SidebarLinks = ({ open }) => {
         </NavLink>
         <ul className={!settings ? styles.hide : styles.show}>
           <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
+            <NavLink
+              className="w-full flex items-center"
+              to="/settings/currency"
+            >
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
-              <span>Batches</span>
+              <span>Currency</span>
             </NavLink>
           </li>
           <li>
-            <NavLink>
+            <NavLink  to="/settings/users">
               <GiOpenBook />
-              <span>Transfer Batche</span>
+              <span>Users</span>
             </NavLink>
           </li>
         </ul>
@@ -277,9 +298,7 @@ export const SidebarLinks = ({ open }) => {
             <NavLink className="w-full flex items-center" to="/students">
               <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
               <span>Batches</span>
-              
             </NavLink>
-            
           </li>
           <li>
             <NavLink>

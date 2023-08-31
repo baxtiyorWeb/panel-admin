@@ -1,0 +1,28 @@
+.drop-it-wrap {
+  max-width: 600px;
+  margin: 25px auto;
+  width: 100%;
+  border: 5px dashed #ececec;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: "create file";
+    position: absolute;
+    right: 30%;
+    top: 40%;
+    width: 40%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed green;
+  }
+}
+.drop-it-input {
+  position: absolute;
+  top: -99999999px;
+}

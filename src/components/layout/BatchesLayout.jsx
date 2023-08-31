@@ -1,9 +1,11 @@
-// import React from "react";
+/* eslint-disable no-undef */
+// import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Container from "../shared/Container";
+// import { enqueryList } from "../progress/data";
 
 // eslint-disable-next-line react/prop-types
-const EnqueiriesLayout = ({ open, setOpen }) => {
+export const BatchesLayout = ({ open, setOpen }) => {
   return (
     <Container open={open} setOpen={setOpen}>
       <div className="chart-progress">
@@ -12,4 +14,3 @@ const EnqueiriesLayout = ({ open, setOpen }) => {
     </Container>
   );
 };
-export default EnqueiriesLayout;

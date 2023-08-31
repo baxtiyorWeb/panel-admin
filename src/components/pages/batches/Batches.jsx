@@ -1,26 +1,24 @@
-import { useState } from "react";
-import Container from "../shared/Container";
+import { Container } from "postcss";
+import React, { useState } from "react";
+import { Batches_study, studentss } from "../../progress/data";
 import { Link } from "react-router-dom";
-import "./Students.css";
-import { studentss } from "../progress/data";
 
-// eslint-disable-next-line react/prop-types
-const Student = ({ open, setOpen }) => {
-  const [search, setSearch] = useState("");
+const Batches = () => {
+    const [search, setSearch] = useState('')
   return (
     <>
       <div className="around_one">
         <div className="around_user">
-          <h2>Students</h2>
+          <h2>Batches</h2>
         </div>
         <div className="around_of">
-          <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
+          <Link>Dashboard</Link>/<Link>Batches</Link>/<Link>Temp</Link>
         </div>
       </div>
 
       <div className="chart-progress">
         <div className="add-link">
-          <h1>Enquiries</h1>
+          <h1>Batch List</h1>
           <Link to="/students/addStudent">add student</Link>
         </div>
         <div className="user_blew">
@@ -50,33 +48,33 @@ const Student = ({ open, setOpen }) => {
                     <th>#</th>
                     <th>Name</th>
                     <th>Reg.No</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
-                    <th>CNIC</th>
-                    <th>Course</th>
-                    <th>Batch</th>
+                    <th>Batch Time</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Faculty</th>
+                    <th>Faculty %</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                {studentss
-                  .filter((users) => users.names.toLowerCase().includes(search))
+                {Batches_study
+                  .filter((users) => users.title.toLowerCase().includes(search))
                   .map((item) => {
                     return (
                       <tbody key={item.id}>
                         <tr>
                           <td>{item.id}</td>
                           <td>
-                            <Link>{item.names}</Link>
+                            <Link>{item.link}</Link>
                           </td>
-                          <td>{item.RedNo}</td>
-                          <td>{item.Email}</td>
-                          <td>{item.Mobile}</td>
-                          <td>{item.CNIC}</td>
-                          <td>{item.Batch}</td>
-                          <td> </td>
+                          <td>{item.title}</td>
+                          <td>{item.students}</td>
+                          <td>{item.students_progress}</td>
+                          <td>{item.start_Date}</td>
+                          <td>{item.freeCollected}</td>
+                          <td>{item.freeDue}</td>
                           <td>
-                            <span className="icons">{<item.Action />}</span>
-                            <span className="icons">{<item.Like />}</span>
+                            <span className="icons">{<item.edit />}</span>
+                            <span className="icons">{<item.dislike />}</span>
                           </td>
                         </tr>
                       </tbody>
@@ -90,5 +88,4 @@ const Student = ({ open, setOpen }) => {
     </>
   );
 };
-
-export default Student;
+export default Batches;

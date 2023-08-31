@@ -1,13 +1,11 @@
-import {
-  AiFillPrinter
-} from "react-icons/ai"
-import {
-  LiaEdit
-} from "react-icons/lia"
-import {
-  MdDelete
-} from "react-icons/md"
-export const progress = [{
+import { LiaEdit } from "react-icons/lia";
+import { MdDelete } from "react-icons/md";
+import { AiFillLike, AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillPrinter } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
+export const progress = [
+  {
     id: 1,
     link: "",
     title: "",
@@ -240,11 +238,10 @@ export const progress = [{
     bgColor: "green",
   },
 
-
   {
     id: 20,
     link: "B1J3Y20",
-    title: 'Modern Web App Development',
+    title: "Modern Web App Development",
     students: 11,
     students_progress: 76,
     start_Date: "",
@@ -254,11 +251,10 @@ export const progress = [{
     bgColor: "green",
   },
 
-
   {
     id: 21,
     link: "B1J3Y20",
-    title: 'Modern Web App Development',
+    title: "Modern Web App Development",
     students: 11,
     students_progress: 94,
     start_Date: "",
@@ -268,11 +264,10 @@ export const progress = [{
     bgColor: "green",
   },
 
-
   {
     id: 22,
     link: "B1J3Y20",
-    title: 'Modern Web App Development',
+    title: "Modern Web App Development",
     students: 11,
     students_progress: 92,
     start_Date: "",
@@ -281,15 +276,14 @@ export const progress = [{
     prints: AiFillPrinter,
     bgColor: "green",
   },
+];
 
-]
-
-export const enqueryList = [{
-
+export const enqueryList = [
+  {
     id: 1,
     names: "mario cota",
-    Email: 'mario.cota@smartbuddy.mx',
-    Mobile: '+523330136312',
+    Email: "mario.cota@smartbuddy.mx",
+    Mobile: "+523330136312",
     CNIC: 3320423762,
     FourCourse: "	Android Application Development",
     PrefTime: "	04:33:07",
@@ -298,24 +292,22 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 2,
     names: "Mahmoud",
-    Email: 'test@test.com',
-    Mobile: '+0012-2232343',
+    Email: "test@test.com",
+    Mobile: "+0012-2232343",
     CNIC: 32343 - 4355550 - 0,
     FourCourse: "المستوي الاول - العربية بين يديك",
     PrefTime: "	1:00 AM",
-    EmailStatus: 'open',
+    EmailStatus: "open",
     Action: LiaEdit,
     delete: MdDelete,
   },
   {
-
     id: 3,
     names: "SCHOOLS",
-    Email: 'sudambik@gmail.com',
-    Mobile: '+gtyudtrxvbn',
+    Email: "sudambik@gmail.com",
+    Mobile: "+gtyudtrxvbn",
     CNIC: 0 - 9886675644,
     FourCourse: "WEB SCRAPPING",
     PrefTime: "	03:20:43",
@@ -324,11 +316,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 4,
     names: "Seyit Ömer",
-    Email: 'seyitomerballi@gmail.com',
-    Mobile: 'ghjghjghjghj',
+    Email: "seyitomerballi@gmail.com",
+    Mobile: "ghjghjghjghj",
     CNIC: 3320423762,
     FourCourse: "	Android Application Development",
     PrefTime: "	10:46:15",
@@ -337,11 +328,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 5,
     names: "jhvjv",
-    Email: 'jhjjhvjv@gmail.com',
-    Mobile: '+76765757',
+    Email: "jhjjhvjv@gmail.com",
+    Mobile: "+76765757",
     CNIC: 67576575675,
     FourCourse: "WEB SCRAPPING",
     PrefTime: "	04:51:44",
@@ -350,11 +340,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 6,
     names: "OOI GUAN LIN",
-    Email: 'ooiguanlin@ntucac.com',
-    Mobile: '+0987-6000000',
+    Email: "ooiguanlin@ntucac.com",
+    Mobile: "+0987-6000000",
     CNIC: 98765 - 9876543 - 5,
     FourCourse: "Android Application Development",
     PrefTime: "	5:00 PM",
@@ -363,11 +352,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 7,
     names: "Jen",
-    Email: 'vispevidra@biyac.com',
-    Mobile: '+123123',
+    Email: "vispevidra@biyac.com",
+    Mobile: "+123123",
     CNIC: 13123,
     FourCourse: "Modern Web App Development",
     PrefTime: "10:22:10",
@@ -376,11 +364,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 8,
     names: "jon",
-    Email: 'zafyokostu@biyac.com',
-    Mobile: '+123123123123',
+    Email: "zafyokostu@biyac.com",
+    Mobile: "+123123123123",
     CNIC: 12123123123123,
     FourCourse: "WEB SCRAPPING",
     PrefTime: "	11:00:59",
@@ -389,11 +376,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 9,
     names: "	Vinto",
-    Email: 'lajojur.husitu@vintomaper.com',
-    Mobile: '+	4444-33234	',
+    Email: "lajojur.husitu@vintomaper.com",
+    Mobile: "+	4444-33234	",
     CNIC: 3312 - 124123,
     FourCourse: "Adobe Illustrator",
     PrefTime: "	03:16:59	",
@@ -402,11 +388,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 10,
     names: "Ben",
-    Email: 'xsbifikaa@uniromax.com',
-    Mobile: '+	332-2222',
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
     CNIC: 333 - 1111,
     FourCourse: "	Advanced Graphics Designing",
     PrefTime: "	05:56:01",
@@ -415,11 +400,10 @@ export const enqueryList = [{
     delete: MdDelete,
   },
   {
-
     id: 11,
     names: "Ben",
-    Email: 'xsbifikaa@uniromax.com',
-    Mobile: '+	332-2222',
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
     CNIC: 333 - 1111,
     FourCourse: "	Advanced Graphics Designing",
     PrefTime: "	05:56:01",
@@ -427,15 +411,15 @@ export const enqueryList = [{
     Action: LiaEdit,
     delete: MdDelete,
   },
-]
+];
 
-export const studentss = [{
-
+export const studentss = [
+  {
     id: 1,
     names: "reda",
-    RedNo: 'SIFSD01-Ar-13-21-1',
-    Email: 'reda@yahoo.com',
-    Mobile: '0121-3232400',
+    RedNo: "SIFSD01-Ar-13-21-1",
+    Email: "reda@yahoo.com",
+    Mobile: "0121-3232400",
     CNIC: "22112-3243243-4",
     Course: "Arabic",
     Batch: "Arabic 001",
@@ -444,12 +428,11 @@ export const studentss = [{
   },
 
   {
-
     id: 2,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -457,14 +440,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 3,
     names: "asdsad",
-    RedNo: 'SIFSD01-AD-Select Batch-21-1',
-    Email: 'adsad@dddd.com',
-    Mobile: '0432-4234234',
+    RedNo: "SIFSD01-AD-Select Batch-21-1",
+    Email: "adsad@dddd.com",
+    Mobile: "0432-4234234",
     CNIC: "43242-3423423-4",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -472,14 +453,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 4,
     names: "Hasan",
-    RedNo: 'SIFSD01-AD-Select Batch-21-166',
-    Email: 'admin@gmail.com',
-    Mobile: '0243-5467687',
+    RedNo: "SIFSD01-AD-Select Batch-21-166",
+    Email: "admin@gmail.com",
+    Mobile: "0243-5467687",
     CNIC: "21345-3676543-2",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -487,14 +466,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 5,
     names: "xyz",
-    RedNo: 'SIFSD01-AD-2-21-1',
-    Email: 'XYZ@GMAIL.COM',
-    Mobile: '0989-9821983	',
+    RedNo: "SIFSD01-AD-2-21-1",
+    Email: "XYZ@GMAIL.COM",
+    Mobile: "0989-9821983	",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -502,14 +479,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 6,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -517,14 +492,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 7,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -532,14 +505,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 8,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -547,14 +518,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 9,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -562,14 +531,12 @@ export const studentss = [{
     Like: MdDelete,
   },
 
-
   {
-
     id: 10,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
@@ -577,16 +544,703 @@ export const studentss = [{
     Like: MdDelete,
   },
   {
-
     id: 11,
     names: "reda",
-    RedNo: 'SIFSD01-AD-2-21-162',
-    Email: 'aa@test.com',
-    Mobile: '0012-1324324',
+    RedNo: "SIFSD01-AD-2-21-162",
+    Email: "aa@test.com",
+    Mobile: "0012-1324324",
     CNIC: "23232-4000000-0",
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
     Like: MdDelete,
+  },
+];
+export const active = [
+  {
+    id: 1,
+    link: "Marquis Menjivar",
+    title: "SIFSD01-WD1-20-2",
+    students: "marquis_menjivar@gmail.com",
+    students_progress: "6368-6047073",
+    start_Date: "89808-7574318-8",
+    freeCollected: "Modern Web App Development",
+    freeDue: "B1SEP20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 2,
+    link: " Georgianna Schroeder",
+    title: "SIFSD01-AD3-20-1",
+    students: " georgianna_schroeder@gmail.com",
+    students_progress: 2252 - 5825236,
+    start_Date: "69133-6276730-8",
+    freeCollected: "Android Application Development",
+    freeDue: "B1J3Y20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 3,
+    link: "Buffy Volkman",
+    title: " SIFSD01-AD3-20-4",
+    students: " buffy_volkman@gmail.com",
+    students_progress: 2252 - 5825236,
+    start_Date: "39410-7167504-4 ",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 4,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 5,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 6,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 7,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 8,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 9,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+
+  {
+    id: 10,
+    link: "Georgianna Paris ",
+    title: "SIFSD01-AD3-20-5",
+    students: "georgianna_paris@gmail.com",
+    students_progress: 7849 - 1603849,
+    start_Date: "94339-9031937-4",
+    freeCollected: "Android Application Development",
+    freeDue: "B1AUG20",
+    edit: LiaEdit,
+    delete: MdDelete,
+    dislike: AiOutlineDislike,
+  },
+];
+
+export const Batches_study = [
+  {
+    id: 1,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 2,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 3,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 4,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 5,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 6,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 7,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 8,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 9,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+
+  {
+    id: 10,
+    link: "	B1J3Y20",
+    title: "Modern Web App Development",
+    students: "	5:30 PM",
+    students_progress: "2020-06-10",
+    start_Date: "2020-10-01",
+    freeCollected: "	Tyisha Geddes",
+    freeDue: "	50 %",
+    edit: LiaEdit,
+    dislike: AiOutlineLike,
+  },
+];
+
+export const foculties = [
+  {
+    id: 1,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 2,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	 Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 3,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	  Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 4,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: " Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 5,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	    Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 6,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	    Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 7,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	    Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 8,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	    Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 9,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	    Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 10,
+    link: "	Tyisha Geddes",
+    title: "	9271-2773114",
+    students: "tyisha_geddes@gmail.com",
+    students_progress: "	 Modern Web App Development",
+    star: AiOutlineStar,
+    freeCollected: "Approved",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+];
+
+export const Courses_time = [
+  {
+    id: 1,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 2,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 3,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 4,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 5,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 6,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 7,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 8,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 9,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 10,
+    link: "Android Application Development",
+    title: "Development",
+    students: "120 Days",
+    students_progress: "	25000",
+    star: 142,
+    freeCollected: "7",
+    number: "13",
+    email_status: "open",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+];
+
+export const Event_book = [
+  {
+    id: 1,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 2,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 3,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 4,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 5,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 6,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 7,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 8,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 9,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+
+  {
+    id: 10,
+    link: "",
+    title: "1",
+    students: "bnsabd",
+    students_progress: "demo1@gmail.com",
+    star: "0561-8171241",
+    freeCollected: "88798-9988989-8",
+    email_status: "open",
+    delete: MdDelete,
+  },
+];
+
+export const Event_book_two = [
+  {
+    id: 1,
+    title: "2 Days Workshop on Freelancing",
+    students:
+      "The Freelancing workshop was held on the Friday, January, 2020. The venue was Stepup IT Solutions. Workshop was conducted by the multi-talented, Mr Abu ul Hasan, fellow GCUF student, currently in the teaching field of computer science. He is an active freelance developer and adept outworker had years of experience with free lancing and has worked at Android Applications, a professional, minority owned IT service company. The process of learning is undone until you have the will to teach and carry forward; Abu ul Hasan’ success in free...",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 2,
+    title: "2 Days Workshop on Freelancing",
+    students:
+      "The Freelancing workshop was held on the Friday, January, 2020. The venue was Stepup IT Solutions. Workshop was conducted by the multi-talented, Mr Abu ul Hasan, fellow GCUF student, currently in the teaching field of computer science. He is an active freelance developer and adept outworker had years of experience with free lancing and has worked at Android Applications, a professional, minority owned IT service company. The process of learning is undone until you have the will to teach and carry forward; Abu ul Hasan’ success in free...",
+    edit: LiaEdit,
+    delete: MdDelete,
+  },
+];
+
+export const Email_function = [
+  {
+    id: 1,
+    title: "Development",
+    edit: LiaEdit,
+    delete: MdDelete,
   },
 ];
