@@ -19,7 +19,7 @@ import Attendies from "./components/pages/Attendies";
 import EventsLayout from "./components/layout/EventsLayout";
 import EventBooking from "./components/pages/Events/EventBooking";
 import Events from "./components/pages/Events/Events";
-import MasterLayout from "./components/layout/mastersLayout";
+import MasterLayout from "./components/layout/MastersLayout";
 import CourseCategory from "./components/pages/masters/CourseCategory";
 import Department from "./components/pages/masters/Department";
 import Designation from "./components/pages/masters/Designation";
