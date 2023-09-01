@@ -24,14 +24,17 @@ body {
   overflow: auto;
   transition: 0.3s ease;
 }
+
 .sidebar::-webkit-scrollbar {
   scroll-behavior: smooth;
   width: 8px;
 }
+
 .sidebar:hover::-webkit-scrollbar-corner {
   scroll-behavior: smooth;
   width: 5px;
 }
+
 .sidebar::-webkit-scrollbar-button {
   scroll-behavior: smooth;
   width: 5px;
@@ -42,6 +45,7 @@ body {
   background: #686868;
   border-radius: 5px;
 }
+
 .hide-sidebar {
   width: 5%;
   height: 100vh;
@@ -62,6 +66,10 @@ body {
 } */
 
 .hide-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-sidebar .side-links ul {
   display: none;
 }
 
@@ -116,13 +124,60 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   color: #757c84;
-  font-size: 23px;
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+  border-radius: 100%;
+  color: white;
 }
+
+.link:nth-of-type(1) {
+  background: linear-gradient(135deg, #f87e59 0, #f89934 100%);
+
+}
+
+
 
 .hide-sidebar .side-links {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.sidebar .side-links a:hover {
+  -webkit-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  -moz-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  transition: 0.3s ease;
+
+}
+
+.sidebar .side-links a:focus {
+  -webkit-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  -moz-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  background: transparent;
+}
+
+.sidebar .side-links ul li:hover {
+  box-shadow: -1px 5px 31px -10px rgba(47, 77, 99, 0.79);
+  background: transparent;
+}
+
+.sidebar .side-links ul li a .book-icons {
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+  border-radius: 100%;
+  color: #fff;
+  background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+
+}
+
+.sidebar .side-links ul li a:focus {
+  box-shadow: -1px 5px 31px -10px rgba(47, 77, 99, 0.79);
+  background: transparent;
 }
 
 .hide-sidebar .side-links a .link {

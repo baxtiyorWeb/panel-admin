@@ -9,6 +9,7 @@ import {
   FaSitemap,
   FaDollarSign,
 } from "react-icons/fa";
+import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { BiSolidUserCheck, BiSolidEnvelopeOpen } from "react-icons/bi";
 import { BsCheckLg, BsFillTagFill } from "react-icons/bs";
 import { AiTwotoneFileText } from "react-icons/ai";
@@ -62,13 +63,13 @@ export const SidebarLinks = ({ open, dark }) => {
               className="w-full flex items-center"
               to="/students/students"
             >
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Students</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="/students/active">
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>in-Active Student</span>
             </NavLink>
           </li>
@@ -86,13 +87,13 @@ export const SidebarLinks = ({ open, dark }) => {
         <ul className={!batch ? styles.hide : styles.show}>
           <li className="w-full border">
             <NavLink className="w-full flex items-center" to="/batches/batch">
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Batches</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="/batches/transfer">
-              <GiOpenBook />
+              <TbPlayerTrackNextFilled className="book-icons" />
               <span>Transfer Batche</span>
             </NavLink>
           </li>
@@ -131,13 +132,13 @@ export const SidebarLinks = ({ open, dark }) => {
         <ul className={!events ? styles.hide : styles.show}>
           <li className="w-full border">
             <NavLink className="w-full flex items-center" to="/event/books">
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Event Booking</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/event/events"}>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>All Events</span>
             </NavLink>
           </li>
@@ -162,37 +163,37 @@ export const SidebarLinks = ({ open, dark }) => {
               className="w-full flex items-center"
               to="/master/courses-category"
             >
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Course Category</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/master/Expense-category"}>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Expense Category</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="/master/enquierStatus">
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Enquire Category</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/master/designation"}>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Designation</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/master/department"}>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Department</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/master/Guests"}>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Guests</span>
             </NavLink>
           </li>
@@ -217,7 +218,7 @@ export const SidebarLinks = ({ open, dark }) => {
         <ul className={!hrm ? styles.hide : styles.show}>
           <li className="w-full border">
             <NavLink className="w-full flex items-center" to="/payroll">
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>payroll</span>
             </NavLink>
           </li>
@@ -245,13 +246,13 @@ export const SidebarLinks = ({ open, dark }) => {
               className="w-full flex items-center"
               to="/reports/fee-reports"
             >
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Fee Report</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/reports/experence-reports"}>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Expense Report</span>
             </NavLink>
           </li>
@@ -272,13 +273,13 @@ export const SidebarLinks = ({ open, dark }) => {
               className="w-full flex items-center"
               to="/settings/currency"
             >
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Currency</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="/settings/users">
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Users</span>
             </NavLink>
           </li>
@@ -296,13 +297,13 @@ export const SidebarLinks = ({ open, dark }) => {
         <ul className={!webSettings ? styles.hide : styles.show}>
           <li className="w-full border">
             <NavLink className="w-full flex items-center" to="/students">
-              <GiOpenBook className="mr-2 text-[20px] text-[#60686f]" />
+              <GiOpenBook className="book-icons" />
               <span>Batches</span>
             </NavLink>
           </li>
           <li>
             <NavLink>
-              <GiOpenBook />
+              <GiOpenBook className="book-icons" />
               <span>Transfer Batche</span>
             </NavLink>
           </li>

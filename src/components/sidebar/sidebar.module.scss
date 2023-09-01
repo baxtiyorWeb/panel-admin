@@ -18,12 +18,30 @@
   align-items: center;
 }
 
+.sidebar span {
+  font-size: 18px;
+  color: #5b81a2;
+}
+
 // .sidebar_hidebar
+
 .sidebar_hidebar i {
   display: none;
 }
 .sidebar_hidebar span {
   display: none;
+}
+.sidebar_hidebar:hover {
+  -webkit-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  -moz-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  background: transparent;
+}
+.sidebar_hidebar:focus {
+  -webkit-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  -moz-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
+  background: transparent;
 }
 
 .sidebar i {

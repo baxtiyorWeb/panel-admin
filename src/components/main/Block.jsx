@@ -4,7 +4,9 @@ const Block = () => {
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <div className="Revenue_Chart">
         <h3>Revenue Chart of Month August</h3>
+        
       </div>
+
     </div>
   )
 }
