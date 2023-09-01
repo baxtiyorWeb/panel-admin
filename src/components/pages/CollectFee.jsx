@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import Container from "../shared/Container";
-import { Link } from "react-router-dom";
 import Select from "react-select";
-import "./../progress/progress.css";
+import { Link } from "react-router-dom";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
   { value: "vanilla", label: "Vanilla" },
 ];
-const ColorStyle = {
-  control: (styles) => ({ ...styles, width: "482px" }),
-};
-const Payroll = ({ open }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const CollectFree = ({ open }) => {
+  const ColorStyle = {
+    control: (styles) => ({ ...styles, width: "482px" }),
+  };
 
+  const [selectedOption, setSelectedOption] = useState(null);
   return (
     <Container open={open}>
-      <div className="chart-progress">
         <div className="around_one">
           <div className="around_user">
             <h2>Transfer Batch</h2>
@@ -55,9 +53,8 @@ const Payroll = ({ open }) => {
             />
           </div>
         </div>
-      </div>
     </Container>
   );
 };
 
-export default Payroll;
+export default CollectFree;

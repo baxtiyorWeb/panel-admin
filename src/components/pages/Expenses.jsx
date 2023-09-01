@@ -6,7 +6,7 @@ import { Courses_time } from "../progress/data";
 const Expenses = ({ open, setOpen }) => {
   const [search, setSearch] = useState("");
   return (
-    <>
+    <Container open={open}>
       <div className="around_one">
         <div className="around_user">
           <h2>Expenses</h2>
@@ -86,7 +86,7 @@ const Expenses = ({ open, setOpen }) => {
           </div>
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 

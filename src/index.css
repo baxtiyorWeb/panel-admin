@@ -24,3 +24,79 @@ html {
   justify-content: flex-end;
 }
 
+.togglebtn {
+  width: 64px;
+  height: 35px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #949494a7;
+  cursor: pointer;
+}
+
+.togglebtn:nth-child(1) {
+  background: #6777ef;
+  color: #ffff;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.togglebtn:nth-child(2) {
+  color: #000;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #ffffff;
+}
+
+.light-dark {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.light-dark:nth-child(1) {
+  background: #6777ef;
+  color: #ffffff;
+}
+
+.light-dark:nth-child(2) {
+  border: 1px solid #b8b8b8dc;
+}
+.colors {
+  display: flex;
+  align-items: center;
+}
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid #000;
+  margin: 5px;
+  cursor: pointer;  
+}
+.circle:nth-child(1){
+  background: gray;
+}
+.circle:nth-child(2){
+  background: #3DC7BE;
+}
+.circle:nth-child(3){
+  background: black;
+}
+.circle:nth-child(4){
+  background: #0000FF;
+}
+.circle:nth-child(5){
+  background: darkorange;
+}
+.circle:nth-child(6){
+  background: green;
+}
+.circle:nth-child(7){
+  background: #EA5455;
+}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Container from "../shared/Container";
 import "./Enquiries.css";
 import { Link } from "react-router-dom";
 import { ref, set } from "firebase/database";
@@ -42,7 +41,7 @@ const AddForm = ({ open, setOpen }) => {
       <form className="chart-progress" onSubmit={(e) => sendForm(e)}>
         <div className="add-link">
           <h1>Enquiry Form</h1>
-          <Link to="enquiries">Enquiries list</Link>
+          <Link to="/enquiries">Enquiries list</Link>
         </div>
         <div className="input-box">
           <div className="name">

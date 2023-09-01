@@ -7,11 +7,11 @@ const Container = ({ children, open }) => {
         style={
           !open
             ? {
-                width: "83.5%",
+                width: "84.5%",
                 transition: "0.3s ease",
               }
             : {
-                width: "90%",
+                width: "94%",
                 transition: "0.3s ease",
               }
         }

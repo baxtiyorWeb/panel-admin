@@ -19,7 +19,7 @@ import styles from "./sidebar.module.scss";
 import { useState } from "react";
 import { GiOpenBook } from "react-icons/gi";
 // eslint-disable-next-line react/prop-types
-export const SidebarLinks = ({ open }) => {
+export const SidebarLinks = ({ open, dark }) => {
   const [students, setstudents] = useState(false);
   const [batch, setBach] = useState(false);
   const [events, setEvents] = useState(false);
@@ -31,10 +31,10 @@ export const SidebarLinks = ({ open }) => {
 
   return (
     <div className={"wrapper"}>
-      <div className="side-links">
+      <div className="side-links" style={{ color: dark }}>
         <NavLink
           className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to="/home"
+          to="/"
         >
           <IoHomeSharp className={"link"} />
           <span>Dashboard</span>
@@ -277,7 +277,7 @@ export const SidebarLinks = ({ open }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink  to="/settings/users">
+            <NavLink to="/settings/users">
               <GiOpenBook />
               <span>Users</span>
             </NavLink>

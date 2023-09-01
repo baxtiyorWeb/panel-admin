@@ -2,18 +2,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BiFullscreen } from "react-icons/bi";
 import { Input } from "../search/Input";
 import { useState } from "react";
-
+import React, { useCallback } from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 // eslint-disable-next-line react/prop-types
 const Navigation = ({ open, setOpen }) => {
-  const [full, setFull] = useState(false);
+ 
 
-  function fullscreen() {
-    if (full) {
-      setFull(document.body.requestFullscreen());
-    } else {
-      setFull(!full);
-    }
-  }
 
   return (
     <div className={!open ? "navigation" : "navigation-hide"}>
@@ -23,7 +17,7 @@ const Navigation = ({ open, setOpen }) => {
         </div>
 
         <div className="full-screen">
-          <BiFullscreen onClick={fullscreen} />
+          <BiFullscreen onClick={handle.enter} />
         </div>
         <Input />
       </div>

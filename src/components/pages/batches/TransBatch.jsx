@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import "./TransBatch.css";
+import { Link } from "react-router-dom";
 const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
@@ -13,7 +14,17 @@ const ColorStyle = {
 const Transferbatch = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   return (
-    <div>
+    <>
+      <div className="around_one">
+        <div className="around_user">
+          <h2>Transfer Batch</h2>
+        </div>
+        <div className="around_of">
+          <Link>Dashboard</Link>/<Link>Transfer</Link>/<Link>Temp</Link>
+        </div>
+      </div>
+      <br />
+      <br />
       <h4>Transfer Batch Form</h4>
       <div className="select_op_">
         <div className="select_op">
@@ -41,7 +52,7 @@ const Transferbatch = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

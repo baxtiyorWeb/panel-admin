@@ -24,7 +24,24 @@ body {
   overflow: auto;
   transition: 0.3s ease;
 }
+.sidebar::-webkit-scrollbar {
+  scroll-behavior: smooth;
+  width: 8px;
+}
+.sidebar:hover::-webkit-scrollbar-corner {
+  scroll-behavior: smooth;
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-button {
+  scroll-behavior: smooth;
+  width: 5px;
+}
 
+.sidebar::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: #686868;
+  border-radius: 5px;
+}
 .hide-sidebar {
   width: 5%;
   height: 100vh;
@@ -51,7 +68,6 @@ body {
 .hide-sidebar .side-links ul {
   display: none;
 }
-
 
 .hide-sidebar .side-links {
   position: relative;
@@ -83,9 +99,8 @@ body {
   padding: 10px;
   color: rgba(53, 53, 53, 0.7);
   font-size: 30px;
+  color: #757c84;
 }
-
-
 
 .side-links {
   display: flex;
@@ -100,8 +115,8 @@ body {
 .link {
   margin-right: 10px;
   margin-left: 10px;
-  color: #60686f;
-  font-size: 16px;
+  color: #757c84;
+  font-size: 23px;
 }
 
 .hide-sidebar .side-links {
@@ -121,6 +136,7 @@ body {
   display: flex;
   justify-content: end;
   box-shadow: 0 10px 15px 1px #a0aec0;
+  color: #757c84;
   padding: 12px 12px;
 }
 
@@ -131,7 +147,6 @@ body {
   display: flex;
   justify-content: center;
 }
-
 
 .header-hide-block {
   width: 90%;
@@ -152,7 +167,6 @@ body {
   padding: 0 12px 0 12px;
   transition: 0.3s ease;
 }
-
 
 /* flex items-center justify-center h-full */
 

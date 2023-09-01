@@ -81,7 +81,7 @@ const Main = ({ open }) => {
           </div>
         </div>
         <Block open={open} />
-        <Chart />
+        <Chart open={open} />
         <Progress />
       </div>
     </Container>

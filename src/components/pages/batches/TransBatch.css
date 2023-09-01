@@ -1,7 +1,12 @@
 
 
-.select_op{
+.select_op_{
     width: 482px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:60px;
 }
 
 .select_op_time{

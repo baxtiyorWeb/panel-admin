@@ -26,7 +26,7 @@ import Designation from "./components/pages/masters/Designation";
 import EnquiereStatus from "./components/pages/masters/EnquiereStatus";
 import ExpenseCategory from "./components/pages/masters/ExpenseCategory";
 import Guestst from "./components/pages/masters/Guestst";
-import CollectFree from "./components/pages/CollectFree";
+import CollectFree from "./components/pages/CollectFee";
 import Payroll from "./components/pages/Payroll";
 import Expenses from "./components/pages/Expenses";
 import Reportslayout from "./components/layout/ReportsLayout";
@@ -44,12 +44,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout open={open} setOpen={setOpen} />}>
           <Route path="/" element={<Main open={open} setOpen={setOpen} />} />
-          <Route
-            path="/home"
-            element={<Main />}
-            open={open}
-            setOpen={setOpen}
-          />
+         
           <Route
             path="/enquiries"
             element={<Enqueries open={open} setOpen={setOpen} />}
@@ -118,9 +113,9 @@ const App = () => {
             />
             <Route path="/master/Guests" element={<Guestst />} />
           </Route>
-          <Route path="/collect" element={<CollectFree />} />
-          <Route path="/payroll" element={<Payroll />} />
-          <Route path="/expenses" element={<Expenses />} />
+          <Route path="/collect" element={<CollectFree open={open} />} />
+          <Route path="/payroll" element={<Payroll open={open} />} />
+          <Route path="/expenses" element={<Expenses open={open} />} />
           <Route path="/reports" element={<Reportslayout />}>
             <Route path="/reports/fee-reports" element={<FeeReports />} />
             <Route
