@@ -55,7 +55,6 @@ body {
   bottom: 0;
   z-index: 10;
   background: #ffffff;
-  overflow: scroll;
   transition: 0.3s ease;
 }
 
@@ -79,7 +78,7 @@ body {
 
 .hide-sidebar .side-links {
   position: relative;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 .wrapper {
@@ -123,7 +122,6 @@ body {
 .link {
   margin-right: 10px;
   margin-left: 10px;
-  color: #757c84;
   width: 35px;
   height: 35px;
   padding: 8px;
@@ -181,7 +179,7 @@ body {
 }
 
 .hide-sidebar .side-links a .link {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 /* w-full h-[70px]  border bg-[#FFFFFF] flex justify-end shadow-[0px_10px_15px_1px_#a0aec0] px-3 */

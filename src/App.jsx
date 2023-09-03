@@ -36,6 +36,7 @@ import SettingsLayout from "./components/layout/SettingsLayout";
 import Currency from "./components/pages/settings/setting/Currency";
 import { Users } from "./components/pages/settings/setting/Users";
 import WebSettingsLayout from "./components/layout/WebSettingsLayout";
+import Profile from "./components/pages/profile/Profile.jsx";
 const App = () => {
   const [open, setOpen] = useState(false);
 
@@ -122,7 +123,12 @@ const App = () => {
               path="/reports/experence-reports"
               element={<ExpensesReports />}
             />
+
           </Route>
+          <Route
+              path="/profile"
+              element={<Profile open={open} />}
+          />
           <Route path="/settings" element={<SettingsLayout />}>
             <Route path="/settings/currency" element={<Currency />} />
             <Route path="/settings/users" element={<Users />} />

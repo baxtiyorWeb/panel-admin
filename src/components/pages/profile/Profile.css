@@ -1,0 +1,31 @@
+.profile-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "div1 div2 div2"
+    "div1 . ."
+    ". . .";
+}
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    border: 1px solid green;
+    width: 400px;
+    height: 400px;
+}
+
+.div2 {
+    grid-area: 2 / 3 / 3 / 2;
+    border: 1px solid blue;
+    width: 400px;
+    height: 400px;
+}
+
+.div3 {
+    grid-area: 2 / 2 / 3 / 3;
+    border: 1px solid orangered;
+    width: 400px;
+    height: 400px;
+}

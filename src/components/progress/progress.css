@@ -28,10 +28,10 @@
     top: 0;
     left: 0;
     border-radius: 50px !important;
+    box-shadow: 1px 10px 8px 1px rgba(206, 205, 205, 0.6);
 }
 
 .progress .progress_length {
-    scale: 0;
     opacity: 0;
 }
 
@@ -39,7 +39,9 @@
     height: 4px;
     position: absolute;
     top: 0;
+    border-radius: 100px;
     background: red;
+
 }
 
 .progress:hover .progress_length {
@@ -56,6 +58,13 @@
     color: #dbdbdb;
     scale: 1;
     opacity: 1;
+    transition: 0.300s ease;
+
+}
+
+.progress:hover .min-progress-path {
+    opacity: 0;
+    scale: 0;
 }
 
 .progress:hover .min-progress-path {
@@ -74,6 +83,9 @@
     justify-content: center;
     align-items: center;
     color: #dbdbdb;
+    scale: 1;
+    opacity: 1;
+    transition: 0.300s ease;
 
 }
 
@@ -131,7 +143,6 @@
     transition: all 0.3s ease;
     font-size: 18px;
 }
-
 
 
 .table > caption + thead > tr:first-child > th,

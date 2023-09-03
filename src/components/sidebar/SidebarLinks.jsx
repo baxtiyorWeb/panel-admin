@@ -48,7 +48,7 @@ export const SidebarLinks = ({open, dark}) => {
                     <span>Enquiries</span>
                 </NavLink>
                 <NavLink
-                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} ${styles.dropdown_link}`}
                     onClick={() => setstudents(!students && !batch)}
                 >
                     <FaUserFriends className={"link"}/>
@@ -56,8 +56,25 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="/students/students"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Students</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/students/active">
+                                <GiOpenBook className="book-icons"/>
+                                <div>in-Active Student</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
-                <ul className={!students ? styles.hide : styles.show}>
+                <ul className={`${!students ? styles.hide : styles.show}`}>
                     <li className="w-full border">
                         <NavLink
                             className="w-full flex items-center"
@@ -83,6 +100,23 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="/batches/batch"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Batches</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/batches/transfer">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Transfer Batch</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!batch ? styles.hide : styles.show}>
                     <li className="w-full border">
@@ -94,7 +128,7 @@ export const SidebarLinks = ({open, dark}) => {
                     <li>
                         <NavLink to="/batches/transfer">
                             <TbPlayerTrackNextFilled className="book-icons"/>
-                            <span>Transfer Batche</span>
+                            <span>Transfer Batches</span>
                         </NavLink>
                     </li>
                 </ul>
@@ -128,6 +162,23 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="/event/books"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Event booking</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/event/events">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Events</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!events ? styles.hide : styles.show}>
                     <li className="w-full border">
@@ -156,6 +207,48 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="/master/courses-category"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Course Category</div>
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to="/master/Expense-category">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Expense Category</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/master/enquierStatus">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Enquiry Status</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/master/designation">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Designation</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/master/department">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Department</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/master/Guests">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Guests</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!masters ? styles.hide : styles.show}>
                     <li className="w-full border">
@@ -214,6 +307,17 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="/payroll"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>payroll</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!hrm ? styles.hide : styles.show}>
                     <li className="w-full border">
@@ -239,6 +343,23 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="reports/fee-reports"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Fee Reports</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/reports/experence-reports">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Expense Reports</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!reports ? styles.hide : styles.show}>
                     <li className="w-full border">
@@ -248,6 +369,7 @@ export const SidebarLinks = ({open, dark}) => {
                         >
                             <GiOpenBook className="book-icons"/>
                             <span>Fee Report</span>
+
                         </NavLink>
                     </li>
                     <li>
@@ -266,6 +388,23 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={styles.drop}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="/settings/currency"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Currency</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/settings/users">
+                                <GiOpenBook className="book-icons"/>
+                                <div>Users</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!settings ? styles.hide : styles.show}>
                     <li className="w-full border">
@@ -293,18 +432,35 @@ export const SidebarLinks = ({open, dark}) => {
                     <i>
                         <RiArrowDropDownLine/>
                     </i>
+                    <ul className={`${styles.drop} ${styles.fixed}`}>
+                        <li className="w-full border">
+                            <NavLink
+                                className="w-full flex items-center"
+                                to="students"
+                            >
+                                <GiOpenBook className="book-icons"/>
+                                <div>Events</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/students/active">
+                                <GiOpenBook className="book-icons"/>
+                                <div>in-Active Student</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </NavLink>
                 <ul className={!webSettings ? styles.hide : styles.show}>
                     <li className="w-full border">
                         <NavLink className="w-full flex items-center" to="/students">
                             <GiOpenBook className="book-icons"/>
-                            <span>Batches</span>
+                            <span>Events</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink>
                             <GiOpenBook className="book-icons"/>
-                            <span>Transfer Batche</span>
+                            <span>About us</span>
                         </NavLink>
                     </li>
                 </ul>
