@@ -1,314 +1,314 @@
-import { NavLink } from "react-router-dom";
-import { IoHomeSharp } from "react-icons/io5";
+import {NavLink} from "react-router-dom";
+import {IoHomeSharp} from "react-icons/io5";
 import {
-  FaRegLightbulb,
-  FaUserFriends,
-  FaBookOpen,
-  FaGraduationCap,
-  FaPen,
-  FaSitemap,
-  FaDollarSign,
+    FaRegLightbulb,
+    FaUserFriends,
+    FaBookOpen,
+    FaGraduationCap,
+    FaPen,
+    FaSitemap,
+    FaDollarSign,
 } from "react-icons/fa";
-import { TbPlayerTrackNextFilled } from "react-icons/tb";
-import { BiSolidUserCheck, BiSolidEnvelopeOpen } from "react-icons/bi";
-import { BsCheckLg, BsFillTagFill } from "react-icons/bs";
-import { AiTwotoneFileText } from "react-icons/ai";
-import { BiSolidCog } from "react-icons/bi";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import {TbPlayerTrackNextFilled} from "react-icons/tb";
+import {BiSolidUserCheck, BiSolidEnvelopeOpen} from "react-icons/bi";
+import {BsCheckLg, BsFillTagFill} from "react-icons/bs";
+import {AiTwotoneFileText} from "react-icons/ai";
+import {BiSolidCog} from "react-icons/bi";
+import {RiArrowDropDownLine} from "react-icons/ri";
 // import { FaUserFriends  } from "react-icons/fa"
 import styles from "./sidebar.module.scss";
-import { useState } from "react";
-import { GiOpenBook } from "react-icons/gi";
+import {useState} from "react";
+import {GiOpenBook} from "react-icons/gi";
 // eslint-disable-next-line react/prop-types
-export const SidebarLinks = ({ open, dark }) => {
-  const [students, setstudents] = useState(false);
-  const [batch, setBach] = useState(false);
-  const [events, setEvents] = useState(false);
-  const [masters, setMasters] = useState(false);
-  const [hrm, setHrm] = useState(false);
-  const [reports, setReports] = useState(false);
-  const [settings, setsettings] = useState(false);
-  const [webSettings, setWebSettings] = useState(false);
+export const SidebarLinks = ({open, dark}) => {
+    const [students, setstudents] = useState(false);
+    const [batch, setBach] = useState(false);
+    const [events, setEvents] = useState(false);
+    const [masters, setMasters] = useState(false);
+    const [hrm, setHrm] = useState(false);
+    const [reports, setReports] = useState(false);
+    const [settings, setsettings] = useState(false);
+    const [webSettings, setWebSettings] = useState(false);
 
-  return (
-    <div className={"wrapper"}>
-      <div className="side-links" style={{ color: dark }}>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to="/"
-        >
-          <IoHomeSharp className={"link"} />
-          <span>Dashboard</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to="/enquiries"
-        >
-          <FaRegLightbulb className={"link"} />
-          <span>Enquiries</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setstudents(!students && !batch)}
-        >
-          <FaUserFriends className={"link"} />
-          <span>Manage Students </span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!students ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink
-              className="w-full flex items-center"
-              to="/students/students"
-            >
-              <GiOpenBook className="book-icons" />
-              <span>Students</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/students/active">
-              <GiOpenBook className="book-icons" />
-              <span>in-Active Student</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setBach(!batch && !students)}
-        >
-          <FaBookOpen className={"link"} />
-          <span>manage batch </span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!batch ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/batches/batch">
-              <GiOpenBook className="book-icons" />
-              <span>Batches</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/batches/transfer">
-              <TbPlayerTrackNextFilled className="book-icons" />
-              <span>Transfer Batche</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to={"/faculties"}
-        >
-          <BiSolidUserCheck className={"link"} />
-          <span>Faculties</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to={"Courses"}
-        >
-          <FaGraduationCap className={"link"} />
-          <span>Courses</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to={"Attendance"}
-        >
-          <BsCheckLg className={"link"} />
-          <span>Attendance</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setEvents(!events)}
-        >
-          <FaPen className={"link"} />
-          <span>Events</span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!events ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/event/books">
-              <GiOpenBook className="book-icons" />
-              <span>Event Booking</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/event/events"}>
-              <GiOpenBook className="book-icons" />
-              <span>All Events</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink className={!open ? styles.sidebar : styles.sidebar_hidebar}>
-          <BiSolidEnvelopeOpen className={"link"} />
-          <span>Email</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setMasters(!masters)}
-        >
-          <FaPen className={"link"} />
-          <span>Masters</span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!masters ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink
-              className="w-full flex items-center"
-              to="/master/courses-category"
-            >
-              <GiOpenBook className="book-icons" />
-              <span>Course Category</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/master/Expense-category"}>
-              <GiOpenBook className="book-icons" />
-              <span>Expense Category</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/master/enquierStatus">
-              <GiOpenBook className="book-icons" />
-              <span>Enquire Category</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/master/designation"}>
-              <GiOpenBook className="book-icons" />
-              <span>Designation</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/master/department"}>
-              <GiOpenBook className="book-icons" />
-              <span>Department</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/master/Guests"}>
-              <GiOpenBook className="book-icons" />
-              <span>Guests</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to="/collect"
-        >
-          <BsFillTagFill className={"link"} />
-          <span>Collect free</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setHrm(!hrm)}
-        >
-          <FaSitemap className={"link"} />
-          <span>HRM</span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!hrm ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/payroll">
-              <GiOpenBook className="book-icons" />
-              <span>payroll</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          to="/expenses"
-        >
-          <FaDollarSign className={"link"} />
-          <span>Expenses</span>
-        </NavLink>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setReports(!reports)}
-        >
-          <AiTwotoneFileText className={"link"} />
-          <span>Reports</span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!reports ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink
-              className="w-full flex items-center"
-              to="/reports/fee-reports"
-            >
-              <GiOpenBook className="book-icons" />
-              <span>Fee Report</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/reports/experence-reports"}>
-              <GiOpenBook className="book-icons" />
-              <span>Expense Report</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setsettings(!settings)}
-        >
-          <BiSolidCog className={"link"} />
-          <span>Settings</span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!settings ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink
-              className="w-full flex items-center"
-              to="/settings/currency"
-            >
-              <GiOpenBook className="book-icons" />
-              <span>Currency</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/settings/users">
-              <GiOpenBook className="book-icons" />
-              <span>Users</span>
-            </NavLink>
-          </li>
-        </ul>
-        <NavLink
-          className={!open ? styles.sidebar : styles.sidebar_hidebar}
-          onClick={() => setWebSettings(!webSettings)}
-        >
-          <BiSolidCog className={"link"} />
-          <span>Web Settings</span>
-          <i>
-            <RiArrowDropDownLine />
-          </i>
-        </NavLink>
-        <ul className={!webSettings ? styles.hide : styles.show}>
-          <li className="w-full border">
-            <NavLink className="w-full flex items-center" to="/students">
-              <GiOpenBook className="book-icons" />
-              <span>Batches</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink>
-              <GiOpenBook className="book-icons" />
-              <span>Transfer Batche</span>
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+    return (
+        <div className={"wrapper"}>
+            <div className="side-links" style={{color: dark}}>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to="/"
+                >
+                    <IoHomeSharp className={"link"}/>
+                    <span>Dashboard</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to="/enquiries"
+                >
+                    <FaRegLightbulb className={"link"}/>
+                    <span>Enquiries</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setstudents(!students && !batch)}
+                >
+                    <FaUserFriends className={"link"}/>
+                    <span>Manage Students </span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!students ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink
+                            className="w-full flex items-center"
+                            to="/students/students"
+                        >
+                            <GiOpenBook className="book-icons"/>
+                            <span>Students</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/students/active">
+                            <GiOpenBook className="book-icons"/>
+                            <span>in-Active Student</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setBach(!batch && !students)}
+                >
+                    <FaBookOpen className={"link"}/>
+                    <span>manage batch </span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!batch ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink className="w-full flex items-center" to="/batches/batch">
+                            <GiOpenBook className="book-icons"/>
+                            <span>Batches</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/batches/transfer">
+                            <TbPlayerTrackNextFilled className="book-icons"/>
+                            <span>Transfer Batche</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to={"/faculties"}
+                >
+                    <BiSolidUserCheck className={"link"}/>
+                    <span>Faculties</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to={"Courses"}
+                >
+                    <FaGraduationCap className={"link"}/>
+                    <span>Courses</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to={"Attendance"}
+                >
+                    <BsCheckLg className={"link"}/>
+                    <span>Attendance</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setEvents(!events)}
+                >
+                    <FaPen className={"link"}/>
+                    <span>Events</span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!events ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink className="w-full flex items-center" to="/event/books">
+                            <GiOpenBook className="book-icons"/>
+                            <span>Event Booking</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/event/events"}>
+                            <GiOpenBook className="book-icons"/>
+                            <span>All Events</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}>
+                    <BiSolidEnvelopeOpen className={"link"}/>
+                    <span>Email</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setMasters(!masters)}
+                >
+                    <FaPen className={"link"}/>
+                    <span>Masters</span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!masters ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink
+                            className="w-full flex items-center"
+                            to="/master/courses-category"
+                        >
+                            <GiOpenBook className="book-icons"/>
+                            <span>Course Category</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/master/Expense-category"}>
+                            <GiOpenBook className="book-icons"/>
+                            <span>Expense Category</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/master/enquierStatus">
+                            <GiOpenBook className="book-icons"/>
+                            <span>Enquire Category</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/master/designation"}>
+                            <GiOpenBook className="book-icons"/>
+                            <span>Designation</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/master/department"}>
+                            <GiOpenBook className="book-icons"/>
+                            <span>Department</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/master/Guests"}>
+                            <GiOpenBook className="book-icons"/>
+                            <span>Guests</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to="/collect"
+                >
+                    <BsFillTagFill className={"link"}/>
+                    <span>Collect free</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setHrm(!hrm)}
+                >
+                    <FaSitemap className={"link"}/>
+                    <span>HRM</span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!hrm ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink className="w-full flex items-center" to="/payroll">
+                            <GiOpenBook className="book-icons"/>
+                            <span>payroll</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    to="/expenses"
+                >
+                    <FaDollarSign className={"link"}/>
+                    <span>Expenses</span>
+                </NavLink>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setReports(!reports)}
+                >
+                    <AiTwotoneFileText className={"link"}/>
+                    <span>Reports</span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!reports ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink
+                            className="w-full flex items-center"
+                            to="/reports/fee-reports"
+                        >
+                            <GiOpenBook className="book-icons"/>
+                            <span>Fee Report</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/reports/experence-reports"}>
+                            <GiOpenBook className="book-icons"/>
+                            <span>Expense Report</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setsettings(!settings)}
+                >
+                    <BiSolidCog className={"link"}/>
+                    <span>Settings</span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!settings ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink
+                            className="w-full flex items-center"
+                            to="/settings/currency"
+                        >
+                            <GiOpenBook className="book-icons"/>
+                            <span>Currency</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/settings/users">
+                            <GiOpenBook className="book-icons"/>
+                            <span>Users</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <NavLink
+                    className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
+                    onClick={() => setWebSettings(!webSettings)}
+                >
+                    <BiSolidCog className={"link"}/>
+                    <span>Web Settings</span>
+                    <i>
+                        <RiArrowDropDownLine/>
+                    </i>
+                </NavLink>
+                <ul className={!webSettings ? styles.hide : styles.show}>
+                    <li className="w-full border">
+                        <NavLink className="w-full flex items-center" to="/students">
+                            <GiOpenBook className="book-icons"/>
+                            <span>Batches</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink>
+                            <GiOpenBook className="book-icons"/>
+                            <span>Transfer Batche</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    );
 };
