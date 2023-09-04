@@ -66,6 +66,8 @@ body {
 
 .hide-sidebar::-webkit-scrollbar {
   display: none;
+  background: #3DC7BE;
+
 }
 
 .hide-sidebar .side-links ul {

@@ -1,17 +1,19 @@
-import { FaDesktop } from "react-icons/fa"
-import { BiEnvelope, BiUser } from "react-icons/bi"
+import {FaDesktop} from "react-icons/fa"
+import {BiEnvelope, BiUser} from "react-icons/bi"
+
 export const UserAbout = () => {
     return (
         <div className="user-block">
             <div className="desktop-icon">
-                <FaDesktop />
+                <FaDesktop/>
             </div>
             <div className="envelope-icon">
-                <BiEnvelope />
+                <BiEnvelope/>
             </div>
             <div className="user-icon">
-                <BiUser />
+                <BiUser/>
             </div>
+
         </div>
     )
 }
