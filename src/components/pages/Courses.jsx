@@ -57,11 +57,11 @@ const Courses = ({open, setOpen}) => {
                     <th>Action</th>
                   </tr>
                 </thead>
+                      <tbody key={item.id}>
                 {Courses_time
                   .filter((users) => users.title.toLowerCase().includes(search))
                   .map((item) => {
                     return (
-                      <tbody key={item.id}>
                         <tr>
                           <td>{item.id}</td>
                           <td>
@@ -79,9 +79,9 @@ const Courses = ({open, setOpen}) => {
                             <span className="icons">{<item.delete />}</span>
                           </td>
                         </tr>
-                      </tbody>
                     );
                   })}
+                      </tbody>
               </table>
             </div>
           </div>

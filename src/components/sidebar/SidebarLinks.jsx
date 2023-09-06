@@ -1,39 +1,37 @@
-import {NavLink} from "react-router-dom";
-import {IoHomeSharp} from "react-icons/io5";
-import {
-    FaRegLightbulb,
-    FaUserFriends,
-    FaBookOpen,
-    FaGraduationCap,
-    FaPen,
-    FaSitemap,
-    FaDollarSign,
-} from "react-icons/fa";
-import {TbPlayerTrackNextFilled} from "react-icons/tb";
-import {BiSolidUserCheck, BiSolidEnvelopeOpen} from "react-icons/bi";
-import {BsCheckLg, BsFillTagFill} from "react-icons/bs";
-import {AiTwotoneFileText} from "react-icons/ai";
-import {BiSolidCog} from "react-icons/bi";
-import {RiArrowDropDownLine} from "react-icons/ri";
-// import { FaUserFriends  } from "react-icons/fa"
-import styles from "./sidebar.module.scss";
-import {useState} from "react";
-import {GiOpenBook} from "react-icons/gi";
-// eslint-disable-next-line react/prop-types
-export const SidebarLinks = ({open, dark}) => {
-    const [students, setstudents] = useState(false);
-    const [batch, setBach] = useState(false);
-    const [events, setEvents] = useState(false);
-    const [masters, setMasters] = useState(false);
-    const [hrm, setHrm] = useState(false);
-    const [reports, setReports] = useState(false);
-    const [settings, setsettings] = useState(false);
-    const [webSettings, setWebSettings] = useState(false);
+import { Link, NavLink } from "react-router-dom";
 
-    return (
-        <div className={"wrapper"}>
-            <div className="side-links" style={{color: dark}}>
-                <NavLink
+// import { FaUserFriends  } from "react-icons/fa"
+// import { useState } from "react";
+// import { GiOpenBook } from "react-icons/gi";
+import { DashboardMenu } from "./sidebarmap";
+// import { AiOutlineArrowDown } from "react-icons/ai";
+// eslint-disable-next-line react/prop-types
+export const SidebarLinks = ({ open, dark }) => {
+  //   const [students, setstudents] = useState(false);
+  //   const [batch, setBach] = useState(false);
+  // const [events, setEvents] = useState(false);
+  // const [masters, setMasters] = useState(false);
+  // const [hrm, setHrm] = useState(false);
+  // const [reports, setReports] = useState(false);
+  // const [settings, setsettings] = useState(false);
+  // const [webSettings, setWebSettings] = useState(false);
+
+  return (
+    <div className={"wrapper"}>
+      <div className="side-links" style={{ color: dark }}>
+        {DashboardMenu.map((item) => {
+          <div key={item.id}>
+            <NavLink to={"#"}>
+              <span>{item.id}</span>
+            </NavLink>
+          </div>;
+         })}
+      </div>
+    </div>
+  );
+};
+{
+  /* <NavLink
                     className={`${!open ? styles.sidebar : styles.sidebar_hidebar} dropdown-link`}
                     to="/"
                 >
@@ -463,8 +461,5 @@ export const SidebarLinks = ({open, dark}) => {
                             <span>About us</span>
                         </NavLink>
                     </li>
-                </ul>
-            </div>
-        </div>
-    );
-};
+                </ul> */
+}

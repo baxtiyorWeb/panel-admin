@@ -134,5 +134,10 @@
     border: 1px solid blue;
 }
 
+.vs_x{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 

@@ -82,12 +82,12 @@ const Enqueries = ({open, setOpen}) => {
                                     <th>Action</th>
                                 </tr>
                                 </thead>
+                                <tbody >
                                 {enqueryList
                                     .filter((users) => users.names.toLowerCase().includes(search))
                                     .map((item) => {
                                         return (
-                                            <tbody key={item.id}>
-                                            <tr>
+                                            <tr key={item.id}>
                                                 <td>{item.id}</td>
                                                 <td>
                                                     <Link>{item.names}</Link>
@@ -103,9 +103,9 @@ const Enqueries = ({open, setOpen}) => {
                                                     <span className="icons">{<item.delete/>}</span>
                                                 </td>
                                             </tr>
-                                            </tbody>
                                         );
                                     })}
+                                </tbody>
                             </table>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ const Profile = ({open}) => {
 
     return (<Container open={open}>
         <div className="title">
-            <h1>Profile</h1>
+        <h1>Profile</h1>
         </div>
         <div className="profile-wrapper">
             <div className="side-profile">
@@ -51,7 +51,14 @@ const Profile = ({open}) => {
                     <div onClick={() => toggleTab(2)} className={'tab'}>Settings</div>
                 </div>
                 <div className={'tabs'}>
-                    <div className={tabitem === 1 ? "tab-item-block" : "tab-item-block-hide"}>item1</div>
+                    <div className = {tabitem === 1 ? "tab-item-block" : "tab-item-block-hide"}>
+                        <div className="vs_x">
+                             <h4>Full Name</h4>
+                             <h4>Mobile</h4>
+                             <h4>Email</h4>
+                             <h4>Location</h4>
+                        </div>
+                    </div>
                     <div className={tabitem === 2 ? "tab-item-block" : "tab-item-block-hide"}>item2</div>
                 </div>
             </div>
