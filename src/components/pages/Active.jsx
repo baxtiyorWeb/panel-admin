@@ -1,9 +1,8 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {active} from "../progress/data";
-import Container from "../shared/Container";
 
-const Active = ({open, setOpen}) => {
+const Active = () => {
     const [search, setSearch] = useState("");
     // const [pagination, setPagination] = useState("");
     return (
