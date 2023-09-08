@@ -3,6 +3,7 @@ import Navigation from "./navigation/Navigation";
 
 // eslint-disable-next-line react/prop-types
 const Header = ({colors}) => {
+    
     return (
         <div
             className="header"

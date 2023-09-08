@@ -6,7 +6,6 @@ import Enqueries from "./components/pages/Enqueries";
 import Students from "./components/pages/Student";
 import EnqueiriesLayout from "./components/layout/enqueiriesLayout";
 import AddForm from "./components/pages/addEnqueries";
-import {useState} from "react";
 import {AddStudents} from "./components/pages/addStudents";
 import {StudentsLayout} from "./components/layout/StudentsLayout";
 import Active from "./components/pages/Active";
@@ -39,108 +38,108 @@ import WebSettingsLayout from "./components/layout/WebSettingsLayout";
 import Profile from "./components/pages/profile/Profile.jsx";
 
 const App = () => {
-
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={<Layout/>}>
-                    <Route path="/" element={<Main/>}/>
-
-                    <Route
-                        path="/enquiries"
-                        element={<Enqueries/>}
-                    />
-
-                    <Route
-                        path="/layout"
-                        element={<EnqueiriesLayout/>}
-                    >
-                        <Route path="/layout/addform" element={<AddForm/>}/>
-                    </Route>
-                    <Route
-                        path="/students/"
-                        element={<StudentsLayout/>}
-                    >
-                        <Route
-                            path="/students/students"
-                            element={<Students open={open}/>}
-                        />
-                        <Route
-                            path="/students/addStudent"
-                            element={<AddStudents/>}
-                        />
-                        <Route
-                            path="/students/active"
-                            element={<Active/>}
-                        />
-                    </Route>
-                    <Route
-                        path="/batches/"
-                        element={<BatchesLayout/>}
-                    >
-                        <Route path="/batches/batch" element={<Batches/>}/>
-                        <Route path="/batches/transfer" element={<Transferbatch/>}/>
-                    </Route>
-                    <Route
-                        path="/faculties"
-                        element={<Faculties/>}
-                    />
-                    <Route
-                        path="/Courses"
-                        element={<Courses/>}
-                    />
-                    <Route
-                        path="/Attendance"
-                        element={<Attendies/>}
-                    />
-                    <Route
-                        path="/event"
-                        element={<EventsLayout/>}
-                    >
-                        <Route path="/event/books" element={<EventBooking/>}/>
-                        <Route path="/event/events" element={<Events/>}/>
-                    </Route>
-                    <Route path="/master" element={<MasterLayout/>}>
-                        <Route
-                            path="/master/courses-category"
-                            element={<CourseCategory/>}
-                        />
-                        <Route path="/master/department" element={<Department/>}/>
-                        <Route path="/master/designation" element={<Designation/>}/>
-                        <Route path="/master/enquierStatus" element={<EnquiereStatus/>}/>
-                        <Route
-                            path="/master/Expense-category"
-                            element={<ExpenseCategory/>}
-                        />
-                        <Route path="/master/Guests" element={<Guestst/>}/>
-                    </Route>
-                    <Route path="/collect" element={<CollectFree open={open}/>}/>
-                    <Route path="/payroll" element={<Payroll open={open}/>}/>
-                    <Route path="/expenses" element={<Expenses open={open}/>}/>
-                    <Route path="/reports" element={<Reportslayout/>}>
-                        <Route path="/reports/fee-reports" element={<FeeReports/>}/>
-                        <Route
-                            path="/reports/experence-reports"
-                            element={<ExpensesReports/>}
-                        />
-
-                    </Route>
-                    <Route
-                        path="/profile"
-                        element={<Profile open={open}/>}
-                    />
-                    <Route path="/settings" element={<SettingsLayout/>}>
-                        <Route path="/settings/currency" element={<Currency/>}/>
-                        <Route path="/settings/users" element={<Users/>}/>
-                    </Route>
-                    <Route path="/websettings" element={<WebSettingsLayout/>}>
-                        <Route path="/websettings/currency" element={<Currency/>}/>
-                        <Route path="/websettings/users" element={<Users/>}/>
-                    </Route>
-                </Route>
-            </Routes>
-        </>
-    );
+	
+	return (
+		<>
+			<Routes>
+				<Route path="/" element={<Layout/>}>
+					<Route path="/" element={<Main/>}/>
+					
+					<Route
+						path="/enquiries"
+						element={<Enqueries/>}
+					/>
+					
+					<Route
+						path="/layout"
+						element={<EnqueiriesLayout/>}
+					>
+						<Route path="/layout/addform" element={<AddForm/>}/>
+					</Route>
+					<Route
+						path="/students/"
+						element={<StudentsLayout/>}
+					>
+						<Route
+							path="/students/students"
+							element={<Students open={open}/>}
+						/>
+						<Route
+							path="/students/addStudent"
+							element={<AddStudents/>}
+						/>
+						<Route
+							path="/students/active"
+							element={<Active/>}
+						/>
+					</Route>
+					<Route
+						path="/batches/"
+						element={<BatchesLayout/>}
+					>
+						<Route path="/batches/batch" element={<Batches/>}/>
+						<Route path="/batches/transfer" element={<Transferbatch/>}/>
+					</Route>
+					<Route
+						path="/faculties"
+						element={<Faculties/>}
+					/>
+					<Route
+						path="/Courses"
+						element={<Courses/>}
+					/>
+					<Route
+						path="/Attendance"
+						element={<Attendies/>}
+					/>
+					<Route
+						path="/event"
+						element={<EventsLayout/>}
+					>
+						<Route path="/event/books" element={<EventBooking/>}/>
+						<Route path="/event/events" element={<Events/>}/>
+					</Route>
+					<Route path="/master" element={<MasterLayout/>}>
+						<Route
+							path="/master/courses-category"
+							element={<CourseCategory/>}
+						/>
+						<Route path="/master/department" element={<Department/>}/>
+						<Route path="/master/designation" element={<Designation/>}/>
+						<Route path="/master/enquierStatus" element={<EnquiereStatus/>}/>
+						<Route
+							path="/master/Expense-category"
+							element={<ExpenseCategory/>}
+						/>
+						<Route path="/master/Guests" element={<Guestst/>}/>
+					</Route>
+					<Route path="/collect" element={<CollectFree open={open}/>}/>
+					<Route path="/payroll" element={<Payroll open={open}/>}/>
+					<Route path="/expenses" element={<Expenses open={open}/>}/>
+					<Route path="/reports" element={<Reportslayout/>}>
+						<Route path="/reports/fee-reports" element={<FeeReports/>}/>
+						<Route
+							path="/reports/experence-reports"
+							element={<ExpensesReports/>}
+						/>
+					
+					</Route>
+					<Route
+						path="/profile"
+						element={<Profile open={open}/>}
+					/>
+					<Route path="/settings" element={<SettingsLayout/>}>
+						<Route path="/settings/currency" element={<Currency/>}/>
+						<Route path="/settings/users" element={<Users/>}/>
+					</Route>
+					<Route path="/websettings" element={<WebSettingsLayout/>}>
+						<Route path="/websettings/currency" element={<Currency/>}/>
+						<Route path="/websettings/users" element={<Users/>}/>
+					</Route>
+				</Route>
+			</Routes>
+		</>
+	);
 };
 
 export default App;

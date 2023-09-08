@@ -8,14 +8,14 @@ const options = [
   { value: "strawberry", label: "Strawberry" },
   { value: "vanilla", label: "Vanilla" },
 ];
-const CollectFree = ({ open }) => {
+const CollectFree = () => {
   const ColorStyle = {
     control: (styles) => ({ ...styles, width: "482px" }),
   };
 
   const [selectedOption, setSelectedOption] = useState(null);
   return (
-    <Container open={open}>
+    <Container >
         <div className="around_one">
           <div className="around_user">
             <h2>Transfer Batch</h2>

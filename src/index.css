@@ -129,7 +129,7 @@ aside:hover ::-webkit-scrollbar {
 
 aside:hover ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 
 aside:hover ::-webkit-scrollbar-thumb {

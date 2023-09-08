@@ -1,5 +1,4 @@
 import "./Chart.css";
-import {useState} from "react";
 
 const Chart = () => {
     return (<div>
