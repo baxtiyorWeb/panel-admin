@@ -33,7 +33,7 @@ export const SideBarLinks = ({dark}) => {
 			zIndex: "99999",
 			height: "100vh"
 		}} width={'15%'}
-		         defaultCollapsed={true}
+		defaultCollapsed={true}
 		
 		>
 			<Menu>
@@ -43,9 +43,9 @@ export const SideBarLinks = ({dark}) => {
 					className={
 						!toggle
 							?
-							'mb-10 relative left-[25px] text-white transition-opacity text-[#1E90FFFF] from-cyan-500 to-blue-500 '
+							'mb-10 relative left-[25px] text-white transition-opacity text-[#1E90ffff] from-cyan-500 to-blue-500 '
 							:
-							" mb-10 relative left-[240px] text-[#1E90FFFF] to-[#7272fa] text-white"}
+							" mb-10 relative left-[240px] text-[#1E90ffff] to-[#7272fa] text-white"}
 					style={{
 						transition: "100ms ease-in-out", marginTop: "15px", cursor: "pointer",
 						width: "30px",
@@ -92,9 +92,11 @@ export const SideBarLinks = ({dark}) => {
 				</SubMenu>
 				<MenuItem icon={<BsFillTagFill/>} className={'menus-style'}> Collect Fee </MenuItem>
 				<SubMenu label="HRM" icon={<FaSitemap/>} className={'menus-style'}>
-					<MenuItem className={'menus-style'} component={<NavLink to={'/payroll'}></NavLink>}> Payroll </MenuItem>
+					<MenuItem className={'menus-style'}
+					          component={<NavLink to={'/payroll'}></NavLink>}> Payroll </MenuItem>
 				</SubMenu>
-				<MenuItem icon={<BsCurrencyDollar/>} className={'menus-style'} component={<NavLink to={'/expenses'}></NavLink>}> Expenses </MenuItem>
+				<MenuItem icon={<BsCurrencyDollar/>} className={'menus-style'}
+				          component={<NavLink to={'/expenses'}></NavLink>}> Expenses </MenuItem>
 				<SubMenu label='Reports' icon={<AiFillFile/>} className={'menus-style'}>
 					<MenuItem component={<NavLink to={'/reports/fee-reports'}></NavLink>}> Fee Report </MenuItem>
 					<MenuItem component={<NavLink to={'/reports/experence-reports'}></NavLink>}> Expense
