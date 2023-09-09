@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 
 export const Progress = () => {
     return (
-        <div className="chart-progress">
+        <div className="chart-progress dark:bg-[#353C48]">
             <div id="demo">
                 <div>
-                    <div className="chart-progress">
+                    <div className="chart-progress dark:bg-[#353C48]">
                         <div id="demo">
                             <div>
-                                <div className="table-responsive-vertical shadow-z-1">
+                                <div className="table-responsive-vertical shadow-z-1 dark:bg-[#353C48]">
                                     <table
                                         id="table"
                                         className="table table-hover table-mc-light-blue"
@@ -30,7 +30,7 @@ export const Progress = () => {
                                         <tbody>
                                         {progress.map((item) => {
                                             return (
-                                                <tr key={item.id}>
+                                                <tr key={item.id} className={'even:dark:bg-[#323844]'}>
                                                     <td>{item.id}</td>
                                                     <td>
                                                         <Link to="#">{item.link}</Link>
@@ -38,9 +38,9 @@ export const Progress = () => {
                                                     <td>{item.title}</td>
                                                     <td>{item.students}</td>
                                                     <td>
-                                                        <div className="progress">
+                                                        <div className="progress ">
                                                             <div className="min-progress">
-                                                                <div className="progress_length">
+                                                                <div className="progress_length ">
                                                                     {item.students_progress}
                                                                 </div>
                                                                 <div

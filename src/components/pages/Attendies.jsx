@@ -1,10 +1,10 @@
 import React from "react";
 import Container from "../shared/Container";
 
-const Attendies = ({open, setOpen}) => {
+const Attendies = () => {
   return (
     <Container open={open} setOpen={setOpen}>
-      <div className="chart-progress">
+      <div className="chart-progress dark:bg-[#353C48]">
         
       </div>
     </Container>

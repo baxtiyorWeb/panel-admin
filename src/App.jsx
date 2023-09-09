@@ -1,8 +1,6 @@
 import {Route, Routes} from "react-router-dom";
 import "./App.css";
 import Layout from "./components/layout/Layout";
-import Main from "./components/main/Main";
-import Enqueries from "./components/pages/Enqueries";
 import Students from "./components/pages/Student";
 import EnqueiriesLayout from "./components/layout/enqueiriesLayout";
 import AddForm from "./components/pages/addEnqueries";
@@ -36,18 +34,30 @@ import Currency from "./components/pages/settings/setting/Currency";
 import {Users} from "./components/pages/settings/setting/Users";
 import WebSettingsLayout from "./components/layout/WebSettingsLayout";
 import Profile from "./components/pages/profile/Profile.jsx";
+import {lazy, Suspense} from "react";
+
+const Main = lazy(() => import("./components/main/Main"))
+const Enqueries = lazy(() => import("./components/pages/Enqueries.jsx"))
 
 const App = () => {
 	
 	return (
-		<>
+		
 			<Routes>
 				<Route path="/" element={<Layout/>}>
-					<Route path="/" element={<Main/>}/>
+					<Route path="/" element={
+						<Suspense fallback={<>loading....</>}>
+							<Main />
+						</Suspense>
+					}/>
 					
 					<Route
 						path="/enquiries"
-						element={<Enqueries/>}
+						element={
+							<Suspense fallback={<div className={'h-screen w-screen bg-black'}>loading....</div>}>
+								<Enqueries />
+							</Suspense>
+						}
 					/>
 					
 					<Route
@@ -138,8 +148,7 @@ const App = () => {
 					</Route>
 				</Route>
 			</Routes>
-		</>
-	);
+	)
 };
 
 export default App;

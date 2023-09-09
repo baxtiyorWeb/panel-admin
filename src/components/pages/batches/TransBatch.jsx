@@ -33,6 +33,7 @@ const Transferbatch = () => {
             onChange={setSelectedOption}
             options={options}
             styles={ColorStyle}
+            className={'dark:bg-transparent'}
           />
         </div>
         <div className="select_op">

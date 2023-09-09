@@ -7,7 +7,7 @@ const Container = ({children}) => {
                 style={
 
                     {
-                        width: "95.5%",
+                        width: "84.5%",
                         transition: "0.3s ease",
                         padding: "15px"
                     }

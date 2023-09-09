@@ -12,18 +12,6 @@ import {NavLink} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export const SideBarLinks = ({dark}) => {
-	const {collapseSidebar} = useProSidebar();
-	const [toggle, setToggle] = useState(false)
-	
-	function collapses() {
-		if (!toggle) {
-			setToggle(true)
-			collapseSidebar()
-		} else {
-			setToggle(false)
-			collapseSidebar()
-		}
-	}
 	
 	return (
 		<Sidebar style={{
@@ -33,29 +21,13 @@ export const SideBarLinks = ({dark}) => {
 			zIndex: "99999",
 			height: "100vh"
 		}} width={'15%'}
-		defaultCollapsed={true}
 		
 		>
-			<Menu>
+			<Menu className={'dark:bg-[#353C48] h-[100vh] fixed w-[15%]'}>
 				
-				<MenuRoundedIcon
-					onClick={collapses}
-					className={
-						!toggle
-							?
-							'mb-10 relative left-[25px] text-white transition-opacity text-[#1E90ffff] from-cyan-500 to-blue-500 '
-							:
-							" mb-10 relative left-[240px] text-[#1E90ffff] to-[#7272fa] text-white"}
-					style={{
-						transition: "100ms ease-in-out", marginTop: "15px", cursor: "pointer",
-						width: "30px",
-						height: "30px",
-						padding: "3px",
-						borderRadius: "10px"
-					}}
-				/>
+				<div className={'mb-24'}></div>
 				
-				<MenuItem icon={<HomeRoundedIcon/>} className={'menus-style'}
+				<MenuItem icon={<HomeRoundedIcon/>} className={'menus-style focus:dark:bg-[#2A303A]'}
 				          component={<NavLink to={"/"}></NavLink>}> Dashboard </MenuItem>
 				<MenuItem icon={<HiOutlineLightBulb/>} className={'menus-style'}
 				          component={<NavLink to={'/enquiries'}></NavLink>}> Enquiries </MenuItem>

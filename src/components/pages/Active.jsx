@@ -7,7 +7,7 @@ const Active = () => {
     // const [pagination, setPagination] = useState("");
     return (
         <>
-            <div className="dashboard-user">
+            <div className="dashboard-user ">
                 <div className="fruit">
                     <h2>Students</h2>
                 </div>
@@ -15,7 +15,7 @@ const Active = () => {
                     <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
                 </div>
             </div>
-            <div className="chart-progress">
+            <div className="chart-progress dark:bg-[#353C48]">
                 <div className="add-link">
                     <h1>Student List</h1>
                     <Link to="/layout/addform">add enquirie</Link>
@@ -60,7 +60,7 @@ const Active = () => {
                                     .filter((users) => users.title.toLowerCase().includes(search))
                                     .map((item) => {
                                         return (
-                                            <tr key={item.id}>
+                                            <tr key={item.id} className={'even:dark:bg-[#313843]'}>
                                                 <td>{item.id}</td>
                                                 <td>
                                                     <Link to={"#"}>{item.freeCollected}</Link>

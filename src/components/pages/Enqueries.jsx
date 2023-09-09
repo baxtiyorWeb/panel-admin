@@ -7,7 +7,7 @@ import {enqueryList} from "../progress/data";
 // import { db } from "../../firebase/firebase";
 // import { uid } from "uid";
 // eslint-disable-next-line react/prop-types
-const Enqueries = ({open, setOpen}) => {
+const Enqueries = () => {
     // const [read, setRead] = useState([]);
     //   const [page, setPage] = useState(11);
     // const uuid = uid();
@@ -28,8 +28,8 @@ const Enqueries = ({open, setOpen}) => {
     const [search, setSearch] = useState("");
     console.log(search);
     return (
-        <Container open={open} setOpen={setOpen}>
-            <div className="dashboard-user">
+        <Container >
+            <div className="dashboard-user ">
                 <div
                     className="fruit"
                     style={{
@@ -38,11 +38,11 @@ const Enqueries = ({open, setOpen}) => {
                 >
                     <h2>Enquiries</h2>
                 </div>
-                <div className="fruit-user">
+                <div className="fruit-user dark:bg-[#353C48]">
                     <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
                 </div>
             </div>
-            <div className="chart-progress">
+            <div className="chart-progress dark:bg-[#353C48]">
                 <div className="add-link">
                     <h1>Enquiries</h1>
                     <Link to="/layout/addform">add enquirie</Link>
@@ -50,7 +50,7 @@ const Enqueries = ({open, setOpen}) => {
                 <div className="user_blew">
                     <div className="user_blow">
                         <h4>Show</h4>
-                        <select name="name" id="select">
+                        <select name="name" id="select" className={'dark:bg-transparent'}>
                             <option className="one_more" value="name">
                                 10
                             </option>
@@ -59,10 +59,10 @@ const Enqueries = ({open, setOpen}) => {
                     </div>
                     <div className="user_input">
                         <h4>Search:</h4>
-                        <input type="text" onChange={(e) => setSearch(e.target.value)}/>
+                        <input type="text" onChange={(e) => setSearch(e.target.value)} className={'dark:bg-transparent'}/>
                     </div>
                 </div>
-                <div id="demo">
+                <div id="demo" >
                     <div>
                         <div className="table-responsive-vertical shadow-z-1">
                             <table
@@ -87,7 +87,7 @@ const Enqueries = ({open, setOpen}) => {
                                     .filter((users) => users.names.toLowerCase().includes(search))
                                     .map((item) => {
                                         return (
-                                            <tr key={item.id}>
+                                            <tr key={item.id} className={'even:dark:bg-[#313843]'}>
                                                 <td>{item.id}</td>
                                                 <td>
                                                     <Link>{item.names}</Link>

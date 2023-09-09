@@ -3,10 +3,10 @@ import Container from "../shared/Container";
 import {Link} from "react-router-dom";
 import {Courses_time} from "../progress/data";
 
-const Expenses = ({open, setOpen}) => {
+const Expenses = () => {
     const [search, setSearch] = useState("");
     return (
-        <Container open={open}>
+        <Container>
             <div className="around_one">
                 <div className="around_user">
                     <h2>Expenses</h2>
@@ -73,7 +73,7 @@ const Expenses = ({open, setOpen}) => {
                                             <td>{item.freeCollected}</td>
                                             <td>{item.number}</td>
                                             <td>{item.email_status}</td>
-                                            <td>
+                                            <td className={'td_flex'}>
                                                 <span className="icons">{<item.edit/>}</span>
                                                 <span className="icons">{<item.delete/>}</span>
                                             </td>

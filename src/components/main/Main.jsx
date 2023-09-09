@@ -25,8 +25,8 @@ const Main = ({open}) => {
 				</div>
 			</div>
 			
-			<div className="top_chart">
-				<div className="blocks flex flex-col items-start justify-between">
+			<div className="top_chart ">
+				<div className="blocks flex flex-col items-start justify-between dark:bg-[#353C48]">
 					<div className={'flex  h-[80%] w-full justify-between items-center p-3'}>
 						<div>
 							<h4 className="title">
@@ -50,7 +50,7 @@ const Main = ({open}) => {
 				
 				
 				</div>
-				<div className="blocks flex flex-col items-start justify-between">
+				<div className="blocks flex flex-col items-start justify-between dark:bg-[#353C48]">
 					<div className={'flex  h-[80%] w-full justify-between items-center p-3'}>
 						<div>
 							<h4 className="title">
@@ -74,7 +74,7 @@ const Main = ({open}) => {
 				
 				
 				</div>
-				<div className="blocks flex flex-col items-start justify-between">
+				<div className="blocks flex flex-col items-start justify-between dark:bg-[#353C48]">
 					<div className={'flex  h-[80%] w-full justify-between items-center p-3'}>
 						<div>
 							<h4 className="title">
