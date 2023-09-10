@@ -27,10 +27,8 @@ export const SideBarLinks = ({dark}) => {
 				
 				<div className={'mb-24'}></div>
 				
-				<MenuItem icon={<HomeRoundedIcon/>} className={'menus-style focus:dark:bg-[#2A303A]'}
-				          component={<NavLink to={"/"}></NavLink>}> Dashboard </MenuItem>
-				<MenuItem icon={<HiOutlineLightBulb/>} className={'menus-style'}
-				          component={<NavLink to={'/enquiries'}></NavLink>}> Enquiries </MenuItem>
+				<MenuItem icon={<HomeRoundedIcon/>} className={'menus-style focus:dark:bg-[#2A303A]'}  component={<NavLink to={"/"}></NavLink>}> Dashboard </MenuItem>
+				<MenuItem icon={<HiOutlineLightBulb/>} className={'menus-style'}  component={<NavLink to={'/enquiries'}></NavLink>}> Enquiries </MenuItem>
 				<SubMenu label="Manage Students" icon={<HiUsers/>} className={'menus-style'}>
 					<MenuItem component={<NavLink to={'/students/students'}></NavLink>}> Students</MenuItem>
 					<MenuItem component={<NavLink to={'/students/active'}></NavLink>}>In-Active Students</MenuItem>
@@ -42,12 +40,9 @@ export const SideBarLinks = ({dark}) => {
 					<MenuItem className={'menus-style'} component={<NavLink to={'/batches/transfer'}></NavLink>}>Transfer
 						Batch</MenuItem>
 				</SubMenu>
-				<MenuItem icon={<BiSolidUserCheck/>} className={'menus-style'}
-				          component={<NavLink to={'/faculties'}></NavLink>}>Faculties</MenuItem>
-				<MenuItem icon={<FaGraduationCap/>} className={'menus-style'}
-				          component={<NavLink to={'/Courses'}></NavLink>}>Courses</MenuItem>
-				<MenuItem icon={<BiCheck/>} className={'menus-style'}
-				          component={<NavLink to={'/Attendance'}></NavLink>}>Attendance</MenuItem>
+				<MenuItem icon={<BiSolidUserCheck/>} className={'menus-style'} component={<NavLink to={'/faculties'}></NavLink>}>Faculties</MenuItem>
+				<MenuItem icon={<FaGraduationCap/>} className={'menus-style'} component={<NavLink to={'/Courses'}></NavLink>}>Courses</MenuItem>
+				<MenuItem icon={<BiCheck/>} className={'menus-style'} component={<NavLink to={'/Attendance'}></NavLink>}>Attendance</MenuItem>
 				<SubMenu label="Events" icon={<BiSolidPencil/>} className={'menus-style'}>
 					<MenuItem component={<NavLink to={'/event/books'}></NavLink>}> Event Booking </MenuItem>
 					<MenuItem component={<NavLink to={'/event/events'}></NavLink>}> All Events </MenuItem>
@@ -64,11 +59,9 @@ export const SideBarLinks = ({dark}) => {
 				</SubMenu>
 				<MenuItem icon={<BsFillTagFill/>} className={'menus-style'}> Collect Fee </MenuItem>
 				<SubMenu label="HRM" icon={<FaSitemap/>} className={'menus-style'}>
-					<MenuItem className={'menus-style'}
-					          component={<NavLink to={'/payroll'}></NavLink>}> Payroll </MenuItem>
+					<MenuItem className={'menus-style'}  component={<NavLink to={'/payroll'}></NavLink>}> Payroll </MenuItem>
 				</SubMenu>
-				<MenuItem icon={<BsCurrencyDollar/>} className={'menus-style'}
-				          component={<NavLink to={'/expenses'}></NavLink>}> Expenses </MenuItem>
+				<MenuItem icon={<BsCurrencyDollar/>} className={'menus-style'} component={<NavLink to={'/expenses'}></NavLink>}> Expenses </MenuItem>
 				<SubMenu label='Reports' icon={<AiFillFile/>} className={'menus-style'}>
 					<MenuItem component={<NavLink to={'/reports/fee-reports'}></NavLink>}> Fee Report </MenuItem>
 					<MenuItem component={<NavLink to={'/reports/experence-reports'}></NavLink>}> Expense

@@ -6,7 +6,7 @@ import Container from "../shared/Container";
 const SettingsLayout = ({ open, setOpen }) => {
   return (
     <Container open={open} setOpen={setOpen}>
-      <div className="chart-progress">
+      <div className="chart-progress dark:bg-[#353c48]">
         <Outlet />
       </div>
     </Container>

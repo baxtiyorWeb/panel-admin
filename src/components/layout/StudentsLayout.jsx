@@ -9,7 +9,7 @@ export const StudentsLayout = ({ open, setOpen }) => {
   return (
     <Container open={open} setOpen={setOpen}>
         <div className="around_one">
-            <div className="around_user  dark:bg-transparent dark:text-[#6c756c]">
+            <div className="around_user  dark:text-[#96a2b4] text-[25px]">
                 <h2>Students</h2>
             </div>
             <div className="around_of dark:bg-[#353C48]">

@@ -9,9 +9,9 @@ const ThemeToggle = () => {
 	}
 	
 	return (
-			<div className="light-dark w-[80px] h-[80px] border rounded-[100%]" onClick={changeTheme}>
-				{theme === 'dark' ? <FaSun /> : <FaMoon />}
-			</div>
+		<div className="light-dark w-[30px] h-[30px] rounded-[100%]" onClick={changeTheme}>
+			{theme === 'dark' ? <FaSun/> : <FaMoon/>}
+		</div>
 	)
 }
 export default ThemeToggle

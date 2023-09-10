@@ -6,15 +6,8 @@ export const FeeReports = () => {
 	const [search, setSearch] = useState("");
 	return (
 		<>
-			<div className="around_one">
-				<div className="around_user">
-					<h2>Fee reports</h2>
-				</div>
-				<div className="around_of">
-					<Link>Dashboard</Link>/<Link>Course</Link>/<Link>Temp</Link>
-				</div>
-			</div>
-			<div className="chart-progress">
+			
+			<div className="chart-progress dark:bg-[#353c48]">
 				<div className="add-link">
 					<h1>Fee reports List</h1>
 					<Link to="/students/addStudent">add Expenses</Link>
@@ -22,7 +15,7 @@ export const FeeReports = () => {
 				<div className="user_blew">
 					<div className="user_blow">
 						<h4>Show</h4>
-						<select name="name" id="select">
+						<select name="name" id="select" className={'dark:bg-[#353c48]'}>
 							<option className="one_more" value="name">
 								10
 							</option>
@@ -31,7 +24,7 @@ export const FeeReports = () => {
 					</div>
 					<div className="user_input">
 						<h4>Search:</h4>
-						<input type="text" onChange={(e) => setSearch(e.target.value)}/>
+						<input type="text" className={'dark:bg-[#353c48]'} onChange={(e) => setSearch(e.target.value)}/>
 					</div>
 				</div>
 				<div id="demo">
@@ -60,7 +53,7 @@ export const FeeReports = () => {
 									users.title.toLowerCase().includes(search)
 								).map((item) => {
 									return (
-										<tr key={item.id}>
+										<tr key={item.id} className={'even:dark:bg-[#3b4452]'}>
 											<td>{item.id}</td>
 											<td>
 												<Link to={"#"}>{item.link}</Link>

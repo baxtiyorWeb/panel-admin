@@ -31,26 +31,26 @@ const Currency = () => {
 		<>
 			<div className="dashboard-user">
 				<div
-					className="fruit"
+					className="fruit dark:text-[#96a2b4] text-[25px] font-light"
 					style={{
 						marginTop: "10px",
 					}}
 				>
 					<h2>Enquiries</h2>
 				</div>
-				<div className="fruit-user">
+				<div className="fruit-user dark:bg-[#3B4452]">
 					<Link to={'#'}>Dashboard</Link>/<Link to={'#'}>Dashboard</Link>/<Link to={"#"}>Home</Link>
 				</div>
 			</div>
-			<div className="chart-progress">
-				<div className="add-link">
+			<div className="chart-progress dark:bg-[#353c48]">
+				<div className="add-link ">
 					<h1>Enquiries</h1>
 					<Link to="/layout/addform">add enquirie</Link>
 				</div>
 				<div className="user_blew">
 					<div className="user_blow">
 						<h4>Show</h4>
-						<select name="name" id="select">
+						<select name="name" id="select" className={'dark:bg-transparent'}>
 							<option className="one_more" value="name">
 								10
 							</option>
@@ -59,7 +59,7 @@ const Currency = () => {
 					</div>
 					<div className="user_input">
 						<h4>Search:</h4>
-						<input type="text" onChange={(e) => setSearch(e.target.value)}/>
+						<input type="text" className={'dark:bg-transparent '} onChange={(e) => setSearch(e.target.value)}/>
 					</div>
 				</div>
 				<div id="demo">
@@ -87,7 +87,7 @@ const Currency = () => {
 									.filter((users) => users.names.toLowerCase().includes(search))
 									.map((item) => {
 										return (
-											<tr key={item.id}>
+											<tr key={item.id} className={'even:dark:bg-[#3B4452]'}>
 												<td>{item.id}</td>
 												<td>
 													<Link to={'#'}>{item.names}</Link>

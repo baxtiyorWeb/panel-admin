@@ -1242,5 +1242,10 @@ export const Email_function = [
     title: "Development",
     edit: LiaEdit,
     delete: MdDelete,
+  }, {
+    id: 2,
+    title: "Development",
+    edit: LiaEdit,
+    delete: MdDelete,
   },
 ];

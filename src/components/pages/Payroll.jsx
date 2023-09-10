@@ -10,14 +10,14 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 const ColorStyle = {
-  control: (styles) => ({ ...styles, width: "482px" }),
+  control: (styles) => ({ ...styles, width: "482px", background: "transparent" }),
 };
-const Payroll = ({ open }) => {
+const Payroll = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   return (
-    <Container open={open}>
-      <div className="chart-progress">
+    <Container >
+      <div className="chart-progress dark:bg-[#353C48]">
         <div className="around_one">
           <div className="around_user">
             <h2>Transfer Batch</h2>

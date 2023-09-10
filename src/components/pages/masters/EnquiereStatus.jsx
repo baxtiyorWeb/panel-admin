@@ -6,26 +6,26 @@ const EnquiereStatus = () => {
   const [search, setSearch] = useState("");
   return (
     <div>
-        <div className="div-block">
-          <h2 className="title">Add Enquiry Status</h2>
-          <input type="text" placeholder="title" />
-          <button>submit</button>
-        </div>
         <div
-          className="around_one"
+          className="around_one border-b border-b-[#3B4452] mb-5"
           style={{
-            borderBottom: "1px solid #E1E1E1",
+            
             paddingBottom: "23px",
           }}
         >
-          <div className="around_user">
+          <div className="around_user dark:text-[#96a2b4] text-[25px] ">
             <h2>Courses</h2>
           </div>
-          <div className="around_of">
-            <Link>Dashboard</Link>/<Link>Course</Link>/<Link>Temp</Link>
+          <div className="around_of dark:bg-[#3b4452]">
+            <Link to={'#'}>Dashboard</Link>/<Link to={'#'}>Course</Link>/<Link to={'#'}>Temp</Link>
           </div>
         </div>
-        <div className="chart-progress">
+        <div className="div-block border border-[#3B4452]">
+          <h2 className="title">Add Enquiry Status</h2>
+          <input type="text" placeholder="title" className={'dark:bg-[#3B4452]'} />
+          <button>submit</button>
+        </div>
+        <div className="chart-progress dark:bg-[#353c48]">
           <div className="add-link">
             <h1>Enquiry Status List</h1>
             <Link to="/students/addStudent">add Course</Link>
@@ -60,12 +60,12 @@ const EnquiereStatus = () => {
                       <th>Action</th>
                     </tr>
                   </thead>
+                      <tbody >
                   {Email_function.filter((users) =>
                     users.title.toLowerCase().includes(search)
                   ).map((item) => {
                     return (
-                      <tbody key={item.id}>
-                        <tr>
+                        <tr key={item.id} className={'even:dark:bg-[#3b4452]'}>
                           <td>{item.id}</td>
                           <td>{item.title}</td>
                           <td>{item.students}</td>
@@ -78,9 +78,9 @@ const EnquiereStatus = () => {
                             <span className="icons">{<item.delete />}</span>
                           </td>
                         </tr>
-                      </tbody>
                     );
                   })}
+                      </tbody>
                 </table>
               </div>
             </div>

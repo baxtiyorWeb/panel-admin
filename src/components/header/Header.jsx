@@ -4,7 +4,7 @@ import Navigation from "./navigation/Navigation";
 const Header = () => {
 	return (
 		<div
-			className={"header dark:bg-[#353C48]"}
+			className={"header dark:bg-[#353C48] bg-[#fff]"}
 		>
 			<div className={"header-block"}>
 				<Navigation/>

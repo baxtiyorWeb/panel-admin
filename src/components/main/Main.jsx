@@ -16,10 +16,10 @@ const Main = ({open}) => {
 		<div style={{width: "100%"}}>
 			<div>
 				<div className="top_menu">
-					<div className="box">
-						<h1>Dashboard</h1>
+					<div className="box ">
+						<h1 className={'dark:text-[#96a2b4] text-[25px]'}>Dashboard</h1>
 					</div>
-					<div className="box_2">
+					<div className="box_2 ">
 						<Link to={'/'}>Dashboard</Link>/<Link to={'/'}>Dashboard</Link>/<Link to={'#'}>Home</Link>
 					</div>
 				</div>

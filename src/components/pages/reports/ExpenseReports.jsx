@@ -6,15 +6,8 @@ export const ExpensesReports = () => {
 	const [search, setSearch] = useState("");
 	return (
 		<>
-			<div className="around_one">
-				<div className="around_user">
-					<h2>Expense reports</h2>
-				</div>
-				<div className="around_of">
-					<Link to={"#"}>Dashboard</Link>/<Link to={"#"}>Course</Link>/<Link to={"#"}>Temp</Link>
-				</div>
-			</div>
-			<div className="chart-progress">
+			
+			<div className="chart-progress dark:bg-[#353c48]">
 				<div className="add-link">
 					<h1>Fee reports List</h1>
 					<Link to="/students/addStudent">add Expenses</Link>
@@ -22,7 +15,7 @@ export const ExpensesReports = () => {
 				<div className="user_blew">
 					<div className="user_blow">
 						<h4>Show</h4>
-						<select name="name" id="select">
+						<select name="name" id="select" className={'dark:bg-transparent'}>
 							<option className="one_more" value="name">
 								10
 							</option>
@@ -31,7 +24,7 @@ export const ExpensesReports = () => {
 					</div>
 					<div className="user_input">
 						<h4>Search:</h4>
-						<input type="text" onChange={(e) => setSearch(e.target.value)}/>
+						<input type="text" className={'dark:bg-transparent'} onChange={(e) => setSearch(e.target.value)}/>
 					</div>
 				</div>
 				<div id="demo">
@@ -60,7 +53,7 @@ export const ExpensesReports = () => {
 									users.title.toLowerCase().includes(search)
 								).map((item) => {
 									return (
-										<tr>
+										<tr key={item.id} className={'even:dark:bg-[#3b4452]'}>
 											<td>{item.id}</td>
 											<td>
 												<Link to={"#"}>{item.link}</Link>

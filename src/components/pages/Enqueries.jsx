@@ -36,10 +36,10 @@ const Enqueries = () => {
                         marginTop: "10px",
                     }}
                 >
-                    <h2>Enquiries</h2>
+                    <h2 className={'dark:text-[#96a2b4] text-[25px]'}>Enquiries</h2>
                 </div>
                 <div className="fruit-user dark:bg-[#353C48]">
-                    <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
+                    <Link to={"#"}>Dashboard</Link>/<Link to={"#"}>Dashboard</Link>/<Link to={"#"}>Home</Link>
                 </div>
             </div>
             <div className="chart-progress dark:bg-[#353C48]">

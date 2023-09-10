@@ -3,136 +3,129 @@
 @tailwind utilities;
 
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    outline: none;
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	outline: none;
+	transition: 10ms ease;
 }
 
 body {
-    background: rgb(246, 246, 246);
-    height: 100%;
-    font-family: "Poppins", sans-serif;
+	background: rgb(246, 246, 246);
+	height: 100%;
+	font-family: "Poppins", sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 .main {
-    display: flex;
-    justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .togglebtn {
-    width: 64px;
-    height: 35px;
-    padding: 10px;
-    outline: none;
-    border: 1px solid #949494a7;
-    cursor: pointer;
+	width: 64px;
+	height: 35px;
+	padding: 10px;
+	outline: none;
+	border: 1px solid #949494a7;
+	cursor: pointer;
 }
 
 .togglebtn:nth-child(1) {
-    background: #6777ef;
-    color: #ffff;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+	background: #6777ef;
+	color: #ffff;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
 }
 
 .togglebtn:nth-child(2) {
-    color: #000;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: #ffffff;
+	color: #000;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background: #ffffff;
 }
 
 .light-dark {
-    margin: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 23px;
-    cursor: pointer;
+	margin: 10px;
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	cursor: pointer;
 }
 
-.light-dark:nth-child(1) {
-    background: #6777ef;
-    color: #ffffff;
-}
-
-.light-dark:nth-child(2) {
-    border: 1px solid #b8b8b8dc;
-}
 
 .colors {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    border: 1px solid #000;
-    margin: 5px;
-    cursor: pointer;
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	border: 1px solid #000;
+	margin: 5px;
+	cursor: pointer;
 }
 
 .circle:nth-child(1) {
-    background: gray;
+	background: gray;
 }
 
 .circle:nth-child(2) {
-    background: #3DC7BE;
+	background: #3DC7BE;
 }
 
 .circle:nth-child(3) {
-    background: black;
+	background: black;
 }
 
 .circle:nth-child(4) {
-    background: #0000FF;
+	background: #0000FF;
 }
 
 .circle:nth-child(5) {
-    background: darkorange;
+	background: darkorange;
 }
 
 .circle:nth-child(6) {
-    background: green;
+	background: green;
 }
 
 .circle:nth-child(7) {
-    background: #EA5455;
+	background: #EA5455;
 }
 
 .dropdown-link {
-    width: 1px;
+	width: 1px;
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
-
+	width: 5px;
+	
 }
 
 ::-webkit-scrollbar-track {
-    opacity: 0;
+	opacity: 0;
 }
 
 aside:hover ::-webkit-scrollbar {
-    width: 5px;
+	width: 5px;
 }
 
 aside:hover ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
 }
 
 aside:hover ::-webkit-scrollbar-thumb {
-    background: #878686;
-    border-radius: 10px;
+	background: #878686;
+	border-radius: 10px;
 }
