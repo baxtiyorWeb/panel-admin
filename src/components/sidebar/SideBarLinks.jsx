@@ -58,14 +58,14 @@ export const SideBarLinks = ({ dark }) => {
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem
-            className="menus-style dark:text-cyan-50"
+            className="menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/students/students"}></NavLink>}
           >
             {" "}
             Students
           </MenuItem>
           <MenuItem
-            className="menus-style dark:text-cyan-50"
+            className="menus-style dark:bg-[#3B4452]  dark:text-[#e2e6ec] "
             component={<NavLink to={"/students/active"}></NavLink>}
           >
             In-Active Students
@@ -76,12 +76,12 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BsFillBookFill />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem component={<NavLink to={"/batches/batch"}></NavLink>}>
+          <MenuItem component={<NavLink to={"/batches/batch"} className={'dark:bg-[#3B4452] dark:text-[#e2e6ec]'}></NavLink>}>
             Batches
           </MenuItem>
           <MenuItem
             className={
-              "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
+              "menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             }
             component={<NavLink to={"/batches/transfer"}></NavLink>}
           >

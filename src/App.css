@@ -327,7 +327,9 @@ body {
 	text-indent: 10px;
 	font-family: "Poppins", sans-serif;
 	color: #454d5c;
+	user-select: none;
 }
+
 
 .css-1tqrhto {
 	background: #ffffff;

@@ -4,7 +4,6 @@ import Layout from "./components/layout/Layout";
 import Students from "./components/pages/Student";
 import EnqueiriesLayout from "./components/layout/enqueiriesLayout";
 import AddForm from "./components/pages/addEnqueries";
-import {AddStudents} from "./components/pages/addStudents";
 import {StudentsLayout} from "./components/layout/StudentsLayout";
 import Active from "./components/pages/Active";
 import {BatchesLayout} from "./components/layout/BatchesLayout";
@@ -38,6 +37,7 @@ import {lazy, Suspense} from "react";
 import Main from "./components/main/Main.jsx";
 import Enqueries from "./components/pages/Enqueries.jsx";
 import AddStudent from "./components/pages/addpages/AddStudent";
+import AddBatch from "./components/pages/addpages/Addbatch";
 
 const App = () => {
 	
@@ -85,6 +85,7 @@ const App = () => {
 				>
 					<Route path="/batches/batch" element={<Batches/>}/>
 					<Route path="/batches/transfer" element={<Transferbatch/>}/>
+					<Route path="/batches/addBatch" element={<AddBatch/>}/>
 				</Route>
 				<Route
 					path="/faculties"

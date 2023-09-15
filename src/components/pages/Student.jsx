@@ -27,7 +27,7 @@ const Student = () => {
             <h4>Search:</h4>
             <input
               type="text"
-              className={"dark:bg-[#353C48]"}
+              className={" dark:bg-[#3B4452] border border-cyan-600"}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>

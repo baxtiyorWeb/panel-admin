@@ -88,7 +88,7 @@ const Enqueries = () => {
             <input
               type="text"
               onChange={(e) => setSearch(e.target.value)}
-              className={"dark:bg-transparent"}
+              className={"dark:bg-[#3B4452] dark:border border border-cyan-600"}
             />
           </div>
         </div>

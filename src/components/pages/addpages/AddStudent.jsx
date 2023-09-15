@@ -40,39 +40,45 @@ const AddStudent = () => {
   return (
     <div>
       <form
-        className="chart-progress dark:bg-[#353C48]"
+        className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal"
         onSubmit={(e) => sendForm(e)}
       >
-        <div className="add-link">
-          <h1>Enquiry Form</h1>
-          <Link to="/enquiries">Students list</Link>
+        <div className="add-link mb-10 ">
+          <h1>Student Form</h1>
+          <Link to="/students/students">Students list</Link>
+        </div>
+        <div className="text-[#000] text-[18px] dark:text-[#fef3b0] mt-5 mb-5">Rgistration Type</div>
+        <div className="name flex items-start justify-center flex-col">
+          <div className="inline items-center ">
+            <input
+              type="radio"
+              id="Direct"
+              className="w-1 h-1 !not-sr-only"
+              name="gender"
+            />
+            <label
+              htmlFor="Direct"
+              className="mr-5 ml-1 opacity-90 text-[16px]"
+            >
+              Direct
+            </label>
+          </div>
+          <div className="inline items-center ">
+            <input
+              type="radio"
+              id="Enquery"
+              className="w-1 h-1 !not-sr-only"
+              name="gender"
+            />
+            <label
+              htmlFor="Enquery"
+              className="mr-5 ml-1 opacity-90 text-[16px]"
+            >
+              Enquery
+            </label>
+          </div>
         </div>
         <div className="input-box">
-          <div className="name">
-            <span>Gender</span>
-            <div className="flex items-center border w-full">
-              <input
-                type="radio"
-                id="Male"
-                className="w-1 h-1 !not-sr-only"
-                name="gender"
-              />
-              <label htmlFor="Male" className="mr-5 ml-1">
-                Male
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="Female"
-                className="w-1 h-1 !not-sr-only"
-                name="gender"
-              />
-              <label htmlFor="Female" className="mr-5 ml-1">
-                Female
-              </label>
-            </div>
-          </div>
           <div className="name">
             <span>Name</span>
             <input
@@ -152,15 +158,7 @@ const AddStudent = () => {
               </label>
             </div>
           </div>
-          <div className="name">
-            <span>Preferred Time</span>
-            <input
-              type="text"
-              placeholder="2:15"
-              onChange={(e) => setCourse(e.target.value)}
-              className="dark:bg-[#353C48] dark:border"
-            />
-          </div>
+
           <div className="name">
             <span>Department</span>
             <select
@@ -233,6 +231,14 @@ const AddStudent = () => {
                 Other4
               </option>
             </select>
+          </div>
+          <div className="name">
+            <span>Course free</span>
+            <input type="text" className="dark:bg-[#353C48] dark:border"/>
+          </div>
+          <div className="name">
+          <span>Student Agreed Fee</span>
+            <input type="text" className="dark:bg-[#353C48] dark:border"/>
           </div>
         </div>
         <button type="submit" onClick={notify}>
