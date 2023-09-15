@@ -1,12 +1,13 @@
 import { useState } from "react";
-import "./Enquiries.css";
+import "../Enquiries.css";
 import { Link } from "react-router-dom";
-import { ref, set } from "firebase/database";
-import { uid } from "uid";
-import { db } from "../../firebase/firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const AddForm = () => {
+import { uid } from "uid";
+import { set } from "lodash";
+import { db } from "../../../firebase/firebase";
+import { ref } from "firebase/database";
+const AddStudent = () => {
   const [name, setname] = useState("");
   const [fatherName, setfatherName] = useState("");
   const [days, setdays] = useState("");
@@ -39,14 +40,39 @@ const AddForm = () => {
   return (
     <div>
       <form
-        className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal"
+        className="chart-progress dark:bg-[#353C48]"
         onSubmit={(e) => sendForm(e)}
       >
         <div className="add-link">
-          <h1 className="font-normal">Enquiry Form</h1>
-          <Link to="/enquiries">Enquiries list</Link>
+          <h1>Enquiry Form</h1>
+          <Link to="/enquiries">Students list</Link>
         </div>
         <div className="input-box">
+          <div className="name">
+            <span>Gender</span>
+            <div className="flex items-center border w-full">
+              <input
+                type="radio"
+                id="Male"
+                className="w-1 h-1 !not-sr-only"
+                name="gender"
+              />
+              <label htmlFor="Male" className="mr-5 ml-1">
+                Male
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="Female"
+                className="w-1 h-1 !not-sr-only"
+                name="gender"
+              />
+              <label htmlFor="Female" className="mr-5 ml-1">
+                Female
+              </label>
+            </div>
+          </div>
           <div className="name">
             <span>Name</span>
             <input
@@ -217,4 +243,4 @@ const AddForm = () => {
     </div>
   );
 };
-export default AddForm;
+export default AddStudent;

@@ -1,240 +1,243 @@
 .chart-progress {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 40px;
-    background-color: #fff;
-    padding: 20px;
-    margin-right: 10px;
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	margin-top: 40px;
+	background-color: #fff;
+	padding: 20px;
+	margin-right: 10px;
 }
 
 .Batch_details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .progress {
-    width: 140px;
-    height: 4px;
-    background: #e9ecef;
-    position: relative;
-    border-radius: 50px !important;
+	width: 140px;
+	height: 4px;
+	background: #e9ecef;
+	position: relative;
+	border-radius: 50px !important;
 }
 
 .min-progress {
-    position: relative;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 50px !important;
-    box-shadow: 1px 10px 8px 1px rgba(206, 205, 205, 0.6);
+	position: relative;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 50px !important;
+	box-shadow: 1px 10px 8px 1px rgba(206, 205, 205, 0.6);
 }
 
 .progress .progress_length {
-    opacity: 0;
+	opacity: 0;
+	scale: 0;
+	position: fixed;
+
+
 }
 
 .progress-min-length-item {
-    height: 4px;
-    position: absolute;
-    top: 0;
-    border-radius: 100px;
-    background: red;
+	height: 4px;
+	position: absolute;
+	top: 0;
+	border-radius: 100px;
+	background: red;
 
 }
 
 .progress:hover .progress_length {
-    width: 50px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: rgb(31, 31, 31);
-    position: absolute;
-    bottom: 15px;
-    left: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #dbdbdb;
-    scale: 1;
-    opacity: 1;
-    transition: 0.300s ease;
+	width: 50px;
+	height: 30px;
+	border-radius: 10px;
+	background-color: rgb(31, 31, 31);
+	position: absolute;
+	bottom: 15px;
+	left: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #dbdbdb;
+	scale: 1;
+	opacity: 1;
+	transition: 0.1s ease-in-out;
 
 }
 
 .progress:hover .min-progress-path {
-    opacity: 0;
-    scale: 0;
+	opacity: 0;
+	scale: 0;
 }
 
 .progress:hover .min-progress-path {
-    background-color: rgb(31, 31, 31);
-    position: absolute;
-    -webkit-clip-path: polygon(54% 100%, 33% 73%, 77% 73%);
-    clip-path: polygon(54% 100%, 33% 73%, 77% 73%);
-    width: 50px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: rgb(31, 31, 31);
-    position: absolute;
-    bottom: 8px;
-    left: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #dbdbdb;
-    scale: 1;
-    opacity: 1;
-    transition: 0.300s ease;
+	background-color: rgb(31, 31, 31);
+	position: absolute;
+	-webkit-clip-path: polygon(54% 100%, 33% 73%, 77% 73%);
+	clip-path: polygon(54% 100%, 33% 73%, 77% 73%);
+	width: 50px;
+	height: 30px;
+	border-radius: 10px;
+	bottom: 8px;
+	left: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #3f3f3f;
+	scale: 1;
+	opacity: 1;
+	transition: 0.01s ease-in-out;
 
 }
 
 #demo {
-    /* margin: 20px auto; */
-    width: 100%;
+	/* margin: 20px auto; */
+	width: 100%;
 
 }
 
 #demo h1 {
-    font-size: 1rem;
-    letter-spacing: 0;
-    font-weight: 300;
-    color: #212121;
+	font-size: 1.1rem;
+	letter-spacing: 0;
+	font-weight: 300;
+	color: #212121;
 }
 
 #demo h2 {
-    font-size: 1rem;
-    line-height: 2rem;
-    font-weight: 400;
-    color: #212121;
-    text-align: center;
+	font-size: 1.1rem;
+	line-height: 2rem;
+	font-weight: 400;
+	color: #212121;
+	text-align: center;
 }
 
 .shadow-z-1 {
-    width: 100%;
+	width: 100%;
 }
 
 .table {
-    width: 100%;
-    max-width: 100%;
+	width: 100%;
+	max-width: 100%;
 }
 
-.table > thead > tr,
-.table > tbody > tr,
-.table > tfoot > tr {
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+.table>thead>tr,
+.table>tbody>tr,
+.table>tfoot>tr {
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 
 }
 
-.table > thead > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > th,
-.table > tbody > tr > td,
-.table > tfoot > tr > th,
-.table > tfoot > tr > td {
-    text-align: left;
-    padding: 1rem;
-    vertical-align: top;
-    border-top: 0;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    font-size: 18px;
+.table>thead>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>th,
+.table>tbody>tr>td,
+.table>tfoot>tr>th,
+.table>tfoot>tr>td {
+	text-align: left;
+	padding: 1rem;
+	vertical-align: top;
+	border-top: 0;
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	font-size: 17px;
+	font-family: 'Nunito Sans', sans-serif;
 }
 
 
-.table > caption + thead > tr:first-child > th,
-.table > caption + thead > tr:first-child > td,
-.table > colgroup + thead > tr:first-child > th,
-.table > colgroup + thead > tr:first-child > td,
-.table > thead:first-child > tr:first-child > th,
-.table > thead:first-child > tr:first-child > td {
-    border-top: 0;
+.table>caption+thead>tr:first-child>th,
+.table>caption+thead>tr:first-child>td,
+.table>colgroup+thead>tr:first-child>th,
+.table>colgroup+thead>tr:first-child>td,
+.table>thead:first-child>tr:first-child>th,
+.table>thead:first-child>tr:first-child>td {
+	border-top: 0;
 }
+
 table tr:nth-child(even) {
-    background-color: #E7E9EB;
-}
-table{
-    border-collapse: collapse;
+	background-color: #E7E9EB;
+	
 }
 
-tbody tr  {
-    display: table-row;
+table {
+	border-collapse: collapse;
+}
+
+tbody tr {
+	display: table-row;
 
 }
 
 
-
-
-
-.table > tbody + tbody {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+.table>tbody+tbody {
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
 
 }
 
 .table .table {
-    background-color: #fff;
+	background-color: #fff;
 
 }
 
 .table .no-border {
-    border: 0;
+	border: 0;
 }
 
-.table-condensed > thead > tr > th,
-.table-condensed > thead > tr > td,
-.table-condensed > tbody > tr > th,
-.table-condensed > tbody > tr > td,
-.table-condensed > tfoot > tr > th,
-.table-condensed > tfoot > tr > td {
-    padding: 0.8rem;
+.table-condensed>thead>tr>th,
+.table-condensed>thead>tr>td,
+.table-condensed>tbody>tr>th,
+.table-condensed>tbody>tr>td,
+.table-condensed>tfoot>tr>th,
+.table-condensed>tfoot>tr>td {
+	padding: 0.8rem;
 
 }
 
 .table-bordered {
-    border: 0;
+	border: 0;
 }
 
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > th,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > th,
-.table-bordered > tfoot > tr > td {
-    border: 0;
-    border-bottom: 1px solid #e0e0e0;
-
-}
-
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td {
-    border-bottom-width: 2px;
+.table-bordered>thead>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>tbody>tr>th,
+.table-bordered>tbody>tr>td,
+.table-bordered>tfoot>tr>th,
+.table-bordered>tfoot>tr>td {
+	border: 0;
+	border-bottom: 1px solid #e0e0e0;
 
 }
 
-.table-striped > tbody > tr:nth-child(odd) > td,
-.table-striped > tbody > tr:nth-child(odd) > th {
-    background-color: #f5f5f5;
+.table-bordered>thead>tr>th,
+.table-bordered>thead>tr>td {
+	border-bottom-width: 2px;
+
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #de5959;
 }
 
 .td_flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .icons {
-    transition: 0.3s ease;
-    cursor: pointer;
+	transition: 0.3s ease;
+	cursor: pointer;
 }
 
 .icons:hover {
-    border-radius: 5px;
-    background: #b6b6b683;
+	border-radius: 5px;
+	background: #b6b6b683;
 }
 
 tbody tr td {
-    padding: 10px;
+	padding: 10px;
 }

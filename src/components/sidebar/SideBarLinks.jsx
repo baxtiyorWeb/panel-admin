@@ -38,7 +38,7 @@ export const SideBarLinks = ({ dark }) => {
 
         <MenuItem
           icon={<HomeRoundedIcon />}
-          className={"menus-style focus:dark:bg-[#2A303A]"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A] "}
           component={<NavLink to={"/"}></NavLink>}
         >
           {" "}
@@ -46,7 +46,7 @@ export const SideBarLinks = ({ dark }) => {
         </MenuItem>
         <MenuItem
           icon={<HiOutlineLightBulb />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50  hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/enquiries"}></NavLink>}
         >
           {" "}
@@ -55,26 +55,34 @@ export const SideBarLinks = ({ dark }) => {
         <SubMenu
           label="Manage Students"
           icon={<HiUsers />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem component={<NavLink to={"/students/students"}></NavLink>}>
+          <MenuItem
+            className="menus-style dark:text-cyan-50"
+            component={<NavLink to={"/students/students"}></NavLink>}
+          >
             {" "}
             Students
           </MenuItem>
-          <MenuItem component={<NavLink to={"/students/active"}></NavLink>}>
+          <MenuItem
+            className="menus-style dark:text-cyan-50"
+            component={<NavLink to={"/students/active"}></NavLink>}
+          >
             In-Active Students
           </MenuItem>
         </SubMenu>
         <SubMenu
           label="Manage Batch"
           icon={<BsFillBookFill />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem component={<NavLink to={"/batches/batch"}></NavLink>}>
             Batches
           </MenuItem>
           <MenuItem
-            className={"menus-style"}
+            className={
+              "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
+            }
             component={<NavLink to={"/batches/transfer"}></NavLink>}
           >
             Transfer Batch
@@ -82,21 +90,21 @@ export const SideBarLinks = ({ dark }) => {
         </SubMenu>
         <MenuItem
           icon={<BiSolidUserCheck />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/faculties"}></NavLink>}
         >
           Faculties
         </MenuItem>
         <MenuItem
           icon={<FaGraduationCap />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/Courses"}></NavLink>}
         >
           Courses
         </MenuItem>
         <MenuItem
           icon={<BiCheck />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/Attendance"}></NavLink>}
         >
           Attendance
@@ -104,7 +112,7 @@ export const SideBarLinks = ({ dark }) => {
         <SubMenu
           label="Events"
           icon={<BiSolidPencil />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem component={<NavLink to={"/event/books"}></NavLink>}>
             {" "}
@@ -118,64 +126,64 @@ export const SideBarLinks = ({ dark }) => {
         <SubMenu
           label="Masters"
           icon={<BiSolidPencil />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem
             component={<NavLink to={"/master/courses-category"}></NavLink>}
           >
-            {" "}
             Course Category{" "}
           </MenuItem>
           <MenuItem
             component={<NavLink to={"/master/Expense-category"}></NavLink>}
           >
-            {" "}
             Expense Category{" "}
           </MenuItem>
           <MenuItem
             component={<NavLink to={"/master/enquierStatus "}></NavLink>}
           >
-            {" "}
-            Enquiry Status{" "}
+            Enquiry Status
           </MenuItem>
           <MenuItem component={<NavLink to={"/master/designation"}></NavLink>}>
-            {" "}
-            Designation{" "}
+            Designation
           </MenuItem>
           <MenuItem component={<NavLink to={"/master/department"}></NavLink>}>
-            {" "}
-            Department{" "}
+            Department
           </MenuItem>
           <MenuItem component={<NavLink to={"/master/Guests"}></NavLink>}>
-            {" "}
-            Guests{" "}
+            Guests
           </MenuItem>
         </SubMenu>
-        <MenuItem icon={<BsFillTagFill />} className={"menus-style"}>
-          {" "}
-          Collect Fee{" "}
+        <MenuItem
+          icon={<BsFillTagFill />}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
+        >
+          Collect Fee
         </MenuItem>
-        <SubMenu label="HRM" icon={<FaSitemap />} className={"menus-style"}>
+        <SubMenu
+          label="HRM"
+          icon={<FaSitemap />}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
+        >
           <MenuItem
-            className={"menus-style"}
+            className={
+              "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
+            }
             component={<NavLink to={"/payroll"}></NavLink>}
           >
-            {" "}
-            Payroll{" "}
+            Payroll
           </MenuItem>
         </SubMenu>
         <MenuItem
           icon={<BsCurrencyDollar />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/expenses"}></NavLink>}
         >
-          {" "}
-          Expenses{" "}
+          Expenses
         </MenuItem>
         <SubMenu
           label="Reports"
           icon={<AiFillFile />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem component={<NavLink to={"/reports/fee-reports"}></NavLink>}>
             {" "}
@@ -191,7 +199,7 @@ export const SideBarLinks = ({ dark }) => {
         <SubMenu
           label="Settings"
           icon={<BiSolidCog />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem component={<NavLink to={"/settings/currency"}></NavLink>}>
             {" "}
@@ -205,7 +213,7 @@ export const SideBarLinks = ({ dark }) => {
         <SubMenu
           label="Web Settings"
           icon={<BiSolidCog />}
-          className={"menus-style"}
+          className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem
             component={<NavLink to={"/websettings/currency"}></NavLink>}

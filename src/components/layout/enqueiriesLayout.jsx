@@ -6,7 +6,7 @@ import Container from "../shared/Container";
 const EnqueiriesLayout = () => {
 	return (
 		<Container>
-			<div className="chart-progress">
+			<div className="chart-progress dark:bg-[#353C48] text-[#000]">
 				<Outlet/>
 			</div>
 		</Container>

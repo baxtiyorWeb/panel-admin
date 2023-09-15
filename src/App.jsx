@@ -37,7 +37,7 @@ import Profile from "./components/pages/profile/Profile.jsx";
 import {lazy, Suspense} from "react";
 import Main from "./components/main/Main.jsx";
 import Enqueries from "./components/pages/Enqueries.jsx";
-
+import AddStudent from "./components/pages/addpages/AddStudent";
 
 const App = () => {
 	
@@ -72,7 +72,7 @@ const App = () => {
 					/>
 					<Route
 						path="/students/addStudent"
-						element={<AddStudents/>}
+						element={<AddStudent/>}
 					/>
 					<Route
 						path="/students/active"

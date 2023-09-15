@@ -7,15 +7,8 @@ const Active = () => {
     // const [pagination, setPagination] = useState("");
     return (
         <>
-            <div className="dashboard-user ">
-                <div className="fruit">
-                    <h2>Students</h2>
-                </div>
-                <div className="fruit-user">
-                    <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
-                </div>
-            </div>
-            <div className="chart-progress dark:bg-[#353C48]">
+            
+            <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
                 <div className="add-link">
                     <h1>Student List</h1>
                     <Link to="/layout/addform">add enquirie</Link>
@@ -37,7 +30,7 @@ const Active = () => {
                 </div>
                 <div id="demo">
                     <div>
-                        <div className="table-responsive-vertical shadow-z-1">
+                        <div className="table-responsive-vertical shadow-z-1 dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
                             <table
                                 id="table"
                                 className="table table-hover table-mc-light-blue"

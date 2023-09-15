@@ -1,7 +1,6 @@
 body {
 	width: 100%;
 	height: 100%;
-	background: #ffffff;
 }
 
 .main {
@@ -139,7 +138,6 @@ body {
 .sidebar .side-links a:focus {
 	-webkit-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
 	-moz-box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
-	box-shadow: -1px 5px 31px -14px rgba(47, 77, 99, 0.79);
 	background: transparent;
 }
 
@@ -294,16 +292,15 @@ body {
 
 
 .ps-menu-button:hover {
-	background: linear-gradient(to top, #096DDF, #0077FF);
-	color: #FFFFFF !important;
-	transition: 100ms ease;
+	background: linear-gradient(to top, #096DDF, #1f87fd);
+	transition: .5s ease;
 	font-size: 18px;
 }
 
 .ps-menu-button:hover .css-wx7wi4 {
 	color: #FFFFFF;
-	scale: 1.3;
-	transition: 0.1s ease-in-out;
+	scale: 1.1;
+	transition: 0.1s ease;
 }
 
 .css-1097eso {
@@ -329,6 +326,15 @@ body {
 	font-size: 16px;
 	text-indent: 10px;
 	font-family: "Poppins", sans-serif;
+	color: #454d5c;
+}
+
+.css-1tqrhto {
+	background: #ffffff;
+}
+
+.css-1097eso:hover~.css-12w9als {
+	color: #fbfdff;
 }
 
 @keyframes anmation-icons {

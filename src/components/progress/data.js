@@ -1,9 +1,11 @@
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
-import { AiFillLike, AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineDislike } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillPrinter } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
+import { BiLike } from "react-icons/bi";
+
 export const progress = [
   {
     id: 1,
@@ -411,7 +413,128 @@ export const enqueryList = [
     Action: LiaEdit,
     delete: MdDelete,
   },
+  {
+    id: 12,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 13,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 14,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+
+  {
+    id: 15,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 16,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 17,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 18,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 19,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
+  {
+    id: 20,
+    names: "Ben",
+    Email: "xsbifikaa@uniromax.com",
+    Mobile: "+	332-2222",
+    CNIC: 333 - 1111,
+    FourCourse: "	Advanced Graphics Designing",
+    PrefTime: "	05:56:01",
+    EmailStatus: "close",
+    Action: LiaEdit,
+    delete: MdDelete,
+  },
 ];
+
+export const getUsers = function (page, limit) {
+  const array = [];
+  for (let i = (page - 1) * limit; i < page * limit && enqueryList[i]; i++) {
+    array.push(enqueryList[i]);
+  }
+  return array;
+};
+
+export const getLength = function () {
+  return enqueryList.length;
+};
 
 export const studentss = [
   {
@@ -424,7 +547,7 @@ export const studentss = [
     Course: "Arabic",
     Batch: "Arabic 001",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -437,7 +560,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -450,7 +573,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -463,7 +586,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -476,7 +599,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -489,7 +612,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -502,7 +625,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -515,7 +638,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -528,7 +651,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 
   {
@@ -541,7 +664,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
   {
     id: 11,
@@ -553,7 +676,7 @@ export const studentss = [
     Course: "Android Application Development",
     Batch: "B1SEP20",
     Action: LiaEdit,
-    Like: MdDelete,
+    Like: BiLike,
   },
 ];
 export const active = [
@@ -1242,7 +1365,8 @@ export const Email_function = [
     title: "Development",
     edit: LiaEdit,
     delete: MdDelete,
-  }, {
+  },
+  {
     id: 2,
     title: "Development",
     edit: LiaEdit,

@@ -1,0 +1,66 @@
+$bgcolor: #4b4a49;
+$activeclr: #36cfc3;
+$lineclr: #b95951;
+$wdth: 300;
+$hght: 150;
+$linewdth: 5;
+
+@function px2rem($px) {
+  @return #{$px/100}rem;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: pxToRem(1);
+  margin: pxToRem(-1);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: pxToRem(1);
+}
+
+body {
+  background-color: $bgcolor;
+  color: #eee8d5;
+}
+
+.SlideBtn {
+  box-sizing: border-box;
+  border-radius: px2rem($hght / 1);
+  border: solid px2rem($linewdth);
+  background-color: darken($bgcolor, 10%);
+  color: $lineclr;
+  display: block;
+  height: px2rem($hght);
+  position: relative;
+  width: px2rem($wdth);
+  transition: color 0.3s;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 20px;
+  }
+
+  &.is-active {
+    color: $activeclr;
+  }
+}
+
+.SlideBtn-knob {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  height: px2rem($hght - 4 * $linewdth);
+  width: px2rem($hght - 4 * $linewdth);
+  background: linear-gradient(180deg, $bgcolor, darken($bgcolor, 10%));
+  top: px2rem($linewdth);
+  left: px2rem($linewdth);
+  border: solid px2rem($linewdth);
+  border-radius: px2rem(($hght - (2 * $linewdth)) / 2);
+  transition: left 0.3s;
+
+  .is-active > & {
+    left: px2rem($wdth / 2 + $linewdth);
+  }
+}
