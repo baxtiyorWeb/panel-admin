@@ -7,7 +7,7 @@ const EnquiereStatus = () => {
   return (
     <div>
         <div
-          className="around_one border-b border-b-[#3B4452] mb-5"
+          className="around_one border-b dark:border-b-[#3b4452] mb-5"
           style={{
             
             paddingBottom: "23px",
@@ -16,13 +16,13 @@ const EnquiereStatus = () => {
           <div className="around_user dark:text-[#96a2b4] text-[25px] ">
             <h2>Courses</h2>
           </div>
-          <div className="around_of dark:bg-[#3b4452]">
+          <div className="around_of dark:bg-[#3B4452]">
             <Link to={'#'}>Dashboard</Link>/<Link to={'#'}>Course</Link>/<Link to={'#'}>Temp</Link>
           </div>
         </div>
-        <div className="div-block border border-[#3B4452]">
+        <div className="div-block border dark:bg-[#353C48] dark:border dark:border-[#3b4452]">
           <h2 className="title">Add Enquiry Status</h2>
-          <input type="text" placeholder="title" className={'dark:bg-[#3B4452]'} />
+          <input type="text" placeholder="title" className={'dark:bg-transparent'} />
           <button>submit</button>
         </div>
         <div className="chart-progress dark:bg-[#353c48]">
@@ -33,7 +33,7 @@ const EnquiereStatus = () => {
           <div className="user_blew">
             <div className="user_blow">
               <h4>Show</h4>
-              <select name="name" id="select">
+              <select name="name" id="select" className={'dark:bg-transparent'}>
                 <option className="one_more" value="name">
                   10
                 </option>
@@ -42,7 +42,7 @@ const EnquiereStatus = () => {
             </div>
             <div className="user_input">
               <h4>Search:</h4>
-              <input type="text" onChange={(e) => setSearch(e.target.value)} />
+              <input type="text" onChange={(e) => setSearch(e.target.value)} className="dark:bg-[#3B4452] border border-cyan-600'" />
             </div>
           </div>
           <div id="demo">
@@ -65,7 +65,7 @@ const EnquiereStatus = () => {
                     users.title.toLowerCase().includes(search)
                   ).map((item) => {
                     return (
-                        <tr key={item.id} className={'even:dark:bg-[#3b4452]'}>
+                        <tr key={item.id} className={'even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal'}>
                           <td>{item.id}</td>
                           <td>{item.title}</td>
                           <td>{item.students}</td>

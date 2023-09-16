@@ -20,15 +20,15 @@ const Payroll = () => {
       <div className="chart-progress dark:bg-[#353C48]">
         <div className="around_one">
           <div className="around_user">
-            <h2>Transfer Batch</h2>
+            <h2 className="dark:text-[#96a2b4] text-[25px]">Pyroll</h2>
           </div>
-          <div className="around_of">
+          <div className="around_of dark:bg-[#3B4452]">
             <Link>Dashboard</Link>/<Link>Transfer</Link>/<Link>Temp</Link>
           </div>
         </div>
         <br />
         <br />
-        <h4>Transfer Batch Form</h4>
+        <h4 className="add-link">Search cretiera</h4>
         <div className="select_op_">
           <div className="select_op">
             <Select

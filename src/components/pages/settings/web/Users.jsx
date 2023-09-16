@@ -11,7 +11,7 @@ const options = [
 const ColorStyle = {
 	control: (styles) => ({...styles, width: "482px", background: "transparent"}),
 };
-export const Users = () => {
+export const WebSettingsUsers = () => {
 	const [selectedOption, setSelectedOption] = useState(null);
 	const [search, setSearch] = useState("");
 	return (

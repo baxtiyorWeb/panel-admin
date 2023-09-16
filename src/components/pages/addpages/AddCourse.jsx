@@ -7,7 +7,8 @@ import { uid } from "uid";
 import { set } from "lodash";
 import { db } from "../../../firebase/firebase";
 import { ref } from "firebase/database";
-const AddBatch = () => {
+import ComboBox from "../../combobox/ComboBox";
+const AddCourse = () => {
   const [name, setname] = useState("");
   const [fatherName, setfatherName] = useState("");
   const [days, setdays] = useState("");
@@ -45,7 +46,7 @@ const AddBatch = () => {
       >
         <div className="add-link mb-10 ">
           <h1>Add Course Form</h1>
-          <Link to="/batches/batch">Students list</Link>
+          <Link to="/courses/courses">Students list</Link>
         </div>
         <div className="text-[#000] text-[18px] dark:text-[#fef3b0] mt-5 mb-5">
           Batch title
@@ -53,7 +54,7 @@ const AddBatch = () => {
 
         <div className="input-box">
           <div className="name">
-            <span>batch title</span>
+            <span>course title</span>
             <input
               type="text"
               placeholder="name"
@@ -62,91 +63,48 @@ const AddBatch = () => {
             />
           </div>
           <div className="name">
-            <span>Expexted and time</span>
+            <span>course short code</span>
             <input
-              type="time"
+              type="text"
               placeholder="name"
               className="dark:bg-[#353C48] dark:border"
-              value={"07:45"}
               onChange={(e) => setname(e.target.value)}
             />
           </div>
           <div className="name">
-            <span>Expexted and Date</span>
-            <input
-              type="date"
+            <span>selectcourse category</span>
+            {/* <input
+              type="text"
               placeholder="name"
               className="dark:bg-[#353C48] dark:border"
-              value={"2023-09-15"}
+              onChange={(e) => setname(e.target.value)}
+            /> */}
+            <ComboBox />
+          </div>
+          <div className="name">
+            <span>course image</span>
+            <input
+              type="file"
+              placeholder="name"
+              className="dark:bg-[#353C48] dark:border"
               onChange={(e) => setname(e.target.value)}
             />
           </div>
-
           <div className="name">
-            <span>select Faculty</span>
-            <select
-              name=""
-              id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-            >
-              <option value="Other" disabled>
-                select Faculty
-              </option>
-              <option value="Other" id="options">
-                Other1
-              </option>
-              <option value="Other" id="options">
-                Other2
-              </option>
-              <option value="Other" id="options">
-                Other3
-              </option>
-              <option value="Other" id="options">
-                Other4
-              </option>
-            </select>
-          </div>
-
-          <div className="name">
-            <span>Course</span>
-            <select
-              name=""
-              id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
-            >
-              <option value="Other" disabled>
-                Select Course
-              </option>
-              <option value="Other" id="options">
-                Other1
-              </option>
-              <option value="Other" id="options">
-                Other2
-              </option>
-              <option value="Other" id="options">
-                Other3
-              </option>
-              <option value="Other" id="options">
-                Other4
-              </option>
-            </select>
+            <span>Duration</span>
+            <input
+              type="text"
+              placeholder="name"
+              className="dark:bg-[#353C48] dark:border"
+              onChange={(e) => setname(e.target.value)}
+            />
           </div>
           <div className="name">
-            <span>Course free</span>
-            <input type="text" className="dark:bg-[#353C48] dark:border" />
-          </div>
-          <div className="name">
-            <span>Facultet Agreed Fee (%)</span>
-            <input type="text" className="dark:bg-[#353C48] dark:border" />
+            <span>Duration type</span>
+            <ComboBox />
           </div>
         </div>
-        <div className="mt-5">description</div>
-        <textarea
-          cols="30"
-          rows="5"
-          className="w-full mt-5 mb-5 dark:bg-transparent border rounded p-5"
-          placeholder="description"
-        ></textarea>
+
         <button type="submit" onClick={notify}>
           send
         </button>
@@ -155,4 +113,4 @@ const AddBatch = () => {
     </div>
   );
 };
-export default AddBatch;
+export default AddCourse;

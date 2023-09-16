@@ -59,7 +59,7 @@ const Currency = () => {
 					</div>
 					<div className="user_input">
 						<h4>Search:</h4>
-						<input type="text" className={'dark:bg-transparent '} onChange={(e) => setSearch(e.target.value)}/>
+						<input type="text" className={'dark:bg-[#3B4452] border border-cyan-600 '} onChange={(e) => setSearch(e.target.value)}/>
 					</div>
 				</div>
 				<div id="demo">
@@ -87,7 +87,7 @@ const Currency = () => {
 									.filter((users) => users.names.toLowerCase().includes(search))
 									.map((item) => {
 										return (
-											<tr key={item.id} className={'even:dark:bg-[#3B4452]'}>
+											<tr key={item.id} className={'even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal'}>
 												<td>{item.id}</td>
 												<td>
 													<Link to={'#'}>{item.names}</Link>

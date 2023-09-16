@@ -55,7 +55,6 @@
   outline: none;
   border: 1px solid #dadada6c;
   border-radius: 3px;
-  transition: 0.3s ease;
   margin-top: 10px;
   margin-bottom: 40px;
 }
@@ -83,7 +82,6 @@
   outline: none;
   border: 1px solid #dadada6c;
   border-radius: 3px;
-  transition: 0.3s ease;
   margin-top: 10px;
   margin-bottom: 30px;
   resize: vertical;

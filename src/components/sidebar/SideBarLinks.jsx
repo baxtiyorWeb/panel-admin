@@ -76,13 +76,18 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BsFillBookFill />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem component={<NavLink to={"/batches/batch"} className={'dark:bg-[#3B4452] dark:text-[#e2e6ec]'}></NavLink>}>
+          <MenuItem
+            component={
+              <NavLink
+                to={"/batches/batch"}
+                className={"dark:bg-[#3B4452] dark:text-[#e2e6ec]"}
+              ></NavLink>
+            }
+          >
             Batches
           </MenuItem>
           <MenuItem
-            className={
-              "menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"
-            }
+            className={"menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"}
             component={<NavLink to={"/batches/transfer"}></NavLink>}
           >
             Transfer Batch
@@ -98,7 +103,7 @@ export const SideBarLinks = ({ dark }) => {
         <MenuItem
           icon={<FaGraduationCap />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
-          component={<NavLink to={"/Courses"}></NavLink>}
+          component={<NavLink to={"/courses/courses"}></NavLink>}
         >
           Courses
         </MenuItem>
@@ -114,11 +119,14 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidPencil />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem component={<NavLink to={"/event/books"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/event/books"}></NavLink>}
+          >
             {" "}
             Event Booking{" "}
           </MenuItem>
-          <MenuItem component={<NavLink to={"/event/events"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/event/events"}></NavLink>}>
             {" "}
             All Events{" "}
           </MenuItem>
@@ -128,28 +136,28 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidPencil />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/courses-category"}></NavLink>}
           >
             Course Category{" "}
           </MenuItem>
-          <MenuItem
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/Expense-category"}></NavLink>}
           >
             Expense Category{" "}
           </MenuItem>
-          <MenuItem
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/enquierStatus "}></NavLink>}
           >
             Enquiry Status
           </MenuItem>
-          <MenuItem component={<NavLink to={"/master/designation"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/master/designation"}></NavLink>}>
             Designation
           </MenuItem>
-          <MenuItem component={<NavLink to={"/master/department"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/master/department"}></NavLink>}>
             Department
           </MenuItem>
-          <MenuItem component={<NavLink to={"/master/Guests"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/master/Guests"}></NavLink>}>
             Guests
           </MenuItem>
         </SubMenu>
@@ -166,7 +174,7 @@ export const SideBarLinks = ({ dark }) => {
         >
           <MenuItem
             className={
-              "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
+              "menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             }
             component={<NavLink to={"/payroll"}></NavLink>}
           >
@@ -185,11 +193,11 @@ export const SideBarLinks = ({ dark }) => {
           icon={<AiFillFile />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem component={<NavLink to={"/reports/fee-reports"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/reports/fee-reports"}></NavLink>}>
             {" "}
             Fee Report{" "}
           </MenuItem>
-          <MenuItem
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/reports/experence-reports"}></NavLink>}
           >
             {" "}
@@ -201,11 +209,11 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidCog />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem component={<NavLink to={"/settings/currency"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/settings/currency"}></NavLink>}>
             {" "}
             Currency{" "}
           </MenuItem>
-          <MenuItem component={<NavLink to={"/settings/users"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/settings/users"}></NavLink>}>
             {" "}
             Users{" "}
           </MenuItem>
@@ -215,13 +223,13 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidCog />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/websettings/currency"}></NavLink>}
           >
             {" "}
-            Currency{" "}
+            Event{" "}
           </MenuItem>
-          <MenuItem component={<NavLink to={"/websettings/users"}></NavLink>}>
+          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/websettings/users"}></NavLink>}>
             {" "}
             Users{" "}
           </MenuItem>

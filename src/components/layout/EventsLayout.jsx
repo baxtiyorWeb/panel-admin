@@ -13,7 +13,7 @@ const EventsLayout = () => {
 					<Link to={'#'}>Dashboard</Link>/<Link to={'#'}>Course</Link>/<Link to={'#'}>Temp</Link>
 				</div>
 			</div>
-			<div className="chart-progress dark:bg-[#353C48]">
+			<div className="chart-progress dark:bg-[#353C48]  dark:text-[#EEE8CC] font-normal">
 				<Outlet/>
 			</div>
 		</Container>

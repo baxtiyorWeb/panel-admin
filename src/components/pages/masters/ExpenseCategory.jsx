@@ -8,7 +8,7 @@ const ExpenseCategory = () => {
 	return (
 		<div>
 			<div
-				className="around_one"
+				className="around_one dark:border-b dark:border-b-[#3b4452] mb-5"
 				style={{
 					borderBottom: "1px solid #E1E1E1",
 					paddingBottom: "23px",
@@ -22,9 +22,9 @@ const ExpenseCategory = () => {
 				</div>
 			</div>
 			<>
-				<div className="div-block">
+				<div className="div-block dark:bg-[#353C48] dark:border dark:border-[#3b4452]">
 					<h2 className="title">Add Expense Category</h2>
-					<input type="text" placeholder="title"/>
+					<input type="text" placeholder="title" className={'dark:bg-transparent'}/>
 					<button>submit</button>
 				</div>
 				<div className="chart-progress dark:bg-[#353c48]">
@@ -35,7 +35,7 @@ const ExpenseCategory = () => {
 					<div className="user_blew">
 						<div className="user_blow">
 							<h4>Show</h4>
-							<select name="name" id="select">
+							<select name="name" id="select" className={'dark:bg-transparent'}>
 								<option className="one_more" value="name">
 									10
 								</option>
@@ -44,7 +44,7 @@ const ExpenseCategory = () => {
 						</div>
 						<div className="user_input">
 							<h4>Search:</h4>
-							<input type="text" onChange={(e) => setSearch(e.target.value)}/>
+							<input type="text" onChange={(e) => setSearch(e.target.value)} className="dark:bg-[#3B4452] border border-cyan-600"/>
 						</div>
 					</div>
 					<div id="demo">
@@ -67,7 +67,7 @@ const ExpenseCategory = () => {
 										users.title.toLowerCase().includes(search)
 									).map((item) => {
 										return (
-											<tr key={item.id} className={'even:dark:bg-[#3b4452]'}>
+											<tr key={item.id} className={'even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal'}>
 												<td>{item.id}</td>
 												<td>{item.title}</td>
 												<td>{item.students}</td>

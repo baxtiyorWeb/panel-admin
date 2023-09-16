@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Container from "../shared/Container";
+import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { Courses_time } from "../progress/data";
 import ToggleBtn from "../tables/ToggleBtn";
@@ -7,20 +7,12 @@ import ToggleBtn from "../tables/ToggleBtn";
 const Courses = () => {
   const [search, setSearch] = useState("");
   return (
-    <Container>
-      <div className="around_one ">
-        <div className="around_user dark:text-[#96a2b2] text-[25px]">
-          <h2>Courses</h2>
-        </div>
-        <div className="around_of dark:bg-[#353C48]">
-          <Link to={"#"}>Dashboard</Link>/<Link to={"#"}>Course</Link>/
-          <Link to={"#"}>Temp</Link>
-        </div>
-      </div>
+    <>
+      <div className="around_one "></div>
       <div className="chart-progress dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
         <div className="add-link">
           <h1>Course List</h1>
-          <Link to="/students/addStudent">add Course</Link>
+          <Link to="/courses/AddCourse">add Course</Link>
         </div>
         <div className="user_blew">
           <div className="user_blow">
@@ -92,7 +84,7 @@ const Courses = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </>
   );
 };
 

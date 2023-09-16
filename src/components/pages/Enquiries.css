@@ -91,7 +91,6 @@ option:optional {
 	padding: 8px;
 	outline: none;
 	border-radius: 3px;
-	transition: 0.3s ease;
 }
 
 .user_input input:focus {
@@ -135,7 +134,6 @@ option:optional {
 	border-radius: 5px;
 	outline: none;
 	border: 1px solid #a8a8a8;
-	transition: 0.3s ease;
 }
 
 .input-box .name input:focus {

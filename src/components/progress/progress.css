@@ -121,14 +121,7 @@
 	max-width: 100%;
 }
 
-.table>thead>tr,
-.table>tbody>tr,
-.table>tfoot>tr {
-	-webkit-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
 
-}
 
 .table>thead>tr>th,
 .table>thead>tr>td,
@@ -140,9 +133,6 @@
 	padding: 1rem;
 	vertical-align: top;
 	border-top: 0;
-	-webkit-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
 	font-size: 17px;
 	font-family: 'Nunito Sans', sans-serif;
 }
@@ -159,7 +149,7 @@
 
 table tr:nth-child(even) {
 	background-color: #E7E9EB;
-	
+
 }
 
 table {

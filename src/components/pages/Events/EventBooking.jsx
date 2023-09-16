@@ -2,6 +2,7 @@ import {Container} from "postcss";
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {Event_book} from "../../progress/data";
+import ToggleBtn from "../../tables/ToggleBtn";
 
 const Events = () => {
 	const [search, setSearch] = useState("");
@@ -25,7 +26,7 @@ const Events = () => {
 					</div>
 					<div className="user_input">
 						<h4>Search:</h4>
-						<input type="text" className={'dark:bg-[#353C48]'} onChange={(e) => setSearch(e.target.value)}/>
+						<input type="text" className={'dark:bg-[#3B4452] border border-cyan-600'} onChange={(e) => setSearch(e.target.value)}/>
 					</div>
 				</div>
 				<div id="demo">
@@ -41,7 +42,6 @@ const Events = () => {
 									<th>Event</th>
 									<th>Slots</th>
 									<th>Name</th>
-									<th>Fee</th>
 									<th>Email</th>
 									<th>Mobile</th>
 									<th>CNIC</th>
@@ -54,7 +54,7 @@ const Events = () => {
 									users.link.toLowerCase().includes(search)
 								).map((item) => {
 									return (
-										<tr key={item.id} className={'even:dark:bg-[#313843]'}>
+										<tr key={item.id} className={'even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal'}>
 											<td>{item.id}</td>
 											<td>
 												<Link>{item.link}</Link>
@@ -64,7 +64,7 @@ const Events = () => {
 											<td>{item.students_progress}</td>
 											<td>{item.star}</td>
 											<td>{item.freeCollected}</td>
-											<td>{item.email_status}</td>
+											<td>{<ToggleBtn/>}</td>
 											<td className={'td_flex'}>
 												<span className="icons">{<item.delete/>}</span>
 											</td>
