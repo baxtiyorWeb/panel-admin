@@ -1,6 +1,6 @@
 $bgcolor: #4b4a49;
-$activeclr: #36cfc3;
-$lineclr: #b95951;
+$activeclr: #2dfa67;
+$lineclr: #616161;
 $wdth: 300;
 $hght: 150;
 $linewdth: 5;
@@ -39,11 +39,11 @@ body {
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 20px;
   }
 
   &.is-active {
-    color: $activeclr;
+    background-color: $activeclr;
+    border: 1px solid #2dfa67;
   }
 }
 
@@ -53,7 +53,7 @@ body {
   position: absolute;
   height: px2rem($hght - 4 * $linewdth);
   width: px2rem($hght - 4 * $linewdth);
-  background: linear-gradient(180deg, $bgcolor, darken($bgcolor, 10%));
+  background: $lineclr;
   top: px2rem($linewdth);
   left: px2rem($linewdth);
   border: solid px2rem($linewdth);

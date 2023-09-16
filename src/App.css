@@ -295,9 +295,13 @@ body {
 	transition: .5s ease;
 	font-size: 18px;
 }
+.ps-menu-button:hover .css-12w9als{
+	color: #fff;
 
+}
 .ps-menu-button:hover .css-wx7wi4 {
 	color: #FFFFFF;
+	
 	scale: 1.1;
 	transition: 0.1s ease;
 }
