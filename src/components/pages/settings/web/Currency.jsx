@@ -2,26 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./../../masters/master.css";
 import { enqueryList } from "../../../progress/data";
-import Container from "../../../shared/Container.jsx";
-// import { onValue, ref } from "firebase/database";
-// import { db } from "../../firebase/firebase";
-// import { uid } from "uid";
-// eslint-disable-next-line react/prop-types
+import Pagination from "../../../pagination/Pagination";
+
 const WebSettingsCurrensy = () => {
-  // const [read, setRead] = useState([]);
-  //   const [page, setPage] = useState(11);
-  // const uuid = uid();
-  // useEffect(() => {
-  //   onValue(ref(db, `/form/`+uuid), (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (snapshot.exists()) {
-  //       Object.values(data).map((read) => {
-  //         setRead((oldArray) => [...oldArray, read]);
-  //         console.log(snapshot.val());
-  //       });
-  //     }
-  //   });
-  // }, []);
+ 
   function pagination() {}
 
   const [search, setSearch] = useState("");
@@ -35,7 +19,7 @@ const WebSettingsCurrensy = () => {
             marginTop: "10px",
           }}
         >
-          <h2>Enquiries</h2>
+          <h2>Currency</h2>
         </div>
         <div className="fruit-user dark:bg-[#3B4452]">
           <Link to={"#"}>Dashboard</Link>/<Link to={"#"}>Dashboard</Link>/
@@ -121,23 +105,9 @@ const WebSettingsCurrensy = () => {
             </div>
           </div>
           <div>
-            <ul>
-              <li
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  border: "1px solid blue",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={pagination}
-              >
-                0
-              </li>
-            </ul>
+          <div className="flex justify-center ">
+          
+        </div>
           </div>
         </div>
       </div>

@@ -10,8 +10,9 @@ import { FiArrowDown } from "react-icons/fi";
 // eslint-disable-next-line react/prop-types
 const Main = ({ open }) => {
   return (
-    <Container>
-      <div style={{ width: "100%" }}>
+<Container>
+
+    <div style={{ width: "100%" }}>
         <div>
           <div className="top_menu ">
             <div className="box ">

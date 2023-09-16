@@ -1,9 +1,32 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { active } from "../progress/data";
+import { active, getLength } from "../progress/data";
+import Pagination from "../pagination/Pagination";
 
 const Active = () => {
   const [search, setSearch] = useState("");
+  const [page, setpage] = useState(1);
+  const [limit, setlimit] = useState(5);
+  let totalPage = Math.ceil(getLength() / limit);
+
+  function handlePageChange(value) {
+    if (value === "&laquo;" || value === "... ") {
+      setpage(1);
+    } else if (value === "&lsaquo;") {
+      if (page !== 1) {
+        setpage(page - 1);
+      }
+    } else if (value === "&rsaquo;") {
+      if (page !== totalPage) {
+        setpage(page + 1);
+      }
+    } else if (value === "&raquo;" || value === " ...") {
+      setpage(totalPage);
+    } else {
+      setpage(value);
+    }
+  }
+
   // const [pagination, setPagination] = useState("");
   return (
     <>
@@ -99,6 +122,15 @@ const Active = () => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="flex justify-end">
+          <Pagination
+            totalPage={totalPage}
+            page={page}
+            limit={limit}
+            sibling={1}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </>

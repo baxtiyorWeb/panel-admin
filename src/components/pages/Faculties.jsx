@@ -1,10 +1,40 @@
 import React, { useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
-import { foculties } from "../progress/data";
+import { foculties, getLength } from "../progress/data";
+import Pagination from "../pagination/Pagination";
 
 const Faculties = () => {
   const [search, setSearch] = useState("");
+  const [page, setpage] = useState(1);
+  const [limit, setlimit] = useState(5);
+  let totalPage = Math.ceil(getLength() / limit);
+
+  function handlePageChange(value) {
+    if (value === "&laquo;" || value === "... ") {
+      setpage(1);
+    } else if (value === "&lsaquo;") {
+      if (page !== 1) {
+        setpage(page - 1);
+      }
+    } else if (value === "&rsaquo;") {
+      if (page !== totalPage) {
+        setpage(page + 1);
+      }
+    } else if (value === "&raquo;" || value === " ...") {
+      setpage(totalPage);
+    } else {
+      setpage(value);
+    }
+  }
+
+  let emptyPage;
+  if (page <= totalPage || page >= totalPage) {
+    emptyPage = page;
+  } else {
+    setpage(emptyPage);
+    emptyPage = page;
+  }
 
   return (
     <Container>
@@ -102,6 +132,15 @@ const Faculties = () => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center ">
+          <Pagination
+            totalPage={totalPage}
+            page={page}
+            limit={limit}
+            sibling={1}
+            onPageChange={handlePageChange}
+          />
+        </div>
     </Container>
   );
 };

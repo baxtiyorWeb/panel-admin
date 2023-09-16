@@ -12,13 +12,13 @@ const Pagination = (props) => {
   return (
     <ul className="pagination pagination-md justify-center flex items-center mt-5 mb-5 select-none w-full">
       <li
-        className="page-item border w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] select-none"
+        className="page-item  w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] select-none"
         onClick={() => props.onPageChange("&laquo;")}
       >
         <span className="page-link ">&laquo;</span>
       </li>
       <li
-        className="page-item border w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] select-none"
+        className="page-item  w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] select-none"
         onClick={() => props.onPageChange("&lsaquo;")}
       >
         <span className="page-link">&lsaquo;</span>
@@ -52,13 +52,13 @@ const Pagination = (props) => {
         }
       })}
       <li
-        className="page-item border w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] "
+        className="page-item  w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] "
         onClick={() => props.onPageChange("&rsaquo;")}
       >
         <span className="page-link ">&rsaquo;</span>
       </li>
       <li
-        className="page-item border w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] "
+        className="page-item  w-10 h-10   flex justify-center items-center cursor-pointer hover:bg-[#26BEFF] hover:text-[#fff] rounded m-1 text-[18px] text-[#26BEFF] "
         onClick={() => props.onPageChange("&raquo;")}
       >
         <span className="page-link">&raquo;</span>

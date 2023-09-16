@@ -16,7 +16,7 @@ export const StudentsLayout = ({ open, setOpen }) => {
                 <Link>Dashboard</Link>/<Link>Dashboard</Link>/<Link>Home</Link>
             </div>
         </div>
-      <div className="chart-progress dark:bg-[#353C48]">
+      <div className="chart-progress dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
         <Outlet />
       </div>
     </Container>

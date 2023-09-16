@@ -105,7 +105,7 @@ const Enqueries = () => {
           </div>
         </div>
 
-        <div className="flex justify-end border">
+        <div className="flex justify-center ic">
           <Pagination
             totalPage={totalPage}
             page={page}

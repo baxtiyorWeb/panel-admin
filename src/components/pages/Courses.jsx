@@ -1,11 +1,41 @@
 import { useState } from "react";
 
 import { Link } from "react-router-dom";
-import { Courses_time } from "../progress/data";
+import { Courses_time, getLength } from "../progress/data";
 import ToggleBtn from "../tables/ToggleBtn";
+import Pagination from "../pagination/Pagination";
 
 const Courses = () => {
   const [search, setSearch] = useState("");
+  const [page, setpage] = useState(1);
+  const [limit, setlimit] = useState(5);
+  let totalPage = Math.ceil(getLength() / limit);
+
+  function handlePageChange(value) {
+    if (value === "&laquo;" || value === "... ") {
+      setpage(1);
+    } else if (value === "&lsaquo;") {
+      if (page !== 1) {
+        setpage(page - 1);
+      }
+    } else if (value === "&rsaquo;") {
+      if (page !== totalPage) {
+        setpage(page + 1);
+      }
+    } else if (value === "&raquo;" || value === " ...") {
+      setpage(totalPage);
+    } else {
+      setpage(value);
+    }
+  }
+
+  let emptyPage;
+  if (page <= totalPage || page >= totalPage) {
+    emptyPage = page;
+  } else {
+    setpage(emptyPage);
+    emptyPage = page;
+  }
   return (
     <>
       <div className="around_one "></div>
@@ -82,6 +112,15 @@ const Courses = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className="flex justify-center ">
+          <Pagination
+            totalPage={totalPage}
+            page={page}
+            limit={limit}
+            sibling={1}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </>

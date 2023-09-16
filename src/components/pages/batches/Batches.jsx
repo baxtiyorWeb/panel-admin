@@ -1,9 +1,31 @@
 import { useState } from "react";
-import { Batches_study } from "../../progress/data";
+import { Batches_study, getLength } from "../../progress/data";
 import { Link } from "react-router-dom";
+import Pagination from "../../pagination/Pagination";
 
 const Batches = () => {
   const [search, setSearch] = useState("");
+  const [page, setpage] = useState(1);
+  const [limit, setlimit] = useState(5);
+  let totalPage = Math.ceil(getLength() / limit);
+
+  function handlePageChange(value) {
+    if (value === "&laquo;" || value === "... ") {
+      setpage(1);
+    } else if (value === "&lsaquo;") {
+      if (page !== 1) {
+        setpage(page - 1);
+      }
+    } else if (value === "&rsaquo;") {
+      if (page !== totalPage) {
+        setpage(page + 1);
+      }
+    } else if (value === "&raquo;" || value === " ...") {
+      setpage(totalPage);
+    } else {
+      setpage(value);
+    }
+  }
   return (
     <>
       <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
@@ -77,6 +99,15 @@ const Batches = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className="flex justify-center ">
+          <Pagination
+            totalPage={totalPage}
+            page={page}
+            limit={limit}
+            sibling={1}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </>
