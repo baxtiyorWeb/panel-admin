@@ -1,40 +1,11 @@
-import { useState } from "react";
 import "../Enquiries.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { uid } from "uid";
-import { set } from "lodash";
-import { db } from "../../../firebase/firebase";
-import { ref } from "firebase/database";
 const AddStudent = () => {
-  const [name, setname] = useState("");
-  const [fatherName, setfatherName] = useState("");
-  const [days, setdays] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [preffered, setpreffered] = useState("");
-  const [semester, setsemester] = useState("");
-  const [course, setCourse] = useState("");
-  const [CNIC, setCNIC] = useState("");
-  const [Gender, setGender] = useState("");
-  const [Department, setDepartment] = useState("");
   const notify = () => toast("send your form");
   function sendForm(e) {
     e.preventDefault();
-    const uuid = uid();
-
-    set(ref(db, "/form/" + uuid), {
-      names: name,
-      fatherName: fatherName,
-      days: days,
-      mobile: mobile,
-      preffered: preffered,
-      semester: semester,
-      course: course,
-      CNIC: CNIC,
-      Gender: Gender,
-      Department: Department,
-    });
   }
 
   return (
@@ -47,7 +18,9 @@ const AddStudent = () => {
           <h1>Student Form</h1>
           <Link to="/students/students">Students list</Link>
         </div>
-        <div className="text-[#000] text-[18px] dark:text-[#fef3b0] mt-5 mb-5">Rgistration Type</div>
+        <div className="text-[#000] text-[18px] dark:text-[#fef3b0] mt-5 mb-5">
+          Rgistration Type
+        </div>
         <div className="name flex items-start justify-center flex-col">
           <div className="inline items-center ">
             <input
@@ -85,7 +58,6 @@ const AddStudent = () => {
               type="text"
               placeholder="name"
               className="dark:bg-[#353C48] dark:border"
-              onChange={(e) => setname(e.target.value)}
             />
           </div>
           <div className="name">
@@ -93,7 +65,6 @@ const AddStudent = () => {
             <input
               type="text"
               placeholder="Father Name"
-              onChange={(e) => setfatherName(e.target.value)}
               className="dark:bg-[#353C48] dark:border"
             />
           </div>
@@ -102,7 +73,6 @@ const AddStudent = () => {
             <input
               type="date"
               placeholder="name"
-              onChange={(e) => setdays(e.target.value)}
               className="dark:bg-[#353C48] dark:border"
             />
           </div>
@@ -111,7 +81,6 @@ const AddStudent = () => {
             <input
               type="text"
               placeholder="abc@gmail.com"
-              onChange={(e) => setMobile(e.target.value)}
               className="dark:bg-[#353C48] dark:border"
             />
           </div>
@@ -120,7 +89,6 @@ const AddStudent = () => {
             <input
               type="text"
               placeholder="33100-0000000-0"
-              onChange={(e) => setpreffered(e.target.value)}
               className="dark:bg-[#353C48] dark:border"
             />
           </div>
@@ -129,7 +97,6 @@ const AddStudent = () => {
             <input
               type="text"
               placeholder="+998 xx xxx xx xx"
-              onChange={(e) => setpreffered(e.target.value)}
               className="dark:bg-[#353C48] dark:border"
             />
           </div>
@@ -234,11 +201,11 @@ const AddStudent = () => {
           </div>
           <div className="name">
             <span>Course free</span>
-            <input type="text" className="dark:bg-[#353C48] dark:border"/>
+            <input type="text" className="dark:bg-[#353C48] dark:border" />
           </div>
           <div className="name">
-          <span>Student Agreed Fee</span>
-            <input type="text" className="dark:bg-[#353C48] dark:border"/>
+            <span>Student Agreed Fee</span>
+            <input type="text" className="dark:bg-[#353C48] dark:border" />
           </div>
         </div>
         <button type="submit" onClick={notify}>

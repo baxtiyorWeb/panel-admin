@@ -1,40 +1,11 @@
-import { useState } from "react";
 import "../Enquiries.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { uid } from "uid";
-import { set } from "lodash";
-import { db } from "../../../firebase/firebase";
-import { ref } from "firebase/database";
 const AddBatch = () => {
-  const [name, setname] = useState("");
-  const [fatherName, setfatherName] = useState("");
-  const [days, setdays] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [preffered, setpreffered] = useState("");
-  const [semester, setsemester] = useState("");
-  const [course, setCourse] = useState("");
-  const [CNIC, setCNIC] = useState("");
-  const [Gender, setGender] = useState("");
-  const [Department, setDepartment] = useState("");
   const notify = () => toast("send your form");
   function sendForm(e) {
     e.preventDefault();
-    const uuid = uid();
-
-    set(ref(db, "/form/" + uuid), {
-      names: name,
-      fatherName: fatherName,
-      days: days,
-      mobile: mobile,
-      preffered: preffered,
-      semester: semester,
-      course: course,
-      CNIC: CNIC,
-      Gender: Gender,
-      Department: Department,
-    });
   }
 
   return (
@@ -58,7 +29,6 @@ const AddBatch = () => {
               type="text"
               placeholder="name"
               className="dark:bg-[#353C48] dark:border"
-              onChange={(e) => setname(e.target.value)}
             />
           </div>
           <div className="name">
@@ -68,7 +38,6 @@ const AddBatch = () => {
               placeholder="name"
               className="dark:bg-[#353C48] dark:border"
               value={"07:45"}
-              onChange={(e) => setname(e.target.value)}
             />
           </div>
           <div className="name">
@@ -78,7 +47,6 @@ const AddBatch = () => {
               placeholder="name"
               className="dark:bg-[#353C48] dark:border"
               value={"2023-09-15"}
-              onChange={(e) => setname(e.target.value)}
             />
           </div>
 

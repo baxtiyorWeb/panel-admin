@@ -41,8 +41,7 @@ export const SideBarLinks = ({ dark }) => {
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A] "}
           component={<NavLink to={"/"}></NavLink>}
         >
-          {" "}
-          Dashboard{" "}
+          Boshqaruv paneli
         </MenuItem>
         <MenuItem
           icon={<HiOutlineLightBulb />}
@@ -50,7 +49,7 @@ export const SideBarLinks = ({ dark }) => {
           component={<NavLink to={"/enquiries"}></NavLink>}
         >
           {" "}
-          Enquiries{" "}
+          So{"'"}rovlar{" "}
         </MenuItem>
         <SubMenu
           label="Manage Students"
@@ -62,13 +61,13 @@ export const SideBarLinks = ({ dark }) => {
             component={<NavLink to={"/students/students"}></NavLink>}
           >
             {" "}
-            Students
+            Talabalarni boshqarish
           </MenuItem>
           <MenuItem
             className="menus-style dark:bg-[#3B4452]  dark:text-[#e2e6ec] "
             component={<NavLink to={"/students/active"}></NavLink>}
           >
-            In-Active Students
+            Faol talabalar
           </MenuItem>
         </SubMenu>
         <SubMenu

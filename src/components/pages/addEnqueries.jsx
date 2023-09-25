@@ -1,13 +1,7 @@
-import { useState } from "react";
 import "./Enquiries.css";
 import { Link } from "react-router-dom";
-import { ref, set } from "firebase/database";
-import { uid } from "uid";
-import { db } from "../../firebase/firebase";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
-import axios from "axios";
 import { Component } from "react";
 class AddForm extends Component {
   constructor(props) {
