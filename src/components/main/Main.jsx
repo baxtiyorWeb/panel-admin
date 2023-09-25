@@ -3,16 +3,15 @@ import { FaBookOpen } from "react-icons/fa";
 
 import "./main_1.css";
 import Block from "./Block";
-import Chart from "../Chart/Chart";
 import { Progress } from "../progress/Progress";
 import Container from "../shared/Container";
 import { FiArrowDown } from "react-icons/fi";
+import Charts from "../Chart/Chart";
 // eslint-disable-next-line react/prop-types
 const Main = ({ open }) => {
   return (
-<Container>
-
-    <div style={{ width: "100%" }}>
+    <Container>
+      <div style={{ width: "100%" }}>
         <div>
           <div className="top_menu ">
             <div className="box ">
@@ -115,7 +114,7 @@ const Main = ({ open }) => {
           </div>
         </div>
         <Block open={open} />
-        <Chart open={open} />
+        <Charts open={open} />
         <Progress />
       </div>
     </Container>

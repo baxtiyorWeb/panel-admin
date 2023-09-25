@@ -2,6 +2,7 @@ import { useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
 import { Courses_time } from "../progress/data";
+import ToggleBtn from "../tables/ToggleBtn";
 
 const Expenses = () => {
   const [search, setSearch] = useState("");
@@ -83,7 +84,7 @@ const Expenses = () => {
                           <td>{item.star}</td>
                           <td>{item.freeCollected}</td>
                           <td>{item.number}</td>
-                          <td>{item.email_status}</td>
+                          <td>{<ToggleBtn />}</td>
                           <td className={"td_flex"}>
                             <span className="icons">{<item.edit />}</span>
                             <span className="icons">{<item.delete />}</span>

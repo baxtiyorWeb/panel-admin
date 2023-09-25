@@ -126,7 +126,10 @@ export const SideBarLinks = ({ dark }) => {
             {" "}
             Event Booking{" "}
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/event/events"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/event/events"}></NavLink>}
+          >
             {" "}
             All Events{" "}
           </MenuItem>
@@ -136,33 +139,46 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidPencil />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/courses-category"}></NavLink>}
           >
             Course Category{" "}
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/Expense-category"}></NavLink>}
           >
             Expense Category{" "}
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/enquierStatus "}></NavLink>}
           >
             Enquiry Status
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/master/designation"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/master/designation"}></NavLink>}
+          >
             Designation
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/master/department"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/master/department"}></NavLink>}
+          >
             Department
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/master/Guests"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/master/Guests"}></NavLink>}
+          >
             Guests
           </MenuItem>
         </SubMenu>
         <MenuItem
           icon={<BsFillTagFill />}
+          component={<NavLink to={"/collect"}></NavLink>}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           Collect Fee
@@ -173,9 +189,7 @@ export const SideBarLinks = ({ dark }) => {
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
           <MenuItem
-            className={
-              "menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"
-            }
+            className={"menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"}
             component={<NavLink to={"/payroll"}></NavLink>}
           >
             Payroll
@@ -193,11 +207,15 @@ export const SideBarLinks = ({ dark }) => {
           icon={<AiFillFile />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/reports/fee-reports"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/reports/fee-reports"}></NavLink>}
+          >
             {" "}
             Fee Report{" "}
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/reports/experence-reports"}></NavLink>}
           >
             {" "}
@@ -209,11 +227,17 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidCog />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/settings/currency"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/settings/currency"}></NavLink>}
+          >
             {" "}
             Currency{" "}
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/settings/users"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/settings/users"}></NavLink>}
+          >
             {" "}
             Users{" "}
           </MenuItem>
@@ -223,13 +247,17 @@ export const SideBarLinks = ({ dark }) => {
           icon={<BiSolidCog />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/websettings/currency"}></NavLink>}
           >
             {" "}
             Event{" "}
           </MenuItem>
-          <MenuItem className="dark:bg-[#3B4452] dark:text-[#e2e6ec]" component={<NavLink to={"/websettings/users"}></NavLink>}>
+          <MenuItem
+            className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
+            component={<NavLink to={"/websettings/users"}></NavLink>}
+          >
             {" "}
             Users{" "}
           </MenuItem>

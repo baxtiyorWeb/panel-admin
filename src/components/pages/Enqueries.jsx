@@ -5,11 +5,14 @@ import { getLength, getUsers } from "../progress/data";
 import "./Enquiries.css";
 import Pagination from "../pagination/Pagination";
 import Tables from "../tables/Tables";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Enqueries = () => {
   const [search, setSearch] = useState("");
   const [page, setpage] = useState(1);
   const [limit, setlimit] = useState(5);
+
   let totalPage = Math.ceil(getLength() / limit);
 
   function handlePageChange(value) {
@@ -40,7 +43,7 @@ const Enqueries = () => {
 
   return (
     <Container>
-      <div className="dashboard-user  ">
+      <div className="dashboard-user">
         <div
           className="fruit"
           style={{

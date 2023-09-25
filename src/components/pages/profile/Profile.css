@@ -16,7 +16,7 @@
 	padding-top: 10px;
 	margin-top: 10px;
 	margin-bottom: 50px;
-	
+
 }
 
 .profile {
@@ -77,11 +77,10 @@
 
 .user-settings {
 	width: 1037px;
-	height: 437px;
-	border: 1px solid #008878;
 	margin-top: 5px;
 	padding: 5px;
 	overflow: hidden;
+	
 }
 
 .tab-item {
@@ -103,10 +102,12 @@
 	cursor: pointer;
 	color: #0000FF;
 	font-size: 16px;
-	
+
+
 }
 
 .tab-item-block-hide {
+	width: 100%;
 	display: block;
 }
 
@@ -115,7 +116,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	
+
 }
 
 .tab-item-block {
@@ -131,4 +132,16 @@
 	justify-content: space-between;
 }
 
+strong::after {
+	content: '';
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	border-radius: 100%;
+	background: #212529;
+	left: -20px;
+	top: 5px;
+	list-style-type: disc;
 
+
+}

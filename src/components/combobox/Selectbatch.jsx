@@ -1,5 +1,5 @@
 import { useState } from "react";
-const ComboBox = () => {
+const Selectbatch = () => {
   const option = [
     {
       id: 1,
@@ -28,9 +28,9 @@ const ComboBox = () => {
         className="w-full border h-[43px] text-left text-[#9CA3AF] rounded border-[#9CA3AF] p-[10px]"
         onClick={() => setOpen(open ? false : true)}
       >
-        {localStorage.getItem("options")
-          ? localStorage.getItem("options")
-          : `Select course category`}
+        {localStorage.getItem("select-option")
+          ? localStorage.getItem("select-option")
+          : `Select batch`}
       </button>
       {open && (
         <div className="w-full  border p-1">
@@ -49,7 +49,7 @@ const ComboBox = () => {
                     className="w-full h-[43px] text-left pl-1 mt-0 mb-1 hover:bg-[#6777EF] hover:text-[#fff] rounded"
                     onClick={() =>
                       setOptions(
-                        localStorage.setItem("options", item.value) !==
+                        localStorage.setItem("select-option", item.value) !==
                           setOpen(false)
                       )
                     }
@@ -65,4 +65,4 @@ const ComboBox = () => {
   );
 };
 
-export default ComboBox;
+export default Selectbatch;
