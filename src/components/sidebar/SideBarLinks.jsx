@@ -52,7 +52,7 @@ export const SideBarLinks = ({ dark }) => {
           So{"'"}rovlar{" "}
         </MenuItem>
         <SubMenu
-          label="Manage Students"
+          label="Talabalarni boshqarish"
           icon={<HiUsers />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
@@ -61,7 +61,7 @@ export const SideBarLinks = ({ dark }) => {
             component={<NavLink to={"/students/students"}></NavLink>}
           >
             {" "}
-            Talabalarni boshqarish
+            Talabalar
           </MenuItem>
           <MenuItem
             className="menus-style dark:bg-[#3B4452]  dark:text-[#e2e6ec] "
@@ -71,7 +71,7 @@ export const SideBarLinks = ({ dark }) => {
           </MenuItem>
         </SubMenu>
         <SubMenu
-          label="Manage Batch"
+          label="To'plamni boshqarish"
           icon={<BsFillBookFill />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
@@ -83,13 +83,13 @@ export const SideBarLinks = ({ dark }) => {
               ></NavLink>
             }
           >
-            Batches
+            Partiyalar
           </MenuItem>
           <MenuItem
             className={"menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"}
             component={<NavLink to={"/batches/transfer"}></NavLink>}
           >
-            Transfer Batch
+            O{"'"}tkazish to{"'"}plami
           </MenuItem>
         </SubMenu>
         <MenuItem
@@ -97,21 +97,21 @@ export const SideBarLinks = ({ dark }) => {
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/faculties"}></NavLink>}
         >
-          Faculties
+          Fakultetlar
         </MenuItem>
         <MenuItem
           icon={<FaGraduationCap />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/courses/courses"}></NavLink>}
         >
-          Courses
+          Kurslar
         </MenuItem>
         <MenuItem
           icon={<BiCheck />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/Attendance"}></NavLink>}
         >
-          Attendance
+          Davomat
         </MenuItem>
         <SubMenu
           label="Events"
@@ -123,18 +123,18 @@ export const SideBarLinks = ({ dark }) => {
             component={<NavLink to={"/event/books"}></NavLink>}
           >
             {" "}
-            Event Booking{" "}
+            Tadbirni bron qilish{" "}
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/event/events"}></NavLink>}
           >
             {" "}
-            All Events{" "}
+            Barcha voqealar{" "}
           </MenuItem>
         </SubMenu>
         <SubMenu
-          label="Masters"
+          label="Magistrlar"
           icon={<BiSolidPencil />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
@@ -142,37 +142,37 @@ export const SideBarLinks = ({ dark }) => {
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/courses-category"}></NavLink>}
           >
-            Course Category{" "}
+            Kurs toifasi{" "}
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/Expense-category"}></NavLink>}
           >
-            Expense Category{" "}
+            Xarajatlar toifasi{" "}
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/enquierStatus "}></NavLink>}
           >
-            Enquiry Status
+            So{"'"}rov holati
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/designation"}></NavLink>}
           >
-            Designation
+            Belgilanish
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/department"}></NavLink>}
           >
-            Department
+            Bo{"'"}lim
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/master/Guests"}></NavLink>}
           >
-            Guests
+            Mehmonlar
           </MenuItem>
         </SubMenu>
         <MenuItem
@@ -180,7 +180,7 @@ export const SideBarLinks = ({ dark }) => {
           component={<NavLink to={"/collect"}></NavLink>}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
-          Collect Fee
+          To{"'"}lovni yig{""}ish
         </MenuItem>
         <SubMenu
           label="HRM"
@@ -191,7 +191,7 @@ export const SideBarLinks = ({ dark }) => {
             className={"menus-style dark:bg-[#3B4452] dark:text-[#e2e6ec]"}
             component={<NavLink to={"/payroll"}></NavLink>}
           >
-            Payroll
+            Ish haqi
           </MenuItem>
         </SubMenu>
         <MenuItem
@@ -199,7 +199,7 @@ export const SideBarLinks = ({ dark }) => {
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
           component={<NavLink to={"/expenses"}></NavLink>}
         >
-          Expenses
+          Xarajatlar
         </MenuItem>
         <SubMenu
           label="Reports"
@@ -210,19 +210,17 @@ export const SideBarLinks = ({ dark }) => {
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/reports/fee-reports"}></NavLink>}
           >
-            {" "}
-            Fee Report{" "}
+            To{"'"}lov hisoboti
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/reports/experence-reports"}></NavLink>}
           >
-            {" "}
-            Expense Report{" "}
+            Xarajatlar hisoboti
           </MenuItem>
         </SubMenu>
         <SubMenu
-          label="Settings"
+          label="Sozlamalar"
           icon={<BiSolidCog />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
@@ -231,18 +229,18 @@ export const SideBarLinks = ({ dark }) => {
             component={<NavLink to={"/settings/currency"}></NavLink>}
           >
             {" "}
-            Currency{" "}
+            Valyuta{" "}
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/settings/users"}></NavLink>}
           >
             {" "}
-            Users{" "}
+            Foydalanuvchilar{" "}
           </MenuItem>
         </SubMenu>
         <SubMenu
-          label="Web Settings"
+          label="Veb sozlamalari"
           icon={<BiSolidCog />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >
@@ -250,15 +248,13 @@ export const SideBarLinks = ({ dark }) => {
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/websettings/currency"}></NavLink>}
           >
-            {" "}
-            Event{" "}
+            Tadbir
           </MenuItem>
           <MenuItem
             className="dark:bg-[#3B4452] dark:text-[#e2e6ec]"
             component={<NavLink to={"/websettings/users"}></NavLink>}
           >
-            {" "}
-            Users{" "}
+            Foydalanuvchilar
           </MenuItem>
         </SubMenu>
       </Menu>

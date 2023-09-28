@@ -11,7 +11,6 @@ import UseTheme from "../context/ThemeToggle.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Layout = () => {
-	const [sideOpen, setSideOpen] = useState(null);
 	const [colors, setColor] = useState("");
 	const [dark, setDark] = useState("");
 	

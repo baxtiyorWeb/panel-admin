@@ -4,7 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const AddStudent = () => {
   const notify = () => toast("send your form");
-  function sendForm(e) {
+
+  async function sendForm(e) {
     e.preventDefault();
   }
 
