@@ -10,7 +10,7 @@ import { MdDelete } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 import ModalEdited from "../modal/ModalEdited";
 const Tables = ({ search }) => {
-  const [open, setOpen] = useState(null);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,7 @@ const Tables = ({ search }) => {
           </div>
         ) : (
           <div>
-            {!open && <ModalEdited />}
+            {open && <ModalEdited />}
             <table id="table" className="table table-hover ">
               <thead>
                 <tr>
