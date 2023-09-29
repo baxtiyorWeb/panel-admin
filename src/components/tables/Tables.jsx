@@ -3,18 +3,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ToggleBtn from "./ToggleBtn";
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 import ModalEdited from "../modal/ModalEdited";
+import { uid } from "uid";
 const Tables = ({ search }) => {
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState(false);
+  const [updateId, setUpdateId] = useState();
 
   useEffect(() => {
     (async () => {
@@ -29,7 +30,7 @@ const Tables = ({ search }) => {
       setUser(docs);
       setLoading(false);
     })();
-  }, [deleteId]);
+  }, [deleteId, updateId]);
 
   const handleDeletingTicket = async (id) => {
     await deleteDoc(doc(db, "users", id));
@@ -46,12 +47,14 @@ const Tables = ({ search }) => {
               size={20}
               aria-label="Loading Spinner"
               data-testid="loader"
-              color="#fff"
+              color="#7e7f81"
             />
           </div>
         ) : (
           <div>
-            {open && <ModalEdited />}
+            {open && (
+              <ModalEdited updateId={updateId} setUpdateId={setUpdateId} handleDeletingTicket={handleDeletingTicket} search={search} open={open} setOpen={setOpen} />
+            )}
             <table id="table" className="table table-hover ">
               <thead>
                 <tr>

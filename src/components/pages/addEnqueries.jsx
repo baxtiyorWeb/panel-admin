@@ -8,6 +8,7 @@ import { db } from "../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
+import { uid } from "uid";
 // eslint-disable-next-line react/prop-types
 
 const AddForm = () => {
@@ -24,8 +25,8 @@ const AddForm = () => {
   const [Mail, setMail] = useState("");
   const [feMail, setFeMale] = useState("");
   const [loading, setLoading] = useState(false);
-  const userCollectionRef = collection(db, "users");
   const navigate = useNavigate();
+  const userCollectionRef = collection(db, "users");
   async function sendForm(e) {
     e.preventDefault();
     setLoading(true);
