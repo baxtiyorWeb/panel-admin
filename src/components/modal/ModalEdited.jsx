@@ -41,24 +41,11 @@ const ModalEdited = ({
   const [Mail, setMail] = useState("");
   const [feMail, setFeMale] = useState("");
 
-  const EditTypes = async (id) => {
-
-    await updateDoc(doc(db, "users", id), {
-      name: name,
-      Email: Email,
-      cninc: cninc,
-      Mobile: Mobile,
-      PreferredTime: PreferredTime,
-      Course: Course,
-    });
-    setUpdateId(id);
-    setOpen(false);
-  };
+ 
 
   return (
     <div className="w-[1300px] h-[500px] bg-[#414854] fixed left-[20%] top-[20%] z-10 p-1 rounded-lg shadow-2xl">
       <GetDoc
-        EditTypes={EditTypes}
         setSearchParams={setSearchParams}
         searchParams={searchParams}
         userId={userId}

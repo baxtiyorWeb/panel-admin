@@ -42,11 +42,23 @@ import { CoursesLayout } from "./components/layout/CoursesLayout";
 import AddCourse from "./components/pages/addpages/AddCourse";
 import WebSettingsUsers from "./components/pages/settings/web/Currency";
 import WebSettingsCurrensy from "./components/pages/settings/web/Currency";
-
+import { EditForm } from "./components/pages/EditForm";
+// updateId={updateId}
+// setUpdateId={setUpdateId}
+// handleDeletingTicket={handleDeletingTicket}
+// search={search}
+// open={open}
+// setOpen={setOpen}
+// searchParams={searchParams}
+// setSearchParams={setSearchParams}
+// userId={userId}
+// setDeleteId={setDeleteId}
+// deleteId={deleteId}
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route path="/editform/:userId" element={<EditForm />} />
         <Route path="/" element={<Main />} />
 
         <Route path="/enquiries" element={<Enqueries />} />

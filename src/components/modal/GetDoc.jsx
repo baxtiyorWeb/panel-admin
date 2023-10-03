@@ -49,7 +49,6 @@ const GetDoc = ({ EditTypes, userId, deleteId, setDeleteId }) => {
       <>
         {loading ? (
           <div className="flex justify-center items-center">
-            {" "}
             <ClipLoader
               loading={loading}
               size={20}

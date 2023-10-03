@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import ToggleBtn from "./ToggleBtn";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
@@ -60,21 +60,6 @@ const Tables = ({ search }) => {
         </div>
       ) : (
         <div>
-          {open && (
-            <ModalEdited
-              updateId={updateId}
-              setUpdateId={setUpdateId}
-              handleDeletingTicket={handleDeletingTicket}
-              search={search}
-              open={open}
-              setOpen={setOpen}
-              searchParams={searchParams}
-              setSearchParams={setSearchParams}
-              userId={userId}
-              setDeleteId={setDeleteId}
-              deleteId={deleteId}
-            />
-          )}
           <table id="table" className="table table-hover ">
             <thead>
               <tr>
@@ -113,7 +98,9 @@ const Tables = ({ search }) => {
                         </td>
                         <td className={"td_flex"}>
                           <span className="icons">
-                            {<LiaEdit onClick={() => openFunction(item.id)} />}
+                            <Link to={`/editform/${item.id}`}>
+                              <LiaEdit onClick={() => openFunction(item.id)} />
+                            </Link>
                           </span>
                           <span className="icons">
                             {
