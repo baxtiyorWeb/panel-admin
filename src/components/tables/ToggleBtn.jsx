@@ -1,29 +1,26 @@
-import React from "react";
 import "./ToggleBtn.scss";
-class ToggleBtn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isActive: false };
-  }
+import { useState } from "react";
+// eslint-disable-next-line react/prop-types
+const ToggleBtn = () => {
+  const [active, setActive] = useState(false);
 
-  toggle() {
-    this.setState({ isActive: !this.state.isActive });
-  }
-
-  render() {
-    const state = this.state;
-    const activeCls = state.isActive ? " is-active" : "";
-    const activeTxt = state.isActive ? "On" : "Off";
-    return (
-      <button
-        className={"SlideBtn" + activeCls}
-        onClick={this.toggle.bind(this)}
-      >
-        <span className="SlideBtn-label visuallyhidden">{activeTxt}</span>
-        <span className="SlideBtn-knob"></span>
-      </button>
-    );
-  }
-}
+  return (
+    <>
+      <div
+        className={
+          active
+            ? "w-[150px] h-[50px] border border-red-500"
+            : "w-[150px] h-[50px] border border-green-500 after:contrast-less:container"
+        }
+        onClick={() => setActive(!active ? false : true)}
+        style={{
+          width: "120px",
+          height: "30px",
+          cursor: "pointer",
+        }}
+      ></div>
+    </>
+  );
+};
 
 export default ToggleBtn;

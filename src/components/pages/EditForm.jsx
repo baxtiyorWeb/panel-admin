@@ -3,12 +3,15 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../setup/firebase/firebase";
-import { ClipLoader } from "react-spinners";
-import { MdDelete } from "react-icons/md";
-import { LiaEdit } from "react-icons/lia";
 export const EditForm = () => {
   const params = useParams("userId");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  function timeOut() {
+    setTimeout(() => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      navigate("/enquiries");
+    }, 500);
+  }
   const [user, setUser] = useState([]);
   const [name, setName] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -17,52 +20,43 @@ export const EditForm = () => {
   const [cninc, setCninc] = useState("");
   const [Mobile, setMobile] = useState("");
   const [PrefferedTime, setPrefferedTime] = useState("");
-  const [Department, setDepartment] = useState("");
-  const [Semester, setSemester] = useState("");
   const [Course, setCourse] = useState("");
-  const [Mail, setMail] = useState("");
-  const [feMail, setFeMale] = useState("");
   const [EditedId, setEditedId] = useState();
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(false);
   useEffect(() => {
-    console.log("useEffect in GetMenus");
-    setloading(true)
+    setloading(true);
     const getAllData = async () => {
       const docRef = doc(db, "users", params.userId);
       const targetDoc = await getDoc(docRef);
       console.log("targetDoc.data() : ", targetDoc.data());
       return { user: setUser(targetDoc.data()) };
     };
-    setloading(false)
-
+    setloading(false);
     getAllData();
-  }, [setEditedId]);
+  }, [params]);
 
   useEffect(() => {
     setName(user.name);
-    // setFatherName(user.name);
-    // setDateBirth(user.name);
     setEmail(user.Email);
     setCninc(user.cninc);
     setMobile(user.Mobile);
     setPrefferedTime(user.PrefferedTime);
-    setDepartment(user.name);
     setCourse(user.Course);
-    setMail(user.name);
-    setFeMale(user.name);
-  }, [user]);
+    setCourse(user.Course);
+  }, [user, EditedId]);
 
   const editFunction = async (userId) => {
-    setloading(true)
+    setloading(true);
     await updateDoc(doc(db, "users", params.userId), {
       name: name,
       Email: Email,
       Mobile: Mobile,
       DateBirth: DateBirth,
-      cninc: cninc
+      cninc: cninc,
+      Course: Course,
     });
-    setEditedId(userId)
-    setloading(false)
+    setEditedId(userId);
+    setloading(false);
   };
 
   return (
@@ -144,7 +138,6 @@ export const EditForm = () => {
                   id="Male"
                   className="w-1 h-1 !not-sr-only"
                   name="gender"
-                  onChange={(e) => setMail(e.target.value)}
                 />
                 <label htmlFor="Male" className="mr-5 ml-1">
                   Male
@@ -156,7 +149,6 @@ export const EditForm = () => {
                   id="Female"
                   className="w-1 h-1 !not-sr-only"
                   name="gender"
-                  onChange={(e) => setFeMale(e.target.value)}
                 />
                 <label htmlFor="Female" className="mr-5 ml-1">
                   Female
@@ -179,7 +171,6 @@ export const EditForm = () => {
                 name=""
                 id="selection"
                 className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-                onChange={(e) => setDepartment(e.target.value)}
               >
                 <option value="Other" disabled>
                   Select department
@@ -204,7 +195,6 @@ export const EditForm = () => {
                 name=""
                 id="selection"
                 className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-                onChange={(e) => setSemester(e.target.value)}
               >
                 <option value="Other" disabled>
                   select semester
@@ -231,22 +221,20 @@ export const EditForm = () => {
                 id="selection"
                 className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
                 onChange={(e) => setCourse(e.target.value)}
+                value={Course}
               >
-                <option value="Other" disabled>
-                  Select Course
-                </option>
-                <option value="Other" id="options">
-                  Other1
-                </option>
-                <option value="Other" id="options">
-                  Other2
-                </option>
-                <option value="Other" id="options">
-                  Other3
-                </option>
-                <option value="Other" id="options">
-                  Other4
-                </option>
+                <option> </option>
+                <option>Modern Web App Development</option>
+                <option>Android Application Development</option>
+                <option>Advanced Graphics Designing</option>
+                <option>Microsoft Office Professional</option>
+                <option>Adobe Illustrator</option>
+                <option>Testing MT 2</option>
+                <option>Bootcamp</option>
+                <option>Android Test</option>
+                <option>digital marketing</option>
+                <option>Front end</option>
+                <option>Back end</option>
               </select>
             </div>
           </div>
@@ -266,9 +254,9 @@ export const EditForm = () => {
               right: "0px",
               bottom: "5px",
             }}
-            onClick={()=> editFunction(params.userId && navigate('/enquiries'))}
+            onClick={() => editFunction(params.userId && timeOut())}
           >
-            {loading ? "editing...": "edit"}
+            {loading ? "loading..." : "edited"}
           </button>
         </div>
       </div>

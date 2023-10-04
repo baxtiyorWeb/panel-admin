@@ -8,14 +8,12 @@ import { db } from "../../setup/firebase/firebase";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
-import ModalEdited from "../modal/ModalEdited";
 const Tables = ({ search }) => {
   let [searchParams, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState();
-  const [updateId, setUpdateId] = useState();
 
   useEffect(() => {
     (async () => {
@@ -30,7 +28,7 @@ const Tables = ({ search }) => {
       setUser(docs);
       setLoading(false);
     })();
-  }, [deleteId, updateId]);
+  }, [deleteId]);
 
   const handleDeletingTicket = async (id) => {
     const setId = await deleteDoc(doc(db, "users", id));
@@ -45,6 +43,8 @@ const Tables = ({ search }) => {
   useEffect(() => {
     console.log(userId);
   }, [userId]);
+
+  
   return (
     <>
       {loading ? (
@@ -94,7 +94,7 @@ const Tables = ({ search }) => {
                         <td>{item.Course}</td>
                         <td>{item.PreferredTime}</td>
                         <td>
-                          <ToggleBtn />
+                          <ToggleBtn item={item.id} />
                         </td>
                         <td className={"td_flex"}>
                           <span className="icons">
