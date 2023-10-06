@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
+
 // eslint-disable-next-line react/prop-types
 const AddForm = () => {
   const [name, setName] = useState("");
@@ -16,6 +17,8 @@ const AddForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "users");
+  const [time, setTime] = useState()
+  const date = new Date().getTime()
   async function sendForm(e) {
     e.preventDefault();
     setLoading(true);
@@ -27,6 +30,7 @@ const AddForm = () => {
       Course: Course,
       edit: "LiaEdit",
       delete: "MdDelete",
+      date: date
     });
     setLoading(false);
     navigate("/enquiries");
@@ -121,9 +125,10 @@ const AddForm = () => {
           <div className="name">
             <span>Preferred Time</span>
             <input
-              type="text"
-              placeholder="2:15"
+              type="time"
+              value={date}
               className="dark:bg-[#353C48] dark:border"
+              onChange={(e)=> setTime(e.target.value)}
             />
           </div>
           <div className="name">

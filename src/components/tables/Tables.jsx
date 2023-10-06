@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import ToggleBtn from "./ToggleBtn";
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { Link, useParams, useSearchParams } from "react-router-dom";
+import { collection, getDocs, doc, deleteDoc, setDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
@@ -14,6 +13,10 @@ const Tables = ({ search }) => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState();
+  const [toggle, setToggle] = useState();
+  const [activeId, setActiveId] = useState()
+  const param = useParams('userEditId')
+  // get user about 
 
   useEffect(() => {
     (async () => {
@@ -28,23 +31,45 @@ const Tables = ({ search }) => {
       setUser(docs);
       setLoading(false);
     })();
-  }, [deleteId]);
+  }, [deleteId, activeId]);
 
+
+
+  //  delete user
   const handleDeletingTicket = async (id) => {
-    const setId = await deleteDoc(doc(db, "users", id));
+    await deleteDoc(doc(db, "users", id));
     setDeleteId(id);
-    console.log(setId);
   };
+  // delete user function success end
+
+
   const userId = searchParams.get("userId");
   const openFunction = (id) => {
     setSearchParams({ userId: id });
     setOpen(!open ? true : false);
   };
   useEffect(() => {
-    console.log(userId);
+    console.log(userId + "null");
   }, [userId]);
 
-  
+
+  // active or no-active 
+  const userIds = searchParams.get(`userEditId`);
+  const emailStatus = async (id) => {
+    const userCollectionRef = collection(db, "users", param.userEditId);
+    toggle ? setToggle(false) : setToggle(true);
+    setSearchParams({ userEditId: id })
+    setActiveId(id)
+    await setDoc((userCollectionRef), {
+      active: toggle
+    });
+
+
+
+  };
+  useEffect(() => {
+    console.log(userIds, ": activedID")
+  }, [userIds])
   return (
     <>
       {loading ? (
@@ -94,7 +119,7 @@ const Tables = ({ search }) => {
                         <td>{item.Course}</td>
                         <td>{item.PreferredTime}</td>
                         <td>
-                          <ToggleBtn item={item.id} />
+                          <span className="cursor-pointer " onClick={() => emailStatus(item.id)}>{item.active}active</span>
                         </td>
                         <td className={"td_flex"}>
                           <span className="icons">

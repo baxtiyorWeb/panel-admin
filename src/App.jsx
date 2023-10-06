@@ -33,7 +33,6 @@ import Currency from "./components/pages/settings/setting/Currency";
 import { Users } from "./components/pages/settings/setting/Users";
 import WebSettingsLayout from "./components/layout/WebSettingsLayout";
 import Profile from "./components/pages/profile/Profile.jsx";
-import { lazy, Suspense } from "react";
 import Main from "./components/main/Main.jsx";
 import Enqueries from "./components/pages/Enqueries.jsx";
 import AddStudent from "./components/pages/addpages/AddStudent";
@@ -43,17 +42,6 @@ import AddCourse from "./components/pages/addpages/AddCourse";
 import WebSettingsUsers from "./components/pages/settings/web/Currency";
 import WebSettingsCurrensy from "./components/pages/settings/web/Currency";
 import { EditForm } from "./components/pages/EditForm";
-// updateId={updateId}
-// setUpdateId={setUpdateId}
-// handleDeletingTicket={handleDeletingTicket}
-// search={search}
-// open={open}
-// setOpen={setOpen}
-// searchParams={searchParams}
-// setSearchParams={setSearchParams}
-// userId={userId}
-// setDeleteId={setDeleteId}
-// deleteId={deleteId}
 const App = () => {
   return (
     <Routes>
