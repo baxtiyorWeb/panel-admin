@@ -31,7 +31,7 @@ const Tables = ({ search }) => {
       setLoading(false);
     })();
   }, [deleteId, toggle]);
-
+ 
 
 
   //  delete user
