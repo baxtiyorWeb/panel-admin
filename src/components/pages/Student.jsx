@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Students.css";
-import { getLength, studentss } from "../progress/data";
+import { getLength, } from "../progress/data";
 import Pagination from "../pagination/Pagination";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
