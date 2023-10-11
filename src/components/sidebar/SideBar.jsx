@@ -1,10 +1,10 @@
 // eslint-disable-next-line react/prop-types
-import {SideBarLinks} from "./SideBarLinks.jsx";
+import { SideBarLinks } from "./SideBarLinks.jsx";
 
 // eslint-disable-next-line react/prop-types
-const Sidebarlinks = ({dark, colors}) => {
+const Sidebarlinks = ({ dark, colors }) => {
     return (
-            <SideBarLinks colors={colors} dark={dark}/>
+        <SideBarLinks colors={colors} dark={dark} />
     );
 };
 

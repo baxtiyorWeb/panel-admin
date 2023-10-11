@@ -42,12 +42,14 @@ import AddCourse from "./components/pages/addpages/AddCourse";
 import WebSettingsUsers from "./components/pages/settings/web/Currency";
 import WebSettingsCurrensy from "./components/pages/settings/web/Currency";
 import { EditForm } from "./components/pages/EditForm";
+import { ReactTabel } from "./ReactTabel";
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/editform/:userId" element={<EditForm />} />
         <Route path="/" element={<Main />} />
+        <Route path="/react-table" element={<ReactTabel />} />
 
         <Route path="/enquiries" element={<Enqueries />} />
 

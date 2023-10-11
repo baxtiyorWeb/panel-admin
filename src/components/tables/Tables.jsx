@@ -1,22 +1,21 @@
 /* eslint-disable react/prop-types */
 
 import { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-import { collection, getDocs, doc, deleteDoc, setDoc } from "firebase/firestore";
+import { Link, useSearchParams } from "react-router-dom";
+import { collection, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
 import ClipLoader from "react-spinners/ClipLoader";
 const Tables = ({ search }) => {
   let [searchParams, setSearchParams] = useSearchParams();
-  const [open, setOpen] = useState(false);
+
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState();
-  const [toggle, setToggle] = useState();
+  const [toggle, setToggle] = useState(false);
   const [activeId, setActiveId] = useState()
-  const param = useParams('userEditId')
-  // get user about 
+  // get user about     
 
   useEffect(() => {
     (async () => {
@@ -31,7 +30,7 @@ const Tables = ({ search }) => {
       setUser(docs);
       setLoading(false);
     })();
-  }, [deleteId, activeId]);
+  }, [deleteId, toggle]);
 
 
 
@@ -43,36 +42,26 @@ const Tables = ({ search }) => {
   // delete user function success end
 
 
-  const userId = searchParams.get("userId");
-  const openFunction = (id) => {
-    setSearchParams({ userId: id });
-    setOpen(!open ? true : false);
-  };
-  useEffect(() => {
-    console.log(userId + "null");
-  }, [userId]);
-
 
   // active or no-active 
-  const userIds = searchParams.get(`userEditId`);
+
+  const userEditId = searchParams.get(`userEditId`);
   const emailStatus = async (id) => {
-    const userCollectionRef = collection(db, "users", param.userEditId);
-    toggle ? setToggle(false) : setToggle(true);
-    setSearchParams({ userEditId: id })
-    setActiveId(id)
-    await setDoc((userCollectionRef), {
+    setTimeout(() => {
+      setToggle(toggle ? false : true)
+    }, 500);
+    setSearchParams({ userEditId: activeId })
+    await updateDoc(doc(db, "users", id), {
       active: toggle
     });
-
-
-
+    setActiveId(id)
+    console.log(userEditId);
   };
-  useEffect(() => {
-    console.log(userIds, ": activedID")
-  }, [userIds])
+  // one user getData function
   return (
     <>
       {loading ? (
+
         <div className="flex justify-center items-center">
           {" "}
           <ClipLoader
@@ -110,6 +99,7 @@ const Tables = ({ search }) => {
                         "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
                       }
                     >
+
                       <>
                         <td>{index}</td>
                         <td>{item.name}</td>
@@ -119,12 +109,21 @@ const Tables = ({ search }) => {
                         <td>{item.Course}</td>
                         <td>{item.PreferredTime}</td>
                         <td>
-                          <span className="cursor-pointer " onClick={() => emailStatus(item.id)}>{item.active}active</span>
+                          <span className="cursor-pointer " onClick={() => emailStatus(item.id)}>
+                            {loading ? <ClipLoader
+                              loading={loading}
+                              size={20}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                              color="#7e7f81"
+                            /> : item.active ? "active" : "no active"}
+                            {/* */}
+                          </span>
                         </td>
                         <td className={"td_flex"}>
                           <span className="icons">
                             <Link to={`/editform/${item.id}`}>
-                              <LiaEdit onClick={() => openFunction(item.id)} />
+                              <LiaEdit />
                             </Link>
                           </span>
                           <span className="icons">
