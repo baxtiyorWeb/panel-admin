@@ -3,14 +3,6 @@ import "./Profile.css";
 import { Link } from "react-router-dom";
 import { FaEye, FaTelegram, FaRegEye } from "react-icons/fa";
 import { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
 import ComboBox from "../../combobox/ComboBox.jsx";
 import { ToastContainer } from "react-toastify";
 // eslint-disable-next-line react/prop-types
@@ -161,90 +153,7 @@ const Profile = ({ open }) => {
               }
             >
               <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
-                <TableContainer className="w-full text-[18px] ">
-                  <Table aria-label="simple table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell
-                          style={{
-                            fontSize: "20px",
-                            color: "#6C757D",
-                          }}
-                          align="left"
-                        >
-                          Full Name
-                        </TableCell>
-                        <TableCell
-                          style={{
-                            fontSize: "20px",
-                            color: "#6C757D",
-                          }}
-                          align="left"
-                        >
-                          Mobile
-                        </TableCell>
-                        <TableCell
-                          style={{
-                            fontSize: "20px",
-                            color: "#6C757D",
-                          }}
-                          align="left"
-                        >
-                          Email
-                        </TableCell>
-                        <TableCell
-                          style={{
-                            fontSize: "20px",
-                            color: "#6C757D",
-                          }}
-                          align="left"
-                        >
-                          Location
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell
-                          align="left"
-                          style={{
-                            fontSize: "18px",
-                            color: "#98A6AD",
-                          }}
-                        >
-                          admin
-                        </TableCell>
-                        <TableCell
-                          align="left"
-                          style={{
-                            fontSize: "18px",
-                            color: "#98A6AD",
-                          }}
-                        >
-                          123456789
-                        </TableCell>
-                        <TableCell
-                          align="left"
-                          style={{
-                            fontSize: "18px",
-                            color: "#98A6AD",
-                          }}
-                        >
-                          admin@admin.com
-                        </TableCell>
-                        <TableCell
-                          align="left"
-                          style={{
-                            fontSize: "18px",
-                            color: "#98A6AD",
-                          }}
-                        >
-                          Pakistan
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+
 
                 <div className="education">
                   <h1 className="text-[18px] text-[#191D21] m-[30px_13px_25px] font-normal">

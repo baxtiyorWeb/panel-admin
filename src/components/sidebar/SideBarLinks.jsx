@@ -1,4 +1,3 @@
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { HiUsers } from "react-icons/hi2";
 import {
@@ -37,7 +36,6 @@ export const SideBarLinks = ({ dark }) => {
         <div className={"mb-24"}></div>
 
         <MenuItem
-          icon={<HomeRoundedIcon />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A] "}
           component={<NavLink to={"/"}></NavLink>}
         >
