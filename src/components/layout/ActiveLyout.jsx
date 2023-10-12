@@ -1,4 +1,4 @@
-import {Container} from "postcss";
+import {Container} from "../shared/Container";
 
 import {Outlet} from "react-router-dom";
 

@@ -15,7 +15,6 @@ const AddStudent = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "students");
-  const [time, setTime] = useState()
   const date = new Date().getTime()
   async function sendForm() {
     setLoading(true);

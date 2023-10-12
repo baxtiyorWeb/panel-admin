@@ -3,10 +3,6 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import SideBar from "../sidebar/SideBar";
 import {useState} from "react";
-import {BiCog} from "react-icons/bi";
-import {FiSun} from "react-icons/fi";
-import {FaMoon} from "react-icons/fa";
-import UseTheme from "../context/ThemeToggle.jsx";
 
 
 // eslint-disable-next-line react/prop-types

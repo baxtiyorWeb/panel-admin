@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {Email_function} from "../../progress/data";
 import {Link} from "react-router-dom";
 import "./master.css";

@@ -1,6 +1,5 @@
 import {BiFullscreen} from "react-icons/bi";
 import {Input} from "../search/Input";
-import UseTheme from "../../context/ThemeToggle.jsx";
 // eslint-disable-next-line react/prop-types
 const Navigation = () => {
 	return (

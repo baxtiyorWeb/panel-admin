@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
 import { foculties, getLength } from "../progress/data";
