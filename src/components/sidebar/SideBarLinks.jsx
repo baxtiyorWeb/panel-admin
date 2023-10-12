@@ -17,7 +17,7 @@ import { AiFillFile } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-export const SideBarLinks = ({ dark }) => {
+export const SideBarLinks = ({ dark, }) => {
   return (
     <Sidebar
       style={{
