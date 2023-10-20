@@ -1,29 +1,12 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-const ComboBox = () => {
-  const option = [
-    {
-      id: 1,
-      value: "Development",
-    },
-    {
-      id: 2,
-      value: "Designing",
-    },
-    {
-      id: 3,
-      value: "Office managment",
-    },
-    {
-      id: 4,
-      value: "Compyuter course",
-    },
-  ];
+const ComboBox = ({ option }) => {
   const [options, setOptions] = useState(option);
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
-
+  console.log(options)
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <button
         className="w-full border h-[43px] text-left text-[#9CA3AF] rounded border-[#9CA3AF] p-[10px]"
         onClick={() => setOpen(open ? false : true)}
@@ -50,7 +33,7 @@ const ComboBox = () => {
                     onClick={() =>
                       setOptions(
                         localStorage.setItem("options", item.value) !==
-                          setOpen(false)
+                        setOpen(false)
                       )
                     }
                   >

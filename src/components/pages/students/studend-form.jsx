@@ -1,96 +1,77 @@
-import { addDoc, collection } from "firebase/firestore";
-import "../Enquiries.css";
-import { Link, useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { db } from "../../../setup/firebase/firebase";
-import { useState } from "react";
-import { ClipLoader } from "react-spinners";
-import ComboBox from "../../combobox/ComboBox";
-const AddStudent = () => {
-  const get = localStorage.getItem('options')
-  const option = [
-    {
-      id: 1,
-      value: "Development",
-    },
-    {
-      id: 2,
-      value: "Designing",
-    },
-    {
-      id: 3,
-      value: "Office managment",
-    },
-    {
-      id: 4,
-      value: "Compyuter course",
-    },
-  ];
+
+export const StudentForm = () => {
+  const params = useParams();
+  console.log(params);
+  const navigate = useNavigate();
+  function timeOut() {
+    setTimeout(() => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      navigate("/students/active");
+    }, 500);
+  }
+
+  const [user, setUser] = useState([]);
   const [name, setName] = useState("");
+  const [fatherName, setFatherName] = useState("");
+  const [DateBirth, setDateBirth] = useState("");
   const [Email, setEmail] = useState("");
   const [cninc, setCninc] = useState("");
   const [Mobile, setMobile] = useState("");
+  const [PrefferedTime, setPrefferedTime] = useState("");
   const [Course, setCourse] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const userCollectionRef = collection(db, "students");
-  const date = new Date().getTime()
-  async function sendForm() {
-    setLoading(true);
-    await addDoc(userCollectionRef, {
+  const [EditedId, setEditedId] = useState();
+  const [loading, setloading] = useState(false);
+
+
+
+  useEffect(() => {
+    setloading(true);
+    const getAllData = async () => {
+      const docRef = doc(db, "students", params.userId);
+      const targetDoc = await getDoc(docRef);
+      console.log("targetDoc.data() : ", targetDoc.data());
+      return { user: setUser(targetDoc.data()) };
+    };
+    setloading(false);
+    getAllData();
+  }, [params]);
+
+  console.log(user)
+
+  useEffect(() => {
+    setName(user.name);
+    setEmail(user.Email);
+    setCninc(user.cninc);
+    setMobile(user.Mobile);
+    setPrefferedTime(user.PrefferedTime);
+    setCourse(user.Course);
+    setCourse(user.Course);
+  }, [user, EditedId]);
+
+  const editFunction = async (userId) => {
+    setloading(true);
+    await updateDoc(doc(db, "students", params.userId), {
       name: name,
       Email: Email,
-      cninc: cninc,
       Mobile: Mobile,
-      Course: get,
-      edit: "LiaEdit",
-      delete: "MdDelete",
-      date: date
+      DateBirth: DateBirth,
+      cninc: cninc,
+      Course: Course,
     });
-    setLoading(false);
-    navigate("/students/students");
-  }
-
+    setEditedId(userId);
+    setloading(false);
+  };
 
   return (
-    <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
-
-      <div className="add-link mb-10 ">
-        <h1>Student Form</h1>
-        <Link to="/students/students">Students list</Link>
-      </div>
-      <div className="text-[#000] text-[18px] dark:text-[#fef3b0] mt-5 mb-5">
-        Rgistration Type
-      </div>
-      <div className="name flex items-start justify-center flex-col">
-        <div className="inline items-center ">
-          <input
-            type="radio"
-            id="Direct"
-            className="w-1 h-1 !not-sr-only"
-            name="gender"
-          />
-          <label
-            htmlFor="Direct"
-            className="mr-5 ml-1 opacity-90 text-[16px]"
-          >
-            Direct
-          </label>
-        </div>
-        <div className="inline items-center ">
-          <input
-            type="radio"
-            id="Enquery"
-            className="w-1 h-1 !not-sr-only"
-            name="gender"
-          />
-          <label
-            htmlFor="Enquery"
-            className="mr-5 ml-1 opacity-90 text-[16px]"
-          >
-            Enquery
-          </label>
-        </div>
+    <div>
+      <div className="add-link">
+        <button>delete</button>
+        <h1 className="font-normal">Enquiry Form</h1>
+        <Link to="/enquiries">Enquiries list</Link>
       </div>
       <div className="input-box">
         <div className="name">
@@ -99,7 +80,9 @@ const AddStudent = () => {
             type="text"
             placeholder="name"
             className="dark:bg-[#353C48] dark:border"
+            id="newNotes"
             onChange={(e) => setName(e.target.value)}
+            value={name || ""}
           />
         </div>
         <div className="name">
@@ -108,7 +91,8 @@ const AddStudent = () => {
             type="text"
             placeholder="Father Name"
             className="dark:bg-[#353C48] dark:border"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setFatherName(e.target.value)}
+            value={fatherName || ""}
           />
         </div>
         <div className="name">
@@ -117,6 +101,8 @@ const AddStudent = () => {
             type="date"
             placeholder="name"
             className="dark:bg-[#353C48] dark:border"
+            onChange={(e) => setDateBirth(e.target.value)}
+            value={DateBirth || ""}
           />
         </div>
         <div className="name">
@@ -126,6 +112,7 @@ const AddStudent = () => {
             placeholder="abc@gmail.com"
             className="dark:bg-[#353C48] dark:border"
             onChange={(e) => setEmail(e.target.value)}
+            value={Email || ""}
           />
         </div>
         <div className="name">
@@ -135,6 +122,7 @@ const AddStudent = () => {
             placeholder="33100-0000000-0"
             className="dark:bg-[#353C48] dark:border"
             onChange={(e) => setCninc(e.target.value)}
+            value={cninc || ""}
           />
         </div>
         <div className="name">
@@ -144,6 +132,7 @@ const AddStudent = () => {
             placeholder="+998 xx xxx xx xx"
             className="dark:bg-[#353C48] dark:border"
             onChange={(e) => setMobile(e.target.value)}
+            value={Mobile || ""}
           />
         </div>
         <div className="name">
@@ -171,14 +160,22 @@ const AddStudent = () => {
             </label>
           </div>
         </div>
-
+        <div className="name">
+          <span>Preferred Time</span>
+          <input
+            type="text"
+            placeholder="2:15"
+            className="dark:bg-[#353C48] dark:border"
+            onChange={(e) => setPrefferedTime(e.target.value)}
+            value={PrefferedTime || ""}
+          />
+        </div>
         <div className="name">
           <span>Department</span>
           <select
             name=""
             id="selection"
             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-
           >
             <option value="Other" disabled>
               Select department
@@ -224,20 +221,30 @@ const AddStudent = () => {
 
         <div className="name">
           <span>Course</span>
-          <ComboBox userCollectionRef={userCollectionRef} option={option} />
-        </div>
-        <div className="name">
-          <span>Course free</span>
-          <input type="text" className="dark:bg-[#353C48] dark:border" />
-        </div>
-        <div className="name">
-          <span>Student Agreed Fee</span>
-          <input type="text" className="dark:bg-[#353C48] dark:border" />
+          <select
+            name=""
+            id="selection"
+            className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+            onChange={(e) => setCourse(e.target.value)}
+            value={Course}
+          >
+            <option> </option>
+            <option>Modern Web App Development</option>
+            <option>Android Application Development</option>
+            <option>Advanced Graphics Designing</option>
+            <option>Microsoft Office Professional</option>
+            <option>Adobe Illustrator</option>
+            <option>Testing MT 2</option>
+            <option>Bootcamp</option>
+            <option>Android Test</option>
+            <option>digital marketing</option>
+            <option>Front end</option>
+            <option>Back end</option>
+          </select>
         </div>
       </div>
       <button
         type="submit"
-        onClick={sendForm}
         style={{
           width: "80px",
           height: "30px",
@@ -252,20 +259,10 @@ const AddStudent = () => {
           right: "0px",
           bottom: "5px",
         }}
+        onClick={() => editFunction(params.userId && timeOut())}
       >
-        {loading ? (
-          <ClipLoader
-            loading={loading}
-            size={20}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-            color="#fff"
-          />
-        ) : (
-          "send"
-        )}
+        {loading ? "loading..." : "edited"}
       </button>
-    </div >
+    </div>
   );
 };
-export default AddStudent;

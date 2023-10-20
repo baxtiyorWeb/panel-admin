@@ -5,7 +5,6 @@ import Students from "./components/pages/Student";
 import EnqueiriesLayout from "./components/layout/enqueiriesLayout";
 import AddForm from "./components/pages/addEnqueries";
 import { StudentsLayout } from "./components/layout/StudentsLayout";
-import Active from "./components/pages/Active";
 import { BatchesLayout } from "./components/layout/BatchesLayout";
 import Batches from "./components/pages/batches/Batches";
 import Transferbatch from "./components/pages/batches/TransBatch";
@@ -42,11 +41,13 @@ import AddCourse from "./components/pages/addpages/AddCourse";
 import WebSettingsUsers from "./components/pages/settings/web/Currency";
 import WebSettingsCurrensy from "./components/pages/settings/web/Currency";
 import { EditForm } from "./components/pages/EditForm";
+import { StudentForm } from "./components/pages/students/studend-form";
+import Active from "./components/pages/students/Active";
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/editform/:userId" element={<EditForm />} />
+        <Route path="/users-form/:userId" element={<EditForm/>} />
         <Route path="/" element={<Main />} />
 
         <Route path="/enquiries" element={<Enqueries />} />
@@ -55,7 +56,8 @@ const App = () => {
           <Route path="/layout/addform" element={<AddForm />} />
         </Route>
         <Route path="/students/" element={<StudentsLayout />}>
-          <Route path="/students/students" element={<Students open={open} />} />
+          <Route path="/students/students" element={<Students />} />
+          <Route path="/students/students-form/:userId" element={<StudentForm />} />
           <Route path="/students/addStudent" element={<AddStudent />} />
           <Route path="/students/active" element={<Active />} />
         </Route>

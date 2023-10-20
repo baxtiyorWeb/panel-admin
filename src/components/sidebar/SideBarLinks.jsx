@@ -8,6 +8,7 @@ import {
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import {
   BiCheck,
+  BiHome,
   BiSolidCog,
   BiSolidPencil,
   BiSolidUserCheck,
@@ -38,6 +39,7 @@ export const SideBarLinks = ({ dark, }) => {
         <MenuItem
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A] "}
           component={<NavLink to={"/"}></NavLink>}
+          icon={<BiHome/>}
         >
           Boshqaruv paneli
         </MenuItem>

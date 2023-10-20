@@ -6,7 +6,6 @@ const Navigation = () => {
 		<div className={"navigation"}>
 			<div className="nav-block">
 				<div className="full-screen">
-					
 					<BiFullscreen/>
 				</div>
 				<Input/>

@@ -1,56 +1,52 @@
-import React from "react";
+
+import { getDownloadURL, listAll, ref, uploadBytes, } from "firebase/storage";
 import "./FileUpload.scss";
+import { storage } from "../../../setup/firebase/firebase";
+import { useState } from "react";
+import { v4 } from "uuid";
+import { useEffect } from "react";
 
-const ProfileImg = (props) => (
-  <div className="profile-container">
-    {props.imgUrl ? (
-      <img src={props.imgUrl} alt="profile-img" className="profile" />
-    ) : (
-      <div className="icon-container drop-it-wrap" onClick={props.onUpload}>
-        <i className="fas fa-camera icon"></i>
-      </div>
-    )}
-  </div>
-);
+const Fileuplaod = () => {
+  const [image, setImage] = useState(null)
+  const [imagesUrl, setImagesUrl] = useState([])
+  const imagesListRef = ref(storage, "images/")
+  const handleFileUpload = () => {
+    if (image === null) return;
+    const imageRef = ref(storage, `images/${image.name + v4()}`);
 
-class Fileuplaod extends React.Component {
-  state = {
-    selectedFile: null,
-    url: undefined,
+    uploadBytes(imageRef, imagesUrl).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImagesUrl((prev) => [...prev, url])
+        console.log(imagesUrl);
+      })
+    })
+
   };
-  fileSelectedHandler = (e) => {
-    this.setState({
-      selectedFile: e.target.files[0],
-      url: "https://picsum.photos/200/300",
-    });
-  };
-  fileUploadHandler = () => {
-    console.log("test");
-    console.log(this.state.selectedFile);
-  };
-  render() {
-    return (
-      <div>
-        <ProfileImg
-          imgUrl={this.state.url}
-          onUpload={() => {
-            this.fileInput.click();
-          }}
-        />
-        <input
-          type="file"
-          className="file-input"
-          style={{
-            opacity: "0",
-            scale: 0,
-          }}
-          onChange={this.fileSelectedHandler}
-          ref={(fileInput) => {
-            this.fileInput = fileInput;
-          }}
-        />
-      </div>
-    );
-  }
+
+  useEffect(() => {
+    listAll(imagesListRef).then(imgs => {
+      console.log(imgs)
+      imgs.items.forEach((item) => {
+        getDownloadURL(item).then(url => {
+          setImagesUrl((prev) => [...prev, url])
+        })
+      })
+    })
+}, [])
+return (
+  <>
+    <div>
+      <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
+      <button onClick={(handleFileUpload)}>send</button>
+      {imagesUrl.map((item, index) => (
+        <img src={item} key={index} alt="" />
+      ))}
+    </div>
+  </>
+)
 }
+
+
+
+
 export default Fileuplaod;

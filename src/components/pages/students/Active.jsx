@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Students.css";
-import { getLength, } from "../progress/data";
-import Pagination from "../pagination/Pagination";
+import { active, getLength } from "../../progress/data";
+import Pagination from "../../pagination/Pagination";
 import { collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
-import { db } from "../../setup/firebase/firebase";
+import { db } from "../../../setup/firebase/firebase";
+import { LiaEdit, LiaSpinnerSolid } from "react-icons/lia";
 import { BiLike } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
-import { LiaSpinnerSolid } from "react-icons/lia";
 
-// eslint-disable-next-line react/prop-types
-const Student = () => {
+const Active = () => {
   const [search, setSearch] = useState("");
+
   const [page, setpage] = useState(1);
+
   const [limit, setlimit] = useState(5);
+
   const [students, setStudents] = useState([])
-  const [deleteId, setDeleteId] = useState();
-  const [likeId, setlikeId] = useState();
-  const [like, setLike] = useState(true)
+
   const [loading, setloading] = useState(false);
+
+  const [like, setLike] = useState(true)
+
+  const [likeId, setlikeId] = useState();
+
+  const [deleteId, setDeleteId] = useState();
+
   let totalPage = Math.ceil(getLength() / limit);
 
   function handlePageChange(value) {
@@ -39,34 +45,33 @@ const Student = () => {
     }
   }
 
-  let emptyPage;
-  if (page <= totalPage || page >= totalPage) {
-    emptyPage = page;
-  } else {
-    setpage(emptyPage);
-    emptyPage = page;
-  }
+  // get data 
+
 
   useEffect(() => {
     setloading(true);
     (async () => {
       const colRef = collection(db, "students");
+
       const snapshots = await getDocs(colRef);
+
       const docs = snapshots.docs.map((doc) => {
+
         const data = doc.data();
+
         data.id = doc.id;
+
         return data;
+
       });
+
       setStudents(docs)
+
       setloading(false)
+
     })();
-  }, [deleteId, like, likeId]);
 
-
-  const handleDeletingTicket = async (id) => {
-    await deleteDoc(doc(db, "students", id));
-    setDeleteId(id);
-  };
+  }, [deleteId, likeId, like]);
 
 
 
@@ -86,22 +91,25 @@ const Student = () => {
 
   }
 
-  // if(students.length === 0){
-  //   return <>epmty data</>
-  // }
+  const handleDeletingTicket = async (id) => {
 
-  console.log(students.length === 0)
+    await deleteDoc(doc(db, "students", id));
+
+    setDeleteId(id);
+  };
+
+  // const [pagination, setPagination] = useState("");
   return (
-    <div className={"dark:bg-[#353C48]"}>
-      <div className="chart-progress dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
+    <>
+      <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
         <div className="add-link">
-          <h1>Enquiries</h1>
-          <Link to="/students/addStudent">add student</Link>
+          <h1>Student List</h1>
+          <Link to="/students/addStudent">add Student</Link>
         </div>
         <div className="user_blew">
           <div className="user_blow">
             <h4>Show</h4>
-            <select name="name" id="select" className={"dark:bg-transparent"}>
+            <select name="name" id="select" className="dark:bg-[#3B4452]">
               <option className="one_more" value="name">
                 10
               </option>
@@ -112,15 +120,14 @@ const Student = () => {
             <h4>Search:</h4>
             <input
               type="text"
-              className={"dark:bg-[#3B4452] border border-cyan-600"}
               onChange={(e) => setSearch(e.target.value)}
+              className="dark:bg-[#3B4452] border border-cyan-600"
             />
           </div>
         </div>
         <div id="demo">
           <div>
-
-            <div className="table-responsive-vertical shadow-z-1">
+            <div className="table-responsive-vertical shadow-z-1 dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
               {students.length === 0 ? <h2 style={{
                 textAlign: "center",
                 color: "#ccc",
@@ -162,6 +169,11 @@ const Student = () => {
                           <td>{item.Batch}</td>
                           <td className={"td_flex"}>
                             <span className="icons" onClick={() => likeHandleTicket(item.id)}>
+                              <Link to={`/students/students-form/${item.id}`}>
+                                <LiaEdit />
+                              </Link>
+                            </span>
+                            <span className="icons" onClick={() => likeHandleTicket(item.id)}>
                               {loading && item.id ? <LiaSpinnerSolid /> : <BiLike style={{
 
                                 color: !item.like ? "white" : "green"
@@ -174,9 +186,10 @@ const Student = () => {
                     })}
                 </tbody>
               </table>}
-
-
             </div>
+          </div>
+          <div>
+
           </div>
         </div>
         <div className="flex justify-end">
@@ -189,8 +202,8 @@ const Student = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Student;
+export default Active;

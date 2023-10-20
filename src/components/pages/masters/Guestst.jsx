@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Email_function } from "../../progress/data";
 import { Link } from "react-router-dom";
 
@@ -6,20 +6,7 @@ import "./master.css";
 import Fileuplaod from "./Fileuplaod";
 import ComboBox from "../../combobox/ComboBox";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
-const ColorStyle = {
-  control: (styles) => ({
-    ...styles,
-    width: "482px",
-    background: "transparent",
-  }),
-};
 const Guestst = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
   const [search, setSearch] = useState("");
   return (
     <div
@@ -59,7 +46,6 @@ const Guestst = () => {
             rows="10"
             className={"dark:bg-[#3b4452]"}
           >
-            {" "}
           </textarea>
         </div>
         <button>submit</button>

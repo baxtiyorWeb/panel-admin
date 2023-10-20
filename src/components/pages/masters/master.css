@@ -9,29 +9,6 @@
   align-items: center;
   cursor: pointer;
 }
-.drop-it-wrap .loader {
-  display: none;
-}
-.drop-it-wrap.uploading .loader {
-  display: block;
-}
-.drop-it-wrap.uploading .default {
-  display: none;
-}
-.drop-it-wrap:hover {
-  border: 5px dashed #d3d3d3;
-}
-.drop-it-input {
-  position: absolute;
-  top: -99999999px;
-}
-.batch {
-  cursor: crosshair;
-  background: #ffffff;
-}
-.batch.uploading {
-  animation: disco 0.1s infinite alternate;
-}
 
 .div-block {
   width: 510px;
@@ -59,20 +36,6 @@
   margin-bottom: 40px;
 }
 
-.div-block button {
-  width: 80px;
-  height: 30px;
-  background-color: #6777ef;
-  border-color: transparent transparent;
-  color: #fff;
-  padding: 0.1rem 0.4rem;
-  font-size: 12px;
-  cursor: pointer;
-  border-radius: 3px;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-}
 
 .div-block textarea {
   width: 100%;

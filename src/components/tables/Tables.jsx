@@ -31,7 +31,7 @@ const Tables = ({ search }) => {
       setLoading(false);
     })();
   }, [deleteId, toggle]);
- 
+
 
 
   //  delete user
@@ -40,7 +40,6 @@ const Tables = ({ search }) => {
     setDeleteId(id);
   };
   // delete user function success end
-
 
 
   // active or no-active 
@@ -74,7 +73,11 @@ const Tables = ({ search }) => {
         </div>
       ) : (
         <div>
-          <table id="table" className="table table-hover ">
+          {user.length === 0 ? <h2 style={{
+            textAlign: "center",
+            color: "#ccc",
+            fontSize: "20px"
+          }}>empty data</h2> : <table id="table" className="table table-hover ">
             <thead>
               <tr>
                 <th>id</th>
@@ -109,6 +112,7 @@ const Tables = ({ search }) => {
                         <td>{item.Course}</td>
                         <td>{item.PreferredTime}</td>
                         <td>
+
                           <span className="cursor-pointer " onClick={() => emailStatus(item.id)}>
                             {loading ? <ClipLoader
                               loading={loading}
@@ -122,7 +126,7 @@ const Tables = ({ search }) => {
                         </td>
                         <td className={"td_flex"}>
                           <span className="icons">
-                            <Link to={`/editform/${item.id}`}>
+                            <Link to={`/users-form/${item.id}`}>
                               <LiaEdit />
                             </Link>
                           </span>
@@ -139,7 +143,7 @@ const Tables = ({ search }) => {
                   );
                 })}
             </tbody>
-          </table>
+          </table>}
         </div>
       )}
     </>

@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
+import ComboBox from "../combobox/ComboBox";
 
 // eslint-disable-next-line react/prop-types
 const AddForm = () => {
@@ -18,6 +19,26 @@ const AddForm = () => {
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "users");
   const [time, setTime] = useState()
+  const get = localStorage.getItem('options')
+  const option = [
+    {
+      id: 1,
+      value: "Development",
+    },
+    {
+      id: 2,
+      value: "Designing",
+    },
+    {
+      id: 3,
+      value: "Office managment",
+    },
+    {
+      id: 4,
+      value: "Compyuter course",
+    },
+  ];
+
   const date = new Date().getTime()
   async function sendForm(e) {
     e.preventDefault();
@@ -27,7 +48,7 @@ const AddForm = () => {
       Email: Email,
       cninc: cninc,
       Mobile: Mobile,
-      Course: Course,
+      Course: get,
       edit: "LiaEdit",
       delete: "MdDelete",
       date: date
@@ -128,7 +149,7 @@ const AddForm = () => {
               type="time"
               value={date}
               className="dark:bg-[#353C48] dark:border"
-              onChange={(e)=> setTime(e.target.value)}
+              onChange={(e) => setTime(e.target.value)}
             />
           </div>
           <div className="name">
@@ -182,28 +203,7 @@ const AddForm = () => {
 
           <div className="name">
             <span>Course</span>
-            <select
-              name=""
-              id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
-              onChange={(e) => setCourse(e.target.value)}
-            >
-              <option value="Other" disabled>
-                Select Course
-              </option>
-              <option value="Other" id="options">
-                Other1
-              </option>
-              <option value="Other" id="options">
-                Other2
-              </option>
-              <option value="Other" id="options">
-                Other3
-              </option>
-              <option value="Other" id="options">
-                Other4
-              </option>
-            </select>
+            <ComboBox option={option} userCollectionRef={userCollectionRef} />
           </div>
         </div>
         <button

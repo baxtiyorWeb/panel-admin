@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../setup/firebase/firebase";
 export const EditForm = () => {
   const params = useParams("userId");
+  console.log(params);
   const navigate = useNavigate();
   function timeOut() {
     setTimeout(() => {
@@ -12,6 +13,7 @@ export const EditForm = () => {
       navigate("/enquiries");
     }, 500);
   }
+
   const [user, setUser] = useState([]);
   const [name, setName] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -23,6 +25,9 @@ export const EditForm = () => {
   const [Course, setCourse] = useState("");
   const [EditedId, setEditedId] = useState();
   const [loading, setloading] = useState(false);
+
+
+
   useEffect(() => {
     setloading(true);
     const getAllData = async () => {
@@ -34,6 +39,8 @@ export const EditForm = () => {
     setloading(false);
     getAllData();
   }, [params]);
+
+  console.log(user)
 
   useEffect(() => {
     setName(user.name);
