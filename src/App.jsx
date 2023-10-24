@@ -97,7 +97,7 @@ const App = () => {
             element={<ExpensesReports />}
           />
         </Route>
-        <Route path="/profile" element={<Profile open={open} />} />
+        <Route path="/profile/:id" element={<Profile/>} />
         <Route path="/settings" element={<SettingsLayout />}>
           <Route path="/settings/currency" element={<Currency />} />
           <Route path="/settings/users" element={<Users />} />

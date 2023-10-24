@@ -5,27 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { db } from "../../../setup/firebase/firebase";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
-import ComboBox from "../../combobox/ComboBox";
 const AddStudent = () => {
-  const get = localStorage.getItem('options')
-  const option = [
-    {
-      id: 1,
-      value: "Development",
-    },
-    {
-      id: 2,
-      value: "Designing",
-    },
-    {
-      id: 3,
-      value: "Office managment",
-    },
-    {
-      id: 4,
-      value: "Compyuter course",
-    },
-  ];
+
   const [name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [cninc, setCninc] = useState("");
@@ -42,7 +23,7 @@ const AddStudent = () => {
       Email: Email,
       cninc: cninc,
       Mobile: Mobile,
-      Course: get,
+      Course: Course,
       edit: "LiaEdit",
       delete: "MdDelete",
       date: date
@@ -224,7 +205,26 @@ const AddStudent = () => {
 
         <div className="name">
           <span>Course</span>
-          <ComboBox userCollectionRef={userCollectionRef} option={option} />
+          <select
+            name=""
+            id="selection"
+            className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+            onChange={(e) => setCourse(e.target.value)}
+            value={Course}
+          >
+            <option> </option>
+            <option>Modern Web App Development</option>
+            <option>Android Application Development</option>
+            <option>Advanced Graphics Designing</option>
+            <option>Microsoft Office Professional</option>
+            <option>Adobe Illustrator</option>
+            <option>Testing MT 2</option>
+            <option>Bootcamp</option>
+            <option>Android Test</option>
+            <option>digital marketing</option>
+            <option>Front end</option>
+            <option>Back end</option>
+          </select>
         </div>
         <div className="name">
           <span>Course free</span>

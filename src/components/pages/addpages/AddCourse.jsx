@@ -2,7 +2,6 @@ import "../Enquiries.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ComboBox from "../../combobox/ComboBox";
 const AddCourse = () => {
   const notify = () => toast("send your form");
   function sendForm(e) {
@@ -41,9 +40,8 @@ const AddCourse = () => {
             />
           </div>
           <div className="name">
-            <span>selectcourse category</span>
+            <span>select course category</span>
 
-            <ComboBox />
           </div>
           <div className="name">
             <span>course image</span>
@@ -63,7 +61,6 @@ const AddCourse = () => {
           </div>
           <div className="name">
             <span>Duration type</span>
-            <ComboBox />
           </div>
         </div>
 

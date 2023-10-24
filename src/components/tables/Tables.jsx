@@ -110,7 +110,7 @@ const Tables = ({ search }) => {
                         <td>{item.Mobile}</td>
                         <td>{item.cninc}</td>
                         <td>{item.Course}</td>
-                        <td>{item.PreferredTime}</td>
+                        <td>{item.PrefferedTime}</td>
                         <td>
 
                           <span className="cursor-pointer " onClick={() => emailStatus(item.id)}>

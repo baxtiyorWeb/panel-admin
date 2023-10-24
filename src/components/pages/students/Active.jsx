@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { active, getLength } from "../../progress/data";
+import { getLength } from "../../progress/data";
 import Pagination from "../../pagination/Pagination";
 import { collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "../../../setup/firebase/firebase";
 import { LiaEdit, LiaSpinnerSolid } from "react-icons/lia";
 import { BiLike } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import { ClipLoader } from "react-spinners";
 
 const Active = () => {
   const [search, setSearch] = useState("");
@@ -132,7 +133,16 @@ const Active = () => {
                 textAlign: "center",
                 color: "#ccc",
                 fontSize: "20px"
-              }}>empty data</h2> : loading ? <LiaSpinnerSolid className="fixed right-[45%] top-[38%] text-[30px] mb-[30px]" /> : <table
+              }}>empty data</h2> : loading ? <div className="flex justify-center items-center">
+                {" "}
+                <ClipLoader
+                  loading={loading}
+                  size={20}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                  color="#7e7f81"
+                />
+              </div> : <table
                 id="table"
                 className="table table-hover table-mc-light-blue"
               >
@@ -174,10 +184,19 @@ const Active = () => {
                               </Link>
                             </span>
                             <span className="icons" onClick={() => likeHandleTicket(item.id)}>
-                              {loading && item.id ? <LiaSpinnerSolid /> : <BiLike style={{
+                              {loading && item.id ?
 
-                                color: !item.like ? "white" : "green"
-                              }} />}
+                                < ClipLoader
+                                  loading={loading}
+                                  size={20}
+                                  aria-label="Loading Spinner"
+                                  data-testid="loader"
+                                  color="#7e7f81"
+                                />
+                                : <BiLike style={{
+
+                                  color: !item.like ? "white" : "green"
+                                }} />}
                             </span>
                             <span className="icons" onClick={() => handleDeletingTicket(item.id)}><MdDelete /></span>
                           </td>

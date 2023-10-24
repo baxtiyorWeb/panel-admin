@@ -7,10 +7,11 @@ import { collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firesto
 import { db } from "../../setup/firebase/firebase";
 import { BiLike } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import ClipLoader from "react-spinners/ClipLoader"
 import { LiaSpinnerSolid } from "react-icons/lia";
 
 // eslint-disable-next-line react/prop-types
-const Student = () => {
+export const Student = () => {
   const [search, setSearch] = useState("");
   const [page, setpage] = useState(1);
   const [limit, setlimit] = useState(5);
@@ -125,7 +126,15 @@ const Student = () => {
                 textAlign: "center",
                 color: "#ccc",
                 fontSize: "20px"
-              }}>empty data</h2> : loading ? <LiaSpinnerSolid className="fixed right-[45%] top-[38%] text-[30px] mb-[30px]" /> : <table
+              }}>empty data</h2> : loading ? <div className="flex justify-center items-center">
+                <ClipLoader
+                  loading={loading}
+                  size={20}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                  color="#7e7f81"
+                />
+              </div> : <table
                 id="table"
                 className="table table-hover table-mc-light-blue"
               >
@@ -152,7 +161,7 @@ const Student = () => {
                         <tr key={item.id} className={"even:dark:bg-[#313843]"}>
                           <td>{index}</td>
                           <td>
-                            <Link>{item.name}</Link>
+                            <Link to={`/profile/${item.id}`}>{item.name}</Link>
                           </td>
                           <td>{item.RegNo}</td>
                           <td>{item.Email}</td>

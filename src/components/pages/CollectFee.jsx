@@ -1,5 +1,4 @@
 import Container from "../shared/Container";
-import ComboBox from "../combobox/ComboBox";
 import Selectbatch from "../combobox/Selectbatch";
 import { useState } from "react";
 const CollectFree = () => {
@@ -33,9 +32,7 @@ const CollectFree = () => {
             }
           >
             <div className="gird grid grid-cols-3 gap-4">
-              <ComboBox />
               <Selectbatch />
-              <ComboBox />
             </div>
           </div>
           <div className={tabitem === 2 ? "block" : "fixed z-0 scale-0"}>

@@ -3,13 +3,19 @@ import "./Profile.css";
 import { Link } from "react-router-dom";
 import { FaEye, FaTelegram, FaRegEye } from "react-icons/fa";
 import { useState } from "react";
-import ComboBox from "../../combobox/ComboBox.jsx";
 import { ToastContainer } from "react-toastify";
+import useProfile from "../../../hooks/useProfile.js";
+import { MdDelete } from "react-icons/md";
+import { BiLike } from "react-icons/bi";
+import { LiaSpinnerSolid } from "react-icons/lia";
+import useDeleteProfile from "../../../hooks/useDeleteProfile.js";
 // eslint-disable-next-line react/prop-types
-const Profile = ({ open }) => {
-  const [tabitem, settabItem] = useState(1);
+const Profile = () => {
+  const [tabItem, setTabItem] = useState(1);
   const [showPassword, setShowPassword] = useState(null);
   const [icon, setIcon] = useState(FaEye);
+  const profile = useProfile();
+  const useEdit = useDeleteProfile();
 
   function showPass() {
     if (showPassword === "password") {
@@ -22,26 +28,26 @@ const Profile = ({ open }) => {
   }
 
   function toggleTab(index) {
-    settabItem(index);
+    setTabItem(index);
     console.log(index);
   }
 
   return (
-    <Container open={open}>
+    <Container>
       <div className="title">
         <h1>Profile</h1>
       </div>
       <div className="profile-wrapper select-none dark:bg-[#353C48]">
         <div className="side-profile">
-          <div className="profile head">
+          <div className="profile head dark:bg-[#353C48]">
             <div className="user">
               <img
                 src="http://education.almahirhub.com/assets/img/user.png"
                 alt=""
               />
               <div className={"title_top"}>admin</div>
-              <div>kjhgfdsa</div>
-              <h3>Follow hasan On</h3>
+              <div>{profile.user.Course}</div>
+              <h3>Follow {profile.user.name} On</h3>
               <div>
                 <Link to={"https://t.me//Hasan"}>
                   <FaTelegram />
@@ -49,7 +55,7 @@ const Profile = ({ open }) => {
               </div>
             </div>
           </div>
-          <div className="profile footer">
+          <div className="profile footer dark:bg-[#353C48]">
             <h3 className={"user_brain"}>Personal Details</h3>
             <div className={"user_brn"}>
               <h4>Birthday</h4>
@@ -57,11 +63,11 @@ const Profile = ({ open }) => {
             </div>
             <div className={"user_brn"}>
               <h4>Phone</h4>
-              <h4>123456789</h4>
+              <h4>{profile.user.Mobile}</h4>
             </div>
             <div className={"user_brn"}>
               <h4>Mail</h4>
-              <h4>admin@admin.com</h4>
+              <h4>{profile.user.Email}</h4>
             </div>
           </div>
         </div>
@@ -77,7 +83,7 @@ const Profile = ({ open }) => {
           <div className={"tabs"}>
             <div
               className={
-                tabitem === 1 ? "tab-item-block" : "tab-item-block-hide"
+                tabItem === 1 ? "tab-item-block" : "tab-item-block-hide"
               }
             >
               <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
@@ -138,7 +144,6 @@ const Profile = ({ open }) => {
                   </div>
                   <div className="name">
                     <span>Duration type</span>
-                    <ComboBox />
                   </div>
                 </div>
 
@@ -147,31 +152,65 @@ const Profile = ({ open }) => {
             </div>
             <div
               className={
-                tabitem === 2
+                tabItem === 2
                   ? "tab-item-block "
                   : "tab-item-block-hide chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal"
               }
             >
               <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
-
-
-                <div className="education">
-                  <h1 className="text-[18px] text-[#191D21] m-[30px_13px_25px] font-normal">
-                    Education
-                  </h1>
-                  <em>
-                    <strong className="text-[#6c757d] relative left-[30px] top-10">
-                      d,vndnvkdbvj b
-                    </strong>
-                  </em>
-                </div>
-
-                <div className="expreience">
-                  <h1 className="text-[18px] text-[#191D21] m-[60px_13px_25px] font-normal">
-                    Expereince
-                  </h1>
-                  <p className="ml-5 font-medium">dvfdbfdbfdb</p>
-                </div>
+                {profile.loading ? (
+                  "loading ...."
+                ) : (
+                  <table
+                    id="table"
+                    className="table table-hover table-mc-light-blue"
+                  >
+                    <thead>
+                      <tr>
+                        <th>full name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        key={profile.id}
+                        className={
+                          "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
+                        }
+                      >
+                        <td>{profile.user.name}</td>
+                        <td>{profile.user.Mobile}</td>
+                        <td>{profile.user.Email}</td>
+                        <td className={"td_flex"}>
+                          <span
+                            className="icons"
+                            // onClick={() => likeHandleTicket(item.id)}
+                          >
+                            {profile.loading && profile.user.id ? (
+                              <LiaSpinnerSolid />
+                            ) : (
+                              <BiLike
+                                style={{
+                                  color: !profile.user.like ? "white" : "green",
+                                }}
+                              />
+                            )}
+                          </span>
+                          <span
+                            className="icons"
+                            onClick={() =>
+                              useEdit.handleDeletingTicket(profile.id)
+                            }
+                          >
+                            <MdDelete />
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                )}
               </div>
             </div>
           </div>

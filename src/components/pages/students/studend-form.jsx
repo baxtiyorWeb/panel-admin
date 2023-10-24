@@ -1,8 +1,17 @@
+/* eslint-disable react/prop-types */
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../../setup/firebase/firebase";
+import { DatePicker, Select, Space, TimePicker } from 'antd';
 
+const { Option } = Select;
+
+const PickerWithType = ({ type, onChange }) => {
+  if (type === 'time') return <TimePicker onChange={onChange} />;
+  if (type === 'date') return <DatePicker onChange={onChange} />;
+  return <DatePicker picker={type} onChange={onChange} />;
+};
 export const StudentForm = () => {
   const params = useParams();
   console.log(params);
@@ -21,11 +30,11 @@ export const StudentForm = () => {
   const [Email, setEmail] = useState("");
   const [cninc, setCninc] = useState("");
   const [Mobile, setMobile] = useState("");
-  const [PrefferedTime, setPrefferedTime] = useState("");
+  const [time, setTime] = useState("");
   const [Course, setCourse] = useState("");
   const [EditedId, setEditedId] = useState();
   const [loading, setloading] = useState(false);
-
+  const [type, setType] = useState('time');
 
 
   useEffect(() => {
@@ -47,8 +56,7 @@ export const StudentForm = () => {
     setEmail(user.Email);
     setCninc(user.cninc);
     setMobile(user.Mobile);
-    setPrefferedTime(user.PrefferedTime);
-    setCourse(user.Course);
+    setTime(user.PrefferedTime);
     setCourse(user.Course);
   }, [user, EditedId]);
 
@@ -61,13 +69,14 @@ export const StudentForm = () => {
       DateBirth: DateBirth,
       cninc: cninc,
       Course: Course,
+      PrefferedTime: time
     });
     setEditedId(userId);
     setloading(false);
   };
 
   return (
-    <div>
+    <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
       <div className="add-link">
         <button>delete</button>
         <h1 className="font-normal">Enquiry Form</h1>
@@ -162,13 +171,17 @@ export const StudentForm = () => {
         </div>
         <div className="name">
           <span>Preferred Time</span>
-          <input
-            type="text"
-            placeholder="2:15"
-            className="dark:bg-[#353C48] dark:border"
-            onChange={(e) => setPrefferedTime(e.target.value)}
-            value={PrefferedTime || ""}
-          />
+          <Space>
+            <Select value={type} onChange={setType}>
+              <Option value="time">Time</Option>
+              <Option value="date">Date</Option>
+              <Option value="week">Week</Option>
+              <Option value="month">Month</Option>
+              <Option value="quarter">Quarter</Option>
+              <Option value="year">Year</Option>
+            </Select>
+            <PickerWithType type={type} onChange={(value) => console.log(value)} />
+          </Space>
         </div>
         <div className="name">
           <span>Department</span>

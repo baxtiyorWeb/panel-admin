@@ -1,5 +1,4 @@
 import Container from "../shared/Container";
-import ComboBox from "../combobox/ComboBox";
 import Selectbatch from "../combobox/Selectbatch";
 import { useEffect, useState } from "react";
 const Attendies = () => {
@@ -25,7 +24,6 @@ const Attendies = () => {
         <div className="chart-progress dark:bg-[#353C48] h-[50vh]">
           <div className="flex justify-center mb-5 text-[50px]">{date}</div>
           <div className="flex">
-            <ComboBox />
             <Selectbatch />
             <ComboBox />
           </div>

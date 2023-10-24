@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Enquiries.css";
@@ -6,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
-import ComboBox from "../combobox/ComboBox";
-
+import { TimePicker, DatePicker } from "antd"
+import dayjs from "dayjs";
 // eslint-disable-next-line react/prop-types
 const AddForm = () => {
   const [name, setName] = useState("");
@@ -16,30 +17,13 @@ const AddForm = () => {
   const [Mobile, setMobile] = useState("");
   const [Course, setCourse] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dateBirth, setDateBirth] = useState('')
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "users");
-  const [time, setTime] = useState()
-  const get = localStorage.getItem('options')
-  const option = [
-    {
-      id: 1,
-      value: "Development",
-    },
-    {
-      id: 2,
-      value: "Designing",
-    },
-    {
-      id: 3,
-      value: "Office managment",
-    },
-    {
-      id: 4,
-      value: "Compyuter course",
-    },
-  ];
-
-  const date = new Date().getTime()
+  const [time, setTime] = useState("")
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
   async function sendForm(e) {
     e.preventDefault();
     setLoading(true);
@@ -48,14 +32,19 @@ const AddForm = () => {
       Email: Email,
       cninc: cninc,
       Mobile: Mobile,
-      Course: get,
+      Course: Course,
       edit: "LiaEdit",
       delete: "MdDelete",
-      date: date
+      dateBirth: dateBirth,
+      PrefferedTime: time
+
     });
     setLoading(false);
     navigate("/enquiries");
   }
+
+  const format = 'HH:mm';
+
   return (
     <div>
       <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
@@ -85,11 +74,7 @@ const AddForm = () => {
           </div>
           <div className="name">
             <span>Date of Birth</span>
-            <input
-              type="date"
-              placeholder="name"
-              className="dark:bg-[#353C48] dark:border"
-            />
+            <DatePicker onChange={(e) => setDateBirth(e.format('DD/MM/YYYY'))} />
           </div>
           <div className="name">
             <span>Email</span>
@@ -145,12 +130,7 @@ const AddForm = () => {
           </div>
           <div className="name">
             <span>Preferred Time</span>
-            <input
-              type="time"
-              value={date}
-              className="dark:bg-[#353C48] dark:border"
-              onChange={(e) => setTime(e.target.value)}
-            />
+            <TimePicker defaultValue={dayjs(`${hours}: ${minutes}`, format)} format={format} onChange={(e) => setTime(e.format('HH:mm A'))} />
           </div>
           <div className="name">
             <span>Department</span>
@@ -203,7 +183,26 @@ const AddForm = () => {
 
           <div className="name">
             <span>Course</span>
-            <ComboBox option={option} userCollectionRef={userCollectionRef} />
+            <select
+              name=""
+              id="selection"
+              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+              onChange={(e) => setCourse(e.target.value)}
+              value={Course}
+            >
+              <option> </option>
+              <option>Modern Web App Development</option>
+              <option>Android Application Development</option>
+              <option>Advanced Graphics Designing</option>
+              <option>Microsoft Office Professional</option>
+              <option>Adobe Illustrator</option>
+              <option>Testing MT 2</option>
+              <option>Bootcamp</option>
+              <option>Android Test</option>
+              <option>digital marketing</option>
+              <option>Front end</option>
+              <option>Back end</option>
+            </select>
           </div>
         </div>
         <button

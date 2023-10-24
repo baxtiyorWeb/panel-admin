@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import "./master.css";
 import Fileuplaod from "./Fileuplaod";
-import ComboBox from "../../combobox/ComboBox";
 
 const Guestst = () => {
   const [search, setSearch] = useState("");
@@ -29,9 +28,7 @@ const Guestst = () => {
             marginTop: "10px",
             marginBottom: "40px",
           }}
-        >
-          <ComboBox />
-        </div>
+        ></div>
 
         <div>
           <Fileuplaod />
@@ -45,8 +42,7 @@ const Guestst = () => {
             cols="30"
             rows="10"
             className={"dark:bg-[#3b4452]"}
-          >
-          </textarea>
+          ></textarea>
         </div>
         <button>submit</button>
       </div>

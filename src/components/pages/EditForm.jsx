@@ -1,8 +1,19 @@
+/* eslint-disable react/prop-types */
 import Container from "../shared/Container";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../setup/firebase/firebase";
+import { DatePicker, Select, Space, TimePicker } from 'antd';
+
+const { Option } = Select;
+
+const PickerWithType = ({ type, onChange }) => {
+  if (type === 'time') return <TimePicker onChange={onChange} />;
+  if (type === 'date') return <DatePicker onChange={onChange} />;
+  return <DatePicker picker={type} onChange={onChange} />;
+};
+
 export const EditForm = () => {
   const params = useParams("userId");
   console.log(params);
@@ -14,6 +25,7 @@ export const EditForm = () => {
     }, 500);
   }
 
+  const [type, setType] = useState('time');
   const [user, setUser] = useState([]);
   const [name, setName] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -21,22 +33,22 @@ export const EditForm = () => {
   const [Email, setEmail] = useState("");
   const [cninc, setCninc] = useState("");
   const [Mobile, setMobile] = useState("");
-  const [PrefferedTime, setPrefferedTime] = useState("");
+  const [time, setTime] = useState("");
   const [Course, setCourse] = useState("");
   const [EditedId, setEditedId] = useState();
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
 
   useEffect(() => {
-    setloading(true);
+    setLoading(true);
     const getAllData = async () => {
       const docRef = doc(db, "users", params.userId);
       const targetDoc = await getDoc(docRef);
       console.log("targetDoc.data() : ", targetDoc.data());
       return { user: setUser(targetDoc.data()) };
     };
-    setloading(false);
+    setLoading(false);
     getAllData();
   }, [params]);
 
@@ -47,13 +59,13 @@ export const EditForm = () => {
     setEmail(user.Email);
     setCninc(user.cninc);
     setMobile(user.Mobile);
-    setPrefferedTime(user.PrefferedTime);
+    setTime(user.PrefferedTime);
     setCourse(user.Course);
     setCourse(user.Course);
   }, [user, EditedId]);
 
   const editFunction = async (userId) => {
-    setloading(true);
+    setLoading(true);
     await updateDoc(doc(db, "users", params.userId), {
       name: name,
       Email: Email,
@@ -61,10 +73,12 @@ export const EditForm = () => {
       DateBirth: DateBirth,
       cninc: cninc,
       Course: Course,
+      PrefferedTime: time
     });
     setEditedId(userId);
-    setloading(false);
+    setLoading(false);
   };
+
 
   return (
     <Container>
@@ -164,13 +178,17 @@ export const EditForm = () => {
             </div>
             <div className="name">
               <span>Preferred Time</span>
-              <input
-                type="text"
-                placeholder="2:15"
-                className="dark:bg-[#353C48] dark:border"
-                onChange={(e) => setPrefferedTime(e.target.value)}
-                value={PrefferedTime || ""}
-              />
+              <Space>
+                <Select value={type} onChange={setType}>
+                  <Option value="time">Time</Option>
+                  <Option value="date">Date</Option>
+                  <Option value="week">Week</Option>
+                  <Option value="month">Month</Option>
+                  <Option value="quarter">Quarter</Option>
+                  <Option value="year">Year</Option>
+                </Select>
+                <PickerWithType type={type} onChange={(value) => setTime(value)} />
+              </Space>
             </div>
             <div className="name">
               <span>Department</span>
