@@ -6,7 +6,6 @@ import { db } from "../../../setup/firebase/firebase";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 const AddStudent = () => {
-
   const [name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [cninc, setCninc] = useState("");
@@ -15,7 +14,7 @@ const AddStudent = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "students");
-  const date = new Date().getTime()
+  const date = new Date().getTime();
   async function sendForm() {
     setLoading(true);
     await addDoc(userCollectionRef, {
@@ -26,16 +25,15 @@ const AddStudent = () => {
       Course: Course,
       edit: "LiaEdit",
       delete: "MdDelete",
-      date: date
+      PrefferedTime: "",
+      date: date,
     });
     setLoading(false);
     navigate("/students/students");
   }
 
-
   return (
     <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
-
       <div className="add-link mb-10 ">
         <h1>Student Form</h1>
         <Link to="/students/students">Students list</Link>
@@ -51,10 +49,7 @@ const AddStudent = () => {
             className="w-1 h-1 !not-sr-only"
             name="gender"
           />
-          <label
-            htmlFor="Direct"
-            className="mr-5 ml-1 opacity-90 text-[16px]"
-          >
+          <label htmlFor="Direct" className="mr-5 ml-1 opacity-90 text-[16px]">
             Direct
           </label>
         </div>
@@ -65,10 +60,7 @@ const AddStudent = () => {
             className="w-1 h-1 !not-sr-only"
             name="gender"
           />
-          <label
-            htmlFor="Enquery"
-            className="mr-5 ml-1 opacity-90 text-[16px]"
-          >
+          <label htmlFor="Enquery" className="mr-5 ml-1 opacity-90 text-[16px]">
             Enquery
           </label>
         </div>
@@ -159,7 +151,6 @@ const AddStudent = () => {
             name=""
             id="selection"
             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-
           >
             <option value="Other" disabled>
               Select department
@@ -265,7 +256,7 @@ const AddStudent = () => {
           "send"
         )}
       </button>
-    </div >
+    </div>
   );
 };
 export default AddStudent;

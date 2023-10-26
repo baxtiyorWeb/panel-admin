@@ -1,29 +1,33 @@
 import { useState } from "react";
-import { Batches_study, getLength } from "../../progress/data";
+import { getLength } from "../../progress/data";
 import { Link } from "react-router-dom";
 import Pagination from "../../pagination/Pagination";
+import { useBatchHook } from "../../../hooks/useBatchHook";
+import { LiaEdit } from "react-icons/lia";
+import { BiLike } from "react-icons/bi";
 
 const Batches = () => {
   const [search, setSearch] = useState("");
-  const [page, setpage] = useState(1);
+  const [page, setPages] = useState(1);
   const [limit, setlimit] = useState(5);
+  const batches = useBatchHook();
   let totalPage = Math.ceil(getLength() / limit);
 
   function handlePageChange(value) {
     if (value === "&laquo;" || value === "... ") {
-      setpage(1);
+      setPages(1);
     } else if (value === "&lsaquo;") {
       if (page !== 1) {
-        setpage(page - 1);
+        setPages(page - 1);
       }
     } else if (value === "&rsaquo;") {
       if (page !== totalPage) {
-        setpage(page + 1);
+        setPages(page + 1);
       }
     } else if (value === "&raquo;" || value === " ...") {
-      setpage(totalPage);
+      setPages(totalPage);
     } else {
-      setpage(value);
+      setPages(value);
     }
   }
   return (
@@ -63,7 +67,7 @@ const Batches = () => {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Reg.No</th>
+                    <th>Course</th>
                     <th>Batch Time</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -73,28 +77,45 @@ const Batches = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {Batches_study.filter((users) =>
-                    users.title.toLowerCase().includes(search)
-                  ).map((item) => {
-                    return (
-                      <tr key={item.id} className={"even:dark:bg-[#313843]"}>
-                        <td>{item.id}</td>
-                        <td>
-                          <Link to={"#"}>{item.link}</Link>
-                        </td>
-                        <td>{item.title}</td>
-                        <td>{item.students}</td>
-                        <td>{item.students_progress}</td>
-                        <td>{item.start_Date}</td>
-                        <td>{item.freeCollected}</td>
-                        <td>{item.freeDue}</td>
-                        <td className={"td_flex"}>
-                          <span className="icons">{<item.edit />}</span>
-                          <span className="icons">{<item.dislike />}</span>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {batches.user
+                    .filter((users) =>
+                      users.batch_title.toLowerCase().includes(search)
+                    )
+                    .map((item, index) => {
+                      return (
+                        <tr key={index} className={"even:dark:bg-[#313843]"}>
+                          <td>{index}</td>
+                          <td>
+                            <Link to={"#"} className="text-[#6777EF] uppercase">
+                              {item.batch_title}
+                            </Link>
+                          </td>
+                          <td>{item.course}</td>
+                          <td>{item.batch_time}</td>
+                          <td>{item.date[0]}</td>
+                          <td>{item.date[1]}</td>
+                          <td>{item.faculty}</td>
+                          <td>{item.faculty_agreed_fee} %</td>
+                          <td className={"td_flex"}>
+                            <span className="icons">
+                              <Link to={`/batches/batch-form/${item.id}`}>
+                                {<LiaEdit />}
+                              </Link>
+                            </span>
+                            <span
+                              className="icons"
+                              onClick={() => batches.likeHandleTicket(item.id)}
+                            >
+                              <BiLike
+                                style={{
+                                  color: !item.like ? "white" : "green",
+                                }}
+                              />
+                            </span>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </div>

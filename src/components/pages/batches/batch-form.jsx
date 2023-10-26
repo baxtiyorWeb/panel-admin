@@ -1,13 +1,15 @@
-import "../Enquiries.css";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { DatePicker, TimePicker } from "antd";
-import { useBatchHook } from "../../../hooks/useBatchHook";
-import dayjs from "dayjs";
-const { RangePicker } = DatePicker;
-const AddBatch = () => {
-  const batches = useBatchHook();
 
-  // console.log(date)
+import { DatePicker, TimePicker } from "antd";
+import dayjs from "dayjs";
+import { useBatchHook } from "../../../hooks/useBatchHook";
+// time picker format
+const { RangePicker } = DatePicker;
+
+export const BatchForm = () => {
+  const batches = useBatchHook();
+  
   return (
     <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
       <div className="add-link mb-10 ">
@@ -28,6 +30,7 @@ const AddBatch = () => {
             maxLength={10}
             minLength={3}
             onChange={(e) => batches.setBatch_title(e.target.value)}
+            value={batches.batch_title || ""}
           />
         </div>
         <div className="name flex items-center  pt-9">
@@ -48,32 +51,8 @@ const AddBatch = () => {
             onChange={(values) => {
               batches.setBatch_time(dayjs(values).format("h:mm:ss A"));
             }}
+            //   value={dayjs(batches.batch_time).format("h:mm:ss A") || ""}
           />
-        </div>
-
-        <div className="name">
-          <span>select Faculty</span>
-          <select
-            name=""
-            id="selection"
-            className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-          >
-            <option value="Other" disabled>
-              select Faculty
-            </option>
-            <option value="Other" id="options">
-              Other1
-            </option>
-            <option value="Other" id="options">
-              Other2
-            </option>
-            <option value="Other" id="options">
-              Other3
-            </option>
-            <option value="Other" id="options">
-              Other4
-            </option>
-          </select>
         </div>
 
         <div className="name">
@@ -83,6 +62,7 @@ const AddBatch = () => {
             id="selection"
             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
             onChange={(e) => batches.setCourse(e.target.value)}
+            value={batches.course || ""}
           >
             <option> </option>
             <option>Modern Web App Development</option>
@@ -104,6 +84,7 @@ const AddBatch = () => {
             type="text"
             className="dark:bg-[#353C48] dark:border"
             onChange={(e) => batches.setFaculty(e.target.value)}
+            value={batches.faculty || ""}
           />
         </div>
         <div className="name">
@@ -112,6 +93,7 @@ const AddBatch = () => {
             type="number"
             className="dark:bg-[#353C48] dark:border"
             onChange={(e) => batches.setFaculty_agreed_fee(e.target.value)}
+            value={batches.faculty_agreed_fee || ""}
           />
         </div>
       </div>
@@ -122,11 +104,11 @@ const AddBatch = () => {
         className="w-full mt-5 mb-5 dark:bg-transparent border rounded p-5"
         placeholder="description"
         onChange={(e) => batches.setDescription(e.target.value)}
+        value={batches.description || ""}
       ></textarea>
-      <button type="submit" onClick={() => batches.sendBatches()}>
+      <button type="submit" onClick={() => batches.editFunction()}>
         send
       </button>
     </div>
   );
 };
-export default AddBatch;

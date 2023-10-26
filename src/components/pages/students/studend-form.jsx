@@ -3,15 +3,17 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../../setup/firebase/firebase";
-import { DatePicker, Select, Space, TimePicker } from 'antd';
+import { DatePicker, TimePicker } from "antd";
+import dayjs from "dayjs";
 
-const { Option } = Select;
+// time picker format
 
-const PickerWithType = ({ type, onChange }) => {
-  if (type === 'time') return <TimePicker onChange={onChange} />;
-  if (type === 'date') return <DatePicker onChange={onChange} />;
-  return <DatePicker picker={type} onChange={onChange} />;
-};
+const date = new Date();
+const hours = date.getHours();
+const minutes = date.getMinutes();
+
+const format = "HH:mm";
+
 export const StudentForm = () => {
   const params = useParams();
   console.log(params);
@@ -33,23 +35,21 @@ export const StudentForm = () => {
   const [time, setTime] = useState("");
   const [Course, setCourse] = useState("");
   const [EditedId, setEditedId] = useState();
-  const [loading, setloading] = useState(false);
-  const [type, setType] = useState('time');
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setloading(true);
+    setLoading(true);
     const getAllData = async () => {
       const docRef = doc(db, "students", params.userId);
       const targetDoc = await getDoc(docRef);
       console.log("targetDoc.data() : ", targetDoc.data());
       return { user: setUser(targetDoc.data()) };
     };
-    setloading(false);
+    setLoading(false);
     getAllData();
   }, [params]);
 
-  console.log(user)
+  console.log(user);
 
   useEffect(() => {
     setName(user.name);
@@ -61,7 +61,7 @@ export const StudentForm = () => {
   }, [user, EditedId]);
 
   const editFunction = async (userId) => {
-    setloading(true);
+    setLoading(true);
     await updateDoc(doc(db, "students", params.userId), {
       name: name,
       Email: Email,
@@ -69,10 +69,10 @@ export const StudentForm = () => {
       DateBirth: DateBirth,
       cninc: cninc,
       Course: Course,
-      PrefferedTime: time
+      PrefferedTime: time,
     });
     setEditedId(userId);
-    setloading(false);
+    setLoading(false);
   };
 
   return (
@@ -106,13 +106,7 @@ export const StudentForm = () => {
         </div>
         <div className="name">
           <span>Date of Birth</span>
-          <input
-            type="date"
-            placeholder="name"
-            className="dark:bg-[#353C48] dark:border"
-            onChange={(e) => setDateBirth(e.target.value)}
-            value={DateBirth || ""}
-          />
+          <DatePicker onChange={(e) => setDateBirth(e.format("DD/MM/YYYY"))} />
         </div>
         <div className="name">
           <span>Email</span>
@@ -171,17 +165,11 @@ export const StudentForm = () => {
         </div>
         <div className="name">
           <span>Preferred Time</span>
-          <Space>
-            <Select value={type} onChange={setType}>
-              <Option value="time">Time</Option>
-              <Option value="date">Date</Option>
-              <Option value="week">Week</Option>
-              <Option value="month">Month</Option>
-              <Option value="quarter">Quarter</Option>
-              <Option value="year">Year</Option>
-            </Select>
-            <PickerWithType type={type} onChange={(value) => console.log(value)} />
-          </Space>
+          <TimePicker
+            defaultValue={dayjs(`${hours}: ${minutes}`, format)}
+            format={format}
+            onChange={(e) => setTime(e.format("HH:mm A"))}
+          />
         </div>
         <div className="name">
           <span>Department</span>

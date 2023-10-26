@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { collection, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
@@ -14,8 +20,8 @@ const Tables = ({ search }) => {
   const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState();
   const [toggle, setToggle] = useState(false);
-  const [activeId, setActiveId] = useState()
-  // get user about     
+  const [activeId, setActiveId] = useState();
+  // get user about
 
   useEffect(() => {
     (async () => {
@@ -30,9 +36,7 @@ const Tables = ({ search }) => {
       setUser(docs);
       setLoading(false);
     })();
-  }, [deleteId, toggle]);
-
-
+  }, [deleteId, toggle, activeId]);
 
   //  delete user
   const handleDeletingTicket = async (id) => {
@@ -41,26 +45,22 @@ const Tables = ({ search }) => {
   };
   // delete user function success end
 
+  // active or no-active
 
-  // active or no-active 
-
-  const userEditId = searchParams.get(`userEditId`);
   const emailStatus = async (id) => {
+    setSearchParams({ userEditId: id });
     setTimeout(() => {
-      setToggle(toggle ? false : true)
-    }, 500);
-    setSearchParams({ userEditId: activeId })
+      setToggle(toggle ? false : true);
+    }, 100);
     await updateDoc(doc(db, "users", id), {
-      active: toggle
+      active: toggle,
     });
-    setActiveId(id)
-    console.log(userEditId);
+    setActiveId(id);
   };
   // one user getData function
   return (
     <>
       {loading ? (
-
         <div className="flex justify-center items-center">
           {" "}
           <ClipLoader
@@ -73,77 +73,92 @@ const Tables = ({ search }) => {
         </div>
       ) : (
         <div>
-          {user.length === 0 ? <h2 style={{
-            textAlign: "center",
-            color: "#ccc",
-            fontSize: "20px"
-          }}>empty data</h2> : <table id="table" className="table table-hover ">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>email</th>
-                <th>mobile</th>
-                <th>CNIC</th>
-                <th>For Course</th>
-                <th>Pref Time</th>
-                <th>Email status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {user
-                .filter((users) => users.name.toLowerCase().includes(search))
-                .map((item, index) => {
-                  return (
-                    <tr
-                      key={item.id}
-                      className={
-                        "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
-                      }
-                    >
-
-                      <>
-                        <td>{index}</td>
-                        <td>{item.name}</td>
-                        <td>{item.Email}</td>
-                        <td>{item.Mobile}</td>
-                        <td>{item.cninc}</td>
-                        <td>{item.Course}</td>
-                        <td>{item.PrefferedTime}</td>
-                        <td>
-
-                          <span className="cursor-pointer " onClick={() => emailStatus(item.id)}>
-                            {loading ? <ClipLoader
-                              loading={loading}
-                              size={20}
-                              aria-label="Loading Spinner"
-                              data-testid="loader"
-                              color="#7e7f81"
-                            /> : item.active ? "active" : "no active"}
-                            {/* */}
-                          </span>
-                        </td>
-                        <td className={"td_flex"}>
-                          <span className="icons">
-                            <Link to={`/users-form/${item.id}`}>
-                              <LiaEdit />
-                            </Link>
-                          </span>
-                          <span className="icons">
-                            {
-                              <MdDelete
-                                onClick={() => handleDeletingTicket(item.id)}
-                              />
-                            }
-                          </span>
-                        </td>
-                      </>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>}
+          {user.length === 0 ? (
+            <h2
+              style={{
+                textAlign: "center",
+                color: "#ccc",
+                fontSize: "20px",
+              }}
+            >
+              empty data
+            </h2>
+          ) : (
+            <table id="table" className="table table-hover ">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>name</th>
+                  <th>email</th>
+                  <th>mobile</th>
+                  <th>CNIC</th>
+                  <th>For Course</th>
+                  <th>Pref Time</th>
+                  <th>Email status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {user
+                  .filter((users) => users.name.toLowerCase().includes(search))
+                  .map((item, index) => {
+                    return (
+                      <tr
+                        key={item.id}
+                        className={
+                          "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
+                        }
+                      >
+                        <>
+                          <td>{index}</td>
+                          <td>{item.name}</td>
+                          <td>{item.Email}</td>
+                          <td>{item.Mobile}</td>
+                          <td>{item.cninc}</td>
+                          <td>{item.Course}</td>
+                          <td>{item.PrefferedTime}</td>
+                          <td>
+                            <span
+                              className="cursor-pointer "
+                              onClick={() => emailStatus(item.id)}
+                            >
+                              {loading ? (
+                                <ClipLoader
+                                  loading={loading}
+                                  size={20}
+                                  aria-label="Loading Spinner"
+                                  data-testid="loader"
+                                  color="#7e7f81"
+                                />
+                              ) : item.active ? (
+                                "active"
+                              ) : (
+                                "no active"
+                              )}
+                              {/* */}
+                            </span>
+                          </td>
+                          <td className={"td_flex"}>
+                            <span className="icons">
+                              <Link to={`/users-form/${item.id}`}>
+                                <LiaEdit />
+                              </Link>
+                            </span>
+                            <span className="icons">
+                              {
+                                <MdDelete
+                                  onClick={() => handleDeletingTicket(item.id)}
+                                />
+                              }
+                            </span>
+                          </td>
+                        </>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          )}
         </div>
       )}
     </>

@@ -59,7 +59,7 @@ const Profile = () => {
             <h3 className={"user_brain"}>Personal Details</h3>
             <div className={"user_brn"}>
               <h4>Birthday</h4>
-              <h4>30-15-1998</h4>
+              <h4>{profile.user.DateBirth}</h4>
             </div>
             <div className={"user_brn"}>
               <h4>Phone</h4>

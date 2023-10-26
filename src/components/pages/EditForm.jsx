@@ -4,15 +4,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../setup/firebase/firebase";
-import { DatePicker, Select, Space, TimePicker } from 'antd';
-
-const { Option } = Select;
-
-const PickerWithType = ({ type, onChange }) => {
-  if (type === 'time') return <TimePicker onChange={onChange} />;
-  if (type === 'date') return <DatePicker onChange={onChange} />;
-  return <DatePicker picker={type} onChange={onChange} />;
-};
+import { TimePicker } from "antd";
+import dayjs from "dayjs";
 
 export const EditForm = () => {
   const params = useParams("userId");
@@ -25,7 +18,6 @@ export const EditForm = () => {
     }, 500);
   }
 
-  const [type, setType] = useState('time');
   const [user, setUser] = useState([]);
   const [name, setName] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -38,7 +30,13 @@ export const EditForm = () => {
   const [EditedId, setEditedId] = useState();
   const [loading, setLoading] = useState(false);
 
+  // time picker format
 
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  const format = "HH:mm";
 
   useEffect(() => {
     setLoading(true);
@@ -52,15 +50,12 @@ export const EditForm = () => {
     getAllData();
   }, [params]);
 
-  console.log(user)
-
   useEffect(() => {
     setName(user.name);
     setEmail(user.Email);
     setCninc(user.cninc);
     setMobile(user.Mobile);
     setTime(user.PrefferedTime);
-    setCourse(user.Course);
     setCourse(user.Course);
   }, [user, EditedId]);
 
@@ -73,12 +68,11 @@ export const EditForm = () => {
       DateBirth: DateBirth,
       cninc: cninc,
       Course: Course,
-      PrefferedTime: time
+      PrefferedTime: time,
     });
     setEditedId(userId);
     setLoading(false);
   };
-
 
   return (
     <Container>
@@ -178,17 +172,11 @@ export const EditForm = () => {
             </div>
             <div className="name">
               <span>Preferred Time</span>
-              <Space>
-                <Select value={type} onChange={setType}>
-                  <Option value="time">Time</Option>
-                  <Option value="date">Date</Option>
-                  <Option value="week">Week</Option>
-                  <Option value="month">Month</Option>
-                  <Option value="quarter">Quarter</Option>
-                  <Option value="year">Year</Option>
-                </Select>
-                <PickerWithType type={type} onChange={(value) => setTime(value)} />
-              </Space>
+              <TimePicker
+                defaultValue={dayjs(`${hours}: ${minutes}`, format)}
+                format={format}
+                onChange={(e) => setTime(e.format("HH:mm A"))}
+              />
             </div>
             <div className="name">
               <span>Department</span>

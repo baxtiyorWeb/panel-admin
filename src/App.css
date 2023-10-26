@@ -110,6 +110,7 @@ body {
   color: white;
 }
 
+
 .link:nth-of-type(1) {
   background: linear-gradient(135deg, #f87e59 0, #f89934 100%);
 }
@@ -350,5 +351,11 @@ body {
   border: #096ddf;
 }
 .ant-picker-input input{
+  color: #bec2c7 !important;
+}
+.ant-picker-clear{
+  display: none !important;
+}
+.ant-picker-input-active input{
   color: #bec2c7 !important;
 }

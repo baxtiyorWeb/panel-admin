@@ -43,11 +43,12 @@ import WebSettingsCurrensy from "./components/pages/settings/web/Currency";
 import { EditForm } from "./components/pages/EditForm";
 import { StudentForm } from "./components/pages/students/studend-form";
 import Active from "./components/pages/students/Active";
+import { BatchForm } from "./components/pages/batches/batch-form";
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/users-form/:userId" element={<EditForm/>} />
+        <Route path="/users-form/:userId" element={<EditForm />} />
         <Route path="/" element={<Main />} />
 
         <Route path="/enquiries" element={<Enqueries />} />
@@ -57,7 +58,10 @@ const App = () => {
         </Route>
         <Route path="/students/" element={<StudentsLayout />}>
           <Route path="/students/students" element={<Students />} />
-          <Route path="/students/students-form/:userId" element={<StudentForm />} />
+          <Route
+            path="/students/students-form/:userId"
+            element={<StudentForm />}
+          />
           <Route path="/students/addStudent" element={<AddStudent />} />
           <Route path="/students/active" element={<Active />} />
         </Route>
@@ -65,6 +69,7 @@ const App = () => {
           <Route path="/batches/batch" element={<Batches />} />
           <Route path="/batches/transfer" element={<Transferbatch />} />
           <Route path="/batches/addBatch" element={<AddBatch />} />
+          <Route path="/batches/batch-form/:userId" element={<BatchForm />} />
         </Route>
         <Route path="/faculties" element={<Faculties />} />
         <Route path="/courses" element={<CoursesLayout />}>
@@ -97,7 +102,7 @@ const App = () => {
             element={<ExpensesReports />}
           />
         </Route>
-        <Route path="/profile/:id" element={<Profile/>} />
+        <Route path="/profile/:id" element={<Profile />} />
         <Route path="/settings" element={<SettingsLayout />}>
           <Route path="/settings/currency" element={<Currency />} />
           <Route path="/settings/users" element={<Users />} />
