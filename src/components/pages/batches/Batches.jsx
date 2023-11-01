@@ -5,6 +5,7 @@ import Pagination from "../../pagination/Pagination";
 import {useBatchHook} from "../../../hooks/useBatchHook";
 import {LiaEdit} from "react-icons/lia";
 import {BiLike} from "react-icons/bi";
+import {useGetUser} from "../../../hooks/useGetUser.js";
 
 const Batches = () => {
     const [search, setSearch] = useState("");
@@ -31,7 +32,7 @@ const Batches = () => {
         }
     }
 
-
+    const userss = useGetUser()
     return (<>
         <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
             <div className="add-link">
@@ -78,7 +79,7 @@ const Batches = () => {
                             </tr>
                             </thead>
                             <tbody>
-                            {batches.user
+                            {userss.user ? batches.user
                                 .filter((users) => users.batch_title.toLowerCase().includes(search))
                                 .map((item, index) => {
                                     return (<tr key={index} className={"even:dark:bg-[#313843]"}>
@@ -112,7 +113,7 @@ const Batches = () => {
                             </span>
                                         </td>
                                     </tr>);
-                                })}
+                                }) : userss.navigate('/login')}
                             </tbody>
                         </table>
                     </div>

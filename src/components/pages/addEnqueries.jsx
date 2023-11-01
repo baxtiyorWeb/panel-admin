@@ -8,6 +8,7 @@ import {db} from "../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import {DatePicker, TimePicker} from "antd"
 import dayjs from "dayjs";
+import {toast} from "react-toastify";
 // eslint-disable-next-line react/prop-types
 const AddForm = () => {
     const [name, setName] = useState("");
@@ -24,6 +25,8 @@ const AddForm = () => {
     const hours = date.getHours()
     const minutes = date.getMinutes()
 
+    const notify = () => toast.success("add Enaquire Form!", {position: "top-right",});
+
     async function sendForm(e) {
         e.preventDefault();
         setLoading(true);
@@ -39,14 +42,17 @@ const AddForm = () => {
             PrefferedTime: time
         });
         setLoading(false);
+        const msg = notify()
+        console.log(msg)
         navigate("/enquiries");
     }
 
     const format = 'HH:mm';
 
-    return (
-        <div>
-            <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
+    return (<div>
+
+        <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
+            <form onSubmit={sendForm}>
                 <div className="add-link">
                     <button>delete</button>
                     <h1 className="font-normal">Enquiry Form</h1>
@@ -61,6 +67,7 @@ const AddForm = () => {
                             className="dark:bg-[#353C48] dark:border"
                             id="newNotes"
                             onChange={(e) => setName(e.target.value)}
+                            required={true}
                         />
                     </div>
                     <div className="name">
@@ -78,10 +85,11 @@ const AddForm = () => {
                     <div className="name">
                         <span>Email</span>
                         <input
-                            type="text"
+                            type="email"
                             placeholder="abc@gmail.com"
                             className="dark:bg-[#353C48] dark:border"
                             onChange={(e) => setEmail(e.target.value)}
+                            required={true}
                         />
                     </div>
                     <div className="name">
@@ -91,6 +99,7 @@ const AddForm = () => {
                             placeholder="33100-0000000-0"
                             className="dark:bg-[#353C48] dark:border"
                             onChange={(e) => setCninc(e.target.value)}
+                            required={true}
                         />
                     </div>
                     <div className="name">
@@ -100,6 +109,7 @@ const AddForm = () => {
                             placeholder="+998 xx xxx xx xx"
                             className="dark:bg-[#353C48] dark:border"
                             onChange={(e) => setMobile(e.target.value)}
+                            required={true}
                         />
                     </div>
                     <div className="name">
@@ -130,7 +140,7 @@ const AddForm = () => {
                     <div className="name">
                         <span>Preferred Time</span>
                         <TimePicker defaultValue={dayjs(`${hours}: ${minutes}`, format)} format={format}
-                                    onChange={(e) => setTime(e.format('HH:mm A'))}/>
+                                    onChange={(e) => setTime(e.format('HH:mm A'))} required={true}/>
                     </div>
                     <div className="name">
                         <span>Department</span>
@@ -138,6 +148,7 @@ const AddForm = () => {
                             name=""
                             id="selection"
                             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+
                         >
                             <option value="Other" disabled>
                                 Select department
@@ -207,7 +218,8 @@ const AddForm = () => {
                 </div>
                 <button
                     type="submit"
-                    onClick={sendForm}
+
+
                     style={{
                         width: "80px",
                         height: "30px",
@@ -223,20 +235,16 @@ const AddForm = () => {
                         bottom: "5px",
                     }}
                 >
-                    {loading ? (
-                        <ClipLoader
-                            loading={loading}
-                            size={20}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                            color="#fff"
-                        />
-                    ) : (
-                        "send"
-                    )}
+                    {loading ? (<ClipLoader
+                        loading={loading}
+                        size={20}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                        color="#fff"
+                    />) : ("send")}
                 </button>
-            </div>
+            </form>
         </div>
-    );
+    </div>);
 };
 export default AddForm;

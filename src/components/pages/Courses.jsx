@@ -1,11 +1,19 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import {Link} from "react-router-dom";
-import {Courses_time, getLength} from "../progress/data";
+import {getLength} from "../progress/data";
 import Pagination from "../pagination/Pagination";
+import {useGetUser} from "../../hooks/useGetUser.js";
+import {collection, deleteDoc, doc, getDocs} from "firebase/firestore";
+import {db} from "../../setup/firebase/firebase.jsx";
+import {LiaEdit} from "react-icons/lia";
+import {MdDelete} from "react-icons/md";
 
 const Courses = () => {
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState("");
+    const [deleteId, setDeleteId] = useState()
+    const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [limit, setlimit] = useState(5);
     let totalPage = Math.ceil(getLength() / limit);
@@ -34,6 +42,31 @@ const Courses = () => {
     } else {
         setPage(emptyPage);
         emptyPage = page;
+    }
+    const userss = useGetUser()
+
+    useEffect(() => {
+        (async () => {
+            setLoading(true);
+            const colRef = collection(db, "Courses");
+            const snapshots = await getDocs(colRef);
+            const docs = snapshots.docs.map((doc) => {
+                const data = doc.data();
+                data.id = doc.id;
+                return data;
+            });
+            setData(docs);
+            setLoading(false);
+        })();
+
+    }, [loading, data]);
+
+
+    const courseDelete = async (id) => {
+        setLoading(true)
+        await deleteDoc(doc(db, "Courses", id))
+        setDeleteId(id)
+        setLoading(false)
     }
     return (<>
         <div className="around_one "></div>
@@ -74,32 +107,30 @@ const Courses = () => {
                                 <th>Course Title</th>
                                 <th>Category</th>
                                 <th>Duration</th>
-                                <th>Fee</th>
                                 <th>Students</th>
-                                <th>Faculties</th>
-                                <th>Batches</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {Courses_time.filter((users) => users.title.toLowerCase().includes(search)).map((item, index) => {
+                            {data.length ? userss.user ? data.filter((users) => users.Course.toLowerCase().includes(search)).map((item, index) => {
                                 return (<tr key={index} className={"even:dark:bg-[#313843]"}>
-                                    <td>{item.id}</td>
-                                    <td>
-                                        {item.link}
-                                    </td>
-                                    <td>{item.title}</td>
-                                    <td>{item.students}</td>
-                                    <td>{item.students_progress}</td>
-                                    <td>{item.star}</td>
-                                    <td>{item.freeCollected}</td>
-                                    <td>{item.number}</td>
+                                    <td>{index}</td>
+                                    <td>{item.Course}</td>
+                                    <td>{item.Category}</td>
+                                    <td>{item.duration} {' '}days</td>
+                                    <td>{item.Mobile}</td>
                                     <td className={"td_flex"}>
-                                        <span className="icons">{<item.edit/>}</span>
-                                        <span className="icons">{<item.delete/>}</span>
+                                        <span className="icons">{<LiaEdit/>}</span>
+                                        <span className="icons" onClick={() => courseDelete(item.id)}>{
+                                            <MdDelete/>}</span>
                                     </td>
                                 </tr>);
-                            })}
+                            }) : <div>
+                                {userss.user ? '' : <button onClick={() => userss.navigate('/login')}>login</button>}
+                            </div> : <div className={'mt-[0] mb-[15px] '}>
+                                <div className={'absolute left-[55%] text-[20px]'}>Empty Data</div>
+                            </div>}
+
                             </tbody>
                         </table>
                     </div>

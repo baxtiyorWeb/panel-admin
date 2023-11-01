@@ -16,16 +16,6 @@ const AddCourses = () => {
             </div>
             <div className="input-box">
                 <div className="name">
-                    <span>Course Title</span>
-                    <input
-                        type="text"
-                        placeholder="add course title"
-                        className="dark:bg-[#353C48] dark:border"
-                        id="newNotes"
-                        onChange={(e) => addcourse.setName(e.target.value)}
-                    />
-                </div>
-                <div className="name">
                     <span>Course</span>
                     <select
                         name=""
@@ -55,21 +45,12 @@ const AddCourses = () => {
                             name=""
                             id="selection"
                             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
-                            onChange={(e) => addcourse.setCourse(e.target.value)}
-                            value={addcourse.Course}
+                            onChange={(e) => addcourse.setCategory(e.target.value)}
+                            value={addcourse.Category}
                         >
-                            <option></option>
-                            <option>Modern Web App Development</option>
-                            <option>Android Application Development</option>
-                            <option>Advanced Graphics Designing</option>
-                            <option>Microsoft Office Professional</option>
-                            <option>Adobe Illustrator</option>
-                            <option>Testing MT 2</option>
-                            <option>Bootcamp</option>
-                            <option>Android Test</option>
-                            <option>digital marketing</option>
-                            <option>Front end</option>
-                            <option>Back end</option>
+                            <option>Devvelopment</option>
+                            <option>Teacher</option>
+                            <option>student</option>
                         </select>
                     </div>
                 </div>
@@ -79,7 +60,7 @@ const AddCourses = () => {
                         type="number"
                         placeholder="duration"
                         className="dark:bg-[#353C48] dark:border"
-                        onChange={(e) => addcourse.setEmail(e.target.value)}
+                        onChange={(e) => addcourse.setDuration(e.target.value)}
                     />
                 </div>
                 <div className="name">
@@ -88,7 +69,7 @@ const AddCourses = () => {
                         type="text"
                         placeholder="add fee"
                         className="dark:bg-[#353C48] dark:border"
-                        onChange={(e) => addcourse.setCninc(e.target.value)}
+                        onChange={(e) => addcourse.setFee(e.target.value)}
                     />
                 </div>
                 <div className="name">

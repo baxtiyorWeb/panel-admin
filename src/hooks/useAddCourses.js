@@ -8,13 +8,16 @@ export const useAddCourses = () => {
 
     const [name, setName] = useState("");
     const [Email, setEmail] = useState("");
-    const [cninc, setCninc] = useState("");
+    const [fee, setFee] = useState("");
     const [Mobile, setMobile] = useState("");
     const [Course, setCourse] = useState("");
+    const [Category, setCategory] = useState("");
     const [loading, setLoading] = useState(false);
-    const [dateBirth, setDateBirth] = useState('')
+    const [duration, setDuration] = useState('')
     const navigate = useNavigate();
-    const userCollectionRef = collection(db, "users");
+
+
+    const userCollectionRef = collection(db, "Courses");
     const [time, setTime] = useState("")
     const date = new Date()
     const hours = date.getHours()
@@ -24,22 +27,31 @@ export const useAddCourses = () => {
         e.preventDefault();
         setLoading(true);
         await addDoc(userCollectionRef, {
-            name: name,
-            Email: Email,
-            cninc: cninc,
             Mobile: Mobile,
             Course: Course,
-            edit: "LiaEdit",
-            delete: "MdDelete",
-            dateBirth: dateBirth,
-            PrefferedTime: time
+            duration: duration,
+            Category: Category
         });
         setLoading(false);
-        navigate("/enquiries");
+        navigate("/courses/courses");
     }
 
     const format = 'HH:mm';
     return {
-        sendForm, setCourse, setCninc, setMobile, setTime, setEmail, setLoading, loading, Course, setName,
+        sendForm,
+        setCourse,
+        setDuration,
+        duration,
+        setCategory,
+        Category,
+        setFee,
+        fee,
+        setMobile,
+        setTime,
+        setEmail,
+        setLoading,
+        loading,
+        Course,
+        setName,
     }
 }
