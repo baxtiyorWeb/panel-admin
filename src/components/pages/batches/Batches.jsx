@@ -6,6 +6,7 @@ import {useBatchHook} from "../../../hooks/useBatchHook";
 import {LiaEdit} from "react-icons/lia";
 import {BiLike} from "react-icons/bi";
 import {useGetUser} from "../../../hooks/useGetUser.js";
+import {Loading} from "../../Loading.jsx";
 
 const Batches = () => {
     const [search, setSearch] = useState("");
@@ -60,63 +61,64 @@ const Batches = () => {
             </div>
             <div id="demo">
                 <div>
-                    <div className="table-responsive-vertical shadow-z-1">
-                        <table
-                            id="table"
-                            className="table table-hover table-mc-light-blue"
-                        >
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Batch Time</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Faculty</th>
-                                <th>Faculty %</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {userss.user ? batches.user
-                                .filter((users) => users.batch_title.toLowerCase().includes(search))
-                                .map((item, index) => {
-                                    return (<tr key={index} className={"even:dark:bg-[#313843]"}>
-                                        <td>{index}</td>
-                                        <td>
-                                            <Link to={"#"} className="text-[#6777EF] uppercase">
-                                                {item.batch_title}
-                                            </Link>
-                                        </td>
-                                        <td>{item.course}</td>
-                                        <td>{item.batch_time}</td>
-                                        <td>{item.date[0]}</td>
-                                        <td>{item.date[1]}</td>
-                                        <td>{item.faculty}</td>
-                                        <td>{item.faculty_agreed_fee} %</td>
-                                        <td className={"td_flex"}>
+                    {userss.loading ? <Loading loading={userss.loading}/> :
+                        <div className="table-responsive-vertical shadow-z-1">
+                            <table
+                                id="table"
+                                className="table table-hover table-mc-light-blue"
+                            >
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Batch Time</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Faculty</th>
+                                    <th>Faculty %</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {userss.user ? batches.user
+                                    .filter((users) => users.batch_title.toLowerCase().includes(search))
+                                    .map((item, index) => {
+                                        return (<tr key={index} className={"even:dark:bg-[#313843]"}>
+                                            <td>{index}</td>
+                                            <td>
+                                                <Link to={"#"} className="text-[#6777EF] uppercase">
+                                                    {item.batch_title}
+                                                </Link>
+                                            </td>
+                                            <td>{item.course}</td>
+                                            <td>{item.batch_time}</td>
+                                            <td>{item.date[0]}</td>
+                                            <td>{item.date[1]}</td>
+                                            <td>{item.faculty}</td>
+                                            <td>{item.faculty_agreed_fee} %</td>
+                                            <td className={"td_flex"}>
                                             <span className="icons">
                                               <Link to={`/batches/batch-form/${item.id}`}>
                                                 {<LiaEdit/>}
                                               </Link>
                                             </span>
-                                            <span
-                                                className="icons"
-                                                onClick={() => batches.likeHandleTicket(item.id)}
-                                            >
+                                                <span
+                                                    className="icons"
+                                                    onClick={() => batches.likeHandleTicket(item.id)}
+                                                >
                                               <BiLike
                                                   style={{
                                                       color: !item.like ? "white" : "green",
                                                   }}
                                               />
                             </span>
-                                        </td>
-                                    </tr>);
-                                }) : userss.navigate('/login')}
-                            </tbody>
-                        </table>
-                    </div>
+                                            </td>
+                                        </tr>);
+                                    }) : userss.navigate('/login')}
+                                </tbody>
+                            </table>
+                        </div>}
                 </div>
             </div>
             <div className="flex justify-center ">
