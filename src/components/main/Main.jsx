@@ -25,7 +25,7 @@ const Main = ({open}) => {
 
             <div className="top_chart ">
                 <div
-                    className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal">
+                    className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
                     <div
                         className={"flex  h-[80%] w-full justify-between items-center p-3"}
                     >
@@ -51,7 +51,7 @@ const Main = ({open}) => {
                     </div>
                 </div>
                 <div
-                    className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal">
+                    className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
                     <div
                         className={"flex  h-[80%] w-full justify-between items-center p-3"}
                     >
@@ -77,7 +77,7 @@ const Main = ({open}) => {
                     </div>
                 </div>
                 <div
-                    className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal">
+                    className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
                     <div
                         className={"flex  h-[80%] w-full justify-between items-center p-3"}
                     >

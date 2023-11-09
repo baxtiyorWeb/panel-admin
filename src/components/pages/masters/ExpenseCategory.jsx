@@ -42,7 +42,7 @@ const ExpenseCategory = () => {
         <div className="chart-progress dark:bg-[#353C48]">
             <div className="add-link">
                 <h1>Course List</h1>
-                <Link to="/students/addStudent">add Course</Link>
+                <Link to="/expenses-form">add Course</Link>
             </div>
             <div className="user_blew">
                 <div className="user_blow">

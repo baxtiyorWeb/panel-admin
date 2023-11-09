@@ -91,20 +91,7 @@ const AddCourses = () => {
             <button
                 type="submit"
                 onClick={addcourse.sendForm}
-                style={{
-                    width: "80px",
-                    height: "30px",
-                    backgroundColor: "#6777ef",
-                    borderColor: "transparent",
-                    color: "#fff",
-                    padding: "0.1rem 0.4rem",
-                    fontSize: "12px",
-                    cursor: "pointer",
-                    borderRadius: "3px",
-                    position: "absolute",
-                    right: "0px",
-                    bottom: "5px",
-                }}
+                className={'-g-button'}
             >
                 {addcourse.loading ? (<ClipLoader
                     loading={addcourse.loading}

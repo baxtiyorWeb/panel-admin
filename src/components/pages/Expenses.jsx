@@ -1,11 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
-import { Courses_time } from "../progress/data";
-import ToggleBtn from "../tables/ToggleBtn";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import { db } from "../../setup/firebase/firebase.jsx";
+import { LiaEdit } from "react-icons/lia";
+import { MdDelete } from "react-icons/md";
 
 const Expenses = () => {
   const [search, setSearch] = useState("");
+  const [users, setUsers] = useState([]);
+  const [deteteId, setDeleteId] = useState();
+  const [loading, setLoading] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      const colRef = collection(db, "expenses-form");
+      const snapshots = await getDocs(colRef);
+      const docs = snapshots.docs.map((doc) => {
+        const data = doc.data();
+        data.id = doc.id;
+        return data;
+      });
+      setUsers(docs);
+      setLoading(false);
+    })();
+  }, [deteteId, loading]);
+
+  const handleDeletingTicket = async (id) => {
+    await deleteDoc(doc(db, "expenses-form", id));
+    setDeleteId(id);
+  };
   return (
     <Container>
       <div className="around_one">
@@ -21,7 +46,7 @@ const Expenses = () => {
         <div className="chart-progress dark:bg-[#353C48]">
           <div className="add-link">
             <h1>Course List</h1>
-            <Link to="/students/addStudent">add Expenses</Link>
+            <Link to="/expenses-form">add Expenses</Link>
           </div>
           <div className="user_blew">
             <div className="user_blow">
@@ -52,46 +77,47 @@ const Expenses = () => {
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Course Title</th>
+                      <th>Date</th>
+                      <th>Title</th>
                       <th>Category</th>
-                      <th>Duration</th>
-                      <th>Fee</th>
-                      <th>Students</th>
-                      <th>Faculties</th>
-                      <th>Batches</th>
-                      <th>Email Status</th>
+                      <th>Amount</th>
+                      <th>Description</th>
+                      <th>Created At</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {Courses_time.filter((users) =>
-                      users.title.toLowerCase().includes(search)
-                    ).map((item) => {
-                      return (
-                        <tr
-                          key={item.id}
-                          className={
-                            "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
-                          }
-                        >
-                          <td>{item.id}</td>
-                          <td>
-                            <Link to={"#"}>{item.link}</Link>
-                          </td>
-                          <td>{item.title}</td>
-                          <td>{item.students}</td>
-                          <td>{item.students_progress}</td>
-                          <td>{item.star}</td>
-                          <td>{item.freeCollected}</td>
-                          <td>{item.number}</td>
-                          <td>{<ToggleBtn />}</td>
-                          <td className={"td_flex"}>
-                            <span className="icons">{<item.edit />}</span>
-                            <span className="icons">{<item.delete />}</span>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                    {users
+                      .filter((users) =>
+                        users.Title.toLowerCase().includes(search)
+                      )
+                      .map((item, index) => {
+                        return (
+                          <tr
+                            key={index}
+                            className={
+                              "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
+                            }
+                          >
+                            <td>{index}</td>
+                            <td>{item.Dates}</td>
+                            <td>{item.Title}</td>
+                            <td>{item.Category}</td>
+                            <td>{item.cninc}</td>
+                            <td>{item.Description}</td>
+                            <td>{item.CreatedAt}</td>
+                            <td className={"td_flex"}>
+                              <span className="icons">{<LiaEdit />}</span>
+                              <span
+                                className="icons"
+                                onClick={() => handleDeletingTicket(item.id)}
+                              >
+                                {<MdDelete />}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })}
                   </tbody>
                 </table>
               </div>

@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@coreui/react": "^5.0.0-alpha.3",
+    "@react-buddy/ide-toolbox": "^2.4.0",
+    "@react-buddy/palette-antd": "^5.3.0",
     "antd": "^5.10.2",
     "apexcharts": "^3.41.1",
     "axios": "^1.4.0",
@@ -22,6 +24,8 @@
     "firebase": "^10.4.0",
     "framer-motion": "^10.16.4",
     "lodash": "^4.17.21",
+    "lucide": "^0.292.0",
+    "lucide-react": "^0.292.0",
     "moment": "^2.29.4",
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.2",
@@ -43,9 +47,7 @@
     "sass": "^1.66.1",
     "styled-components": "^6.0.7",
     "uid": "^2.0.2",
-    "uuid": "^9.0.1",
-    "@react-buddy/ide-toolbox": "^2.4.0",
-    "@react-buddy/palette-antd": "^5.3.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@editorjs/checklist": "^1.5.0",

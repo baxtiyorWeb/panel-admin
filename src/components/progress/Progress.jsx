@@ -32,7 +32,9 @@ export const Progress = () => {
                         return (
                           <tr
                             key={item.id}
-                            className={"even:dark:bg-[#323844]"}
+                            className={
+                              "even:dark:bg-[#323844] even-class dark:hover:bg-[#353C48]"
+                            }
                           >
                             <td>{item.id}</td>
                             <td className="text-[#808EF1]">
