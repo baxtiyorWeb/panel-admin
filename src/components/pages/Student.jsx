@@ -138,8 +138,7 @@ export const Student = () => {
                         textAlign: "center",
                         color: "#ccc",
                         fontSize: "20px",
-                      }}
-                    >
+                      }}>
                       empty data
                     </h2>
                   ) : loading ? (
@@ -155,8 +154,7 @@ export const Student = () => {
                   ) : (
                     <table
                       id="table"
-                      className="table table-hover table-mc-light-blue"
-                    >
+                      className="table table-hover table-mc-light-blue">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -181,14 +179,14 @@ export const Student = () => {
                                 key={item.id}
                                 className={
                                   "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
-                                }
-                              >
+                                }>
                                 <td>{index}</td>
                                 <td>
                                   <Link to={`/profile/${item.id}`}>
                                     {item.name}
                                   </Link>
                                 </td>
+
                                 <td>{item.RegNo}</td>
                                 <td>{item.Email}</td>
                                 <td>{item.Mobile}</td>
@@ -198,8 +196,7 @@ export const Student = () => {
                                 <td className={"td_flex"}>
                                   <span
                                     className="icons"
-                                    onClick={() => likeHandleTicket(item.id)}
-                                  >
+                                    onClick={() => likeHandleTicket(item.id)}>
                                     {loading && item.id ? (
                                       <LiaSpinnerSolid />
                                     ) : (
@@ -214,8 +211,7 @@ export const Student = () => {
                                     className="icons"
                                     onClick={() =>
                                       handleDeletingTicket(item.id)
-                                    }
-                                  >
+                                    }>
                                     <MdDelete />
                                   </span>
                                 </td>
@@ -229,8 +225,7 @@ export const Student = () => {
                   <div className={"flex justify-center"}>
                     <Button
                       className={"dark:text-[#fff]"}
-                      onClick={() => userss.navigate("/login")}
-                    >
+                      onClick={() => userss.navigate("/login")}>
                       login
                     </Button>
                   </div>
