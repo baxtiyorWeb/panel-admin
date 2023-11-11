@@ -37,8 +37,6 @@ const AddFeeReports = () => {
       Batch: Batch,
     });
     setLoading(false);
-    const msg = notify();
-    console.log(msg);
     navigate("/reports/fee-reports");
   }
 

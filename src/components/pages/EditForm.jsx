@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 
 export const EditForm = () => {
   const params = useParams("userId");
-  console.log(params);
   const navigate = useNavigate();
 
   function timeOut() {
@@ -45,7 +44,6 @@ export const EditForm = () => {
     const getAllData = async () => {
       const docRef = doc(db, "users", params.userId);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
       return { user: setUser(targetDoc.data()) };
     };
     setLoading(false);

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   collection,
   deleteDoc,
@@ -18,15 +18,15 @@ import UserModal from "../modal/UserModal";
 import Overlay from "../overlay/overlay";
 
 const Tables = ({ search }) => {
-  let [ searchParams, setSearchParams ] = useSearchParams();
+  let [searchParams, setSearchParams] = useSearchParams();
 
-  const [ user, setUser ] = useState([]);
-  const [ loading, setLoading ] = useState(false);
-  const [ deleteId, setDeleteId ] = useState();
-  const [ toggle, setToggle ] = useState(false);
-  const [ activeId, setActiveId ] = useState();
-  const [ open, setOpen ] = useState(false);
-  const [ userId, setUserId ] = useState();
+  const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [deleteId, setDeleteId] = useState();
+  const [toggle, setToggle] = useState(false);
+  const [activeId, setActiveId] = useState();
+  const [open, setOpen] = useState(false);
+  const [userId, setUserId] = useState();
   // get user about
   const notifyActive = () =>
     toast.success("user active!", { position: "top-right" });
@@ -47,7 +47,7 @@ const Tables = ({ search }) => {
       setUser(docs);
       setLoading(false);
     })();
-  }, [ deleteId, toggle, activeId ]);
+  }, [deleteId, toggle, activeId]);
 
   //  delete user
   const handleDeletingTicket = async (id) => {
@@ -70,14 +70,11 @@ const Tables = ({ search }) => {
 
     setActiveId(id);
   };
-  const params = useParams();
   const userIds = searchParams.get("user");
-  console.log(userIds);
   const openModal = (id) => {
     setOpen(!open);
     setSearchParams({ user: id });
     setUserId(id);
-    console.log(params);
   };
 
   // one user getData function

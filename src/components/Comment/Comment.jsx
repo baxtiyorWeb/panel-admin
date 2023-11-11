@@ -3,7 +3,6 @@ import { useComment } from "../../hooks/useComment";
 
 const Comment = ({ name }) => {
   const comment = useComment();
-  console.log();
   return (
     <div className="w-full  absolute bottom-0 flex justify-center items-center border border-gray-600 rounded-xl overflow-hidden">
       <input

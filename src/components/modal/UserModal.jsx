@@ -19,7 +19,6 @@ const UserModal = ({ open, setOpen, userId }) => {
     const getAllData = async () => {
       const docRef = doc(db, "users", userId);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
       return { user: setUser(targetDoc.data()) };
     };
     getAllData();

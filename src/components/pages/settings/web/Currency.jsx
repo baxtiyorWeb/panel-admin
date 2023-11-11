@@ -5,11 +5,7 @@ import { enqueryList } from "../../../progress/data";
 import Pagination from "../../../pagination/Pagination";
 
 const WebSettingsCurrensy = () => {
- 
-  function pagination() {}
-
   const [search, setSearch] = useState("");
-  console.log(search);
   return (
     <>
       <div className="dashboard-user">
@@ -105,9 +101,7 @@ const WebSettingsCurrensy = () => {
             </div>
           </div>
           <div>
-          <div className="flex justify-center ">
-          
-        </div>
+            <div className="flex justify-center "></div>
           </div>
         </div>
       </div>

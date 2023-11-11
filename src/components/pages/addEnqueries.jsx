@@ -45,12 +45,9 @@ const AddForm = () => {
       PrefferedTime: time,
     });
     setLoading(false);
-    const msg = notify();
-    console.log(msg);
     navigate("/enquiries");
 
-    const real = await user_about.writeUserData(name);
-    console.log(real);
+    await user_about.writeUserData(name);
   }
 
   const format = "HH:mm";

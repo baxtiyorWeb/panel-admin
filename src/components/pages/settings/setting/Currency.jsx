@@ -37,7 +37,6 @@ const Currency = () => {
     emptyPage = page;
   }
 
-  console.log(search);
   return (
     <>
       <div className="dashboard-user">

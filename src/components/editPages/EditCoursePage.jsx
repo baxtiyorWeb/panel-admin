@@ -10,7 +10,6 @@ import { db } from "../../setup/firebase/firebase";
 
 const EditCoursePage = () => {
   const params = useParams("userId");
-  console.log(params);
   const navigate = useNavigate();
 
   function timeOut() {
@@ -31,17 +30,11 @@ const EditCoursePage = () => {
 
   // time picker format
 
-  const date = new Date();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-
-  const format = "HH:mm";
   useEffect(() => {
     setLoading(true);
     const getAllData = async () => {
       const docRef = doc(db, "Courses", params.id);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
       return { user: setUser(targetDoc.data()) };
     };
     setLoading(false);
@@ -51,7 +44,6 @@ const EditCoursePage = () => {
   useEffect(() => {
     setFee(user.Mobile);
     setDuration(user.duration);
-    setTime(user.PrefferedTime);
     setCourse(user.Course);
     setCategory(user.Category);
   }, [user, EditedId]);
@@ -131,7 +123,7 @@ const EditCoursePage = () => {
               type="text"
               placeholder="add fee"
               className="dark:bg-[#353C48] dark:border"
-              onChange={(e)=> setMobile(e.target.value)}
+              onChange={(e) => setMobile(e.target.value)}
               value={Mobile || ""}
             />
           </div>
