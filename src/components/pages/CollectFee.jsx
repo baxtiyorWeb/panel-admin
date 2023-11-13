@@ -1,16 +1,15 @@
 import Container from "../shared/Container";
 
 const CollectFree = () => {
-    return (
-        <Container>
-            <div>
-                <div className="chart-progress dark:bg-[#353C48] h-[50vh]">
-
-
-                </div>
-            </div>
-        </Container>
-    );
+  return (
+    <Container>
+      <div>
+        <div className="text-[50px] text-center">
+          <h1>Bu sahifa dasturlash jarayonida</h1>
+        </div>
+      </div>
+    </Container>
+  );
 };
 
 export default CollectFree;

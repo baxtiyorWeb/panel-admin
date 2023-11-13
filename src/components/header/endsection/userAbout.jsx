@@ -4,8 +4,9 @@ import UseTheme from "../../context/ThemeToggle.jsx";
 import { useEffect, useState } from "react";
 import { auth } from "../../../setup/firebase/firebase.jsx";
 import { onAuthStateChanged, deleteUser } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Overlay from "../../overlay/overlay.jsx";
+import { LiaCogSolid } from "react-icons/lia";
 
 export const UserAbout = () => {
   // const user = useGetUser()
@@ -13,24 +14,7 @@ export const UserAbout = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
   const user = auth.currentUser;
-  const navigate = useNavigate();
-  const deleteFunc = () => {
-    setLoading(true);
-    setTimeout(() => {
-      deleteUser(user)
-        .then(() => {
-          // User deleted.
 
-          navigate("login");
-          setOpen(false);
-        })
-        .catch((error) => {
-          console.log("An error ocurred: " + error);
-        })
-        .finally(() => {});
-      setLoading(false);
-    }, 1000);
-  };
   useEffect(() => {
     setLoading(true);
     onAuthStateChanged(auth, (user) => {
@@ -100,17 +84,12 @@ export const UserAbout = () => {
                   >
                     {user.email}
                   </p>
-                  <button
-                    className={
-                      "w-[110px] h-[40px] rounded-[5px]" +
-                      " absolute bottom-3" +
-                      " dark:text-[#fff] hover:dark:text-[gray]" +
-                      "  text-[15px] left-5"
-                    }
-                    onClick={deleteFunc}
-                  >
-                    {loading ? "loading ..." : "logout"}
-                  </button>
+                  <Link>
+                    <span className="flex justify-start items-center">
+                      <LiaCogSolid className="mr-3 m-3" />
+                      settings
+                    </span>
+                  </Link>
                 </div>
               )}
             </div>
