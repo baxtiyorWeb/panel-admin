@@ -1,14 +1,14 @@
-import {useContext} from "react";
-import {ThemeContext} from "../components/context/ThemeProvider.jsx";
+import { useContext } from "react";
+import { ThemeContext } from "../components/context/ThemeProvider.jsx";
 
 const useTheme = () => {
-	const theme = useContext(ThemeContext)
-	
-	if (theme === undefined) {
-		throw new Error('error theme')
-	}
-	
-	return theme
-}
+  const theme = useContext(ThemeContext);
 
-export {useTheme}
+  if (theme === undefined) {
+    throw new Error("error theme");
+  }
+
+  return theme;
+};
+
+export { useTheme };

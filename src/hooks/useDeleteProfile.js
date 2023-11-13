@@ -48,6 +48,7 @@ const useDeleteProfile = () => {
         setEdit(params.id);
         navigate("/students/students");
       } else if (value !== edit.name) {
+        console.log(edit.name);
       } else {
         console.log("");
         return false;
