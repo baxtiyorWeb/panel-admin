@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { addDoc, collection, } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 
 export const AddStudents = () => {
@@ -14,9 +14,9 @@ export const AddStudents = () => {
   const [CNIC, setCNIC] = useState("");
   const [Gender, setGender] = useState("");
   const [Department, setDepartment] = useState("");
-  const docRef = collection(db, "students")
-  const sendForm = async () => {
+  const docRef = collection(db, "students");
 
+  const sendForm = async () => {
     await addDoc(docRef, {
       names: name,
       fatherName: fatherName,
@@ -28,9 +28,7 @@ export const AddStudents = () => {
       CNIC: CNIC,
       Gender: Gender,
       Department: Department,
-    })
-    console.log(docRef);
-
+    });
 
     return (
       <div className="chart-progress">
@@ -126,4 +124,4 @@ export const AddStudents = () => {
       </div>
     );
   };
-}
+};

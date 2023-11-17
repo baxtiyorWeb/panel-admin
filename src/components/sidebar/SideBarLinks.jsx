@@ -9,7 +9,7 @@ import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { BiCheck, BiHome, BiSolidCog, BiSolidPencil } from "react-icons/bi";
 import { FaGraduationCap, FaSitemap } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export const SideBarLinks = ({ dark }) => {
@@ -62,6 +62,12 @@ export const SideBarLinks = ({ dark }) => {
             component={<NavLink to={"/students/active"}></NavLink>}
           >
             Faol talabalar
+          </MenuItem>
+          <MenuItem
+            className="menus-style dark:bg-[#3B4452]  dark:text-[#e2e6ec] "
+            component={<NavLink to={"/students/new-students"}></NavLink>}
+          >
+            Yangi talabalar
           </MenuItem>
         </SubMenu>
         <SubMenu
@@ -163,7 +169,7 @@ export const SideBarLinks = ({ dark }) => {
           Xarajatlar
         </MenuItem>
         <SubMenu
-          label="Reports"
+          label="Hisobotlar"
           icon={<AiFillFile />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}
         >

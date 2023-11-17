@@ -43,9 +43,8 @@ import { Login } from "./components/Login.jsx";
 import AddExpenses from "./components/pages/addpages/addExpenses.jsx";
 import EditCoursePage from "./components/editPages/EditCoursePage.jsx";
 import AddFeeReports from "./components/pages/addpages/AddFeeReports.jsx";
-
-
-
+import { NewStudents } from "./components/pages/students/newStudents.jsx";
+import AddNewStudents from "./components/pages/addpages/AddNewStudents.jsx";
 
 const App = () => {
   return (
@@ -68,7 +67,12 @@ const App = () => {
             element={<StudentForm />}
           />
           <Route path="/students/addStudent" element={<AddStudent />} />
+          <Route
+            path="/students/add-new-student-form"
+            element={<AddNewStudents />}
+          />
           <Route path="/students/active" element={<Active />} />
+          <Route path="/students/new-students" element={<NewStudents />} />
         </Route>
         <Route path="/batches/" element={<BatchesLayout />}>
           <Route path="/batches/batch" element={<Batches />} />

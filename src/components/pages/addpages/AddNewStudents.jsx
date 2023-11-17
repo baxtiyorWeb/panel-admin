@@ -1,43 +1,34 @@
 import { addDoc, collection } from "firebase/firestore";
-import "../Enquiries.css";
-import { Link, useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { db } from "../../../setup/firebase/firebase";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { db } from "../../../setup/firebase/firebase";
 
-const AddStudent = () => {
+const AddNewStudents = () => {
   const [name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [cninc, setCninc] = useState("");
   const [Mobile, setMobile] = useState("");
   const [Course, setCourse] = useState("");
-  const [fatherName, setfatherName] = useState("");
-  const [department, setDepartment] = useState("");
-  const [semestr, setSemestr] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const userCollectionRef = collection(db, "students");
+  const userCollectionRef = collection(db, "new-students");
   const date = new Date().getTime();
 
   async function sendForm() {
     setLoading(true);
     await addDoc(userCollectionRef, {
       name: name,
-      fatherName: fatherName,
       Email: Email,
       cninc: cninc,
       Mobile: Mobile,
       Course: Course,
       PrefferedTime: "",
       date: date,
-      department: department,
-      semestr: semestr,
     });
     setLoading(false);
-    navigate("/students/students");
+    navigate("/students/new-students");
   }
-
   return (
     <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
       <div className="add-link mb-10 ">
@@ -87,7 +78,7 @@ const AddStudent = () => {
             type="text"
             placeholder="Father Name"
             className="dark:bg-[#353C48] dark:border"
-            onChange={(e) => setfatherName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="name">
@@ -157,7 +148,6 @@ const AddStudent = () => {
             name=""
             id="selection"
             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-            onChange={(e) => setDepartment(e.target.value)}
           >
             <option value="Other" disabled>
               Select department
@@ -182,34 +172,21 @@ const AddStudent = () => {
             name=""
             id="selection"
             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
-            onChange={(e) => setSemestr(e.target.value)}
           >
             <option value="Other" disabled>
               select semester
             </option>
-            <option value="1st" id="options">
-              1st
+            <option value="Other" id="options">
+              Other1
             </option>
-            <option value="2nd" id="options">
-              2nd
+            <option value="Other" id="options">
+              Other2
             </option>
-            <option value="3rd" id="options">
-              3rd
+            <option value="Other" id="options">
+              Other3
             </option>
-            <option value="4th" id="options">
-              4th
-            </option>
-            <option value="5th" id="options">
-              5th
-            </option>
-            <option value="6th" id="options">
-              6th
-            </option>
-            <option value="7th" id="options">
-              7th
-            </option>
-            <option value="8th" id="options">
-              8th
+            <option value="Other" id="options">
+              Other4
             </option>
           </select>
         </div>
@@ -262,4 +239,5 @@ const AddStudent = () => {
     </div>
   );
 };
-export default AddStudent;
+
+export default AddNewStudents;

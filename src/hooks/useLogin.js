@@ -32,7 +32,7 @@ export const useLogin = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        setError(errorMessage, " :", "bunday ");
         // ..
       });
   };
