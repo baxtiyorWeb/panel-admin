@@ -5,12 +5,11 @@ import { useParams } from "react-router-dom";
 
 const NewStudentsAbout = () => {
   const [loading, setLoading] = useState(false);
-  const [add, setAdd] = useState(false);
   const [user, setUser] = useState([]);
   const params = useParams();
+  const created = user.created;
 
   useEffect(() => {
-    setLoading(true);
     const getAllData = async () => {
       const docRef = doc(db, "new-students", params.newId);
       const targetDoc = await getDoc(docRef);
@@ -18,8 +17,8 @@ const NewStudentsAbout = () => {
       return { user: setUser(targetDoc.data()) };
     };
     getAllData();
-    setLoading(false);
-  }, [params]);
+  }, [params, created, loading]);
+
   const userCollectionRef = collection(db, "/students");
   const toStudentsSend = async () => {
     if (!user.created) {
@@ -36,7 +35,6 @@ const NewStudentsAbout = () => {
         date: "date",
       });
 
-      setAdd(true);
       await updateDoc(doc(db, "new-students", params.newId), {
         created: true,
       });
@@ -58,33 +56,33 @@ const NewStudentsAbout = () => {
       {loading ? (
         "loading ..."
       ) : (
-        <div className="w-full h-full border ">
+        <div className="w-full h-[100vh] border">
           <div className="about grid grid-cols-3 justify-items-center">
-            <div className="text-start border mb-5">
-              <h1>Name: {user.name}</h1>
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
+              <h1>Ism Familiya: {user.name}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>tanglangan kurs: {user.Course}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>email: {user.Email}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>nomer: {user.Mobile}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>age: {user.age}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>time: {user.PrefferedTime}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>cninc: {user.cninc}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>otasining ismi: {user.fatherName}</h1>
             </div>
-            <div className="text-start border mb-5">
+            <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>
                 action:{" "}
                 {user.created
@@ -93,14 +91,16 @@ const NewStudentsAbout = () => {
               </h1>
             </div>
           </div>
+          <div className="flex justify-end items-center m-14">
+            <button
+              onClick={() => toStudentsSend()}
+              className="border p-3 w-[150px] rounded-md shadow-xl active:scale-[0.9]"
+            >
+              {loading ? "loading ..." : "kursga qabul qilish"}
+            </button>
+          </div>
         </div>
       )}
-      <div className="flex justify-end items-center">
-        <button onClick={() => toStudentsSend()}>
-          {loading ? "loading ..." : "qabul qilish"}
-        </button>
-        <h1>{add && ": siz bu o'quvchini qabul qildingiz"}</h1>
-      </div>
     </div>
   );
 };
