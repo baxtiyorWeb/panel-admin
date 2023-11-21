@@ -1,11 +1,9 @@
 const Fileuplaod = () => {
-    return (<>
-        <div>
-
-
-        </div>
-    </>)
-}
-
+  return (
+    <>
+      <div></div>
+    </>
+  );
+};
 
 export default Fileuplaod;

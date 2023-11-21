@@ -1,11 +1,9 @@
-/* eslint-disable no-undef */
 import { Link, Outlet } from "react-router-dom";
 import Container from "../shared/Container";
 
-// eslint-disable-next-line react/prop-types
-export const BatchesLayout = ({ open, setOpen }) => {
+export const BatchesLayout = () => {
   return (
-    <Container open={open} setOpen={setOpen}>
+    <Container>
       <div className="around_one ">
         <div className="around_user dark:text-[#96a2b4] text-[25px]">
           <h2>Batches</h2>

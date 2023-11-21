@@ -10,6 +10,8 @@ const AddNewStudents = () => {
   const [cninc, setCninc] = useState("");
   const [Mobile, setMobile] = useState("");
   const [Course, setCourse] = useState("");
+  const [age, setAge] = useState("");
+  const [fatherName, setFatherName] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "new-students");
@@ -19,12 +21,15 @@ const AddNewStudents = () => {
     setLoading(true);
     await addDoc(userCollectionRef, {
       name: name,
+      fatherName: fatherName,
+      age: age,
       Email: Email,
       cninc: cninc,
       Mobile: Mobile,
       Course: Course,
       PrefferedTime: "",
       date: date,
+      created: false
     });
     setLoading(false);
     navigate("/students/new-students");
@@ -78,7 +83,7 @@ const AddNewStudents = () => {
             type="text"
             placeholder="Father Name"
             className="dark:bg-[#353C48] dark:border"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setFatherName(e.target.value)}
           />
         </div>
         <div className="name">
@@ -114,6 +119,15 @@ const AddNewStudents = () => {
             placeholder="+998 xx xxx xx xx"
             className="dark:bg-[#353C48] dark:border"
             onChange={(e) => setMobile(e.target.value)}
+          />
+        </div>
+        <div className="name">
+          <span>Mobile</span>
+          <input
+            type="number"
+            placeholder="enter your age"
+            className="dark:bg-[#353C48] dark:border"
+            onChange={(e) => setAge(e.target.value)}
           />
         </div>
         <div className="name">

@@ -5,7 +5,6 @@ import "../Enquiries.css";
 import "react-toastify/dist/ReactToastify.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../setup/firebase/firebase.jsx";
-import { toast } from "react-toastify";
 import Container from "../../shared/Container.jsx";
 import ClipLoader from "react-spinners/ClipLoader";
 import { DatePicker } from "antd";

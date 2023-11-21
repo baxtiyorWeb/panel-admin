@@ -1,24 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Courses_time } from "../../progress/data";
-import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../setup/firebase/firebase";
-import { LiaEdit } from "react-icons/lia";
-import { MdDelete } from "react-icons/md";
 
 export const FeeReports = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState([]);
 
-  //   const notifyActive = () =>
-  //     toast.success("user active!", { position: "top-right" });
-  //   const notifyNoActive = () =>
-  //     toast.success("user no active", { position: "top-right" });
-  //   const notifyDelete = () =>
-  //     toast.success("user delete", { position: "top-right" });
   useEffect(() => {
     (async () => {
       setLoading(true);
@@ -64,52 +54,57 @@ export const FeeReports = () => {
         <div id="demo">
           <div>
             <div className="table-responsive-vertical shadow-z-1">
-              <table
-                id="table"
-                className="table table-hover table-mc-light-blue"
-              >
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Mobile</th>
-                    <th>Course</th>
-                    <th>Batch</th>
-                    <th>CourseFee</th>
-                    <th>Student Agreed Fee</th>
-                    <th>Paid Fee</th>
-                    <th>Due Fee</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {user
-                    .filter((users) =>
-                      users.name.toLowerCase().includes(search)
-                    )
-                    .map((item, index) => {
-                      return (
-                        <tr
-                          key={item.id}
-                          className={
-                            "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
-                          }
-                        >
-                          <td>{index}</td>
-                          <td>
-                            <Link to={"#"}>{item.name}</Link>
-                          </td>
-                          <td>{item.Mobile}</td>
-                          <td>{item.Course}</td>
-                          <td>{item.Batch}</td>
-                          <td>{item.CourseFee}</td>
-                          <td>{item.CourseAgreedFee}</td>
-                          <td>{item.PaidFee}</td>
-                          <td>{item.DueFee}</td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table>
+              {loading ? (
+                "loading"
+              ) : (
+                <table
+                  id="table"
+                  className="table table-hover table-mc-light-blue"
+                >
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Mobile</th>
+                      <th>Course</th>
+                      <th>Batch</th>
+                      <th>CourseFee</th>
+                      <th>Student Agreed Fee</th>
+                      <th>Paid Fee</th>
+                      <th>Due Fee</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {user
+                      .filter((users) =>
+                        users.name.toLowerCase().includes(search)
+                      )
+                      .map((item, index) => {
+                        return (
+                          <tr
+                            key={item.id}
+                            className={
+                              "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
+                            }
+                          >
+                            <td>{index}</td>
+                            <td>
+                              <Link to={"#"}>{item.name}</Link>
+                            </td>
+                            <td>{item.Mobile}</td>
+                            <td>{item.Course}</td>
+                            <td>{item.Batch}</td>
+                            <td>{item.CourseFee}</td>
+                            <td>{item.CourseAgreedFee}</td>
+                            <td>{item.PaidFee}</td>
+                            <td>{item.DueFee}</td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              )}
             </div>
           </div>
         </div>

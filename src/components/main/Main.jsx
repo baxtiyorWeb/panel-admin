@@ -9,7 +9,7 @@ import { FiArrowDown } from "react-icons/fi";
 import Charts from "../Chart/Chart";
 import { Helmet } from "react-helmet";
 // eslint-disable-next-line react/prop-types
-const Main = ({ open }) => {
+const Main = () => {
   return (
     <Container>
       <div style={{ width: "100%" }}>

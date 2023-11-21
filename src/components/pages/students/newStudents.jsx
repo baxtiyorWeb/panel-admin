@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { getLength } from "../../progress/data";
-import { LiaEdit } from "react-icons/lia";
-import { BiLike } from "react-icons/bi";
+import { LiaEdit, LiaEye, LiaQuestionSolid } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
+import { LiaCheckSolid } from "react-icons/lia";
 import { Loading } from "../../Loading.jsx";
 import Pagination from "../../pagination/Pagination.jsx";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../setup/firebase/firebase.jsx";
 
 export const NewStudents = () => {
+  const [paramsQuery, setParamsQuery] = useSearchParams();
   const [search, setSearch] = useState("");
+  const [newId, setNewId] = useState();
+  const [detail, setDetail] = useState();
 
   const [page, setpage] = useState(1);
 
@@ -20,7 +23,12 @@ export const NewStudents = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const [open, setOpen] = useState(false);
+
+  const [test, setTest] = useState(false);
+
   let totalPage = Math.ceil(getLength() / limit);
+  const navigate = useNavigate();
 
   function handlePageChange(value) {
     if (value === "&laquo;" || value === "... ") {
@@ -53,7 +61,18 @@ export const NewStudents = () => {
       setLoading(false);
     })();
   }, []);
+  const param = paramsQuery.get("newId");
+  const addedStudent = (id) => {
+    setParamsQuery({ newId: newId });
+    setNewId(id);
+  };
 
+  const seeDeatils = (id) => {
+    setDetail(id);
+    if (detail !== undefined) {
+      navigate(`/details/${detail}`);
+    }
+  };
   return (
     <>
       <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
@@ -140,7 +159,6 @@ export const NewStudents = () => {
                               <td>{item.Mobile}</td>
                               <td>{item.cninc}</td>
                               <td>{item.Course}</td>
-                              <td>{item.Batch}</td>
                               <td className={"td_flex"}>
                                 <span className="icons">
                                   <Link
@@ -152,6 +170,26 @@ export const NewStudents = () => {
 
                                 <span className="icons">
                                   <MdDelete />
+                                </span>
+                                <span
+                                  className="icons"
+                                  onClick={() => addedStudent(item.id)}
+                                >
+                                  {item.created ? (
+                                    <div className="created">
+                                      <LiaCheckSolid />
+                                    </div>
+                                  ) : (
+                                    <div className="disabled">
+                                      <LiaQuestionSolid />
+                                    </div>
+                                  )}
+                                </span>
+                                <span
+                                  className="icons tooltip"
+                                  onClick={() => seeDeatils(item.id)}
+                                >
+                                  <LiaEye />
                                 </span>
                               </td>
                             </tr>

@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
-import { toast } from "react-toastify";
 // eslint-disable-next-line react/prop-types
 const AddFeeReports = () => {
   const [name, setName] = useState("");
@@ -19,9 +18,6 @@ const AddFeeReports = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "fee-reports");
-
-  const notify = () =>
-    toast.success("add Enaquire Form!", { position: "top-right" });
 
   async function sendForm(e) {
     e.preventDefault();

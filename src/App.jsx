@@ -45,10 +45,12 @@ import EditCoursePage from "./components/editPages/EditCoursePage.jsx";
 import AddFeeReports from "./components/pages/addpages/AddFeeReports.jsx";
 import { NewStudents } from "./components/pages/students/newStudents.jsx";
 import AddNewStudents from "./components/pages/addpages/AddNewStudents.jsx";
+import NewStudentsAbout from "./components/pages/students/newStudentsAbout.jsx";
 
 const App = () => {
   return (
     <Routes>
+      <Route path="/details/:newId" element={<NewStudentsAbout />} />
       <Route path="/" element={<Layout />}>
         <Route exact path={"login"} element={<Login />} />
         <Route path="/users-form/:userId" element={<EditForm />} />

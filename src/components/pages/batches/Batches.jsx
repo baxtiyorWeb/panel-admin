@@ -14,7 +14,7 @@ const Batches = () => {
   const [limit, setlimit] = useState(5);
   const batches = useBatchHook();
   let totalPage = Math.ceil(getLength() / limit);
-
+  console.log(setlimit);
   function handlePageChange(value) {
     if (value === "&laquo;" || value === "... ") {
       setPages(1);
@@ -93,7 +93,9 @@ const Batches = () => {
                             return (
                               <tr
                                 key={index}
-                                className={"even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"}
+                                className={
+                                  "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
+                                }
                               >
                                 <td>{index}</td>
                                 <td>

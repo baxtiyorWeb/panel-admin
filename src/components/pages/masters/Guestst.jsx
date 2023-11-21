@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./master.css";
 import { db } from "../../../setup/firebase/firebase.jsx";
@@ -10,7 +10,6 @@ import {
   doc,
   getDoc,
   getDocs,
-  updateDoc,
 } from "firebase/firestore";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
@@ -23,7 +22,6 @@ const Guestst = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState();
-  const [editId, setEditId] = useState();
   const param = useParams();
   useEffect(() => {
     (async () => {
@@ -43,7 +41,7 @@ const Guestst = () => {
   useEffect(() => {
     setLoading(true);
     const getAllData = async () => {
-      const docRef = doc(db, "guests", editId);
+      const docRef = doc(db, "guests", param.editId);
       const targetDoc = await getDoc(docRef);
       console.log("targetDoc.data() : ", targetDoc.data());
       return {
@@ -52,7 +50,7 @@ const Guestst = () => {
     };
     getAllData();
     setLoading(false);
-  }, [param, editId]);
+  }, [param]);
 
   useEffect(() => {
     setAddCourse(courses.add_course);
