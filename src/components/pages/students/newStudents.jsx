@@ -23,10 +23,6 @@ export const NewStudents = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const [open, setOpen] = useState(false);
-
-  const [test, setTest] = useState(false);
-
   let totalPage = Math.ceil(getLength() / limit);
   const navigate = useNavigate();
 
@@ -66,7 +62,6 @@ export const NewStudents = () => {
     setParamsQuery({ newId: newId });
     setNewId(id);
   };
-
   const seeDeatils = (id) => {
     setDetail(id);
     if (detail !== undefined) {

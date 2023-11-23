@@ -12,7 +12,9 @@ const AddNewStudents = () => {
   const [Course, setCourse] = useState("");
   const [age, setAge] = useState("");
   const [fatherName, setFatherName] = useState("");
+  const [semester, setSemester] = useState("");
   const [loading, setLoading] = useState(false);
+  const [gender, setGender] = useState("");
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "new-students");
   const date = new Date().getTime();
@@ -29,7 +31,9 @@ const AddNewStudents = () => {
       Course: Course,
       PrefferedTime: "",
       date: date,
-      created: false
+      gender: gender,
+      semester: semester,
+      created: false,
     });
     setLoading(false);
     navigate("/students/new-students");
@@ -122,7 +126,7 @@ const AddNewStudents = () => {
           />
         </div>
         <div className="name">
-          <span>Mobile</span>
+          <span>your age</span>
           <input
             type="number"
             placeholder="enter your age"
@@ -138,6 +142,7 @@ const AddNewStudents = () => {
               id="Male"
               className="w-1 h-1 !not-sr-only"
               name="gender"
+              onChange={() => setGender("male")}
             />
             <label htmlFor="Male" className="mr-5 ml-1">
               Male
@@ -149,6 +154,7 @@ const AddNewStudents = () => {
               id="Female"
               className="w-1 h-1 !not-sr-only"
               name="gender"
+              onChange={() => setGender("female")}
             />
             <label htmlFor="Female" className="mr-5 ml-1">
               Female
@@ -186,21 +192,34 @@ const AddNewStudents = () => {
             name=""
             id="selection"
             className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+            onChange={(e) => setSemester(e.target.value)}
           >
             <option value="Other" disabled>
               select semester
             </option>
-            <option value="Other" id="options">
-              Other1
+            <option value="1st" id="options">
+              1st
             </option>
-            <option value="Other" id="options">
-              Other2
+            <option value="2nd" id="options">
+              2nd
             </option>
-            <option value="Other" id="options">
-              Other3
+            <option value="3rd" id="options">
+              3rd
             </option>
-            <option value="Other" id="options">
-              Other4
+            <option value="4th" id="options">
+              4th
+            </option>
+            <option value="5th" id="options">
+              5th
+            </option>
+            <option value="6th" id="options">
+              6th
+            </option>
+            <option value="7th" id="options">
+              7th
+            </option>
+            <option value="8th" id="options">
+              8th
             </option>
           </select>
         </div>
@@ -227,14 +246,6 @@ const AddNewStudents = () => {
             <option>Front end</option>
             <option>Back end</option>
           </select>
-        </div>
-        <div className="name">
-          <span>Course free</span>
-          <input type="text" className="dark:bg-[#353C48] dark:border" />
-        </div>
-        <div className="name">
-          <span>Student Agreed Fee</span>
-          <input type="text" className="dark:bg-[#353C48] dark:border" />
         </div>
         <button type="submit" onClick={sendForm} className={"-g-button"}>
           {loading ? (

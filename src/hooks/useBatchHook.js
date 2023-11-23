@@ -12,7 +12,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const useBatchHook = () => {
   const navigate = useNavigate();
-
   const [user, setUser] = useState([]);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);

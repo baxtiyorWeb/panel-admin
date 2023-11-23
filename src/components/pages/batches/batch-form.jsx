@@ -9,7 +9,6 @@ const { RangePicker } = DatePicker;
 
 export const BatchForm = () => {
   const batches = useBatchHook();
-
   return (
     <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal">
       <div className="add-link mb-10 ">

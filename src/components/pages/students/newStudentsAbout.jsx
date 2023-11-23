@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react";
 import { db } from "../../../setup/firebase/firebase";
-import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import {
+  FieldValue,
+  addDoc,
+  arrayUnion,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const NewStudentsAbout = () => {
@@ -20,6 +32,8 @@ const NewStudentsAbout = () => {
   }, [params, created, loading]);
 
   const userCollectionRef = collection(db, "/students");
+  const addCourseStudentName = collection(db, "/Courses");
+
   const toStudentsSend = async () => {
     if (!user.created) {
       setLoading(true);
@@ -34,9 +48,38 @@ const NewStudentsAbout = () => {
         PrefferedTime: "6/23/23",
         date: "date",
       });
+      const studentRef = doc(addCourseStudentName, user.Course);
 
       await updateDoc(doc(db, "new-students", params.newId), {
         created: true,
+      });
+      await updateDoc(studentRef, {
+        Students: arrayUnion(user.name),
+      });
+
+      const students = [""];
+      const q = query(
+        studentRef,
+        where("Students", "array-contains-any", students)
+      );
+      const snapshot = await getDocs(q);
+      const data = snapshot.docs[0].data();
+
+      data.Students.push(user.name);
+
+      console.log(data);
+
+      await setDoc(studentRef, data);
+
+      await setDoc(studentRef, {
+        id: user.Course,
+        Course: user.Course,
+        Students: FieldValue.arrayUnion(user.name),
+        duration: "duration",
+        Mobile: user.Mobile,
+      });
+      await updateDoc(studentRef, {
+        Students: arrayUnion(user.name),
       });
       setLoading(false);
     } else {
@@ -71,13 +114,13 @@ const NewStudentsAbout = () => {
               <h1>nomer: {user.Mobile}</h1>
             </div>
             <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
-              <h1>age: {user.age}</h1>
+              <h1>yosh: {user.age}</h1>
             </div>
             <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>time: {user.PrefferedTime}</h1>
             </div>
             <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
-              <h1>cninc: {user.cninc}</h1>
+              <h1>cnic: {user.cninc}</h1>
             </div>
             <div className="text-start border  w-[400px] h-[80px] flex justify-center items-center pl-3 shadow-md m-5 text-[16px]">
               <h1>otasining ismi: {user.fatherName}</h1>

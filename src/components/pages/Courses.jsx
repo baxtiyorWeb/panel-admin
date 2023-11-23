@@ -66,6 +66,7 @@ const Courses = () => {
     setDeleteId(id);
     setLoading(false);
   };
+
   return (
     <>
       <div className="around_one "></div>
@@ -128,8 +129,8 @@ const Courses = () => {
                               <td>{index}</td>
                               <td>{item.Course}</td>
                               <td>{item.Category}</td>
-                              <td>{item.duration} days</td>
-                              <td>{item.Mobile}</td>
+                              <td>{item.Duration} days</td>
+                              <td>{item.Students.length}</td>
                               <td className={"td_flex"}>
                                 <span className="icons">
                                   <Link to={`/courses/edit/${item.id}`}>
