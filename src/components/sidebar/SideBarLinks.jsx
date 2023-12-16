@@ -7,12 +7,33 @@ import {
 } from "react-icons/bs";
 import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { BiCheck, BiHome, BiSolidCog, BiSolidPencil } from "react-icons/bi";
-import { FaGraduationCap, FaSitemap } from "react-icons/fa";
+import { FaGraduationCap, FaSitemap, FaPlus } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../setup/firebase/firebase";
+import { Loading } from "../Loading";
 
 // eslint-disable-next-line react/prop-types
 export const SideBarLinks = ({ dark }) => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      const colRef = collection(db, "groups");
+      const snapshots = await getDocs(colRef);
+      const docs = snapshots.docs.map((doc) => {
+        const data = doc.data();
+        data.id = doc.id;
+        return data;
+      });
+      setData(docs);
+      setLoading(false);
+    })();
+  }, []);
+
   return (
     <Sidebar
       style={{
@@ -86,6 +107,45 @@ export const SideBarLinks = ({ dark }) => {
             Partiyalar
           </MenuItem>
         </SubMenu>
+        {loading ? (
+          ""
+        ) : (
+          <FaPlus className="absolute left-[180px] text-slate-300 top-[315px] z-10 cursor-pointer hover:text-slate-400" />
+        )}
+
+        {loading ? (
+          <Loading loading={loading} />
+        ) : (
+          <SubMenu
+            label="guruxlar"
+            icon={<BsFillBookFill />}
+            className={
+              "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
+            }
+          >
+            {loading ? (
+              <Loading loading={loading} />
+            ) : (
+              data.map((item) => (
+                <MenuItem
+                  key={item.id}
+                  icon={<FaGraduationCap />}
+                  className={
+                    "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
+                  }
+                  component={
+                    <NavLink
+                      to={`/groups/groups/${item.id}`}
+                      className={"dark:bg-[#3B4452] dark:text-[#e2e6ec]"}
+                    ></NavLink>
+                  }
+                >
+                  {item.id}
+                </MenuItem>
+              ))
+            )}
+          </SubMenu>
+        )}
         <MenuItem
           icon={<FaGraduationCap />}
           className={"menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"}

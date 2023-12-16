@@ -6,7 +6,7 @@ import { useBatchHook } from "../../../hooks/useBatchHook";
 import { LiaEdit } from "react-icons/lia";
 import { BiLike } from "react-icons/bi";
 import { useGetUser } from "../../../hooks/useGetUser.js";
-import { Loading } from "../../Loading.jsx";
+import { ClipLoader } from "react-spinners";
 
 const Batches = () => {
   const [search, setSearch] = useState("");
@@ -62,8 +62,24 @@ const Batches = () => {
         </div>
         <div id="demo">
           <div>
-            {userss.loading ? (
-              <Loading loading={userss.loading} />
+            {batches.loading ? (
+              <ClipLoader
+                loading={batches.loading}
+                size={20}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+                color="#7e7f81"
+              />
+            ) : batches.user.length === 0 ? (
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "#ccc",
+                  fontSize: "20px",
+                }}
+              >
+                empty data
+              </h2>
             ) : (
               <div className="table-responsive-vertical shadow-z-1">
                 <table

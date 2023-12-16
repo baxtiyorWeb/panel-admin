@@ -64,7 +64,6 @@ export const useCourseCategoryhook = () => {
     setLoading(false);
     setAddCourse("");
   };
-
   const courseDelete = async (id) => {
     setLoading(true);
     await deleteDoc(doc(db, "course_category", id));

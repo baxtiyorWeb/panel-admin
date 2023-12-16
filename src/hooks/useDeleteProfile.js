@@ -39,6 +39,7 @@ const useDeleteProfile = () => {
       return { user: setEdit(targetDoc.data()) };
     };
     setEdit(false);
+
     getAllData();
   }, [params, imageUpload, loading, userImg, editetId]);
   const names = async () => {

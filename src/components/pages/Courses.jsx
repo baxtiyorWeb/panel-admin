@@ -8,14 +8,18 @@ import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase.jsx";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
+import { Loading } from "../Loading.jsx";
+import { SharedModal } from "../modal/sharedModal.jsx";
+import Overlay from "../overlay/overlay.jsx";
 
 const Courses = () => {
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState();
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setlimit] = useState(5);
+  const [open, setOpen] = useState(false);
   let totalPage = Math.ceil(getLength() / limit);
 
   function handlePageChange(value) {
@@ -48,7 +52,7 @@ const Courses = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const colRef = collection(db, "Courses");
+      const colRef = collection(db, "courses");
       const snapshots = await getDocs(colRef);
       const docs = snapshots.docs.map((doc) => {
         const data = doc.data();
@@ -58,7 +62,7 @@ const Courses = () => {
       setData(docs);
       setLoading(false);
     })();
-  }, [loading, data]);
+  }, []);
 
   const courseDelete = async (id) => {
     setLoading(true);
@@ -66,10 +70,31 @@ const Courses = () => {
     setDeleteId(id);
     setLoading(false);
   };
-
   return (
     <>
-      <div className="around_one "></div>
+      <div className="around_one"></div>
+      {open && <Overlay open={open} setOpen={setOpen} />}
+      {open && (
+        <SharedModal>
+          <div className="m-5 flex flex-col justify-center items-center h-[90%]">
+            <div className="container block w-[100%] h-[50%] bg-[#9989] text-[#223345] "></div>
+            <ul className="text-base w-full h-full  flex items-center flex-col overflow-y-scroll">
+              {data.map((item) =>
+                item.students.map((item) => {
+                  return (
+                    <li
+                      className="grid grid-cols-3 w-full mt-3 p-3 hover:dark:bg-slate-800 rounded-md cursor-pointer"
+                      key={item.name}
+                    >
+                      {item.name}
+                    </li>
+                  );
+                })
+              )}
+            </ul>
+          </div>
+        </SharedModal>
+      )}
       <div className="chart-progress dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
         <div className="add-link">
           <h1>Course List</h1>
@@ -89,85 +114,108 @@ const Courses = () => {
             <h4>Search:</h4>
             <input
               type="text"
-              className={"dark:bg-[#3B4452] dark:border border border-cyan-600"}
+              className={
+                "dark:bg-[#3B4452] dark:border border  border-cyan-600"
+              }
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
         <div id="demo">
           <div>
-            <div className="table-responsive-vertical shadow-z-1">
-              <table
-                id="table"
-                className="table table-hover table-mc-light-blue"
+            {loading ? (
+              <Loading loading={loading} />
+            ) : data.length === 0 ? (
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "#ccc",
+                  fontSize: "20px",
+                }}
               >
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Course Title</th>
-                    <th>Category</th>
-                    <th>Duration</th>
-                    <th>Students</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.length ? (
-                    userss.user ? (
-                      data
-                        .filter((users) =>
-                          users.Course.toLowerCase().includes(search)
-                        )
-                        .map((item, index) => {
-                          return (
-                            <tr
-                              key={index}
-                              className={
-                                "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
-                              }
-                            >
-                              <td>{index}</td>
-                              <td>{item.Course}</td>
-                              <td>{item.Category}</td>
-                              <td>{item.Duration} days</td>
-                              <td>{item.Students.length}</td>
-                              <td className={"td_flex"}>
-                                <span className="icons">
-                                  <Link to={`/courses/edit/${item.id}`}>
-                                    {<LiaEdit />}
-                                  </Link>
-                                </span>
-                                <span
-                                  className="icons"
-                                  onClick={() => courseDelete(item.id)}
+                empty data
+              </h2>
+            ) : (
+              <div className="table-responsive-vertical shadow-z-1">
+                <table
+                  id="table"
+                  className="table table-hover table-mc-light-blue"
+                >
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Course Title</th>
+                      <th>Category</th>
+                      <th>Duration</th>
+                      <th>Students</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.length ? (
+                      userss.user ? (
+                        data
+                          .filter((users) =>
+                            users.students[0].name
+                              .toLowerCase()
+                              .includes(search)
+                          )
+                          .map((item, index) => {
+                            return (
+                              <tr
+                                key={index}
+                                className={
+                                  "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
+                                }
+                              >
+                                <td>{index}</td>
+                                <td>{item.id}</td>
+                                <td>{item.Category}</td>
+                                <td>{item.Duration} days</td>
+                                <td
+                                  className="cursor-pointer hover:dark:bg-slate-600"
+                                  onClick={() => setOpen(!open)}
                                 >
-                                  {<MdDelete />}
-                                </span>
-                              </td>
-                            </tr>
-                          );
-                        })
+                                  {item.students.length}
+                                </td>
+                                <td className={"td_flex"}>
+                                  <span className="icons">
+                                    <Link to={`/courses/edit/${item.id}`}>
+                                      {<LiaEdit />}
+                                    </Link>
+                                  </span>
+                                  <span
+                                    className="icons"
+                                    onClick={() => courseDelete(item.id)}
+                                  >
+                                    {<MdDelete />}
+                                  </span>
+                                </td>
+                              </tr>
+                            );
+                          })
+                      ) : (
+                        <div>
+                          {userss.user ? (
+                            ""
+                          ) : (
+                            <button onClick={() => userss.navigate("/login")}>
+                              login
+                            </button>
+                          )}
+                        </div>
+                      )
                     ) : (
-                      <div>
-                        {userss.user ? (
-                          ""
-                        ) : (
-                          <button onClick={() => userss.navigate("/login")}>
-                            login
-                          </button>
-                        )}
+                      <div className={"mt-[0] mb-[15px] "}>
+                        <div className={"absolute left-[55%] text-[20px]"}>
+                          Empty Data
+                        </div>
                       </div>
-                    )
-                  ) : (
-                    <div className={"mt-[0] mb-[15px] "}>
-                      <div className={"absolute left-[55%] text-[20px]"}>
-                        Empty Data
-                      </div>
-                    </div>
-                  )}
-                </tbody>
-              </table>
-            </div>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex justify-center ">

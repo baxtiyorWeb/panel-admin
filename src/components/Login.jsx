@@ -4,23 +4,22 @@ import { useLogin } from "../hooks/useLogin.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../setup/firebase/firebase.jsx";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Login = () => {
   const login = useLogin();
   const navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        navigate(uid ? this : "login");
+      } else {
+        // ...
+      }
+    });
+  }, []);
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      const uid = user.uid;
-      navigate(uid ? "/" : "login");
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
   return (
     <>
       <Container>

@@ -1,8 +1,8 @@
-import {FaMoon, FaSun} from "react-icons/fa";
-import {useTheme} from "../../hooks/useTheme.js";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useTheme } from "../../hooks/useTheme.js";
 
 const ThemeToggle = () => {
-    const {theme, setTheme} = useTheme()
+    const { theme, setTheme } = useTheme()
 
     const changeTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark')
@@ -16,7 +16,7 @@ const ThemeToggle = () => {
         dark:active:bg-[#353C48]"
         onClick={changeTheme}>
         {theme === 'dark' ?
-            <FaSun/> : <FaMoon/>}
+            <FaSun /> : <FaMoon />}
     </button>)
 }
 export default ThemeToggle

@@ -1,0 +1,26 @@
+@media screen and (max-width: 500px) {
+  .response-top-chart {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .response-blocks {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .response_chart_season {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 10px;
+  }
+  .response-chart {
+    min-width: 100%;
+  }
+  .response-chart:nth-child(2) {
+    position: relative;
+    right: 10px;
+  }
+  .response-table {
+    overflow: scroll !important;
+  }
+}

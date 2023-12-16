@@ -1,13 +1,15 @@
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../setup/firebase/firebase.jsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHref } from "react-router-dom";
 
 export const useLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const href = useHref();
+  console.log(href)
   const signUp = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -19,7 +21,7 @@ export const useLogin = () => {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/auth.user
             const uid = user.uid;
-            navigate(uid ? "/" : "/login");
+            navigate(uid ? href : "/login");
             setEmail("");
             setPassword("");
 

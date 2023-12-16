@@ -3,7 +3,6 @@ import { ThemeContext } from "../components/context/ThemeProvider.jsx";
 
 const useTheme = () => {
   const theme = useContext(ThemeContext);
-
   if (theme === undefined) {
     throw new Error("error theme");
   }

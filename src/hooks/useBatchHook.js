@@ -30,7 +30,6 @@ export const useBatchHook = () => {
   const params = useParams();
 
   // get user about
-
   useEffect(() => {
     (async () => {
       setLoading(true);

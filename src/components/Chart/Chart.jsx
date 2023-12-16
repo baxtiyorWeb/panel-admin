@@ -191,8 +191,8 @@ class Charts extends React.Component {
   render() {
     return (
       <div>
-        <div className="Chart_season ">
-          <div className="Chart_free dark:bg-[#353C48] text-[#B6BDC2] font-bold">
+        <div className="Chart_season response_chart_season ">
+          <div className="Chart_free response-chart dark:bg-[#353C48] text-[#B6BDC2] font-bold">
             <h3>Revenue Chart of Session 2023 - 2024</h3>
             <ReactApexChart
               options={this.state.options}
@@ -201,7 +201,7 @@ class Charts extends React.Component {
               height={300}
             />
           </div>
-          <div className="Chart_one dark:bg-[#353C48] text-[#B6BDC2] font-bold">
+          <div className="Chart_one response-chart dark:bg-[#353C48] text-[#B6BDC2] font-bold">
             <h3>Revenue Chart of Session 2023 - 2024</h3>
             <ReactApexChart
               options={this.states.options}

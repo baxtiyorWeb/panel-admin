@@ -46,6 +46,10 @@ import AddFeeReports from "./components/pages/addpages/AddFeeReports.jsx";
 import { NewStudents } from "./components/pages/students/newStudents.jsx";
 import AddNewStudents from "./components/pages/addpages/AddNewStudents.jsx";
 import NewStudentsAbout from "./components/pages/students/newStudentsAbout.jsx";
+import ViewStudents from "./components/pages/students/viewStudents.jsx";
+import Groupslayout from "./components/layout/groupslayout.jsx";
+import "../src/response.css";
+import Groups from "./components/pages/groups/Groups.jsx";
 
 const App = () => {
   return (
@@ -54,16 +58,17 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route exact path={"login"} element={<Login />} />
         <Route path="/users-form/:userId" element={<EditForm />} />
-
         <Route path="/" element={<Main />} />
-
         <Route path="/enquiries" element={<Enqueries />} />
-
         <Route path="/layout" element={<EnqueiriesLayout />}>
           <Route path="/layout/addform" element={<AddForm />} />
         </Route>
         <Route path="/students/" element={<StudentsLayout />}>
           <Route path="/students/students" element={<Students />} />
+          <Route
+            path="/students/view-students/:id"
+            element={<ViewStudents />}
+          />
           <Route
             path="/students/students-form/:userId"
             element={<StudentForm />}
@@ -76,6 +81,7 @@ const App = () => {
           <Route path="/students/active" element={<Active />} />
           <Route path="/students/new-students" element={<NewStudents />} />
         </Route>
+
         <Route path="/batches/" element={<BatchesLayout />}>
           <Route path="/batches/batch" element={<Batches />} />
           <Route path="/batches/addBatch" element={<AddBatch />} />
@@ -121,6 +127,9 @@ const App = () => {
             element={<WebSettingsCurrensy />}
           />
           <Route path="/websettings/users" element={<WebSettingsUsers />} />
+        </Route>
+        <Route path="/groups" element={<Groupslayout />}>
+          <Route path="/groups/groups/:id" element={<Groups />} />
         </Route>
       </Route>
     </Routes>

@@ -1,57 +1,50 @@
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {addDoc, collection} from "firebase/firestore";
-import {db} from "../setup/firebase/firebase.jsx";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../setup/firebase/firebase.jsx";
 
 export const useAddCourses = () => {
+  const [name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [fee, setFee] = useState("");
+  const [Mobile, setMobile] = useState("");
+  const [Course, setCourse] = useState("");
+  const [Category, setCategory] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [duration, setDuration] = useState("");
+  const navigate = useNavigate();
 
+  const userCollectionRef = collection(db, "Courses");
+  const [time, setTime] = useState("");
 
-    const [name, setName] = useState("");
-    const [Email, setEmail] = useState("");
-    const [fee, setFee] = useState("");
-    const [Mobile, setMobile] = useState("");
-    const [Course, setCourse] = useState("");
-    const [Category, setCategory] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [duration, setDuration] = useState('')
-    const navigate = useNavigate();
+  async function sendForm(e) {
+    e.preventDefault();
+    setLoading(true);
+    await addDoc(userCollectionRef, {
+      Mobile: Mobile,
+      Course: Course,
+      duration: duration,
+      Category: Category,
+    });
+    setLoading(false);
+    navigate("/courses/courses");
+  }
 
-
-    const userCollectionRef = collection(db, "Courses");
-    const [time, setTime] = useState("")
-    const date = new Date()
-    const hours = date.getHours()
-    const minutes = date.getMinutes()
-
-    async function sendForm(e) {
-        e.preventDefault();
-        setLoading(true);
-        await addDoc(userCollectionRef, {
-            Mobile: Mobile,
-            Course: Course,
-            duration: duration,
-            Category: Category
-        });
-        setLoading(false);
-        navigate("/courses/courses");
-    }
-
-    const format = 'HH:mm';
-    return {
-        sendForm,
-        setCourse,
-        setDuration,
-        duration,
-        setCategory,
-        Category,
-        setFee,
-        fee,
-        setMobile,
-        setTime,
-        setEmail,
-        setLoading,
-        loading,
-        Course,
-        setName,
-    }
-}
+  return {
+    sendForm,
+    setCourse,
+    setDuration,
+    duration,
+    setCategory,
+    Category,
+    setFee,
+    fee,
+    setMobile,
+    setTime,
+    setEmail,
+    setLoading,
+    loading,
+    Course,
+    setName,
+  };
+};

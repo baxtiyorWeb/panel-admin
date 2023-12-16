@@ -50,7 +50,9 @@ export const Input = () => {
       {open
         ? search && (
             <ul
-              className={"absolute w-[200px] h-[300px] border top-[60px] z-10"}
+              className={
+                "absolute w-[200px] h-[300px] border top-[65px] z-10 bg-[#e2e2e2] rounded-md shadow-2xl"
+              }
             >
               {loading
                 ? "loading ..."

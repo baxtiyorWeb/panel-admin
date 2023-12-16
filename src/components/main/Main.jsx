@@ -25,8 +25,8 @@ const Main = () => {
           </div>
         </div>
 
-        <div className="top_chart ">
-          <div className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
+        <div className="top_chart response-top-chart">
+          <div className="response-blocks blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
             <div
               className={
                 "flex  h-[80%] w-full justify-between items-center p-3"
@@ -55,7 +55,7 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
+          <div className="response-blocks  blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
             <div
               className={
                 "flex  h-[80%] w-full justify-between items-center p-3"
@@ -84,7 +84,7 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div className="blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
+          <div className="response-blocks blocks flex flex-col items-start justify-between dark:bg-[#353C48] text-[#B6BDC2] font-normal dark:shadow-[0_0_0_0]">
             <div
               className={
                 "flex  h-[80%] w-full justify-between items-center p-3"
@@ -94,7 +94,7 @@ const Main = () => {
                 <h4 className="title">
                   Monthly Fee Collection
                   <br />
-                  32,000 ₨
+                  32,000
                 </h4>
               </div>
               <div
