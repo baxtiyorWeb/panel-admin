@@ -20,8 +20,9 @@ export const SideBarLinks = ({ dark }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   useEffect(() => {
+    setLoading(true);
+
     (async () => {
-      setLoading(true);
       const colRef = collection(db, "groups");
       const snapshots = await getDocs(colRef);
       const docs = snapshots.docs.map((doc) => {
@@ -30,8 +31,8 @@ export const SideBarLinks = ({ dark }) => {
         return data;
       });
       setData(docs);
-      setLoading(false);
     })();
+    setLoading(false);
   }, []);
 
   return (

@@ -78,6 +78,30 @@ const AddNewStudents = () => {
       },
       { merge: true }
     );
+
+    const coursesRef = collection(db, "courses");
+
+    await setDoc(
+      doc(coursesRef, Course),
+      {
+        students: arrayUnion({
+          name: name,
+          fatherName: fatherName,
+          age: age,
+          Email: Email,
+          cninc: cninc,
+          Mobile: Mobile,
+          Course: Course,
+          PrefferedTime: "",
+          date: date,
+          gender: gender,
+          semester: semester,
+          created: false,
+        }),
+      },
+      { merge: true }
+    );
+
     sendForm();
     navigate("/students/new-students");
 

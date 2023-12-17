@@ -17,8 +17,11 @@ const Groups = () => {
       console.log(targetDoc.data().students);
       return { user: setUser(targetDoc.data()) };
     };
-    getAllData();
-    setLoading(false);
+
+    setTimeout(() => {
+      getAllData();
+      setLoading(false);
+    }, 1000);
   }, [param.id]);
 
   return (
@@ -50,7 +53,39 @@ const Groups = () => {
           ) : loading ? (
             "loading"
           ) : (
-            JSON.stringify(user.students)
+            <div>
+              <table id="table" className="table table-hover">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Age</th>
+                    <th>Mobile</th>
+                    <th>Cnic</th>
+                    <th>Date</th>
+                    <th>Semester</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {user.students?.map((item, index) => (
+                    <tr
+                      key={item.name}
+                      className="even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal even-class dark:hover:bg-[#353C48]"
+                    >
+                      <td>{index + 1}</td>
+                      <td>{item.name}</td>
+                      <td>{item.Course}</td>
+                      <td>{item.age}</td>
+                      <td>{item.Mobile}</td>
+                      <td>{item.cninc}</td>
+                      <td>{item.date}</td>
+                      <td>{item.semester}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       )}

@@ -46,13 +46,13 @@ const Profile = () => {
         <div className="side-profile">
           <div className="profile head dark:bg-[#353C48] relative">
             <div className="user ">
-              <img src={`${useEdit.edit.image}`} alt="" />
+              <img src={`${useEdit.userImg || profile.user.image}`} alt="" />
               <div className={"overflow-hidden"}>
                 <input
                   type="file"
                   id="user-img"
                   className={"input-file"}
-                  onChange={(e) => useEdit.setUserImg(e.target.files[0])}
+                  onChange={(e) => useEdit.setFile(e.target.files[0])}
                 />
               </div>
               {useEdit.userImg && (
