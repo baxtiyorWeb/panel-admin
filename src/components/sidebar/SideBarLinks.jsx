@@ -7,9 +7,9 @@ import {
 } from "react-icons/bs";
 import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { BiCheck, BiHome, BiSolidCog, BiSolidPencil } from "react-icons/bi";
-import { FaGraduationCap, FaSitemap, FaPlus } from "react-icons/fa";
-import { AiFillFile } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { FaGraduationCap, FaSitemap } from "react-icons/fa";
+import { AiFillFile, AiFillPlusCircle } from "react-icons/ai";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
@@ -21,7 +21,6 @@ export const SideBarLinks = ({ dark }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     setLoading(true);
-
     (async () => {
       const colRef = collection(db, "groups");
       const snapshots = await getDocs(colRef);
@@ -113,13 +112,24 @@ export const SideBarLinks = ({ dark }) => {
           <Loading loading={loading} />
         ) : (
           <SubMenu
-            label="guruxlar"
+            label={`guruxlar ${data.length}`}
             icon={<BsFillBookFill />}
             className={
               "menus-style dark:text-cyan-50   hover:dark:bg-[#2A303A]"
             }
           >
             {loading ? (
+              <Loading loading={loading} />
+            ) : data.length === 0 ? (
+              <div className="flex h-[50px] justify-center dark:bg-[#3B4452]">
+                <Link
+                  to={"/students/add-new-student-form"}
+                  className="flex w-full flex-col justify-center pl-10 hover:bg-slate-500"
+                >
+                  <span>gurux qo{"'"}shmoqchimisiz</span>
+                </Link>
+              </div>
+            ) : loading ? (
               <Loading loading={loading} />
             ) : (
               data.map((item) => (
@@ -140,6 +150,17 @@ export const SideBarLinks = ({ dark }) => {
                 </MenuItem>
               ))
             )}
+            <div className="flex h-[50px] justify-center dark:bg-[#3B4452]">
+              <Link
+                to={"/students/add-new-student-form"}
+                className="flex w-full flex-col justify-center pl-10 hover:bg-slate-500"
+              >
+                <span className="flex items-center justify-center">
+                  {" "}
+                  <AiFillPlusCircle /> gurux qo{"'"}shmoqchimisiz
+                </span>
+              </Link>
+            </div>
           </SubMenu>
         )}
         <MenuItem
