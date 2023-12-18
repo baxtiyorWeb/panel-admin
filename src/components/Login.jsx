@@ -36,14 +36,14 @@ export const Login = () => {
           >
             <div className={"flex flex-col"}>
               <span className={"] text-lg text-[#ccc]"}>Enter your Email</span>
-              <Input
+              <input
                 type={"email"}
                 placeholder={"type email ..."}
                 style={{
                   width: "500px",
                 }}
-                rootClassName={
-                  "dark:text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3]"
+                className={
+                  "placeholder:text-[#ccc] placeholder:opacity-[0.3]  dark:bg-transparent dark:text-[#ccc]"
                 }
                 onChange={(e) => login.setEmail(e.target.value)}
                 value={login.email}
@@ -58,7 +58,7 @@ export const Login = () => {
                   width: "500px",
                 }}
                 className={
-                  "text-lg text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3]"
+                  "text-lg text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3] dark:bg-transparent"
                 }
                 onChange={(e) => login.setPassword(e.target.value)}
                 value={login.password}
