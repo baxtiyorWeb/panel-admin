@@ -63,7 +63,8 @@ const Groups = () => {
                     <th>Age</th>
                     <th>Mobile</th>
                     <th>Cnic</th>
-                    <th>Date</th>
+                    <th>start date</th>
+                    <th>end date</th>
                     <th>Semester</th>
                   </tr>
                 </thead>
@@ -79,7 +80,8 @@ const Groups = () => {
                       <td>{item.age}</td>
                       <td>{item.Mobile}</td>
                       <td>{item.cninc}</td>
-                      <td>{item.date}</td>
+                      <td>{item.date[0]}</td>
+                      <td>{item.date[1]}</td>
                       <td>{item.semester}</td>
                     </tr>
                   ))}

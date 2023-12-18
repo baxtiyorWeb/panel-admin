@@ -47,7 +47,7 @@ export const SideBarLinks = ({ dark }) => {
       width={"15%"}
     >
       <Menu
-        className={"dark:bg-[#353C48] h-[100vh] fixed w-[15%] "}
+        className={"fixed h-[100vh] w-[15%] dark:bg-[#353C48] "}
         style={{ overflow: "scroll" }}
       >
         <div className={"mb-24"}></div>
@@ -108,11 +108,6 @@ export const SideBarLinks = ({ dark }) => {
             Partiyalar
           </MenuItem>
         </SubMenu>
-        {loading ? (
-          ""
-        ) : (
-          <FaPlus className="absolute left-[180px] text-slate-300 top-[315px] z-10 cursor-pointer hover:text-slate-400" />
-        )}
 
         {loading ? (
           <Loading loading={loading} />

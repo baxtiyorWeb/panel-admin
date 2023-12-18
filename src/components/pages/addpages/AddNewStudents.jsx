@@ -11,7 +11,9 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../../setup/firebase/firebase";
 import { SharedModal } from "../../modal/sharedModal";
 import Overlay from "../../overlay/overlay";
-
+import { DatePicker } from "antd";
+import dayjs from "dayjs";
+const { RangePicker } = DatePicker;
 const AddNewStudents = () => {
   const [name, setName] = useState("");
   const [Email, setEmail] = useState("");
@@ -25,14 +27,15 @@ const AddNewStudents = () => {
   const [gender, setGender] = useState("");
   const [groupValue, setGroupValue] = useState("inital data");
   const [open, setOpen] = useState(false);
+  const [date, setDate] = useState("");
   const letterCount = groupValue.length;
 
   const handleTextChange = (e) => {
     setGroupValue(e.target.value.replace(/\s/g, "-"));
   };
+
   const navigate = useNavigate();
   const userCollectionRef = collection(db, "new-students");
-  const date = new Date().getTime();
 
   function sendForm() {
     setOpen(!open);
@@ -112,7 +115,7 @@ const AddNewStudents = () => {
 
   return (
     <>
-      <Overlay open={open} setOpen={setOpen} />
+      {open && <Overlay open={open} setOpen={setOpen} />}
       {open && (
         <SharedModal>
           <div className="flex justify-center items-center h-full flex-col">
@@ -130,6 +133,7 @@ const AddNewStudents = () => {
                 rows={5}
                 cols={50}
               />
+
               <button className="p-5 border border-slate-400 w-[130px] h-[50px] flex justify-center items-center mt-5 rounded-md absolute right-3 bottom-0">
                 send
               </button>
@@ -351,6 +355,19 @@ const AddNewStudents = () => {
               <option>Front end</option>
               <option>Back end</option>
             </select>
+          </div>
+          <div className="name flex items-center  pt-9">
+            <RangePicker
+              size="large"
+              onChange={(values) => {
+                setDate(
+                  values.map((item) => {
+                    console.log(dayjs(item).format("DD-MM-YYYY"));
+                    return dayjs(item).format("DD-MM-YYYY");
+                  })
+                );
+              }}
+            />
           </div>
           <button
             type="submit"

@@ -15,10 +15,10 @@ import Overlay from "../overlay/overlay.jsx";
 const Courses = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
-  const [deleteId, setDeleteId] = useState();
+  const [/*deleteId*/ setDeleteId] = useState();
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setlimit] = useState(5);
+  const [limit /*setlimit*/] = useState(5);
   const [open, setOpen] = useState(false);
   let totalPage = Math.ceil(getLength() / limit);
 
@@ -66,7 +66,7 @@ const Courses = () => {
 
   const courseDelete = async (id) => {
     setLoading(true);
-    await deleteDoc(doc(db, "Courses", id));
+    await deleteDoc(doc(db, "courses", id));
     setDeleteId(id);
     setLoading(false);
   };
@@ -148,6 +148,7 @@ const Courses = () => {
                       <th>Category</th>
                       <th>Duration</th>
                       <th>Students</th>
+                      <th>Pricing</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -178,6 +179,7 @@ const Courses = () => {
                                 >
                                   {item.students.length}
                                 </td>
+                                <td>{item.price}</td>
                                 <td className={"td_flex"}>
                                   <span className="icons">
                                     <Link to={`/courses/edit/${item.id}`}>

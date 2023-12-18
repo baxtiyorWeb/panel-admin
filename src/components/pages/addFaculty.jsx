@@ -6,7 +6,7 @@ export const AddFaculty = () => {
   const [dateBirth, setDateBirth] = useState();
   return (
     <>
-      <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
+      <div className="chart-progress relative font-normal text-[#34395e] dark:bg-[#353C48] dark:text-[#EEE8CC]">
         <div className="add-link">
           <button>delete</button>
           <h1 className="font-normal">Enquiry Form</h1>
@@ -18,7 +18,7 @@ export const AddFaculty = () => {
             <input
               type="text"
               placeholder="name"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               id="newNotes"
               // onChange={(e) => setName(e.target.value)}
             />
@@ -28,7 +28,7 @@ export const AddFaculty = () => {
             <input
               type="text"
               placeholder="father Name"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
           </div>
           <div className="name">
@@ -36,7 +36,7 @@ export const AddFaculty = () => {
             <input
               type="email"
               placeholder="email"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
           </div>
           <div className="name">
@@ -44,7 +44,7 @@ export const AddFaculty = () => {
             <input
               type="password"
               placeholder="password"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
           </div>
           <div className="name">
@@ -52,33 +52,33 @@ export const AddFaculty = () => {
             <input
               type="number"
               placeholder="mobile "
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
           </div>
           <div>
             <div className={"mb-1"}>gender</div>
             <br />
             <div>
-              <div className={"flex items-center mb-[3px]"}>
-                <label htmlFor="male" className={"mr-[5px] ml-[0px]"}>
+              <div className={"mb-[3px] flex items-center"}>
+                <label htmlFor="male" className={"ml-[0px] mr-[5px]"}>
                   male
                 </label>
                 <input
                   id={"male"}
                   name={"label"}
                   type="radio"
-                  className="dark:bg-[#353C48] dark:border"
+                  className="dark:border dark:bg-[#353C48]"
                 />
               </div>
               <div className={"flex items-center"}>
-                <label htmlFor="female" className={"mr-[5px] ml-[0px]"}>
+                <label htmlFor="female" className={"ml-[0px] mr-[5px]"}>
                   female
                 </label>
                 <input
                   id={"female"}
                   name={"label"}
                   type="radio"
-                  className="dark:bg-[#353C48] dark:border"
+                  className="dark:border dark:bg-[#353C48]"
                 />
               </div>
             </div>
@@ -100,7 +100,7 @@ export const AddFaculty = () => {
               cols="30"
               rows="10"
               className={
-                "w-full h-[64px] border border-blue-600 dark:bg-[transparent] rounded-[5px] p-[10px] fz-[18px] tracking-normal"
+                "fz-[18px] h-[64px] w-full rounded-[5px] border border-blue-600 p-[10px] tracking-normal dark:bg-[transparent]"
               }
             ></textarea>
           </div>
@@ -109,7 +109,7 @@ export const AddFaculty = () => {
             <select
               name=""
               id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+              className="p-3 text-[16px] dark:border  dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
               // onChange={(e) => setCourse(e.target.value)}
               // value={Course}
             >
@@ -132,7 +132,7 @@ export const AddFaculty = () => {
             <select
               name=""
               id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+              className="p-3 text-[16px] dark:border  dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
               // onChange={(e) => setCourse(e.target.value)}
               // value={Course}
             >
@@ -155,13 +155,13 @@ export const AddFaculty = () => {
             <input
               type="text"
               placeholder={"qualification"}
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
             <span className={"py-[10px]"}>date of join</span>
             <input
               type="text"
               placeholder={"qualification"}
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
           </div>
         </div>

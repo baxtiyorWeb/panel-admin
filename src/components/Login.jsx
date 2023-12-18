@@ -26,16 +26,16 @@ export const Login = () => {
         <h1 className="text text-center text-red-500">{login.error}</h1>
         <div
           className={
-            "div-block dark:bg-[#353C48] dark:border dark:border-[#3b4452] w-full h-[80vh] flex justify-center items-center"
+            "div-block flex h-[80vh] w-full items-center justify-center dark:border dark:border-[#3b4452] dark:bg-[#353C48]"
           }
         >
           <Form
             className={
-              "w-[50%] h-[50vh] shadow-md  flex justify-center items-center flex-col dark:bg-[#3B4452]  p-5"
+              "flex h-[50vh] w-[50%]  flex-col items-center justify-center p-5 shadow-md  dark:bg-[#3B4452]"
             }
           >
             <div className={"flex flex-col"}>
-              <span className={"text-lg text-[#ccc] ]"}>Enter your Email</span>
+              <span className={"] text-lg text-[#ccc]"}>Enter your Email</span>
               <Input
                 type={"email"}
                 placeholder={"type email ..."}
@@ -70,7 +70,7 @@ export const Login = () => {
                 name=""
                 id=""
                 className={
-                  "w-[500px] dark:bg-[#353C48] p-3 mb-5 text-lg text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3] cursor-pointer"
+                  "mb-5 w-[500px] cursor-pointer p-3 text-lg text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3] dark:bg-[#353C48]"
                 }
               >
                 <option value="...">...</option>
@@ -80,7 +80,7 @@ export const Login = () => {
             </div>
             <Button
               className={
-                "dark:bg-[#353C48]  w-[130px] h-[50px] dark:text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3]"
+                "h-[50px]  w-[130px] placeholder:text-[#ccc] placeholder:opacity-[0.3] dark:bg-[#353C48] dark:text-[#ccc]"
               }
               onClick={login.signUp}
             >

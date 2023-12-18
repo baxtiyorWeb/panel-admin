@@ -8,7 +8,6 @@ import { db } from "../../setup/firebase/firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import { DatePicker, TimePicker } from "antd";
 import dayjs from "dayjs";
-import { toast } from "react-toastify";
 import useRealTimeDatabase from "../../hooks/useRealTimeDatabase";
 // eslint-disable-next-line react/prop-types
 const AddForm = () => {
@@ -26,10 +25,6 @@ const AddForm = () => {
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const user_about = useRealTimeDatabase();
-
-  const notify = () =>
-    toast.success("add Enaquire Form!", { position: "top-right" });
-
   async function sendForm(e) {
     e.preventDefault();
     setLoading(true);
@@ -54,7 +49,7 @@ const AddForm = () => {
 
   return (
     <div>
-      <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
+      <div className="chart-progress relative font-normal text-[#34395e] dark:bg-[#353C48] dark:text-[#EEE8CC]">
         <form onSubmit={sendForm}>
           <div className="add-link">
             <h1 className="font-normal">Enquiry Form</h1>
@@ -66,7 +61,7 @@ const AddForm = () => {
               <input
                 type="text"
                 placeholder="name"
-                className="dark:bg-[#353C48] dark:border"
+                className="dark:border dark:bg-[#353C48]"
                 id="newNotes"
                 onChange={(e) => setName(e.target.value)}
                 required={true}
@@ -77,7 +72,7 @@ const AddForm = () => {
               <input
                 type="text"
                 placeholder="Father Name"
-                className="dark:bg-[#353C48] dark:border"
+                className="dark:border dark:bg-[#353C48]"
               />
             </div>
             <div className="name">
@@ -91,7 +86,7 @@ const AddForm = () => {
               <input
                 type="email"
                 placeholder="abc@gmail.com"
-                className="dark:bg-[#353C48] dark:border"
+                className="dark:border dark:bg-[#353C48]"
                 onChange={(e) => setEmail(e.target.value)}
                 required={true}
               />
@@ -101,7 +96,7 @@ const AddForm = () => {
               <input
                 type="text"
                 placeholder="33100-0000000-0"
-                className="dark:bg-[#353C48] dark:border"
+                className="dark:border dark:bg-[#353C48]"
                 onChange={(e) => setCninc(e.target.value)}
                 required={true}
               />
@@ -111,7 +106,7 @@ const AddForm = () => {
               <input
                 type="text"
                 placeholder="+998 xx xxx xx xx"
-                className="dark:bg-[#353C48] dark:border"
+                className="dark:border dark:bg-[#353C48]"
                 onChange={(e) => setMobile(e.target.value)}
                 required={true}
               />
@@ -122,10 +117,10 @@ const AddForm = () => {
                 <input
                   type="radio"
                   id="Male"
-                  className="w-1 h-1 !not-sr-only"
+                  className="!not-sr-only h-1 w-1"
                   name="gender"
                 />
-                <label htmlFor="Male" className="mr-5 ml-1">
+                <label htmlFor="Male" className="ml-1 mr-5">
                   Male
                 </label>
               </div>
@@ -133,10 +128,10 @@ const AddForm = () => {
                 <input
                   type="radio"
                   id="Female"
-                  className="w-1 h-1 !not-sr-only"
+                  className="!not-sr-only h-1 w-1"
                   name="gender"
                 />
-                <label htmlFor="Female" className="mr-5 ml-1">
+                <label htmlFor="Female" className="ml-1 mr-5">
                   Female
                 </label>
               </div>
@@ -155,7 +150,7 @@ const AddForm = () => {
               <select
                 name=""
                 id="selection"
-                className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+                className="cursor-pointer p-3 text-[16px] dark:border dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
               >
                 <option value="Other" disabled>
                   Select department
@@ -179,7 +174,7 @@ const AddForm = () => {
               <select
                 name=""
                 id="selection"
-                className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+                className="cursor-pointer p-3 text-[16px] dark:border dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
               >
                 <option value="Other" disabled>
                   select semester
@@ -204,7 +199,7 @@ const AddForm = () => {
               <select
                 name=""
                 id="selection"
-                className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+                className="p-3 text-[16px] dark:border  dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
                 onChange={(e) => setCourse(e.target.value)}
                 value={Course}
               >
