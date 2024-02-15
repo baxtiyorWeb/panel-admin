@@ -1,10 +1,10 @@
-import Container from "./shared/Container.jsx";
 import { Button, Form, Input } from "antd";
-import { useLogin } from "../hooks/useLogin.js";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../setup/firebase/firebase.jsx";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin.js";
+import { auth } from "../setup/firebase/firebase.jsx";
+import Container from "./shared/Container.jsx";
 
 export const Login = () => {
   const login = useLogin();
@@ -13,7 +13,7 @@ export const Login = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
-        navigate(uid !== "login");
+        navigate(uid !== "/login");
       } else {
         // ...
       }
@@ -46,7 +46,7 @@ export const Login = () => {
                   "placeholder:text-[#ccc] placeholder:opacity-[0.3]  dark:bg-transparent dark:text-[#ccc]"
                 }
                 onChange={(e) => login.setEmail(e.target.value)}
-                value={login.email}
+                defaultValue={"admin@gmail.com" || login.email}
               />
             </div>
             <div className={"flex  flex-col"}>
@@ -61,7 +61,7 @@ export const Login = () => {
                   "text-lg text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3] dark:bg-transparent"
                 }
                 onChange={(e) => login.setPassword(e.target.value)}
-                value={login.password}
+                defaultValue={"admin123./" || login.password}
               />
             </div>
             <div className={"flex  flex-col"}>

@@ -1,7 +1,7 @@
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { useHref, useNavigate } from "react-router-dom";
 import { auth } from "../setup/firebase/firebase.jsx";
-import { useNavigate, useHref } from "react-router-dom";
 
 export const useLogin = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ export const useLogin = () => {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/auth.user
             const uid = user.uid;
-            navigate(uid !== "/login");
+            navigate("/");
             setEmail("");
             setPassword("");
 
