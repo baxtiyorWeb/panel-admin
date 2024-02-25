@@ -46,7 +46,7 @@ export const Login = () => {
                   "placeholder:text-[#ccc] placeholder:opacity-[0.3]  dark:bg-transparent dark:text-[#ccc]"
                 }
                 onChange={(e) => login.setEmail(e.target.value)}
-                defaultValue={"admin@gmail.com" || login.email}
+                value={"admin@gmail.com"}
               />
             </div>
             <div className={"flex  flex-col"}>
@@ -61,7 +61,7 @@ export const Login = () => {
                   "text-lg text-[#ccc] placeholder:text-[#ccc] placeholder:opacity-[0.3] dark:bg-transparent"
                 }
                 onChange={(e) => login.setPassword(e.target.value)}
-                defaultValue={"admin123./" || login.password}
+                value={"admin123./" || login.password}
               />
             </div>
             <div className={"flex  flex-col"}>
