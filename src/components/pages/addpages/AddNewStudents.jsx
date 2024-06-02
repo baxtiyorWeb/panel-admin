@@ -25,7 +25,7 @@ const AddNewStudents = () => {
   const [semester, setSemester] = useState("");
   const [loading, setLoading] = useState(false);
   const [gender, setGender] = useState("");
-  const [groupValue, setGroupValue] = useState("inital data");
+  const [groupValue, setGroupValue] = useState("");
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState("");
   const [isSending, setisSending] = useState(false);
@@ -134,6 +134,7 @@ const AddNewStudents = () => {
                 value={groupValue}
                 maxLength={15}
                 rows={5}
+                placeholder="gurux nomini kiriting "
                 cols={50}
               />
 
