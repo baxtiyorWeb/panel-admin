@@ -1,7 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db } from "../../../setup/firebase/firebase";
 import { useParams } from "react-router-dom";
+import { db } from "../../../setup/firebase/firebase";
 
 const ViewStudents = () => {
   const params = useParams();
@@ -21,12 +21,12 @@ const ViewStudents = () => {
   }, [params]);
   return (
     <div>
-      <h1 className="text-center text-[30px] mb-10">{params.id}</h1>
-      <h1 className="text-[20px] mt-3 mb-5">
+      <h1 className="mb-10 text-center text-[30px]">{params.id}</h1>
+      <h1 className="mb-5 mt-3 text-[20px]">
         {params.id} kursiga qabul qilingan o{"'"}quvhchilar{" "}
       </h1>
-      <div className="flex flex-col justify-center align-center">
-        {user.Students.map((item) => console.log(item.Students))}
+      <div className="align-center flex flex-col justify-center">
+        {user.Students.map((item) => item.Students)}
       </div>
     </div>
   );

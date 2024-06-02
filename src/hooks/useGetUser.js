@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../setup/firebase/firebase.jsx";
-import { useEffect, useState } from "react";
 
 export const useGetUser = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export const useGetUser = () => {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
       // ...
-      console.log(user.email);
+      user.email;
     } else {
       // No user is signed in.
     }

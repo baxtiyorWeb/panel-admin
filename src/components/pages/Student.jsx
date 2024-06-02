@@ -1,8 +1,4 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./Students.css";
-import { getLength } from "../progress/data";
-import Pagination from "../pagination/Pagination";
+import { Button } from "antd";
 import {
   collection,
   deleteDoc,
@@ -10,15 +6,19 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../../setup/firebase/firebase";
+import { useEffect, useState } from "react";
 import { BiLike } from "react-icons/bi";
-import { MdDelete } from "react-icons/md";
-import ClipLoader from "react-spinners/ClipLoader";
 import { LiaSpinnerSolid } from "react-icons/lia";
-import { useGetUser } from "../../hooks/useGetUser.js";
-import { Button } from "antd";
+import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 import { toast } from "react-toastify";
+import { useGetUser } from "../../hooks/useGetUser.js";
+import { db } from "../../setup/firebase/firebase";
 import { Loading } from "../Loading.jsx";
+import Pagination from "../pagination/Pagination";
+import { getLength } from "../progress/data";
+import "./Students.css";
 
 // eslint-disable-next-line react/prop-types
 export const Student = () => {
@@ -98,10 +98,10 @@ export const Student = () => {
   //   return <>epmty data</>
   // }
   const userss = useGetUser();
-  console.log(students.length === 0);
+  students.length === 0;
   return (
     <div className={"dark:bg-[#353C48]"}>
-      <div className="chart-progress dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
+      <div className="chart-progress font-normal text-[#398dc9] dark:bg-[#353C48] dark:text-[#EEE8CC]">
         <div className="add-link">
           <h1>Enquiries</h1>
           <Link to="/students/addStudent">add students</Link>
@@ -120,7 +120,7 @@ export const Student = () => {
             <h4>Search:</h4>
             <input
               type="text"
-              className={"dark:bg-[#3B4452] border border-cyan-600"}
+              className={"border border-cyan-600 dark:bg-[#3B4452]"}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
@@ -138,11 +138,12 @@ export const Student = () => {
                         textAlign: "center",
                         color: "#ccc",
                         fontSize: "20px",
-                      }}>
+                      }}
+                    >
                       empty data
                     </h2>
                   ) : loading ? (
-                    <div className="flex justify-center items-center">
+                    <div className="flex items-center justify-center">
                       <ClipLoader
                         loading={loading}
                         size={20}
@@ -154,7 +155,8 @@ export const Student = () => {
                   ) : (
                     <table
                       id="table"
-                      className="table table-hover table-mc-light-blue">
+                      className="table-hover table-mc-light-blue table"
+                    >
                       <thead>
                         <tr>
                           <th>#</th>
@@ -171,15 +173,16 @@ export const Student = () => {
                       <tbody>
                         {students
                           .filter((users) =>
-                            users.name.toLowerCase().includes(search)
+                            users.name.toLowerCase().includes(search),
                           )
                           .map((item, index) => {
                             return (
                               <tr
                                 key={item.id}
                                 className={
-                                  "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
-                                }>
+                                  "even-class even:dark:bg-[#313843] dark:hover:bg-[#353C48]"
+                                }
+                              >
                                 <td>{index}</td>
                                 <td>
                                   <Link to={`/profile/${item.id}`}>
@@ -196,7 +199,8 @@ export const Student = () => {
                                 <td className={"td_flex"}>
                                   <span
                                     className="icons"
-                                    onClick={() => likeHandleTicket(item.id)}>
+                                    onClick={() => likeHandleTicket(item.id)}
+                                  >
                                     {loading && item.id ? (
                                       <LiaSpinnerSolid />
                                     ) : (
@@ -211,7 +215,8 @@ export const Student = () => {
                                     className="icons"
                                     onClick={() =>
                                       handleDeletingTicket(item.id)
-                                    }>
+                                    }
+                                  >
                                     <MdDelete />
                                   </span>
                                 </td>
@@ -225,7 +230,8 @@ export const Student = () => {
                   <div className={"flex justify-center"}>
                     <Button
                       className={"dark:text-[#fff]"}
-                      onClick={() => userss.navigate("/login")}>
+                      onClick={() => userss.navigate("/login")}
+                    >
                       login
                     </Button>
                   </div>

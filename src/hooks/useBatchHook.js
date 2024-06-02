@@ -7,8 +7,8 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db } from "../setup/firebase/firebase";
 import { useNavigate, useParams } from "react-router-dom";
+import { db } from "../setup/firebase/firebase";
 
 export const useBatchHook = () => {
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ export const useBatchHook = () => {
     const getAllData = async () => {
       const docRef = doc(db, "batches", params.userId);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
+      "targetDoc.data() : ", targetDoc.data();
       return { users: setUsers(targetDoc.data()) };
     };
     setLoading(false);

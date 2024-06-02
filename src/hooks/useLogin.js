@@ -9,13 +9,13 @@ export const useLogin = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const href = useHref();
-  console.log(href);
+  href;
   const signUp = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-        console.log(user);
+        user;
         onAuthStateChanged(auth, (user) => {
           if (user) {
             // User is signed in, see docs for a list of available properties

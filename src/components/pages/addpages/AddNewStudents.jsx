@@ -40,7 +40,7 @@ const AddNewStudents = () => {
 
   function sendForm() {
     setOpen(!open);
-    console.log(!open);
+    !open;
   }
 
   const groupAdded = async (e) => {
@@ -368,7 +368,7 @@ const AddNewStudents = () => {
               onChange={(values) => {
                 setDate(
                   values.map((item) => {
-                    console.log(dayjs(item).format("DD-MM-YYYY"));
+                    dayjs(item).format("DD-MM-YYYY");
                     return dayjs(item).format("DD-MM-YYYY");
                   }),
                 );

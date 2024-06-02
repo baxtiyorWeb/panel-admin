@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../setup/firebase/firebase.jsx";
-import { Link } from "react-router-dom";
-import Overlay from "../../overlay/overlay.jsx";
+import { useEffect, useState } from "react";
 import { LiaSearchSolid } from "react-icons/lia";
+import { Link } from "react-router-dom";
+import { db } from "../../../setup/firebase/firebase.jsx";
+import Overlay from "../../overlay/overlay.jsx";
 
 export const Input = () => {
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ export const Input = () => {
 
   function searchInputEvent(e) {
     setSearch(e.target.value);
-    console.log(search);
+    search;
   }
 
   return (
@@ -37,7 +37,7 @@ export const Input = () => {
       <div className="search-box">
         <input
           type="text"
-          className="input-type rounded-[5px] font-medium text-[18px] dark:bg-transparent dark:border dark:border-gray-600"
+          className="input-type rounded-[5px] text-[18px] font-medium dark:border dark:border-gray-600 dark:bg-transparent"
           placeholder="Search ..."
           onChange={searchInputEvent}
         />
@@ -51,7 +51,7 @@ export const Input = () => {
         ? search && (
             <ul
               className={
-                "absolute w-[200px] h-[300px] border top-[65px] z-10 bg-[#e2e2e2] rounded-md shadow-2xl"
+                "absolute top-[65px] z-10 h-[300px] w-[200px] rounded-md border bg-[#e2e2e2] shadow-2xl"
               }
             >
               {loading
@@ -70,7 +70,7 @@ export const Input = () => {
                     })
                     .map((item, index) => {
                       return (
-                        <li key={index} className={"p-5 border w-full"}>
+                        <li key={index} className={"w-full border p-5"}>
                           <Link
                             to={`profile/${item.id}`}
                             onClick={() => setOpen(!open)}

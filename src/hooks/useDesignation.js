@@ -7,9 +7,9 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../setup/firebase/firebase.jsx";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import { db } from "../setup/firebase/firebase.jsx";
 
 export const useDesignation = () => {
   const courseRef = collection(db, "designation");
@@ -45,7 +45,7 @@ export const useDesignation = () => {
     const getAllData = async () => {
       const docRef = doc(db, "designation", editId);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
+      "targetDoc.data() : ", targetDoc.data();
       return {
         user: setCourses(targetDoc.data()),
       };
@@ -81,7 +81,7 @@ export const useDesignation = () => {
 
   const courseEdit = async (id) => {
     const edit = params.get("edit");
-    console.log(edit);
+    edit;
     setParams({
       edit: id,
     });

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { getLength } from "../../progress/data";
-import { Link } from "react-router-dom";
-import Pagination from "../../pagination/Pagination";
-import { useBatchHook } from "../../../hooks/useBatchHook";
-import { LiaEdit } from "react-icons/lia";
 import { BiLike } from "react-icons/bi";
-import { useGetUser } from "../../../hooks/useGetUser.js";
+import { LiaEdit } from "react-icons/lia";
+import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { useBatchHook } from "../../../hooks/useBatchHook";
+import { useGetUser } from "../../../hooks/useGetUser.js";
+import Pagination from "../../pagination/Pagination";
+import { getLength } from "../../progress/data";
 
 const Batches = () => {
   const [search, setSearch] = useState("");
@@ -14,7 +14,7 @@ const Batches = () => {
   const [limit, setlimit] = useState(5);
   const batches = useBatchHook();
   let totalPage = Math.ceil(getLength() / limit);
-  console.log(setlimit);
+  setlimit;
   function handlePageChange(value) {
     if (value === "&laquo;" || value === "... ") {
       setPages(1);
@@ -36,7 +36,7 @@ const Batches = () => {
   const userss = useGetUser();
   return (
     <>
-      <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
+      <div className="chart-progress  font-normal text-[#398dc9] dark:bg-[#353C48] dark:text-[#EEE8CC]">
         <div className="add-link">
           <h1>Batch List</h1>
           <Link to="/batches/addBatch">add batch</Link>
@@ -55,7 +55,7 @@ const Batches = () => {
             <h4>Search:</h4>
             <input
               type="text"
-              className={"dark:bg-[#353C48] border border-cyan-600"}
+              className={"border border-cyan-600 dark:bg-[#353C48]"}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
@@ -84,7 +84,7 @@ const Batches = () => {
               <div className="table-responsive-vertical shadow-z-1">
                 <table
                   id="table"
-                  className="table table-hover table-mc-light-blue"
+                  className="table-hover table-mc-light-blue table"
                 >
                   <thead>
                     <tr>
@@ -103,21 +103,21 @@ const Batches = () => {
                     {userss.user
                       ? batches.user
                           .filter((users) =>
-                            users.batch_title.toLowerCase().includes(search)
+                            users.batch_title.toLowerCase().includes(search),
                           )
                           .map((item, index) => {
                             return (
                               <tr
                                 key={index}
                                 className={
-                                  "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
+                                  "even-class even:dark:bg-[#313843] dark:hover:bg-[#353C48]"
                                 }
                               >
                                 <td>{index}</td>
                                 <td>
                                   <Link
                                     to={"#"}
-                                    className="text-[#6777EF] uppercase"
+                                    className="uppercase text-[#6777EF]"
                                   >
                                     {item.batch_title}
                                   </Link>

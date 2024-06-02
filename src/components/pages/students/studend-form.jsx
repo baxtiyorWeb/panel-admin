@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "../../../setup/firebase/firebase";
 import { DatePicker, TimePicker } from "antd";
 import dayjs from "dayjs";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { db } from "../../../setup/firebase/firebase";
 
 // time picker format
 
@@ -16,7 +16,7 @@ const format = "HH:mm";
 
 export const StudentForm = () => {
   const params = useParams();
-  console.log(params);
+  params;
   const navigate = useNavigate();
   function timeOut() {
     setTimeout(() => {
@@ -42,14 +42,14 @@ export const StudentForm = () => {
     const getAllData = async () => {
       const docRef = doc(db, "students", params.userId);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
+      "targetDoc.data() : ", targetDoc.data();
       return { user: setUser(targetDoc.data()) };
     };
     setLoading(false);
     getAllData();
   }, [params]);
 
-  console.log(user);
+  user;
 
   useEffect(() => {
     setName(user.name);
@@ -76,7 +76,7 @@ export const StudentForm = () => {
   };
 
   return (
-    <div className="chart-progress dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
+    <div className="chart-progress relative font-normal text-[#34395e] dark:bg-[#353C48] dark:text-[#EEE8CC]">
       <div className="add-link">
         <button>delete</button>
         <h1 className="font-normal">Enquiry Form</h1>
@@ -88,7 +88,7 @@ export const StudentForm = () => {
           <input
             type="text"
             placeholder="name"
-            className="dark:bg-[#353C48] dark:border"
+            className="dark:border dark:bg-[#353C48]"
             id="newNotes"
             onChange={(e) => setName(e.target.value)}
             value={name || ""}
@@ -99,7 +99,7 @@ export const StudentForm = () => {
           <input
             type="text"
             placeholder="Father Name"
-            className="dark:bg-[#353C48] dark:border"
+            className="dark:border dark:bg-[#353C48]"
             onChange={(e) => setFatherName(e.target.value)}
             value={fatherName || ""}
           />
@@ -113,7 +113,7 @@ export const StudentForm = () => {
           <input
             type="text"
             placeholder="abc@gmail.com"
-            className="dark:bg-[#353C48] dark:border"
+            className="dark:border dark:bg-[#353C48]"
             onChange={(e) => setEmail(e.target.value)}
             value={Email || ""}
           />
@@ -123,7 +123,7 @@ export const StudentForm = () => {
           <input
             type="text"
             placeholder="33100-0000000-0"
-            className="dark:bg-[#353C48] dark:border"
+            className="dark:border dark:bg-[#353C48]"
             onChange={(e) => setCninc(e.target.value)}
             value={cninc || ""}
           />
@@ -133,7 +133,7 @@ export const StudentForm = () => {
           <input
             type="text"
             placeholder="+998 xx xxx xx xx"
-            className="dark:bg-[#353C48] dark:border"
+            className="dark:border dark:bg-[#353C48]"
             onChange={(e) => setMobile(e.target.value)}
             value={Mobile || ""}
           />
@@ -144,10 +144,10 @@ export const StudentForm = () => {
             <input
               type="radio"
               id="Male"
-              className="w-1 h-1 !not-sr-only"
+              className="!not-sr-only h-1 w-1"
               name="gender"
             />
-            <label htmlFor="Male" className="mr-5 ml-1">
+            <label htmlFor="Male" className="ml-1 mr-5">
               Male
             </label>
           </div>
@@ -155,10 +155,10 @@ export const StudentForm = () => {
             <input
               type="radio"
               id="Female"
-              className="w-1 h-1 !not-sr-only"
+              className="!not-sr-only h-1 w-1"
               name="gender"
             />
-            <label htmlFor="Female" className="mr-5 ml-1">
+            <label htmlFor="Female" className="ml-1 mr-5">
               Female
             </label>
           </div>
@@ -176,7 +176,7 @@ export const StudentForm = () => {
           <select
             name=""
             id="selection"
-            className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+            className="cursor-pointer p-3 text-[16px] dark:border dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
           >
             <option value="Other" disabled>
               Select department
@@ -200,7 +200,7 @@ export const StudentForm = () => {
           <select
             name=""
             id="selection"
-            className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+            className="cursor-pointer p-3 text-[16px] dark:border dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
           >
             <option value="Other" disabled>
               select semester
@@ -225,7 +225,7 @@ export const StudentForm = () => {
           <select
             name=""
             id="selection"
-            className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+            className="p-3 text-[16px] dark:border  dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
             onChange={(e) => setCourse(e.target.value)}
             value={Course}
           >

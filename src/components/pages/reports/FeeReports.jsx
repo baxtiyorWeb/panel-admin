@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../../../setup/firebase/firebase";
 
 export const FeeReports = () => {
@@ -16,7 +15,7 @@ export const FeeReports = () => {
       const snapshots = await getDocs(colRef);
       const docs = snapshots.docs.map((doc) => {
         const data = doc.data();
-        console.log(data);
+        data;
         data.id = doc.id;
         return data;
       });
@@ -46,7 +45,7 @@ export const FeeReports = () => {
             <h4>Search:</h4>
             <input
               type="text"
-              className={"dark:bg-[#3B4452] border border-cyan-600"}
+              className={"border border-cyan-600 dark:bg-[#3B4452]"}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
@@ -59,7 +58,7 @@ export const FeeReports = () => {
               ) : (
                 <table
                   id="table"
-                  className="table table-hover table-mc-light-blue"
+                  className="table-hover table-mc-light-blue table"
                 >
                   <thead>
                     <tr>
@@ -78,14 +77,14 @@ export const FeeReports = () => {
                   <tbody>
                     {user
                       .filter((users) =>
-                        users.name.toLowerCase().includes(search)
+                        users.name.toLowerCase().includes(search),
                       )
                       .map((item, index) => {
                         return (
                           <tr
                             key={item.id}
                             className={
-                              "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
+                              "font-normal  text-[#398dc9] even:hover:bg-[#E7E9EB] dark:bg-[#353C48] dark:text-[#EEE8CC] even:dark:bg-[#313843]"
                             }
                           >
                             <td>{index}</td>

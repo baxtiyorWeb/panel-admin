@@ -36,7 +36,7 @@ const UserModal = ({ open, setOpen, userId }) => {
         });
       }
     });
-    console.log(message);
+    message;
   }, [message]);
 
   return (

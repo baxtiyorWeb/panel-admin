@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import "./master.css";
-import { db } from "../../../setup/firebase/firebase.jsx";
 import {
   addDoc,
   collection,
@@ -13,6 +11,8 @@ import {
 } from "firebase/firestore";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
+import { db } from "../../../setup/firebase/firebase.jsx";
+import "./master.css";
 
 const Guestst = () => {
   const [search, setSearch] = useState("");
@@ -43,7 +43,7 @@ const Guestst = () => {
     const getAllData = async () => {
       const docRef = doc(db, "guests", param.editId);
       const targetDoc = await getDoc(docRef);
-      console.log("targetDoc.data() : ", targetDoc.data());
+      "targetDoc.data() : ", targetDoc.data();
       return {
         user: setCourses(targetDoc.data()),
       };
@@ -101,7 +101,7 @@ const Guestst = () => {
         justifyContent: "space-between",
       }}
     >
-      <div className="div-block dark:bg-[#353C48] dark:border dark:border-[#3b4452]">
+      <div className="div-block dark:border dark:border-[#3b4452] dark:bg-[#353C48]">
         <h2 className="title">Add Enquiry Status</h2>
         <input
           type="text"
@@ -136,13 +136,13 @@ const Guestst = () => {
         }}
       >
         <div
-          className="around_one dark:border-b dark:border-b-[#3b4452] mb-5"
+          className="around_one mb-5 dark:border-b dark:border-b-[#3b4452]"
           style={{
             borderBottom: "1px solid #E1E1E1",
             paddingBottom: "23px",
           }}
         >
-          <div className="around_user dark:text-[#96a2b4] text-[25px]">
+          <div className="around_user text-[25px] dark:text-[#96a2b4]">
             <h2>Courses</h2>
           </div>
           <div className="around_of dark:bg-[#3b4452]">
@@ -169,7 +169,7 @@ const Guestst = () => {
               <h4>Search:</h4>
               <input
                 type="text"
-                className={"dark:bg-[#3B4452] border border-cyan-600"}
+                className={"border border-cyan-600 dark:bg-[#3B4452]"}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
@@ -179,7 +179,7 @@ const Guestst = () => {
               <div className="table-responsive-vertical shadow-z-1">
                 <table
                   id="table"
-                  className="table table-hover table-mc-light-blue"
+                  className="table-hover table-mc-light-blue table"
                 >
                   <thead>
                     <tr>
@@ -192,14 +192,14 @@ const Guestst = () => {
                   <tbody>
                     {data
                       .filter((users) =>
-                        users.add_guests.toLowerCase().includes(search)
+                        users.add_guests.toLowerCase().includes(search),
                       )
                       .map((item, index) => {
                         return (
                           <tr
                             key={item.id}
                             className={
-                              "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal"
+                              "font-normal  text-[#398dc9] even:hover:bg-[#E7E9EB] dark:bg-[#353C48] dark:text-[#EEE8CC] even:dark:bg-[#313843]"
                             }
                           >
                             <td>{index}</td>

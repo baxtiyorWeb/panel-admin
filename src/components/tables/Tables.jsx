@@ -1,19 +1,22 @@
 /* eslint-disable react/prop-types */
 
-import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { message } from "antd";
 import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
+  setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../../setup/firebase/firebase";
+import { useEffect, useState } from "react";
 import { LiaEdit } from "react-icons/lia";
 import { MdDelete, MdOutlineClose } from "react-icons/md";
+import { Link, useSearchParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { toast } from "react-toastify";
+import { db } from "../../setup/firebase/firebase";
 import UserModal from "../modal/UserModal";
 import Overlay from "../overlay/overlay";
 
@@ -27,6 +30,7 @@ const Tables = ({ search }) => {
   const [activeId, setActiveId] = useState();
   const [open, setOpen] = useState(false);
   const [userId, setUserId] = useState();
+  const [lastId, setLastId] = useState("");
   // get user about
   const notifyActive = () =>
     toast.success("user active!", { position: "top-right" });
@@ -58,19 +62,66 @@ const Tables = ({ search }) => {
   // delete user function success end
 
   // active or no-active
+  const userIds = searchParams.get("user");
 
   const emailStatus = async (id) => {
-    setSearchParams({ userEditId: id });
-    setTimeout(() => {
-      setToggle(toggle ? false && notifyNoActive() : true && notifyActive());
-    }, 100);
-    await updateDoc(doc(db, "users", id), {
-      active: toggle,
-    });
+    setToggle(!toggle);
+    setLoading(true);
+    try {
+      if (Array.isArray(user)) {
+        for (const item of user) {
+          await updateDoc(doc(db, "users", id), {
+            active: !item?.active ? true : false,
+          });
 
-    setActiveId(id);
+          if (item?.active) {
+            const getId = await getDoc(doc(db, "users", id));
+            if (getId.exists()) {
+              const colRef = await collection(db, "new-students");
+              const colData = await getDocs(colRef);
+              const colUser = colData?.forEach(async (item) => {
+                if (item?.exists()) {
+ 
+                  if (item?.id !== lastId) {
+                    const data = await setDoc(collection(db, "new-students"), {
+                      ...getId.data(),
+                    });
+                  } else {
+                    if (item?.id === lastId) {
+                      message.error("error");
+                    }
+                  }
+                }
+                setLastId(item.id);
+
+ 
+              });
+
+              if (item?.active === true) {
+                message.success("so'rovdagi o'quvchi talabalrga qo'shildi");
+              } else {
+                message.warning("muammo yuz berdi");
+              }
+            }
+          } else {
+            if (lastId) {
+              const data = await deleteDoc(doc(db, "new-students", lastId));
+              message.success(
+                "talabalardagi  o'quvchi so'rvonomaga qayta  qo'shildi",
+              );
+            } else {
+ 
+            }
+          }
+        }
+      }
+    } catch (error) {
+ 
+    } finally {
+      setLoading(false);
+    }
   };
-  const userIds = searchParams.get("user");
+
   const openModal = (id) => {
     setOpen(!open);
     setSearchParams({ user: id });
@@ -81,7 +132,7 @@ const Tables = ({ search }) => {
   return (
     <>
       {loading ? (
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           {" "}
           <ClipLoader
             loading={loading}
@@ -104,7 +155,7 @@ const Tables = ({ search }) => {
               empty data
             </h2>
           ) : (
-            <table id="table" className="table table-hover ">
+            <table id="table" className="table-hover table ">
               {open ? (
                 <UserModal open={open} setOpen={setOpen} userId={userId}>
                   {loading ? (
@@ -112,7 +163,7 @@ const Tables = ({ search }) => {
                   ) : (
                     <>
                       <button onClick={() => setOpen(!open)}>
-                        <MdOutlineClose className="text-[25px] text-white absolute right-1 top-1" />
+                        <MdOutlineClose className="absolute right-1 top-1 text-[25px] text-white" />
                       </button>
                       <div>
                         <h1>{user.name} </h1>
@@ -145,7 +196,7 @@ const Tables = ({ search }) => {
                       <tr
                         key={item.id}
                         className={
-                          "even:dark:bg-[#313843]  even:hover:bg-[#E7E9EB] dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal even-class dark:hover:bg-[#353C48]"
+                          "even-class  font-normal text-[#398dc9] even:hover:bg-[#E7E9EB] dark:bg-[#353C48] dark:text-[#EEE8CC] even:dark:bg-[#313843] dark:hover:bg-[#353C48]"
                         }
                       >
                         <>
