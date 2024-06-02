@@ -1,13 +1,17 @@
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { getLength } from "../../progress/data";
-import { LiaEdit, LiaEye, LiaQuestionSolid } from "react-icons/lia";
+import {
+  LiaCheckSolid,
+  LiaEdit,
+  LiaEye,
+  LiaQuestionSolid,
+} from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
-import { LiaCheckSolid } from "react-icons/lia";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { db } from "../../../setup/firebase/firebase.jsx";
 import { Loading } from "../../Loading.jsx";
 import Pagination from "../../pagination/Pagination.jsx";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../setup/firebase/firebase.jsx";
+import { getLength } from "../../progress/data";
 
 export const NewStudents = () => {
   const [paramsQuery, setParamsQuery] = useSearchParams();
@@ -56,7 +60,7 @@ export const NewStudents = () => {
       setStudents(docs);
       setLoading(false);
     })();
-  }, []);
+  }, [newId]);
   const param = paramsQuery.get("newId");
   const addedStudent = (id) => {
     setParamsQuery({ newId: newId });
@@ -68,9 +72,17 @@ export const NewStudents = () => {
       navigate(`/details/${detail}`);
     }
   };
+
+  const newStudentDelete = async (id) => {
+    setLoading(true);
+    await deleteDoc(doc(db, "new-students", id));
+    setLoading(false);
+    setNewId(id);
+  };
+
   return (
     <>
-      <div className="chart-progress  dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
+      <div className="chart-progress  font-normal text-[#398dc9] dark:bg-[#353C48] dark:text-[#EEE8CC]">
         <div className="add-link">
           <h1>Student List</h1>
           <Link to="/students/add-new-student-form">add Student</Link>
@@ -90,7 +102,7 @@ export const NewStudents = () => {
             <input
               type="text"
               onChange={(e) => setSearch(e.target.value)}
-              className="dark:bg-[#3B4452] border border-cyan-600"
+              className="border border-cyan-600 dark:bg-[#3B4452]"
             />
           </div>
         </div>
@@ -99,7 +111,7 @@ export const NewStudents = () => {
             {loading ? (
               <Loading loading={loading} />
             ) : (
-              <div className="table-responsive-vertical shadow-z-1 dark:bg-[#353C48] text-[#398dc9] dark:text-[#EEE8CC] font-normal">
+              <div className="table-responsive-vertical shadow-z-1 font-normal text-[#398dc9] dark:bg-[#353C48] dark:text-[#EEE8CC]">
                 {students.length === 0 ? (
                   <h2
                     style={{
@@ -111,14 +123,14 @@ export const NewStudents = () => {
                     empty data
                   </h2>
                 ) : loading ? (
-                  <div className="flex justify-center items-center">
+                  <div className="flex items-center justify-center">
                     {" "}
                     <Loading loading={loading} />
                   </div>
                 ) : (
                   <table
                     id="table"
-                    className="table table-hover table-mc-light-blue "
+                    className="table-hover table-mc-light-blue table "
                   >
                     <thead>
                       <tr>
@@ -135,14 +147,14 @@ export const NewStudents = () => {
                     <tbody>
                       {students
                         .filter((users) =>
-                          users.name.toLowerCase().includes(search)
+                          users.name.toLowerCase().includes(search),
                         )
                         .map((item, index) => {
                           return (
                             <tr
                               key={item.id}
                               className={
-                                "even:dark:bg-[#313843] even-class dark:hover:bg-[#353C48]"
+                                "even-class even:dark:bg-[#313843] dark:hover:bg-[#353C48]"
                               }
                             >
                               <td>{index}</td>
@@ -163,7 +175,10 @@ export const NewStudents = () => {
                                   </Link>
                                 </span>
 
-                                <span className="icons">
+                                <span
+                                  className="icons"
+                                  onClick={() => newStudentDelete(item?.id)}
+                                >
                                   <MdDelete />
                                 </span>
                                 <span

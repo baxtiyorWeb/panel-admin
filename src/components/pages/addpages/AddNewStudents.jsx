@@ -1,3 +1,5 @@
+import { DatePicker } from "antd";
+import dayjs from "dayjs";
 import {
   addDoc,
   arrayUnion,
@@ -11,8 +13,6 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../../setup/firebase/firebase";
 import { SharedModal } from "../../modal/sharedModal";
 import Overlay from "../../overlay/overlay";
-import { DatePicker } from "antd";
-import dayjs from "dayjs";
 const { RangePicker } = DatePicker;
 const AddNewStudents = () => {
   const [name, setName] = useState("");
@@ -28,6 +28,7 @@ const AddNewStudents = () => {
   const [groupValue, setGroupValue] = useState("inital data");
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState("");
+  const [isSending, setisSending] = useState(false);
   const letterCount = groupValue.length;
 
   const handleTextChange = (e) => {
@@ -44,6 +45,7 @@ const AddNewStudents = () => {
 
   const groupAdded = async (e) => {
     e.preventDefault();
+    setisSending(true);
     const theRef = doc(db, "groups", `${groupValue}`);
     setLoading(true);
     await addDoc(userCollectionRef, {
@@ -79,7 +81,7 @@ const AddNewStudents = () => {
           created: false,
         }),
       },
-      { merge: true }
+      { merge: true },
     );
 
     const coursesRef = collection(db, "courses");
@@ -102,12 +104,13 @@ const AddNewStudents = () => {
           created: false,
         }),
       },
-      { merge: true }
+      { merge: true },
     );
 
     sendForm();
     navigate("/students/new-students");
 
+    setisSending(false);
     setLoading(false);
 
     alert("sending groups ");
@@ -118,15 +121,15 @@ const AddNewStudents = () => {
       {open && <Overlay open={open} setOpen={setOpen} />}
       {open && (
         <SharedModal>
-          <div className="flex justify-center items-center h-full flex-col">
-            <span className="text-3xl mt-3 mb-5">yangi gurux kiriting</span>
+          <div className="flex h-full flex-col items-center justify-center">
+            <span className="mb-5 mt-3 text-3xl">yangi gurux kiriting</span>
             <form
-              className="flex justify-center items-center h-full flex-col w-full relative"
+              className="relative flex h-full w-full flex-col items-center justify-center"
               onSubmit={groupAdded}
             >
               <input
                 type="text"
-                className="p-4 w-[50%] border border-slate-500 bg-transparent text-2xl text-center leading-3 rounded-md focus:border focus:border-slate-400 uppercase"
+                className="w-[50%] rounded-md border border-slate-500 bg-transparent p-4 text-center text-2xl uppercase leading-3 focus:border focus:border-slate-400"
                 onChange={handleTextChange}
                 value={groupValue}
                 maxLength={15}
@@ -134,7 +137,10 @@ const AddNewStudents = () => {
                 cols={50}
               />
 
-              <button className="p-5 border border-slate-400 w-[130px] h-[50px] flex justify-center items-center mt-5 rounded-md absolute right-3 bottom-0">
+              <button
+                disabled={isSending ? true : false}
+                className="absolute bottom-0 right-3 mt-5 flex h-[50px] w-[130px] items-center justify-center rounded-md border border-slate-400 p-5"
+              >
                 send
               </button>
             </form>
@@ -142,25 +148,25 @@ const AddNewStudents = () => {
           </div>
         </SharedModal>
       )}
-      <div className="chart-progress  dark:bg-[#353C48] text-[#34395e] dark:text-[#EEE8CC] font-normal relative">
+      <div className="chart-progress  relative font-normal text-[#34395e] dark:bg-[#353C48] dark:text-[#EEE8CC]">
         <div className="add-link mb-10 ">
           <h1>Student Form</h1>
           <Link to="/students/students">Students list</Link>
         </div>
-        <div className="text-[#000] text-[18px] dark:text-[#fef3b0] mt-5 mb-5">
+        <div className="mb-5 mt-5 text-[18px] text-[#000] dark:text-[#fef3b0]">
           Rgistration Type
         </div>
-        <div className="name flex items-start justify-center flex-col">
+        <div className="name flex flex-col items-start justify-center">
           <div className="inline items-center ">
             <input
               type="radio"
               id="Direct"
-              className="w-1 h-1 !not-sr-only"
+              className="!not-sr-only h-1 w-1"
               name="gender"
             />
             <label
               htmlFor="Direct"
-              className="mr-5 ml-1 opacity-90 text-[16px]"
+              className="ml-1 mr-5 text-[16px] opacity-90"
             >
               Direct
             </label>
@@ -169,12 +175,12 @@ const AddNewStudents = () => {
             <input
               type="radio"
               id="Enquery"
-              className="w-1 h-1 !not-sr-only"
+              className="!not-sr-only h-1 w-1"
               name="gender"
             />
             <label
               htmlFor="Enquery"
-              className="mr-5 ml-1 opacity-90 text-[16px]"
+              className="ml-1 mr-5 text-[16px] opacity-90"
             >
               Enquery
             </label>
@@ -186,7 +192,7 @@ const AddNewStudents = () => {
             <input
               type="text"
               placeholder="name"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -195,7 +201,7 @@ const AddNewStudents = () => {
             <input
               type="text"
               placeholder="Father Name"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               onChange={(e) => setFatherName(e.target.value)}
             />
           </div>
@@ -204,7 +210,7 @@ const AddNewStudents = () => {
             <input
               type="date"
               placeholder="name"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
             />
           </div>
           <div className="name">
@@ -212,7 +218,7 @@ const AddNewStudents = () => {
             <input
               type="text"
               placeholder="abc@gmail.com"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -221,7 +227,7 @@ const AddNewStudents = () => {
             <input
               type="text"
               placeholder="33100-0000000-0"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               onChange={(e) => setCninc(e.target.value)}
             />
           </div>
@@ -230,7 +236,7 @@ const AddNewStudents = () => {
             <input
               type="text"
               placeholder="+998 xx xxx xx xx"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               onChange={(e) => setMobile(e.target.value)}
             />
           </div>
@@ -239,7 +245,7 @@ const AddNewStudents = () => {
             <input
               type="number"
               placeholder="enter your age"
-              className="dark:bg-[#353C48] dark:border"
+              className="dark:border dark:bg-[#353C48]"
               onChange={(e) => setAge(e.target.value)}
             />
           </div>
@@ -249,11 +255,11 @@ const AddNewStudents = () => {
               <input
                 type="radio"
                 id="Male"
-                className="w-1 h-1 !not-sr-only"
+                className="!not-sr-only h-1 w-1"
                 name="gender"
                 onChange={() => setGender("male")}
               />
-              <label htmlFor="Male" className="mr-5 ml-1">
+              <label htmlFor="Male" className="ml-1 mr-5">
                 Male
               </label>
             </div>
@@ -261,11 +267,11 @@ const AddNewStudents = () => {
               <input
                 type="radio"
                 id="Female"
-                className="w-1 h-1 !not-sr-only"
+                className="!not-sr-only h-1 w-1"
                 name="gender"
                 onChange={() => setGender("female")}
               />
-              <label htmlFor="Female" className="mr-5 ml-1">
+              <label htmlFor="Female" className="ml-1 mr-5">
                 Female
               </label>
             </div>
@@ -276,7 +282,7 @@ const AddNewStudents = () => {
             <select
               name=""
               id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+              className="cursor-pointer p-3 text-[16px] dark:border dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
             >
               <option value="Other" disabled>
                 Select department
@@ -300,7 +306,7 @@ const AddNewStudents = () => {
             <select
               name=""
               id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green] cursor-pointer dark:text-[#fff] text-[16px] p-3 "
+              className="cursor-pointer p-3 text-[16px] dark:border dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
               onChange={(e) => setSemester(e.target.value)}
             >
               <option value="Other" disabled>
@@ -338,7 +344,7 @@ const AddNewStudents = () => {
             <select
               name=""
               id="selection"
-              className="dark:bg-[#353C48] dark:border dark:border-[1px_solid_green]  dark:text-[#fff] text-[16px] p-3 "
+              className="p-3 text-[16px] dark:border  dark:border-[1px_solid_green] dark:bg-[#353C48] dark:text-[#fff] "
               onChange={(e) => setCourse(e.target.value)}
               value={Course}
             >
@@ -364,7 +370,7 @@ const AddNewStudents = () => {
                   values.map((item) => {
                     console.log(dayjs(item).format("DD-MM-YYYY"));
                     return dayjs(item).format("DD-MM-YYYY");
-                  })
+                  }),
                 );
               }}
             />

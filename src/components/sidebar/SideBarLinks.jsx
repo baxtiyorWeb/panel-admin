@@ -1,17 +1,17 @@
-import { HiOutlineLightBulb } from "react-icons/hi";
-import { HiUsers } from "react-icons/hi2";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { AiFillFile, AiFillPlusCircle } from "react-icons/ai";
+import { BiCheck, BiHome, BiSolidCog, BiSolidPencil } from "react-icons/bi";
 import {
   BsCurrencyDollar,
   BsFillBookFill,
   BsFillTagFill,
 } from "react-icons/bs";
-import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
-import { BiCheck, BiHome, BiSolidCog, BiSolidPencil } from "react-icons/bi";
 import { FaGraduationCap, FaSitemap } from "react-icons/fa";
-import { AiFillFile, AiFillPlusCircle } from "react-icons/ai";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { HiUsers } from "react-icons/hi2";
+import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { Link, NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../setup/firebase/firebase";
 import { Loading } from "../Loading";
 
